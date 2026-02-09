@@ -1,0 +1,51 @@
+
+/* Button 23 */
+.button-redirect {
+  background-color: var(--color-background);
+  border: 1px solid var(--color--line);
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: var(--color-font);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  padding: 8px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: box-shadow .2s,-ms-transform .1s,-webkit-transform .1s,transform .1s;
+  user-select: none;
+  -webkit-user-select: none;
+  width: auto;
+  gap: 10px;  
+}
+
+.button-redirect:focus-visible {
+  box-shadow: #222222 0 0 0 10px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
+  transition: box-shadow .2s;
+}
+
+.button-redirect:active {
+  background-color: #F7F7F7;
+  border-color: #ffffff;
+  transform: scale(.96);
+}
+
+.button-redirect:disabled {
+  border-color: #DDDDDD;
+  color: #DDDDDD;
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+.button-redirect__icon{
+  width: 1.1em;          /* scales with font size */
+  height: 1.1em;
+  flex: 0 0 auto;
+}

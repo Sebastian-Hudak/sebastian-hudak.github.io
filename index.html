@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Sebastián Hudák - Portfolio</title>
+  <link rel="icon" type="image/x-icon" href="/assets/images/page/logo_set/favicon.svg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="./assets/css/main.css" />
+</head>
+
+
+<body>
+  <!--================================ HEADER SECTION ================================-->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="./index.html#Hero" class="logo" aria-label="Home">
+        <img src="assets/images/page/logo_set/square.svg" alt="Sebastián Hudák" class="logo-img">
+      </a>
+
+      <nav class="nav">
+        <a href="./index.html">Home</a>
+        <a href="./index.html#About">About</a>
+        <a href="./index.html#Experience">Experience</a>
+        <a href="./index.html#Education">Education</a>
+        <a href="./index.html#Projects">Projects</a>
+        <a href="./contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <main>
+    <!--================================ HERO SECTION ================================-->
+    <section class="section hero" id="Hero">
+      <div class="container hero__grid">
+        <img src="assets/images/page/hero.webp" class="hero__image" width="480" height="360" alt="Sebastian Hudak" />
+
+        <div class="hero__content">
+          <h1 class="hero__title">Curiosity, passion & need for continuous learning.</h1>
+          <p class="hero__text">
+            Attention to details, calm and responsible work while working on advanced technology is a sound for my ears!
+          </p>
+          <a class="button-redirect" href="./assets/documents/CV___Sebastián_Hudák.pdf" target="_blank" rel="noopener">
+            <span>Curiculum <strong>Vitae</strong></span>
+            <svg class="button-redirect__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+              fill="currentColor" class="size-7">
+              <path fill-rule="evenodd"
+                d="M15.75 2.25H21a.75.75 0 0 1 .75.75v5.25a.75.75 0 0 1-1.5 0V4.81L8.03 17.03a.75.75 0 0 1-1.06-1.06L19.19 3.75h-3.44a.75.75 0 0 1 0-1.5Zm-10.5 4.5a1.5 1.5 0 0 0-1.5 1.5v10.5a1.5 1.5 0 0 0 1.5 1.5h10.5a1.5 1.5 0 0 0 1.5-1.5V10.5a.75.75 0 0 1 1.5 0v8.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V8.25a3 3 0 0 1 3-3h8.25a.75.75 0 0 1 0 1.5H5.25Z"
+                clip-rule="evenodd" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="hero__social">
+          <a href="https://www.linkedin.com/in/sebastian-hudak/" aria-label="LinkedIn" target="_blank">
+            <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.369-1.85 3.6 0 4.267 2.368 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM6.815 20.452H3.858V9h2.957v11.452z" />
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/_sebastian_hudak_/" aria-label="Instagram" target="_blank">
+            <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
+              <path fill-rule="evenodd"
+                d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                clip-rule="evenodd" />
+            </svg>
+          </a>
+          <a href="https://github.com/Sebastian-Hudak" aria-label="GitHub" target="_blank">
+            <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
+              <path fill-rule="evenodd"
+                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                clip-rule="evenodd" />
+            </svg>
+          </a>
+          <a href="http://www.youtube.com/@fpv_sk" aria-label="YouTube" target="_blank">
+            <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
+              <path fill-rule="evenodd"
+                d="M21.6 7.2a3 3 0 0 0-2.11-2.12C17.8 4.6 12 4.6 12 4.6s-5.8 0-7.49.48A3 3 0 0 0 2.4 7.2 31.7 31.7 0 0 0 2 12a31.7 31.7 0 0 0 .4 4.8 3 3 0 0 0 2.11 2.12c1.69.48 7.49.48 7.49.48s5.8 0 7.49-.48a3 3 0 0 0 2.11-2.12A31.7 31.7 0 0 0 22 12a31.7 31.7 0 0 0-.4-4.8ZM10 15.5v-7l6 3.5-6 3.5Z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!--================================ ABOUT SECTION ================================-->
+    <section class="section about" id="About">
+      <div class="container about__grid">
+        <img src="./assets/images/experience/AQUILO/sh_aquilo.jpg" class="about__image" width="480" height="360"
+          alt="Sebastian Hudak's image" />
+
+        <div class="about__content">
+          <p class="about__role">Aerospace Engineer</p>
+          <h2 class="about__title">I'm Sebastián Hudák.</h2>
+          <p class="about__text">
+            Desire and passion for new challenges is my main drive. I like to push boundaries of my own capibilities
+            each day and make sure what I do, I do on 100%.
+            From research, design, manufacturing to testing and validation, I enjoy the whole product development cycle.
+            I love multidisciplinary projects with hight level of complexity that require creative solutions. My
+            workstyle
+            is based on systematic logical approach and colaboration with others to bring future into reality.
+          </p>
+          <img src="./assets/images/page/signature.png" class="about__signature" width="480" height=auto
+            alt="Sebastian Hudak's signature" />
+        </div>
+      </div>
+    </section>
+
+    <!--================================ EDUCATION SECTION ================================-->
+    <section class="section education" id="Education">
+      <div class="container">
+        <header class="section-header">
+          <h1>Education</h1>
+        </header>
+        <div class="education-card">
+          <img class="education-roundedimg" src="assets/images/education/TUDelftSeal.png" alt="TUDelft Seal logo"
+            loading="lazy" />
+
+          <div class="education-card-right">
+            <div class="education-head">
+              <h2 class="education-text-school">Delft University of Technology</h2>
+            </div>
+
+            <p class="about__role">
+              Pre-Master Aerospace Engineering
+            </p>
+
+            <p class="education-text-duration">September 2025 – Ongoing</p>
+
+            <p class="education-text-desc">
+              Home of my pre-master and future master programs at Aerospace Engineering Faculty. Further specialization
+              in aerospace engineering field, building on my bachelor's foundation and industry
+              experience.
+            </p>
+
+            <div class="education-text-bullets">
+              <ul>
+                <li>Focus: structural analysis, programming, flight & orbital mechanics</li>
+                <li>Goal: theoretical foundation for advanced aerospace engineering topics</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="education-card-border"></div>
+
+        <div class="education-card">
+          <img class="education-roundedimg" src="assets/images/education/Short_logo.png" alt="InHolland Hogeschool Logo"
+            loading="lazy" />
+
+          <div class="education-card-right">
+            <div class="education-head">
+              <h2 class="education-text-school">InHolland Hogeschool Delft</h2>
+            </div>
+
+            <p class="about__role">Bachelor of Science in Aeronautical Engineering</p>
+            <p class="education-text-duration">September 2021 – June 2025</p>
+
+            <p class="education-text-desc">
+              Major stepping stone into engineering field focused on design, manufacturing & testing.
+              Specialized in propulsion systems, with a focus on fluid mechanics, structural analysis, and engineering
+              design. Gained practical experience through internships and student team projects, applying theoretical
+              knowledge to real-world aerospace challenges.
+            </p>
+
+            <div class="education-text-bullets">
+              <ul>
+                <li>Thesis: Cavitation in orifice restriction plates (Rocket Factory Augsburg AG)</li>
+                <li>Focus: propulsion systems, structural analysis, manufacturing, engineering R&D</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="education-card-border"></div>
+      </div>
+    </section>
+
+    <!--================================ EXPERIENCE SECTION ================================-->
+    <section class="experience" id="Experience">
+      <div class="container">
+        <header class="section-header">
+          <h1>My Engineering Story</h1>
+        </header>
+
+        <div class="experience__list">
+
+          <article class="exp-item">
+            <div class="exp-item__top">
+              <div class="exp-item__meta">
+                <div class="exp-item__metaRow">
+                  <img class="exp-item__logo" src="./assets/images/experience/CAE/cae_logo.jpeg" alt="CAE logo" />
+                  <div>
+                    <h2 class="exp-item__role">Apprentice Simulator Technician — CAE Amsterdam B.V.</h2>
+                    <p class="about__role">September 2023 – Present </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="exp-item__tags" aria-label="Tags">
+                <span class="tag">Part-Time / Internship</span>
+                <span class="tag">Data acquisition</span>
+                <span class="tag">Programming</span>
+              </div>
+            </div>
+
+            <div class="exp-item__body">
+              <figure class="exp-item__media">
+                <img src="./assets/images/experience/CAE/CAE-thunder.jpeg" alt="CAE A320 Dusk Thunderstorm"
+                  loading="lazy" />
+              </figure>
+
+              <div class="exp-item__desc">
+                <p class="exp-item__text">
+                  After successful internship transitioned into a on-call role, contributing to simulator maintenance,
+                  data acquisition, and performance optimization.
+                </p>
+
+                <div class="education-text-bullets">
+                <ul>
+                  <li>Throubleshooting complex systems.</li>
+                  <li>Part of a team responsible for maintaining and optimizing simulator performance.</li>
+                  <li>Worked with data acquisition systems to collect and analyze performance metrics, specificaly sound
+                    measurements.</li>
+                </ul>
+                </div>
+                <div class="exp-button">
+                  <a class="button-redirect" href="./cae.html">
+                    <span>Read more</span>
+                    <svg class="button-redirect__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                      aria-hidden="true">
+                      <path fill-rule="evenodd"
+                        d="M8.25 3.75H19.5a.75.75 0 0 1 .75.75v11.25a.75.75 0 0 1-1.5 0V6.31L5.03 20.03a.75.75 0 0 1-1.06-1.06L17.69 5.25H8.25a.75.75 0 0 1 0-1.5Z"
+                        clip-rule="evenodd" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="exp-item">
+            <div class="exp-item__top">
+
+              <div class="exp-item__meta">
+                <div class="exp-item__metaRow">
+                  <img class="exp-item__logo" src="./assets/images/experience/RFA/RFA_logo_box.png"
+                    alt="Rocket Factory Augsburg logo" />
+                  <div>
+                    <h2 class="exp-item__role">Propulsion Engineer — Rocket Factory Augsburg AG</h2>
+                    <p class="about__role">January 2025 – June 2025</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="exp-item__tags" aria-label="Tags">
+                <span class="tag">Internship</span>
+                <span class="tag">Propulsion</span>
+                <span class="tag">Research</span>
+              </div>
+            </div>
+
+            <div class="exp-item__body">
+              <figure class="exp-item__media">
+                <img src="./assets/images/experience/RFA/S1_engine_bay.jpg" alt="RFA ONE engine bay" loading="lazy" />
+              </figure>
+
+              <div class="exp-item__desc">
+                <p class="exp-item__text">
+                  Contributed to the development and testing of the HELIX, oxygen rich staged combustion engine,
+                  focusing on fluid mechanics and cavitation analysis.
+                </p>
+                <div class="education-text-bullets">
+                  <ul>
+                    <li>Worked closely on all aspects of design, production, testing phase of HELIX</li>
+                    <li>Empirical analysis and testing with specific focus on fluid cavitation.</li>
+                    <li>A part of a young motivated team</li>
+                  </ul>
+                </div>
+                <div class="exp-button">
+                  <a class="button-redirect" href="./rfa.html">
+                    <span>Read more</span>
+                    <svg class="button-redirect__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                      aria-hidden="true">
+                      <path fill-rule="evenodd"
+                        d="M8.25 3.75H19.5a.75.75 0 0 1 .75.75v11.25a.75.75 0 0 1-1.5 0V6.31L5.03 20.03a.75.75 0 0 1-1.06-1.06L17.69 5.25H8.25a.75.75 0 0 1 0-1.5Z"
+                        clip-rule="evenodd" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+
+          <article class="exp-item">
+            <div class="exp-item__top">
+              <div class="exp-item__meta">
+                <div class="exp-item__metaRow">
+                  <img class="exp-item__logo" src="./assets/images/experience/AQUILO/aquilo_logo.jpeg"
+                    alt="AQUILO logo" />
+                  <div>
+                    <h2 class="exp-item__role">Propulsion Engineer — AQUILO Student Rocket Team Delft</h2>
+                    <p class="about__role">September 2022 – June 2025 </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="exp-item__tags" aria-label="Tags">
+                <span class="tag">Student Team</span>
+                <span class="tag">Propulsion</span>
+                <span class="tag">Rocket Design</span>
+              </div>
+            </div>
+
+            <div class="exp-item__body">
+              <figure class="exp-item__media">
+                <img src="./assets/images/experience/AQUILO/rocket_launch.jpg" alt="AQUILO VII.S rocket launch"
+                  loading="lazy" />
+              </figure>
+
+              <div class="exp-item__desc">
+                <p class="exp-item__text">
+                  Worked on the design, analysis, and testing of the propulsion system for AQUILO's solid rocket motors,
+                  contributing to successful static fire tests and ongoing development efforts.
+                </p>
+
+                <div class="education-text-bullets">
+                <ul>
+                  <li>Stands behind a design of head end ignition (HEI) system for solid rocket motors.</li>
+                  <li>Improvements on solid rocket motor performance and safety.</li>
+                  <li>Extensive manufacturing & testing of propulsion components.</li>
+                </ul>
+                </div>
+                <div class="exp-button">
+                  <a class="button-redirect" href="./aquilo.html">
+                    <span>Read more</span>
+                    <svg class="button-redirect__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                      aria-hidden="true">
+                      <path fill-rule="evenodd"
+                        d="M8.25 3.75H19.5a.75.75 0 0 1 .75.75v11.25a.75.75 0 0 1-1.5 0V6.31L5.03 20.03a.75.75 0 0 1-1.06-1.06L17.69 5.25H8.25a.75.75 0 0 1 0-1.5Z"
+                        clip-rule="evenodd" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <!--================================ FRAMEWORK SECTION ================================-->
+
+    <section class="section partners">
+      <div class="container">
+        <div class="logo-band">
+          <p class="logo-band__label">
+            EXPERIENCE WITH A VARIETY OF TOOLS AND PLATFORMS WITH CONTINUOUS CURIOSITY TO LEARN MORE.
+          </p>
+
+          <div class="logo-marquee" aria-label="Partner logos">
+            <div class="logo-track">
+              <!-- set A -->
+              <img src="assets/images/Framework/ansys_g.webp" alt="Ansys">
+              <img src="assets/images/Framework/nx_g.webp" alt="NX">
+              <img src="assets/images/Framework/matlab_g.webp" alt="Matlab">
+              <img src="assets/images/Framework/catia_g.webp" alt="Catia">
+              <img src="assets/images/Framework/fusion_g.webp" alt="Fusion">
+              <img src="assets/images/Framework/python_g.webp" alt="Python">
+              <img src="assets/images/Framework/c_g.webp" alt="C">
+              <img src="assets/images/Framework/github_g.webp" alt="GitHub">
+
+              <!-- set B (duplicate for seamless loop) -->
+              <img src="assets/images/Framework/ansys_g.webp" alt="Ansys">
+              <img src="assets/images/Framework/nx_g.webp" alt="NX">
+              <img src="assets/images/Framework/matlab_g.webp" alt="Matlab">
+              <img src="assets/images/Framework/catia_g.webp" alt="Catia">
+              <img src="assets/images/Framework/fusion_g.webp" alt="Fusion">
+              <img src="assets/images/Framework/python_g.webp" alt="Python">
+              <img src="assets/images/Framework/c_g.webp" alt="C">
+              <img src="assets/images/Framework/github_g.webp" alt="GitHub">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--================================ PROJECTS SECTION ================================-->
+    <section class="section projects" id="Projects">
+      <div class="container">
+        <header class="projects__head">
+          <div class=section-header>
+            <h1>Projects</h1>
+          </div>
+        </header>
+
+        <nav class="projects__filters" aria-label="Project categories">
+          <button class="projects__filter is-active" type="button" data-filter="all">All</button>
+          <button class="projects__filter" type="button" data-filter="internship">Internship</button>
+          <button class="projects__filter" type="button" data-filter="personal">Personal</button>
+          <button class="projects__filter" type="button" data-filter="school">School</button>
+        </nav>
+
+        <div class="projects__divider" aria-hidden="true"></div>
+
+        <div class="projects__grid" id="projectsGrid">
+
+          <a class="project-card" href="./cavitation.html" data-tags="internship,propulsion" aria-label="Cavitation Analysis">
+            <div class="project-card__media">
+              <img src="assets/images/experience/RFA/cavitation_snapshot.png" alt="Cavitation shadowgraph" loading="lazy" />
+              <div class="project-card__overlay"></div>
+            </div>
+
+            <div class="project-card__body">
+              <h3 class="project-card__title">Orifice Cavitation Analysis</h3>
+              <p class="project-card__desc">
+                Reseach based cavitation onset prediction supported by empirical measurements of flow restriction plates.
+              </p>
+
+              <ul class="project-card__specs" aria-label="Project highlights">
+                <li>Investigation of cavitation onset</li>
+                <li>Campaign of 100+ pressure drop experiments</li>
+                <li>Python based empirical database of orifice properties</li>
+              </ul>
+
+              <div class="project-card__meta">
+                <span class="chip">Research</span>
+                <span class="chip">Testing</span>
+                <span class="chip">Propulsion</span>
+              </div>
+            </div>
+          </a>
+
+          <a class="project-card" href="./HEI.html" data-tags="school,propulsion" aria-label="Head End Ignition Project">
+            <div class="project-card__media">
+              <img src="assets/images/projects/HEI/HEI_square.jpeg" alt="HEI endcap" loading="lazy" />
+              <div class="project-card__overlay"></div>
+            </div>
+
+            <div class="project-card__body">
+              <h3 class="project-card__title">HEI - Head End Ignition</h3>
+              <p class="project-card__desc">
+                Ability to adapt dual stage propulsion systems while providing faster thrust onset.
+              </p>
+
+              <ul class="project-card__specs" aria-label="Project highlights">
+                <li>Removable igniter body</li>
+                <li>Inovative approach</li>
+                <li>Scalable</li>
+              </ul>
+
+              <div class="project-card__meta">
+                <span class="chip">Design</span>
+                <span class="chip">Manufacturing</span>
+                <span class="chip">Propulsion</span>
+              </div>
+            </div>
+          </a>
+
+          <a class="project-card" href="./tail.html" data-tags="school,design" aria-label="Design build and test project">
+            <div class="project-card__media">
+              <img src="assets/images/projects/Project_plane/IMG_0127.PNG" alt="Tail section render" loading="lazy" />
+              <div class="project-card__overlay"></div>
+            </div>
+
+            <div class="project-card__body">
+              <h3 class="project-card__title">Tail section structural design</h3>
+              <p class="project-card__desc">
+                Winning design of aircraft tail section follwing all given requirements and constrains.
+              </p>
+
+              <ul class="project-card__specs" aria-label="Project highlights">
+                <li>3 member international team</li>
+                <li>CAD + manufacturing</li>
+                <li>Load testing</li>
+              </ul>
+
+              <div class="project-card__meta">
+                <span class="chip">design</span>
+                <span class="chip">test</span>
+                <span class="chip">competition</span>
+              </div>
+            </div>
+          </a>
+          
+          <a class="project-card" href="./cae.html" data-tags="internship,data" aria-label="Sound measurement">
+            <div class="project-card__media">
+              <img src="assets/images/experience/CAE/IMG_1218.JPG" alt="Microphone inside cockpit" loading="lazy" />
+              <div class="project-card__overlay"></div>
+            </div>
+
+            <div class="project-card__body">
+              <h3 class="project-card__title">Sound measurement analysis</h3>
+              <p class="project-card__desc">
+                Solving sound acquisition issues — OOT values during certification runs across multiple full-flight simulators.
+              </p>
+
+              <ul class="project-card__specs" aria-label="Project highlights">
+                <li>Search for causing issue</li>
+                <li>Sound measurements</li>
+                <li>Full-Flight Simulator Technology</li>
+              </ul>
+
+              <div class="project-card__meta">
+                <span class="chip">Data analysis</span>
+                <span class="chip">Measurement</span>
+                <span class="chip">Sound</span>
+              </div>
+            </div>
+          </a>
+
+          <a class="project-card" href="./CNCL.html" data-tags="personal,machining" aria-label="CNC Retrofit">
+            <div class="project-card__media">
+              <img src="assets/images/projects/CNC_lathe/CNC_oval.jpeg" alt="CNC machined part" loading="lazy" />
+              <div class="project-card__overlay"></div>
+            </div>
+
+            <div class="project-card__body">
+              <h3 class="project-card__title">CNC lathe - RetroFit</h3>
+              <p class="project-card__desc">
+                Fixing school owned CNC by finding way of incorporating modern CAM.
+              </p>
+
+              <ul class="project-card__specs" aria-label="Project highlights">
+                <li>Rich feature list</li>
+                <li>Old does not equal trash</li>
+                <li>Side project</li>
+              </ul>
+
+              <div class="project-card__meta">
+                <span class="chip">Software</span>
+                <span class="chip">Machining</span>
+                <span class="chip">CAD/CAM</span>
+              </div>
+            </div>
+          </a>
+
+          <a class="project-card" href="#" data-tags="propulsion,machining" aria-label="AQUILO machining">
+            <div class="project-card__media">
+              <img src="assets/images/experience/AQUILO/Machining_HEI.jpeg" alt="machining endcap body" loading="lazy" />
+              <div class="project-card__overlay"></div>
+            </div>
+
+            <div class="project-card__body">
+              <h3 class="project-card__title">AQUILO components machining</h3>
+              <p class="project-card__desc">
+                Machining variety of components out of aerospace grade Aluminium.
+              </p>
+
+              <ul class="project-card__specs" aria-label="Project highlights">
+                <li>Manual and CNC techniques</li>
+                <li>Hands-on experience</li>
+                <li>Design for manufacturing</li>
+              </ul>
+
+              <div class="project-card__meta">
+                <span class="chip">Machining</span>
+                <span class="chip">Propulsion</span>
+              </div>
+            </div>
+          </a>
+
+          <a class="project-card" href="./gsx.html" data-tags="personal,electronics" aria-label="wireframe sculpture project">
+            <div class="project-card__media">
+              <img src="assets/images/projects/gsx_1/GSX_1_square.JPG" alt="GSX-1 sculpture night" loading="lazy" />
+              <div class="project-card__overlay"></div>
+            </div>
+
+            <div class="project-card__body">
+              <h3 class="project-card__title">GSX-1 wireframe sculpture</h3>
+              <p class="project-card__desc">
+                Inspired by photographs of Mohit Bhoite project. Developed script and wiring scheme.
+              </p>
+
+              <ul class="project-card__specs" aria-label="Project highlights">
+                <li>Multi module</li>
+                <li>GPS sattelite interface</li>
+                <li>Tiny factor</li>
+              </ul>
+
+              <div class="project-card__meta">
+                <span class="chip">c++</span>
+                <span class="chip">Art</span>
+                <span class="chip">Electronics</span>
+              </div>
+            </div>
+          </a>
+
+           <a class="project-card" href="./abox.html" data-tags="personal,electronics" aria-label="BoomBox A-BOX">
+            <div class="project-card__media">
+              <img src="assets/images/projects/boombox/IMG_0734.jpeg" alt="Portable BoomBox Speaker" loading="lazy" />
+              <div class="project-card__overlay"></div>
+            </div>
+
+            <div class="project-card__body">
+              <h3 class="project-card__title">Portable Boombox A-BOX</h3>
+              <p class="project-card__desc">
+              Self made portable 100W boombox speaker out of Ammunition Box.
+              </p>
+
+              <ul class="project-card__specs" aria-label="Project highlights">
+                <li>Part search</li>
+                <li>Basic routing / machining tasks</li>
+                <li>Own PCB design</li>
+              </ul>
+
+              <div class="project-card__meta">
+                <span class="chip">Electronics</span>
+                <span class="chip">Stepping-stones</span>
+                
+              </div>
+            </div>
+          </a>
+
+           <a class="project-card" href="./CNCe.html" data-tags="personal,electronics" aria-label="Hobby cnc engraver project">
+            <div class="project-card__media">
+              <img src="assets/images/projects/CNC/IMG_2175.JPG" alt="CNC head" loading="lazy" />
+              <div class="project-card__overlay"></div>
+            </div>
+
+            <div class="project-card__body">
+              <h3 class="project-card__title">CNC engraver</h3>
+              <p class="project-card__desc">
+                Home-made CNC engraver based on old PC optical drives. 
+              </p>
+
+              <ul class="project-card__specs" aria-label="Project highlights">
+                <li>Self made at the age of 16</li>
+                <li>Basic supplies</li>
+                <li>GRBL based controller</li>
+              </ul>
+
+              <div class="project-card__meta">
+                <span class="chip">electronics</span>
+                <span class="chip">working machine</span>
+                <span class="chip">improvisation</span>
+              </div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!--================================ TESTIMONIALS SECTION ================================-->
+
+  </main>
+
+  <!--================================ FOOTER SECTION ================================-->
+  <section class="bg-white">
+    <div class="max-w-screen-xl px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
+      <nav class="flex flex-wrap justify-center -mx-5 -my-2">
+        <div class="px-5 py-2">
+          <a href="./index.html#Hero" class="text-base leading-6 text-gray-500 hover:text-gray-900">
+            Home
+          </a>
+        </div>
+        <div class="px-5 py-2">
+          <a href="./index.html#About" class="text-base leading-6 text-gray-500 hover:text-gray-900">
+            About
+          </a>
+        </div>
+        <div class="px-5 py-2">
+          <a href="./index.html#Experience" class="text-base leading-6 text-gray-500 hover:text-gray-900">
+            Experience
+          </a>
+        </div>
+        <div class="px-5 py-2">
+          <a href="./index.html#Education" class="text-base leading-6 text-gray-500 hover:text-gray-900">
+            Education
+          </a>
+        </div>
+        <div class="px-5 py-2">
+          <a href="./index.html#Projects" class="text-base leading-6 text-gray-500 hover:text-gray-900">
+            Projects
+          </a>
+        </div>
+        <div class="px-5 py-2">
+          <a href="./contact.html" class="text-base leading-6 text-gray-500 hover:text-gray-900">
+            Contact
+          </a>
+        </div>
+        <div class="px-5 py-2">
+          <a href="#" class="text-base leading-6 text-gray-500 hover:text-gray-900">
+            Privacy
+          </a>
+        </div>
+      </nav>
+      <div class="flex justify-center mt-8 space-x-6">
+
+        <a href="https://www.linkedin.com/in/sebastian-hudak/" class="text-gray-400 hover:text-gray-500"
+          aria-label="LinkedIn">
+          <span class="sr-only">LinkedIn</span>
+          <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.369-1.85 3.6 0 4.267 2.368 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM6.815 20.452H3.858V9h2.957v11.452z" />
+          </svg>
+        </a>
+
+        <a href="https://www.instagram.com/_sebastian_hudak_/" class="text-gray-400 hover:text-gray-500"
+          aria-label="Instagram">
+          <span class="sr-only">Instagram</span>
+          <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
+            <path fill-rule="evenodd"
+              d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+              clip-rule="evenodd" />
+          </svg>
+        </a>
+
+        <a href="https://github.com/Sebastian-Hudak" class="text-gray-400 hover:text-gray-500" aria-label="GitHub">
+          <span class="sr-only">GitHub</span>
+          <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
+            <path fill-rule="evenodd"
+              d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+              clip-rule="evenodd" />
+          </svg>
+        </a>
+
+        <a href="http://www.youtube.com/@fpv_sk" class="text-gray-400 hover:text-gray-500" aria-label="YouTube">
+          <span class="sr-only">YouTube</span>
+          <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M21.6 7.2a3 3 0 0 0-2.11-2.12C17.8 4.6 12 4.6 12 4.6s-5.8 0-7.49.48A3 3 0 0 0 2.4 7.2 31.7 31.7 0 0 0 2 12a31.7 31.7 0 0 0 .4 4.8 3 3 0 0 0 2.11 2.12c1.69.48 7.49.48 7.49.48s5.8 0 7.49-.48a3 3 0 0 0 2.11-2.12A31.7 31.7 0 0 0 22 12a31.7 31.7 0 0 0-.4-4.8ZM10 15.5v-7l6 3.5-6 3.5Z" />
+          </svg>
+        </a>
+      </div>
+
+      <p class="mt-8 text-base leading-6 text-center text-gray-400">
+        © 2026 Sebastián Hudák. All rights reserved.
+      </p>
+    </div>
+  </section>
+
+  <script>
+    const header = document.getElementById("header");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 5) header.classList.add("on-scroll");
+      else header.classList.remove("on-scroll");
+    });
+  </script>
+
+  <script>
+    (function () {
+      const buttons = document.querySelectorAll(".projects__filter");
+      const cards = document.querySelectorAll(".project-card");
+
+      function setActive(btn) {
+        buttons.forEach(b => b.classList.remove("is-active"));
+        btn.classList.add("is-active");
+      }
+
+      function filterCards(tag) {
+        cards.forEach(card => {
+          const tags = (card.getAttribute("data-tags") || "")
+            .split(",")
+            .map(t => t.trim())
+            .filter(Boolean);
+
+          const show = tag === "all" || tags.includes(tag);
+          card.classList.toggle("is-hidden", !show);
+        });
+      }
+
+      buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          const tag = btn.getAttribute("data-filter");
+          setActive(btn);
+          filterCards(tag);
+        });
+      });
+    })();
+  </script>
+</body>
+
+</html>
