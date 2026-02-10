@@ -1,0 +1,27 @@
+<a class="project-card" href="{{ p.href }}" data-tags="{{ p.tags_raw | default('') }}" aria-label="{{ p.title }}">
+  <div class="project-card__media">
+    <img src="{{ p.img }}" alt="{{ p.alt | default(p.title) }}" loading="lazy" />
+    <div class="project-card__overlay"></div>
+  </div>
+
+  <div class="project-card__body">
+    <h3 class="project-card__title">{{ p.title }}</h3>
+    <p class="project-card__desc">{{ p.desc }}</p>
+
+    {% if p.specs and p.specs.length %}
+      <ul class="project-card__specs" aria-label="Project highlights">
+        {% for s in p.specs %}
+          <li>{{ s }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    {% if p.chips and p.chips.length %}
+      <div class="project-card__meta">
+        {% for c in p.chips %}
+          <span class="chip">{{ c }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</a>

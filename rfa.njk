@@ -1,0 +1,133 @@
+---
+layout: layouts/base.njk
+title: RFA
+permalink: "/rfa/"
+featuredProjects:
+- CAVITATION
+- HEI
+- MACHINING
+---
+
+
+<section class="page-hero" style="--hero-img: url('/assets/images/experience/RFA/S1_engine_bay.jpg');">
+    <div class="page-hero__overlay" aria-hidden="true"></div>
+
+    <div class="container page-hero__inner">
+        <p class="page-hero__kicker">Internship</p>
+        <h1 class="page-hero__title">Rocket Factory Augsburg AG</h1>
+        <p class="page-hero__sub">Propulsion Department • 2025 • Augsburg, DE</p>
+    </div>
+</section>
+
+<section class="story">
+    <p class="page-disclamer">
+        Non-Disclosure Agreement: I will only disclose non-proprietary information regarding my work at RFA. All
+        images are public knowledge.
+    </p>
+    <div class="container story__grid">
+
+        <figure class="media media--16x9">
+            <video class="media__el" controls playsinline preload="metadata"
+                poster="/assets/images/experience/RFA/Video_cover_S2.png">
+                <source
+                    src="/assets/images/experience/RFA/Helix Engine - Behind the Scenes of the Upper Stage Test [hnBJH_lOCd4].mp4"
+                    type="video/mp4">
+            </video>
+        </figure>
+
+
+        <div class="story__content">
+            <h2 class="story__title">Building Rockets Like Cars</h2>
+            <p class="story__text">
+                Rocket Factory Augsburg AG is one of the first commercial European companies developing orbital
+                class launcher capable of delivering variety of payloads to different orbits. Its uniqueness
+                stands in successful development of <strong>Europe's first</strong> oxygen-rich staged
+                combustion (ORSC) engine called HELIX capable of delivering roughly 100kN of thrust.
+            </p>
+            <p class="story__text">
+                <span>Watch the 2023 IST campaign video for a quick look at the companies’ growth.</span>
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="story story--reverse">
+    <div class="container story__grid">
+
+        <figure class="media media--4x3">
+            {% image "assets/images/experience/RFA/HELIX_production.jpg", "Engine production" %}
+        </figure>
+
+
+        <div class="story__content">
+            <h2 class="story__title">Everyday Work</h2>
+            <p class="story__text">
+                As a part of propulsion R&D team I have made contributions in fields of fluid
+                mechanics analysis on refinement and development of HELIX specificaly cavitation research.</p>
+
+            <p class="story__text">
+            <p>Key projects I have been involved in include:</p>
+            Iterations of system design, cavitation research of propellant/ignition feed system, development of test
+            rigs for component testing, and empirical data analysis.</p>
+            <p class="story__text">RFA's unconventional approach to aerospace component design well aligned with my
+                passion for
+                innovation and problem-solving, allowing me to apply and expand my skills further.</p>
+            <p class="story__text">Unique oportunity to stand behind design of HELIX engine components on the
+                whole design jurney.</p>
+            <div class="story__callouts">
+                <div class="callout">
+                    <h3 class="callout__title">DESIGN</h3>
+                    <p class="callout__text">Requirements, CAD, integration</p>
+                </div>
+                <div class="callout">
+                    <h3 class="callout__title">Production</h3>
+                    <p class="callout__text">Manufacturing of components</p>
+                </div>
+                <div class="callout">
+                    <h3 class="callout__title">Testing</h3>
+                    <p class="callout__text">Testing, additional Iterations</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="story">
+    <div class="container story__grid">
+
+        <figure class="media media--16x9">
+            {% image "assets/images/experience/RFA/RFA_ignition.png", "Engine ignition" %}
+        </figure>
+
+
+        <div class="story__content">
+            <h2 class="story__title">Building Rockets Like Cars</h2>
+            <p class="story__text">
+                Rocket Factory Augsburg AG is one of the first commercial European companies developing orbital
+                class launcher capable of delivering variety of payloads to different orbits. Its uniqueness
+                stands in successful development of <strong>Europe's first</strong> oxygen-rich staged
+                combustion (ORSC) engine called HELIX capable of delivering roughly 100kN of thrust.
+            </p>
+            <p class="story__text">
+                <span>Watch the 2023 IST campaign video for a quick look at the companies’ growth.</span>
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="related">
+    <div class="container">
+        <div class="related__head">
+            <h2 class="related__title">Related Projects</h2>
+            <p class="related__lead">More work in propulsion, testing, data processing…</p>
+        </div>
+        <div class="projects__grid">
+            {% for id in featuredProjects %}
+            {% set p = projects[id] %}
+            {% if p %}
+            {% include "components/project-card.njk" %}
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>

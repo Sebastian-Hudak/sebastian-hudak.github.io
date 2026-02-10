@@ -1,0 +1,39 @@
+<script>
+    const header = document.getElementById("header");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 5) header.classList.add("on-scroll");
+      else header.classList.remove("on-scroll");
+    });
+  </script>
+
+  <script>
+    (function () {
+      const buttons = document.querySelectorAll(".projects__filter");
+      const cards = document.querySelectorAll(".project-card");
+
+      function setActive(btn) {
+        buttons.forEach(b => b.classList.remove("is-active"));
+        btn.classList.add("is-active");
+      }
+
+      function filterCards(tag) {
+        cards.forEach(card => {
+          const tags = (card.getAttribute("data-tags") || "")
+            .split(",")
+            .map(t => t.trim())
+            .filter(Boolean);
+
+          const show = tag === "all" || tags.includes(tag);
+          card.classList.toggle("is-hidden", !show);
+        });
+      }
+
+      buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          const tag = btn.getAttribute("data-filter");
+          setActive(btn);
+          filterCards(tag);
+        });
+      });
+    })();
+  </script>

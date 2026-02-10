@@ -1,0 +1,27 @@
+{
+  "name": "sebastian-hudak.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sebastian-Hudak/sebastian-hudak.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Sebastian-Hudak/sebastian-hudak.github.io/issues"
+  },
+  "homepage": "https://github.com/Sebastian-Hudak/sebastian-hudak.github.io#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "@11ty/eleventy-img": "^6.0.4"
+  }
+}
