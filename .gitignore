@@ -1,1 +1,4 @@
-assets/images/projects/CNC_lathe/IMG_0629.MOV
+.DS_Store
+node_modules/
+_site/
+.eleventy-cache/

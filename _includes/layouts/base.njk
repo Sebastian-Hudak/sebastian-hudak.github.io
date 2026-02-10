@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>{% if title %}{{ title }} — {% endif %}Sebastián Hudák' Personal WebPage</title>
+
+  <link rel="icon" type="image/x-icon" href="/assets/images/page/logo_set/favicon.svg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/assets/css/main.css" />
+
+  {% if headExtra %}{{ headExtra | safe }}{% endif %}
+</head>
+
+<body>
+  {% include "partials/header.html" %}
+
+  <main class="{{ mainClass | default('page') }}">
+    {{ content | safe }}
+  </main>
+
+  {% include "partials/footer.html" %}
+  {% include "partials/scripts.html" %}
+</body>
+</html>

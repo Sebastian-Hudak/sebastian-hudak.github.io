@@ -1,137 +1,38 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset="UTF-8" />
-  <title>Sebastián Hudák - Portfolio</title>
-  <link rel="icon" type="image/x-icon" href="/assets/images/page/logo_set/favicon.svg">
-  <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="./css/main.css">
-  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-</head>
-
-<body>
-  <header class="header">
-    <div class="header-inner">
-      <a href="./index.html#Hero" class="logo" aria-label="Home">
-        <img src="assets/images/page/logo_set/square.svg" alt="Sebastián Hudák" class="logo-img">
-      </a>
-
-      <nav class="nav">
-        <a href="./index.html#Hero">Home</a>
-        <a href="./index.html#About">About</a>
-        <a href="./index.html#Experience">Experience</a>
-        <a href="./index.html#Education">Education</a>
-        <a href="./index.html#Projects">Projects</a>
-        <a href="./contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <section class="contact-page" id="contact">
-  <div class="contact-page__container">
-    <h1 class="contact-page__title">Contact me</h1>
-    
-    <div class="contact-page__grid">
-      
-      <div class="contact-page__left">
-        <div class="business-card__wrap">
-          <div class="flip" tabindex="0" aria-label="Business card (flip on hover or focus)">
-            <div class="flip__inner">
-              <div class="flip__face flip__front">
-                <img
-                  src="assets/images/business_card/business_front.svg"
-                  class="flip__svg"
-                  alt="Business card front"
-                />
-              </div>
-              <div class="flip__face flip__back">
-                <img
-                  src="assets/images/business_card/business_back.svg"
-                  class="flip__svg"
-                  alt="Business card back"
-                />
-              </div>
-            </div>
-          </div>
-          <p class="business-card__hint">Hover / tap to flip</p>
-        </div>
-      </div>
-
-
-      <div class="contact-page__right">
-        <form class="contact-form" action="mailto:you@domain.com" method="post" enctype="text/plain">
-          <div class="contact-form__row contact-form__row--2">
-            <label class="field">
-              <span class="field__label">Name (required)</span>
-              <input class="field__input" type="text" name="first_name" placeholder="First Name" required>
-            </label>
-
-            <label class="field">
-              <span class="field__label" aria-hidden="true">&nbsp;</span>
-              <input class="field__input" type="text" name="last_name" placeholder="Last Name" required>
-            </label>
-          </div>
-
-          <label class="field">
-            <span class="field__label">Email (required)</span>
-            <input class="field__input" type="email" name="email" required>
-          </label>
-
-          <label class="field">
-            <span class="field__label">Message (required)</span>
-            <textarea class="field__input field__textarea" name="message" rows="4" required></textarea>
-          </label>
-
-          <button class="contact-form__btn" type="submit">SUBMIT</button>
-        </form>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-
-
-  <!--================================ FOOTER SECTION ================================-->
-  <section class="bg-white">
+<section class="bg-white">
     <div class="max-w-screen-xl px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
       <nav class="flex flex-wrap justify-center -mx-5 -my-2">
         <div class="px-5 py-2">
-          <a href="./index.html#Hero" class="text-base leading-6 text-gray-500 hover:text-gray-900">
+          <a href="/index.html" class="text-base leading-6 text-gray-500 hover:text-gray-900">
             Home
           </a>
         </div>
         <div class="px-5 py-2">
-          <a href="./index.html#About" class="text-base leading-6 text-gray-500 hover:text-gray-900">
+          <a href="/index.html#About" class="text-base leading-6 text-gray-500 hover:text-gray-900">
             About
           </a>
         </div>
         <div class="px-5 py-2">
-          <a href="./index.html#Experience" class="text-base leading-6 text-gray-500 hover:text-gray-900">
-            Experience
-          </a>
-        </div>
-        <div class="px-5 py-2">
-          <a href="./index.html#Education" class="text-base leading-6 text-gray-500 hover:text-gray-900">
+          <a href="/index.html#Education" class="text-base leading-6 text-gray-500 hover:text-gray-900">
             Education
           </a>
         </div>
         <div class="px-5 py-2">
-          <a href="./index.html#Projects" class="text-base leading-6 text-gray-500 hover:text-gray-900">
+          <a href="/index.html#Experience" class="text-base leading-6 text-gray-500 hover:text-gray-900">
+            Experience
+          </a>
+        </div>
+        <div class="px-5 py-2">
+          <a href="/index.html#Projects" class="text-base leading-6 text-gray-500 hover:text-gray-900">
             Projects
           </a>
         </div>
         <div class="px-5 py-2">
-          <a href="./contact.html" class="text-base leading-6 text-gray-500 hover:text-gray-900">
+          <a href="/contact.html" class="text-base leading-6 text-gray-500 hover:text-gray-900">
             Contact
           </a>
         </div>
         <div class="px-5 py-2">
-          <a href="#" class="text-base leading-6 text-gray-500 hover:text-gray-900">
+          <a href="/privacy/" class="text-base leading-6 text-gray-500 hover:text-gray-900">
             Privacy
           </a>
         </div>
@@ -180,7 +81,3 @@
       </p>
     </div>
   </section>
-
-</body>
-
-</html>

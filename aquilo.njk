@@ -1,0 +1,128 @@
+---
+layout: layouts/base.njk
+title: AQUILO
+mainClass: "page page--experience"
+featuredProjects:
+- CAVITATION
+- HEI
+- MACHINING
+---
+
+<section class="page-hero" style="--hero-img: url('/assets/images/experience/AQUILO/IMG_3400.jpeg');">
+    <div class="page-hero__overlay" aria-hidden="true"></div>
+
+    <div class="container page-hero__inner">
+        <p class="page-hero__kicker">Student Team</p>
+        <h1 class="page-hero__title">AQUILO Student Rocket Team</h1>
+        <p class="page-hero__sub">Propulsion Department • 2022 - 2025 • Delft, NL</p>
+
+
+    </div>
+</section>
+
+<!--<section class="page-hero page-hero--video">
+            <video class="page-hero__bg" autoplay muted loop playsinline preload="metadata"
+                poster="assets/images/rocket-team/slowmo_poster.jpg">
+                <source src="assets/video/rocket_slowmo.webm" type="video/webm">
+                <source src="assets/images/experience/AQUILO/rocket_slowmo.mov" type="video/mp4">
+            </video>
+
+            <div class="page-hero__overlay" aria-hidden="true"></div>
+
+
+            <div class="container page-hero__inner">
+                <p class="page-hero__kicker">Student Team</p>
+                <h1 class="page-hero__title">AQUILO Student Rocket Team</h1>
+                <p class="page-hero__sub">Propulsion Department • 2022 - 2025 • Delft, NL</p>
+
+
+
+            </div>
+        </section>-->
+
+<section class="story">
+    <p class="page-disclamer">
+        Non-Disclosure Agreement: I will only disclose non-proprietary information regarding my work at AQUILO. All
+        images are public knowledge.
+    </p>
+    <div class="container story__grid">
+
+        <figure class="media media--16x9">
+            <!-- swap to video whenever you want -->
+            <video class="media__el" controls playsinline preload="metadata"
+                poster="/assets/images/experience/AQUILO/Rocket_launch.png">
+                <source src="/assets/images/experience/AQUILO/rocket_slowmo.mov" type="video/mp4">
+            </video>
+        </figure>
+
+
+        <div class="story__content">
+            <h2 class="story__title">Action = Reaction</h2>
+            <p class="story__text">
+                As a part of the propulsion department of AQUILO student rocket team, I have been involved in the
+                design, manufacturing, and testing of solid rocket motors.
+            </p>
+            <p class="story__text">
+                Passionate team, dedicated to passing down rocketry knowledge and pushing the limits of student
+                innovation has been my stepping mile into field of aerospace engineering enhancing my knowledge
+                regarding propulsion and component design. Major milestone up to this point for the team has been AQUILO
+                VII.S rocket launch where our work has been rewarded. Check out AQUILO VII.S slow-motion footage!
+            </p>
+            <p class="story__text">For further details on the team and me, check out their website <a
+                    href="https://www.aquilodelft.com" class="story__link" target="_blank" rel="noopener">AQUILO Rocket
+                    Team</a>.</p>
+
+        </div>
+    </div>
+</section>
+
+<!-- STORY BLOCK REVERSED (text left, media right) -->
+<section class="story story--reverse">
+    <div class="container story__grid">
+
+        <figure class="media media--4x3">
+            <img src="/assets/images/experience/AQUILO/IMG_4143.jpeg" alt="Working on ... " loading="lazy">
+        </figure>
+
+
+        <div class="story__content">
+            <h2 class="story__title">Everyday Work</h2>
+            <p class="story__text">
+                Responsible engineer standing behind HEI Head-End Ignition Project gave me the oportunity to delve deep
+                into propulsion concepts in rocket engineering. My project advances the teams capabilities in terms of
+                ignition capabilities of dual stage rocket designs with current motor achitecture.
+                HEI boosts current motor ignition time which as a result brings higher overall propulsion ISP ().
+            </p>
+            <p class="story__text">Learn more about HEI <a href="./HEI.html" class="story__link">here</a>.</p>
+
+        </div>
+    </div>
+</section>
+
+<section class="story story--reverse">
+    <div class="container story__grid">
+
+        <figure class="media media--4x3">
+            <img src="/assets/images/experience/AQUILO/rocket_flight_raw.jpg" alt="Working on ... " loading="lazy">
+        </figure>
+
+
+</section>
+
+
+<section class="related">
+    <div class="container">
+        <div class="related__head">
+            <h2 class="related__title">Related projects</h2>
+            <p class="related__lead">More work in propulsion, testing, data processing…</p>
+        </div>
+        <div class="projects__grid">
+            {% for id in featuredProjects %}
+            {% set p = projects[id] %}
+            {% if p %}
+            {% include "components/project-card.njk" %}
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
