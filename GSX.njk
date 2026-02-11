@@ -1,0 +1,119 @@
+---
+layout: layouts/base.njk
+title: GSX-1
+mainClass: "page page--project"
+featuredProjects:
+- MACHINING
+- GSX
+- ABOX
+---      
+        <section class="page-hero" style="--hero-img: url('/assets/images/projects/GSX/GSX_1_back.jpeg');">
+            <div class="page-hero__overlay" aria-hidden="true"></div>
+
+            <div class="container page-hero__inner">
+                <p class="page-hero__kicker">Project</p>
+                <h1 class="page-hero__title">GSX-1 Wireframe Sculpture</h1>
+                <p class="page-hero__sub">RP2040 • Software • Programming • 2023</p>
+
+                <div class="page-hero__meta">
+                    <span class="tag">Tools: Arduino IDE, C++</span>
+                </div>
+            </div>
+        </section>
+
+<section class="story">
+    <div class="container story__grid">
+
+        <figure class="media media--4x3">
+            {% img "assets/images/projects/GSX/GSX_1_default.JPG", "GSX-1 Wireframe Sculpture" %}
+        </figure>
+
+
+        <div class="story__content">
+            <h2 class="story__title">Challenge</h2>
+            <p class="story__text">
+                Rocket Factory Augsburg AG is one of the first commercial European companies developing orbital
+                class launcher capable of delivering variety of payloads to different orbits.</p> 
+                 <p class="story__text">
+                    Its uniqueness stands in successful full in-house development of <strong>Europe's first oxygen-rich 
+                    staged combustion (ORSC) engine </strong> called HELIX capable of delivering roughly 100kN of thrust.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="story story--reverse">
+    <div class="container story__grid">
+
+        <figure class="media media--4x3">
+            {% img "assets/images/projects/GSX/GSX_1_gpscloseup.JPG", "GSX-1 GPS closeup" %}
+            
+        </figure>
+
+
+        <div class="story__content">
+            <h2 class="story__title">Restoration</h2>
+            <p class="story__text">
+                As a part of propulsion R&D team I have made contributions in fields of fluid
+                mechanics analysis on refinement and development of HELIX specificaly cavitation research on component testing.</p> 
+                <p class="story__text">
+            Key projects I have been involved in include:</p>
+            <div class="education-text-bullets">
+              <ul>
+                <li>Iterations of system design</li>
+                <li>Cavitation research of propellant/ignition feed system</li>
+                <li>Development of test rigs for component testing</li>
+                <li>Research based empirical data analysis.</li>
+              </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="story">
+    <div class="container story__grid">
+
+        <figure class="media media--4x3">
+            {% img "assets/images/projects/GSX/GSX_1_splash.JPG", "GSX-1 Splash" %}
+        </figure>
+
+
+        <div class="story__content">
+            <h2 class="story__title">Custom ...</h2>
+            <p class="story__text">RFA's unconventional approach to aerospace component design well aligned with my
+                passion for
+                innovation and problem-solving, allowing me to apply and expand my skills further.</p>
+            <p class="story__text">Even as an intern, I had the opportunity to see my work implemented 
+                in real production. The company’s culture is built on trust — interns are given full 
+                responsibility for their projects, supported by strong technical supervision.</p>
+            <p class="story__text">I was involved in the complete development cycle, from defining requirements and 
+                design, through validation testing, to final assembly. Being part of the full engineering process 
+                and seeing the outcome in production was an incredibly rewarding experience.</p>
+        </div>
+        
+    </div>
+</section>
+
+<section class="container">
+    <div class="mini-gallery">
+  {% img "assets/images/projects/HEI/HEI_machining.jpeg", "HEI machining" %}
+  {% img "assets/images/projects/HEI/HEI_proto1.jpeg", "HEI proto1" %}
+  {% img "assets/images/projects/HEI/HEI_proto3.jpeg", "HEI proto3" %}
+</div>
+</section>
+
+        <section class="related">
+    <div class="container">
+        <div class="related__head">
+            <h2 class="related__title">More Projects</h2>
+        </div>
+        <div class="projects__grid">
+            {% for id in featuredProjects %}
+            {% set p = projects[id] %}
+            {% if p %}
+            {% include "components/project-card.njk" %}
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>

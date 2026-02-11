@@ -8,7 +8,7 @@ featuredProjects:
 - MACHINING
 ---
 
-<section class="page-hero" style="--hero-img: url('/assets/images/experience/AQUILO/IMG_3400.jpeg');">
+<section class="page-hero" style="--hero-img: url('/assets/images/experience/AQUILO/AQUILO_hero.jpeg');">
     <div class="page-hero__overlay" aria-hidden="true"></div>
 
     <div class="container page-hero__inner">
@@ -20,38 +20,16 @@ featuredProjects:
     </div>
 </section>
 
-<!--<section class="page-hero page-hero--video">
-            <video class="page-hero__bg" autoplay muted loop playsinline preload="metadata"
-                poster="assets/images/rocket-team/slowmo_poster.jpg">
-                <source src="assets/video/rocket_slowmo.webm" type="video/webm">
-                <source src="assets/images/experience/AQUILO/rocket_slowmo.mov" type="video/mp4">
-            </video>
-
-            <div class="page-hero__overlay" aria-hidden="true"></div>
-
-
-            <div class="container page-hero__inner">
-                <p class="page-hero__kicker">Student Team</p>
-                <h1 class="page-hero__title">AQUILO Student Rocket Team</h1>
-                <p class="page-hero__sub">Propulsion Department • 2022 - 2025 • Delft, NL</p>
-
-
-
-            </div>
-        </section>-->
-
 <section class="story">
     <p class="page-disclamer">
-        Non-Disclosure Agreement: I will only disclose non-proprietary information regarding my work at AQUILO. All
-        images are public knowledge.
+        Knowledge Embargo: I will only disclose non-sensitive information regarding my work at AQUILO.
     </p>
     <div class="container story__grid">
 
         <figure class="media media--16x9">
-            <!-- swap to video whenever you want -->
             <video class="media__el" controls playsinline preload="metadata"
-                poster="/assets/images/experience/AQUILO/Rocket_launch.png">
-                <source src="/assets/images/experience/AQUILO/rocket_slowmo.mov" type="video/mp4">
+                poster="/assets/images/experience/AQUILO/AQUILO_video_cover.png">
+                <source src="/assets/images/experience/AQUILO/AQUILO_slowmo.mov" type="video/mp4">
             </video>
         </figure>
 
@@ -59,16 +37,16 @@ featuredProjects:
         <div class="story__content">
             <h2 class="story__title">Action = Reaction</h2>
             <p class="story__text">
-                As a part of the propulsion department of AQUILO student rocket team, I have been involved in the
+                As a part of the propulsion department of AQUILO Student Rocket Team, I have been involved in the
                 design, manufacturing, and testing of solid rocket motors.
             </p>
             <p class="story__text">
-                Passionate team, dedicated to passing down rocketry knowledge and pushing the limits of student
+                AQUILO, a passionate team, dedicated to passing down rocketry knowledge and pushing the limits of student
                 innovation has been my stepping mile into field of aerospace engineering enhancing my knowledge
                 regarding propulsion and component design. Major milestone up to this point for the team has been AQUILO
-                VII.S rocket launch where our work has been rewarded. Check out AQUILO VII.S slow-motion footage!
+                VIII.S rocket launch where our work has been rewarded. <strong>Check out AQUILO VIII.S launch video!</strong>
             </p>
-            <p class="story__text">For further details on the team and me, check out their website <a
+            <p class="story__text">For further details on the team and me, check out <a
                     href="https://www.aquilodelft.com" class="story__link" target="_blank" rel="noopener">AQUILO Rocket
                     Team</a>.</p>
 
@@ -81,32 +59,39 @@ featuredProjects:
     <div class="container story__grid">
 
         <figure class="media media--4x3">
-            <img src="/assets/images/experience/AQUILO/IMG_4143.jpeg" alt="Working on ... " loading="lazy">
+            {% img "assets/images/experience/AQUILO/AQUILO_machining_HEX.jpeg", "Endcap production" %}
         </figure>
 
 
         <div class="story__content">
             <h2 class="story__title">Everyday Work</h2>
-            <p class="story__text">
-                Responsible engineer standing behind HEI Head-End Ignition Project gave me the oportunity to delve deep
+             <p class="story__text">
+                Responsible engineer standing behind HEI Head-End Ignition project. Project gave me the oportunity to delve deep
                 into propulsion concepts in rocket engineering. My project advances the teams capabilities in terms of
-                ignition capabilities of dual stage rocket designs with current motor achitecture.
-                HEI boosts current motor ignition time which as a result brings higher overall propulsion ISP ().
+                possible ignition of dual stage rocket designs with current motor achitecture.
+                HEI boosts current motor ignition time which as a result brings higher overall propulsion ISP (specific impulse).
             </p>
-            <p class="story__text">Learn more about HEI <a href="./HEI.html" class="story__link">here</a>.</p>
-
+            <p class="story__text">Learn more about HEI <a href="/HEI/" class="story__link">here</a>.</p>
         </div>
     </div>
 </section>
 
-<section class="story story--reverse">
+<section class="story">
     <div class="container story__grid">
-
         <figure class="media media--4x3">
-            <img src="/assets/images/experience/AQUILO/rocket_flight_raw.jpg" alt="Working on ... " loading="lazy">
+            {% img "assets/images/experience/AQUILO/AQUILO_VIII_flight.jpg", "VIII.S flight" %}
         </figure>
-
-
+        <div class="story__content">
+            <h2 class="story__title">From design to flight</h2>
+            <p class="story__text">
+                I have used my machining skills to produce various components for our rocket motors. From endcaps to nozzles, 
+                I have been involved in the manufacturing process of critical parts of our propulsion system. 
+                This has given me a hands-on experience with various manufacturing techniques and materials used in aerospace engineering.
+                But things dont stop at propulsion, I have also been involved in manufacturing of other structural components of VIII.S rocket.
+                From body struts to retaining rings, I have enjoyed the process of turning a design into a physical part that was be used in our rocket.
+            </p>
+        </div>
+    </div>
 </section>
 
 
@@ -114,7 +99,7 @@ featuredProjects:
     <div class="container">
         <div class="related__head">
             <h2 class="related__title">Related projects</h2>
-            <p class="related__lead">More work in propulsion, testing, data processing…</p>
+            <p class="about__role">More work in propulsion, testing, data processing…</p>
         </div>
         <div class="projects__grid">
             {% for id in featuredProjects %}

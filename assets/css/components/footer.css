@@ -1,0 +1,22 @@
+/* Footer guard rails: prevent horizontal scroll on very small screens */
+.bg-white {
+  overflow-x: clip;
+}
+
+@media (max-width: 420px) {
+  .max-w-screen-xl {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* If -mx-5 exists and causes overflow, neutralize it */
+  .-mx-5 {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* Make footer links a bit easier to tap */
+  .text-base {
+    font-size: 14px;
+  }
+}

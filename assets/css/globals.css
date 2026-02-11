@@ -72,3 +72,53 @@ h3{ font-size: var(--fs--h3); }
 .section{
   padding-block: 0rem 3rem;
 }
+
+
+/* ===== Single source of truth for layout sizing ===== */
+:root{
+  /* Container & spacing */
+  --container-max: 1200px;          /* match your header-inner */
+  --gutter: clamp(16px, 4vw, 30px);
+  --section-pad-y: clamp(3rem, 6vw, 6rem);
+
+  /* Header height used by scroll offsets + main padding */
+  --header-height: 90px;            /* desktop header height target */
+}
+
+/* Make sure the page never gets horizontal scroll from accidental overflow */
+html, body { width: 100%; }
+body { overflow-x: clip; }
+
+/* Fix variable typo bugs in your headings/muted text */
+:root{
+  --text: var(--color--text);
+}
+
+/* Use the correct variable for headings */
+h1,h2,h3,h4,h5,h6{
+  color: var(--text);
+}
+
+/* muted text should reference --text too */
+.text-muted{ color: color-mix(in srgb, var(--text) 65%, transparent); }
+
+/* Unified container + section */
+.container{
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section{
+  padding-block: var(--section-pad-y);
+}
+
+/* Unified scroll offset + fixed header offset */
+html{
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
+}
+
+main{
+  padding-top: var(--header-height);
+}

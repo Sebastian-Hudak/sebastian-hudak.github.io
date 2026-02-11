@@ -28,7 +28,7 @@ module.exports = {
   MACHINING: {
     title: "AQUILO components machining",
     href: "/MACHINING/",
-    img: "/assets/images/experience/AQUILO/Machining_HEI.jpeg",
+    img: "/assets/images/experience/AQUILO/AQUILO_lathe1.jpeg",
     alt: "Machining work",
     desc: "Machining variety of components out of aerospace grade Aluminium.",
     specs: ["Hands-on experience", "Manual and CNC techniques", "Design for manufacturing"],

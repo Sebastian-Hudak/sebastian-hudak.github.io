@@ -1,10 +1,17 @@
+/* ===================== EDUCATION SECTION (FULL CSS) ===================== */
+
 .education-card {
   display: flex;
   flex-direction: row;
+  align-items: flex-start;
+
+  /* responsive without resizing seals */
+  flex-wrap: wrap;
 }
 
+/* keep your hover border behavior */
 .education-card:hover + .education-card-border {
-  border-color: var(--color-accent);
+  border-color: var(--color--accent);
   width: 90%;
   -webkit-transition: width 0.6s ease-in-out;
   -moz-transition: width 0.6s ease-in-out;
@@ -26,8 +33,10 @@
 .education-head {
   display: flex;
   flex-direction: row;
+  min-width: 0;
 }
 
+/* keep desktop look, but allow wrapping when needed */
 .education-text-school {
   margin: 0;
   font-size: 28px;
@@ -36,19 +45,26 @@
   overflow: hidden;
   white-space: nowrap;
   height: 38px;
-  letter-spacing:0.15cap;
+  letter-spacing: 0.15cap;
 }
 
+/* ===== SEALS: NO RESPONSIVE SCALING ===== */
 .education-roundedimg {
   object-fit: cover;
-  margin-right: 3rem;
-  width: 6rem;
-  height: 6rem;
-  box-shadow: 0 0.5rem 1rem gray;
+
+  width: 6rem !important;
+  height: 6rem !important;
+  flex: 0 0 6rem;              /* prevents shrinking in flex */
   border-radius: 50%;
+  box-shadow: 0 0.5rem 1rem gray;
+
+  margin-right: 3rem;          /* keep your original spacing */
 }
 
+/* right side should be able to shrink/wrap */
 .education-card-right {
+  flex: 1 1 320px;   /* shrink when needed but avoid ultra narrow */
+  min-width: 0;      /* critical for overflow in flex */
   max-width: 90%;
 }
 
@@ -59,48 +75,14 @@
   padding-top: 0.3rem;
 }
 
-
-@media (max-width: 1380px) {
-  .education-card {
-    flex-direction: column;
-    padding-bottom: 10px;
-  }
-  .education-card-right {
-    max-width: 90%;
-  }
-  .education-card-border {
-    width: 90%;
-  }
-
-  .education-roundedimg {
-    width: 4rem;
-    height: 4rem;
-    margin-bottom: 0.5rem;
-    margin-right: 0px;
-  }
-}
-
-@media (max-width: 768px) {
-  .education-card {
-    text-align: center;
-  }
-  .education-card-right {
-    max-width: 100%;
-  }
-  .education-card-border {
-    width: 100%;
-  }
-  .education-roundedimg {
-    margin-top: 10px;
-    width: 4rem;
-    height: 4rem;
-    margin-bottom: 1rem;
-    margin-right: 0;
-  }
-  .education-text-bullets > ul {
-    max-width: 100%;
-    margin: auto;
-  }
+.education-text-bullets > ul {
+  list-style: disc;
+  list-style-position: outside;
+  padding-left: 0.5em;
+  margin: 0.1em 25px 0;
+  max-width: 100%;
+  color: gray;
+  padding-bottom: 10px;
 }
 
 .section-header {
@@ -113,12 +95,44 @@
   line-height: var(--lh--tight);
 }
 
-.education-text-bullets > ul{
-  list-style: disc;        
-  list-style-position: outside;
-  padding-left: 0.5em;     
-  margin: 0.1em 25px 0;    
-  max-width: 100%;
-  color: gray;
-  padding-bottom: 10px;
+/* ===================== BREAKPOINTS ===================== */
+
+/* On smaller screens: allow school name to wrap instead of ellipsis */
+@media (max-width: 900px) {
+  .education-text-school {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    height: auto;
+  }
+}
+
+/* Your edited mobile stacking rules (kept as-is) */
+@media (max-width: 900px){
+  .education-card{
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .education-roundedimg{
+    margin-right: 0;     /* remove the desktop spacing */
+    margin-bottom: 1rem;
+  }
+
+  .education-card-right{
+    max-width: 100%;
+  }
+
+  .education-card-border{
+    width: 100%;
+  }
+}
+
+/* Optional: tighten bullets on mobile for nicer centering */
+@media (max-width: 768px) {
+  .education-text-bullets > ul {
+    max-width: 100%;
+    margin: auto;
+  }
 }

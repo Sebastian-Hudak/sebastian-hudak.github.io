@@ -151,3 +151,50 @@
 .project-card.is-hidden{ display: none; }
 
 .project-card{ position: relative; } 
+
+
+.inline-media {
+  margin-top: 1rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 850px) {
+  .inline-media {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.inline-media__item img {
+  width: 100%;
+  height: auto;
+}
+
+.inline-media__item figcaption {
+  margin-top: .5rem;
+  font-size: .9rem;
+  opacity: .75;
+}
+
+.mini-gallery {
+  margin-top: 1rem;
+  display: grid;
+  gap: .75rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.mini-gallery img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+
+@media (max-width: 700px) {
+  .mini-gallery {
+    grid-template-columns: 1fr;
+  }
+  .mini-gallery img {
+    height: auto;
+  }
+}

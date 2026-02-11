@@ -37,3 +37,53 @@
       });
     })();
   </script>
+
+
+  <script>
+  (function () {
+    const burger = document.querySelector(".burger");
+    const nav = document.querySelector(".nav");
+    if (!burger || !nav) return;
+
+    burger.addEventListener("click", () => {
+      const open = nav.classList.toggle("is-open");
+      burger.classList.toggle("is-active", open);
+      burger.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+
+    // Close menu when a link is clicked (mobile)
+    nav.querySelectorAll("a").forEach(a => {
+      a.addEventListener("click", () => {
+        nav.classList.remove("is-open");
+        burger.classList.remove("is-active");
+        burger.setAttribute("aria-expanded", "false");
+      });
+    });
+  })();
+</script>
+
+
+<script>
+  (function () {
+    const items = document.querySelectorAll(".reveal");
+
+    if (!items.length) return;
+
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            obs.unobserve(entry.target); // animate only once
+          }
+        });
+      },
+      {
+        threshold: 0.15,
+        rootMargin: "0px 0px -10% 0px"
+      }
+    );
+
+    items.forEach((el) => obs.observe(el));
+  })();
+</script>

@@ -1,127 +1,198 @@
-.experience {
+/* ===================== EXPERIENCE SECTION (FULL CSS) ===================== */
+
+.experience{
   background: var(--color--bg1);
   color: var(--color--text);
   padding: clamp(24px, 4vw, 56px);
 }
 
-.experience__header {
+.experience__header{
   margin-bottom: 35px;
 }
 
-.experience__list {
+.experience__list{
   display: grid;
   gap: 70px;
 }
 
-.exp-item {
+.exp-item{
   border-top: 1px solid var(--color--line);
   padding-top: 18px;
 }
 
-.exp-item:first-child {
+.exp-item:first-child{
   border-top: 1px solid rgb(160, 160, 160);
 }
 
-.exp-item__top {
+/* ===================== TOP ROW ===================== */
+
+.exp-item__top{
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 16px;
   margin-bottom: 14px;
+
+  /* allows meta + tags to wrap nicely on small screens */
+  flex-wrap: wrap;
 }
 
-.exp-item__role {
-  font-size: 25px;
+.exp-item__meta{
+  min-width: 0;
+  flex: 1 1 520px;
+}
+
+.exp-item__metaRow{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  min-width: 0;
+}
+
+.exp-item__logo{
+  width: 50px;
+  height: auto;
+  flex: 0 0 50px;
+}
+
+/* role heading: fluid (nice on phone, unchanged feel on desktop) */
+.exp-item__role{
+  font-size: clamp(1.125rem, 2.2vw, 1.5625rem); /* 18px -> 25px */
   margin: 0 0 6px 0;
   font-weight: 650;
+
+  /* long titles won't break layout */
+  overflow-wrap: anywhere;
 }
 
-.exp-item__date {
+/* you use .about__role for the date line in HTML */
+.exp-item__date,
+.about__role{
   margin: 0;
   color: var(--color--text);
-  font-size: var(--fs-small);
+  font-size: var(--fs--small);
 }
 
-.exp-item__tags {
+/* ===================== TAGS ===================== */
+
+.exp-item__tags{
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   justify-content: flex-end;
+  align-items: center;
+  min-width: 0;
+}
+
+/* Style each .tag (your HTML uses multiple spans) */
+.exp-item__tags .tag{
   display: inline-flex;
   align-items: center;
   padding: 6px 10px;
   border-radius: 999px;
-  background: var(--gray-lightest);
-  border: 1px solid var(--gray-lighter);
-  color: var(--gray-dark);
+  border: 1px solid var(--color--gray_border, #cfcfcf);
+  background: var(--color--gray_bg, #f2f2f2);
   color: var(--color--text);
   font-size: 12px;
   line-height: 1;
   white-space: nowrap;
 }
 
-.exp-item__body {
+/* ===================== BODY ===================== */
+
+.exp-item__body{
   display: grid;
   grid-template-columns: minmax(220px, 420px) 1fr;
   gap: 22px;
   align-items: start;
 }
 
-.exp-item__media {
+.exp-item__media{
   overflow: hidden;
+  border-radius: 12px; /* remove if you want sharp edges */
 }
 
-.exp-item__media img {
+.exp-item__media img{
   width: 100%;
   height: auto;
   display: block;
 }
 
-.exp-item__desc {
+.exp-item__desc{
   max-width: 70ch;
+  min-width: 0;
 }
 
-.exp-item__text {
+.exp-item__text{
   margin: 0 0 10px 0;
-  
   opacity: 0.85;
   line-height: 1.35;
 }
 
-.exp-item__bullets {
+.exp-item__bullets{
   margin: 0;
   padding-left: 18px;
   color: var(--color--muted);
-  font-size: var(--fs-small);
-}
-
-@media (max-width: 820px) {
-  .exp-item__body {
-    grid-template-columns: 1fr;
-  }
-
-  .exp-item__top {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .exp-item__tags {
-    justify-content: flex-start;
-  }
-}
-
-
-.exp-item__metaRow{
-  display:flex;
-  gap:12px;
-  align-items:flex-start;
-}
-
-.exp-item__logo{
-  width:50px;
-  height:auto;
+  font-size: var(--fs--small);
 }
 
 .exp-button{
   margin-top: 24px;
+}
+
+/* ===================== BREAKPOINTS ===================== */
+
+/* Collapse body into one column */
+@media (max-width: 820px){
+  .exp-item__body{
+    grid-template-columns: 1fr;
+  }
+
+  .exp-item__tags{
+    justify-content: flex-start;
+  }
+}
+
+/* Phone tuning: bigger logo, tighter spacing, calmer text */
+@media (max-width: 480px){
+  .exp-item__top{
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .exp-item__metaRow{
+    gap: 14px;
+    align-items: center;
+  }
+
+  .exp-item__logo{
+    width: 56px;
+    flex: 0 0 56px;
+  }
+
+  .about__role{
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+
+  .exp-item__tags{
+    gap: 6px;
+  }
+
+  .exp-item__tags .tag{
+    padding: 6px 9px;
+    font-size: 11px;
+  }
+}
+
+/* Ultra-small phones (optional but helps iPhone SE sized screens) */
+@media (max-width: 360px){
+  .exp-item__logo{
+    width: 52px;
+    flex-basis: 52px;
+  }
+
+  .exp-item__role{
+    font-size: 1.05rem; /* ~16.8px */
+  }
 }
