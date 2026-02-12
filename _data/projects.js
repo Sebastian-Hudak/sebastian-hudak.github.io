@@ -1,8 +1,8 @@
 module.exports = {
   CAVITATION: {
     title: "Orifice Cavitation Analysis",
-    href: "/CAVITATION/",
-    img: "/assets/images/experience/RFA/cavitation_snapshot.png",
+    href: "/cavitation/",
+    img: "/assets/images/projects/cavitation/cavitation_snapshot.png",
     alt: "Cavitation shadowgraph",
     desc: "Reseach based cavitation onset prediction supported by empirical measurements of flow restriction plates.",
     specs: [
@@ -50,7 +50,7 @@ module.exports = {
   GSX: {
     title: "GSX-1 wireframe sculpture",
     href: "/gsx/",
-    img: "/assets/images/projects/gsx_1/square.JPG",
+    img: "/assets/images/projects/gsx/square.JPG",
     alt: "GSX-1 wireframe sculpture",
     desc: "Inspired by photographs of Mohit Bhoite project. Developed script and wiring scheme.",
     specs: ["Tiny factor", "GPS sattelite interface", "Multi module design"],
@@ -61,7 +61,7 @@ module.exports = {
   ABOX: {
     title: "Portable Boombox A-BOX",
     href: "/abox/",
-    img: "/assets/images/projects/boombox/img_0734.jpeg",
+    img: "/assets/images/projects/abox/hero.jpeg",
     alt: "Boombox project",
     desc: "Self made portable 100W boombox speaker out of Ammunition Box.",
     specs: ["Part search", "Basic routing / machining tasks", "Own PCB design"],
@@ -72,7 +72,7 @@ module.exports = {
   CNCe: {
     title: "CNC engraver",
     href: "/cnce/",
-    img: "/assets/images/projects/cnce/img_2175.jpg",
+    img: "/assets/images/projects/cnce/cnce_head.JPG",
     alt: "CNC head",
     desc: "Home-made CNC engraver based on old PC optical drives.",
     specs: ["Self made at the age of 16", "Basic supplies", "GRBL based controller"],
@@ -83,7 +83,7 @@ module.exports = {
   SOUND: {
     title: "Sound measurement analysis",
     href: "/sound/",
-    img: "/assets/images/experience/cae/img_1218.jpg",
+    img: "/assets/images/projects/sound/vertical_sound.JPG",
     alt: "Microphone inside cockpit",
     desc: "Solving sound acquisition issues — OOT values during certification runs across multiple full-flight simulators.",
     specs: ["Search for causing issue", "Sound measurements", "Full-Flight Simulator Technology"],
@@ -94,7 +94,7 @@ module.exports = {
   TAIL: {
     title: "Tail section structural design",
     href: "/tail/",
-    img: "/assets/images/projects/tail/img_0127.png",
+    img: "/assets/images/projects/tail/render.PNG",
     alt: "CNC head",
     desc: "Winning design of aircraft tail section follwing all given requirements and constrains.",
     specs: ["3 member international team", "CAD + manufacturing", "Load testing"],

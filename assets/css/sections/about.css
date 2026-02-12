@@ -1,4 +1,4 @@
-
+/* ===================== ABOUT SECTION (FULL CSS) ===================== */
 .section.about {
   background: var(--color--bg1);
 }
@@ -6,7 +6,7 @@
 .about__grid {
   display: grid;
   grid-template-columns: 400px 1fr;
-  gap: clamp(60px, 4vw, 64px);
+  gap: clamp(30px, 4vw, 64px);
   align-items: center;
 }
 
@@ -16,15 +16,15 @@
 }
 
 .about__content {
-  max-width: 75ch;     
+  max-width: 75ch;
 }
 
 .about__role {
   margin: 0 0 10px;
-  font-size: 15px;
+  font-size: var(--fs--small);
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: var(--fw--bold);
   opacity: 0.75;
 }
 
@@ -36,7 +36,9 @@
 
 .about__text {
   margin: 0 0 22px;
+  font-size: var(--fs--body);
   line-height: var(--lh--normal);
+  color: var(--color--text);
 }
 
 @media (max-width: 820px) {

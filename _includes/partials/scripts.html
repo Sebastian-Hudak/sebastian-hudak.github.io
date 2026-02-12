@@ -86,4 +86,25 @@
 
     items.forEach((el) => obs.observe(el));
   })();
+
+  document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".education-card");
+
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        // add when it becomes visible enough
+        if (entry.isIntersecting) entry.target.classList.add("is-inview");
+        else entry.target.classList.remove("is-inview"); // optional
+      });
+    },
+    {
+      root: null,
+      threshold: 0.55,              // ~55% visible triggers it
+      rootMargin: "0px 0px -10% 0px" // trigger slightly before center
+    }
+  );
+
+  cards.forEach((c) => io.observe(c));
+});
 </script>

@@ -1,0 +1,346 @@
+/* =========================
+   Experience Page Template
+   ========================= */
+
+.page--experience{
+  background: #ffffff;
+}
+
+/* HERO */
+.page-hero{
+  min-height: clamp(260px, 60vh, 320px);
+  position: relative;
+  display: grid;
+  align-items: end;
+
+  background-image: var(--hero-img);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* simple parallax (desktop) */
+  background-attachment: fixed;
+}
+
+@media (max-width: 900px){
+  .page-hero{ background-attachment: scroll; } /* mobile-friendly */
+}
+
+.page-hero__overlay{
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top,
+    rgba(0, 0, 0, 0.85),
+    rgba(0, 0, 0, 0.576) 65%,
+    rgba(0, 0, 0, 0)
+  );
+}
+
+.page-hero__inner{
+  position: relative;
+  padding: clamp(2rem, 5vw, 4rem) 0;
+  color: #fff;
+}
+
+.page-hero__kicker{
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  opacity: 0.9;
+  font-size: 1rem;
+}
+
+.page-hero__title{
+  margin: 0;
+  font-size: clamp(2rem, 8vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.page-hero__sub{
+  margin: 0.75rem 0 0;
+  max-width: 65ch;
+  opacity: 0.9;
+}
+
+.page-hero__meta{
+  margin-top: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag{
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.10);
+  backdrop-filter: blur(6px);
+}
+
+/* STORY BLOCKS */
+
+
+.page-disclamer{
+  margin: 0px 85px 2rem;
+  font-size: 1rem;
+  color: #444;
+ 
+}
+.story{
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
+}
+
+
+
+.story__grid{
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(1rem, 4vw, 3rem);
+  align-items: center;
+}
+
+.story--reverse .story__grid{
+  grid-template-columns: 0.9fr 1.1fr;
+}
+
+.story--reverse .media{ order: 2; }
+.story--reverse .story__content{ order: 1; }
+
+@media (max-width: 900px){
+  .story__grid{
+    grid-template-columns: 1fr;
+  }
+  .story--reverse .media,
+  .story--reverse .story__content{
+    order: initial;
+  }
+}
+
+.story__title{
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.4rem, 2.4vw, 2rem);
+  line-height: 1.15;
+  color: #333;
+}
+
+.story__text{
+  margin: 0 0 1rem;
+  line-height: var(--lh--normal);
+  color: var(--color--text);
+  max-width: 95ch;
+}
+
+.story__bullets{
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--color--text);
+}
+
+.story__bullets li{
+  margin: 0.35rem 0;
+}
+
+/* MEDIA (image or video) */
+.media{
+  border-radius: 0.25rem;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #ececec;
+  box-shadow: 0 20px 40px -14px rgba(0,0,0,0.18);
+}
+
+.media--16x9{ aspect-ratio: 16 / 9; }
+.media--4x3{ aspect-ratio: 4 / 3; }
+
+.media img,
+.media video{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* CALLOUTS */
+.story__callouts{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+.story__icon{
+  width: 25px;
+  height: 25px;
+  flex: 0 0 auto;
+}
+
+.story__link{
+  color: var(--text);
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+@media (max-width: 700px){
+  .story__callouts{ grid-template-columns: 1fr; }
+}
+
+.callout{
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 0.25rem;
+  padding: 0.9rem;
+}
+
+.callout__title{
+  margin: 0 0 0.35rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #444;
+}
+
+.callout__text{
+  margin: 0;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* RELATED */
+.related{
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
+  background: #ffffff;
+}
+
+.related__head{
+  margin-bottom: 1.25rem;
+}
+
+.related__title{
+  margin: 0 0 0.35rem;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: #333;
+}
+
+.related__lead{
+  margin: 0;
+  color: #666;
+  max-width: 70ch;
+}
+
+.card-icon{
+  position: absolute;
+  left: 18px;  /* tweak */
+  top: 18px;   /* tweak */
+  width: 20px;
+  height: 20px;
+}
+
+
+
+
+
+.page-hero--video{
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero__bg{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* “don’t overpower” filter */
+  filter: brightness(0.65) contrast(1.05) saturate(0.95);
+  transform: scale(1.02);
+}
+
+.page-hero__overlay{
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0,0,0,0.60) 0%,
+    rgba(0,0,0,0.35) 45%,
+    rgba(0,0,0,0.55) 100%
+  );
+}
+
+
+/* ===== Journey: icons + tooltip ===== */
+.journey { padding: clamp(20px, 4.5vw, 44px) 0; }
+
+.journey__steps--icons{
+  list-style: none;
+  padding: 30px 0px;
+  margin: 0;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.journey__step{
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,0.10);
+  background: rgba(255,255,255,0.55);
+}
+
+.journey__icon{
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.journey__icon svg{ width: 18px; height: 18px; }
+
+/* subtle connector */
+.journey__step:not(:last-child)::after{
+  content:"";
+  position:absolute;
+  right:-10px;
+  top:50%;
+  width:10px;
+  height:1px;
+  background: rgba(0,0,0,0.18);
+}
+
+/* tooltip */
+.journey__tip{
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 10px);
+  transform: translateX(-50%);
+  white-space: nowrap;
+  padding: 6px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.12);
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.10);
+  font-size: 0.85rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .15s ease, transform .15s ease;
+}
+
+.journey__step:hover .journey__tip,
+.journey__step:focus-within .journey__tip{
+  opacity: 1;
+  transform: translateX(-50%) translateY(-2px);
+}
+
+/* remove connector when wrapping */
+@media (max-width: 700px){
+  .journey__step:not(:last-child)::after{ display:none; }
+}
