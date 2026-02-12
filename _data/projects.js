@@ -16,8 +16,8 @@ module.exports = {
 
   HEI: {
     title: "HEI - Head End Ignition",
-    href: "/HEI/",
-    img: "/assets/images/projects/HEI/HEI_square.jpeg",
+    href: "/hei/",
+    img: "/assets/images/projects/hei/square.jpeg",
     alt: "HEI hardware",
     desc: "Ability to adapt dual stage propulsion systems while providing faster thrust onset.",
     specs: ["Removable igniter body", "Inovative approach", "Scalable"],
@@ -27,8 +27,8 @@ module.exports = {
 
   MACHINING: {
     title: "AQUILO components machining",
-    href: "/MACHINING/",
-    img: "/assets/images/experience/AQUILO/AQUILO_lathe1.jpeg",
+    href: "/machining/",
+    img: "/assets/images/experience/aquilo/lathe1.jpeg",
     alt: "Machining work",
     desc: "Machining variety of components out of aerospace grade Aluminium.",
     specs: ["Hands-on experience", "Manual and CNC techniques", "Design for manufacturing"],
@@ -38,8 +38,8 @@ module.exports = {
 
   CNCL: {
     title: "CNC lathe - RetroFit",
-    href: "/CNCL/",
-    img: "/assets/images/projects/CNC_lathe/CNC_oval.jpeg",
+    href: "/cncl/",
+    img: "/assets/images/projects/cncl/oval.jpeg",
     alt: "CNC machined part",
     desc: "Fixing school owned CNC by finding way of incorporating modern CAM.",
     specs: ["Rich feature list", "Old does not equal trash", "Side project"],
@@ -49,8 +49,8 @@ module.exports = {
 
   GSX: {
     title: "GSX-1 wireframe sculpture",
-    href: "/GSX/",
-    img: "/assets/images/projects/gsx_1/GSX_1_square.JPG",
+    href: "/gsx/",
+    img: "/assets/images/projects/gsx_1/square.JPG",
     alt: "GSX-1 wireframe sculpture",
     desc: "Inspired by photographs of Mohit Bhoite project. Developed script and wiring scheme.",
     specs: ["Tiny factor", "GPS sattelite interface", "Multi module design"],
@@ -60,8 +60,8 @@ module.exports = {
 
   ABOX: {
     title: "Portable Boombox A-BOX",
-    href: "/ABOX/",
-    img: "/assets/images/projects/boombox/IMG_0734.jpeg",
+    href: "/abox/",
+    img: "/assets/images/projects/boombox/img_0734.jpeg",
     alt: "Boombox project",
     desc: "Self made portable 100W boombox speaker out of Ammunition Box.",
     specs: ["Part search", "Basic routing / machining tasks", "Own PCB design"],
@@ -71,8 +71,8 @@ module.exports = {
 
   CNCe: {
     title: "CNC engraver",
-    href: "/CNCe/",
-    img: "/assets/images/projects/CNC/IMG_2175.JPG",
+    href: "/cnce/",
+    img: "/assets/images/projects/cnce/img_2175.jpg",
     alt: "CNC head",
     desc: "Home-made CNC engraver based on old PC optical drives.",
     specs: ["Self made at the age of 16", "Basic supplies", "GRBL based controller"],
@@ -82,8 +82,8 @@ module.exports = {
 
   SOUND: {
     title: "Sound measurement analysis",
-    href: "/SOUND/",
-    img: "/assets/images/experience/CAE/IMG_1218.JPG",
+    href: "/sound/",
+    img: "/assets/images/experience/cae/img_1218.jpg",
     alt: "Microphone inside cockpit",
     desc: "Solving sound acquisition issues — OOT values during certification runs across multiple full-flight simulators.",
     specs: ["Search for causing issue", "Sound measurements", "Full-Flight Simulator Technology"],
@@ -93,8 +93,8 @@ module.exports = {
 
   TAIL: {
     title: "Tail section structural design",
-    href: "/TAIL/",
-    img: "/assets/images/projects/Project_plane/IMG_0127.PNG",
+    href: "/tail/",
+    img: "/assets/images/projects/tail/img_0127.png",
     alt: "CNC head",
     desc: "Winning design of aircraft tail section follwing all given requirements and constrains.",
     specs: ["3 member international team", "CAD + manufacturing", "Load testing"],
