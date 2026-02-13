@@ -3,18 +3,17 @@
 
 @import "./components/header.css";
 @import "./components/footer.css";
-
-@import "./sections/hero.css";
-@import "./sections/projects.css";
-@import "./sections/testimonials.css";
-@import "./sections/about.css";
-@import "./sections/logos.css";
-@import "./sections/education.css";
-@import "./sections/experience.css";
-@import "./sections/contact.css";
-@import "./sections/framework.css";
 @import "./components/button.css";
 
+@import "./sections/hero.css";
+@import "./sections/about.css";
+@import "./sections/education.css";
+@import "./sections/experience.css";
+@import "./sections/framework.css";
+@import "./sections/testimonials.css";
+@import "./sections/logos.css";
+
+@import "./pages/contact.css";
 @import "./pages/experience.css";
 @import "./pages/projects.css";
 

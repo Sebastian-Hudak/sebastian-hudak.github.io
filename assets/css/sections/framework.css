@@ -1,8 +1,4 @@
-/* =========================
-   Partners / Logo Marquee (text left + logos right + edge fade)
-   ========================= */
-
-/* wrapper row: label left, marquee right */
+/* ===================== FRAMEWORK SECTION (FULL CSS) ===================== */
 .logo-band{
   display: grid;
   grid-template-columns: clamp(220px, 28vw, 380px) 1fr;
@@ -11,7 +7,6 @@
   padding: 16px 0;
 }
 
-/* left label (small caps look) */
 .logo-band__label{
   margin: 0;
   font-size: 0.78rem;
@@ -21,16 +16,14 @@
   line-height: 1.35;
 }
 
-/* marquee viewport */
 .logo-marquee{
   position: relative;
   overflow: hidden;
   width: 100%;
-  min-width: 0;          /* important inside grid */
+  min-width: 0;      
   padding: 16px 0;
 }
 
-/* === Edge fade (best method: mask) === */
 .logo-marquee{
   -webkit-mask-image: linear-gradient(90deg,
     transparent 0%,
@@ -50,7 +43,7 @@
    If your background is NOT white, change --fade-bg below.
 */
 :root{
-  --fade-bg: 255,255,255; /* set to 0,0,0 for dark sections */
+  --fade-bg: 255,255,255;
 }
 
 .logo-marquee::before,
@@ -63,27 +56,24 @@
   pointer-events:none;
   z-index: 2;
 
-  /* left fade to background */
   background: linear-gradient(to right,
     rgba(var(--fade-bg), 1),
     rgba(var(--fade-bg), 0)
   );
 
-  opacity: 0; /* keep OFF when mask is supported */
+  opacity: 0; 
 }
 
 .logo-marquee::after{
   right:0;
   left:auto;
 
-  /* right fade to background */
   background: linear-gradient(to left,
     rgba(var(--fade-bg), 1),
     rgba(var(--fade-bg), 0)
   );
 }
 
-/* Turn overlay fade ON only if mask is not supported */
 @supports not ((mask-image: linear-gradient(#000,#000)) or (-webkit-mask-image: linear-gradient(#000,#000))){
   .logo-marquee::before,
   .logo-marquee::after{
@@ -91,47 +81,54 @@
   }
 }
 
-/* moving track */
+
 .logo-track{
   display: flex;
   align-items: center;
   width: max-content;
   will-change: transform;
 
-  /* tune spacing */
+  
   gap: clamp(2.5rem, 6vw, 7.5rem);
 
-  /* tune speed */
+  
   animation: marquee 22s linear infinite;
 }
 
-/* logo sizing */
+
 .logo-track img{
-  height: 44px;          /* change to 56px if you want bigger */
+  height: 44px;         
   width: auto;
   display: block;
   opacity: 0.9;
 
-  /* optional “brand strip” look */
   filter: grayscale(1);
 }
 
-/* seamless loop (requires duplicated logo set) */
+.logo-band__label{
+  text-align: left;
+}
+
 @keyframes marquee{
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
 
-
-/* optional: reduce motion */
 @media (prefers-reduced-motion: reduce){
   .logo-track{ animation: none; }
 }
 
-/* mobile: stack label above logos */
 @media (max-width: 700px){
   .logo-band{
     grid-template-columns: 1fr;
     gap: 0.75rem;
+    grid-template-columns: 1fr; 
+    justify-items: center;        
+  }
+
+  .logo-band__label{
+    text-align: center;
+    max-width: 55ch;              
   }
 }
+

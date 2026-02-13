@@ -24,38 +24,44 @@ headExtra: |
                 <img src="assets/images/business_card/business_back.svg" class="flip__svg" alt="Business card back" />
               </div>
             </div>
+            <div class="flip__hint" aria-hidden="true">
+            <span class="flip__hint-text hint--desktop">Hover to flip</span>
+            <span class="flip__hint-text hint--mobile">Tap to flip</span>
           </div>
-          <p class="business-card__hint">Hover / tap to flip</p>
+          </div>
         </div>
       </div>
 
 
       <div class="contact-page__right">
+        <div class="contact-divider">
+  <h3 class="contact-divider__text">FORM</h3>
+</div>
         <form class="contact-form" action="mailto:you@domain.com" method="post" enctype="text/plain">
-          <div class="contact-form__row contact-form__row--2">
-            <label class="field">
-              <span class="field__label">Name (required)</span>
-              <input class="field__input" type="text" name="first_name" placeholder="First Name" required>
-            </label>
+  <div class="contact-form__row contact-form__row--2">
+    <div class="field">
+      <label class="field__label" for="first_name">First name <span class="field__required">*</span></label>
+      <input class="field__input" id="first_name" type="text" name="first_name" placeholder="First name" required>
+    </div>
 
-            <label class="field">
-              <span class="field__label" aria-hidden="true">&nbsp;</span>
-              <input class="field__input" type="text" name="last_name" placeholder="Last Name" required>
-            </label>
-          </div>
+    <div class="field">
+      <label class="field__label" for="last_name">Last name <span class="field__required">*</span></label>
+      <input class="field__input" id="last_name" type="text" name="last_name" placeholder="Last name" required>
+    </div>
+  </div>
 
-          <label class="field">
-            <span class="field__label">Email (required)</span>
-            <input class="field__input" type="email" name="email" required>
-          </label>
+  <div class="field">
+    <label class="field__label" for="email">Email <span class="field__required">*</span></label>
+    <input class="field__input" id="email" type="email" name="email" placeholder="you@email.com" required>
+  </div>
 
-          <label class="field">
-            <span class="field__label">Message (required)</span>
-            <textarea class="field__input field__textarea" name="message" rows="4" required></textarea>
-          </label>
+  <div class="field">
+    <label class="field__label" for="message">Message <span class="field__required">*</span></label>
+    <textarea class="field__input field__textarea" id="message" name="message" rows="5" placeholder="Write your message..." required></textarea>
+  </div>
 
-          <button class="contact-form__btn" type="submit">SUBMIT</button>
-        </form>
+  <button class="button-redirect" type="submit">Submit</button>
+</form>
       </div>
     </div>
 

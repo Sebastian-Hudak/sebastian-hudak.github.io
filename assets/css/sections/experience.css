@@ -1,4 +1,4 @@
-/* ===================== EXPERIENCE SECTION (FULL CSS) ===================== */
+/* ===================== EXPERIENCE (COMPACT + MOBILE NICE) ===================== */
 
 .experience{
   background: var(--color--bg1);
@@ -6,13 +6,11 @@
   padding: clamp(24px, 4vw, 56px);
 }
 
-.experience__header{
-  margin-bottom: 35px;
-}
+.experience__header{ margin-bottom: 35px; }
 
 .experience__list{
   display: grid;
-  gap: 70px;
+  gap: clamp(40px, 5vw, 70px);
 }
 
 .exp-item{
@@ -20,71 +18,57 @@
   padding-top: 18px;
 }
 
-.exp-item:first-child{
-  border-top: 1px solid rgb(160, 160, 160);
-}
-
-/* ===================== TOP ROW ===================== */
+/* ---------- TOP ROW ---------- */
 
 .exp-item__top{
   display: flex;
-  align-items: flex-start;
+  flex-wrap: wrap;
   justify-content: space-between;
+  align-items: flex-start;
   gap: 16px;
   margin-bottom: 14px;
-
-  /* allows meta + tags to wrap nicely on small screens */
-  flex-wrap: wrap;
 }
 
 .exp-item__meta{
-  min-width: 0;
   flex: 1 1 520px;
+  min-width: 0;
 }
 
 .exp-item__metaRow{
-  display:flex;
-  gap:12px;
-  align-items:flex-start;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
   min-width: 0;
 }
 
 .exp-item__logo{
   width: 50px;
-  height: auto;
   flex: 0 0 50px;
+  height: auto;
 }
 
-/* role heading: fluid (nice on phone, unchanged feel on desktop) */
 .exp-item__role{
-  font-size: clamp(1.125rem, 2.2vw, 1.5625rem); /* 18px -> 25px */
-  margin: 0 0 6px 0;
+  margin: 0 0 6px;
   font-weight: 650;
-
-  /* long titles won't break layout */
+  font-size: clamp(1.125rem, 2.2vw, 1.5625rem);
   overflow-wrap: anywhere;
 }
 
-/* you use .about__role for the date line in HTML */
-.exp-item__date,
 .about__role{
   margin: 0;
   color: var(--color--text);
   font-size: var(--fs--small);
 }
 
-/* ===================== TAGS ===================== */
-
+/* tags */
 .exp-item__tags{
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   justify-content: flex-end;
   align-items: center;
-  min-width: 0;
 }
 
-/* Style each .tag (your HTML uses multiple spans) */
 .exp-item__tags .tag{
   display: inline-flex;
   align-items: center;
@@ -98,7 +82,7 @@
   white-space: nowrap;
 }
 
-/* ===================== BODY ===================== */
+/* ---------- BODY ---------- */
 
 .exp-item__body{
   display: grid;
@@ -107,92 +91,210 @@
   align-items: start;
 }
 
-.exp-item__media{
-  overflow: hidden;
-  border-radius: 12px; /* remove if you want sharp edges */
-}
+.exp-item__media{ overflow: hidden; }
+.exp-item__media img{ width: 100%; height: auto; display: block; }
 
-.exp-item__media img{
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.exp-item__desc{
-  max-width: 70ch;
-  min-width: 0;
-}
+.exp-item__desc{ max-width: 70ch; min-width: 0; }
 
 .exp-item__text{
-  margin: 0 0 10px 0;
+  margin: 0 0 10px;
   opacity: 0.85;
   line-height: 1.35;
 }
 
-.exp-item__bullets{
+/* ---------- BULLETS (desktop = dots + divider) ---------- */
+
+.exp-item__desc .education-text-bullets{
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--color--gray_border, #cfcfcf);
+}
+
+.exp-item__desc .education-text-bullets > ul{
+  list-style: disc;
+  list-style-position: outside;
+  padding-left: 1.15rem;
   margin: 0;
-  padding-left: 18px;
-  color: var(--color--muted);
-  font-size: var(--fs--small);
 }
 
-.exp-button{
-  margin-top: 24px;
+.exp-item__desc .education-text-bullets > ul > li{
+  margin: 0.35rem 0;
+  line-height: 1.45;
+  opacity: 0.9;
 }
 
-/* ===================== BREAKPOINTS ===================== */
+.exp-item__desc .education-text-bullets > ul > li::marker{
+  color: rgba(0,0,0,0.45);
+}
 
-/* Collapse body into one column */
+/* ===================== RESPONSIVE ===================== */
+
+/* stack body + center tags on phone */
 @media (max-width: 820px){
-  .exp-item__body{
-    grid-template-columns: 1fr;
+  .exp-item__body{ grid-template-columns: 1fr; }
+  .exp-item__tags{ justify-content: center; }
+
+  .exp-item__desc{ max-width: none; }
+  .exp-item__text{ text-align: center; }
+
+  /* button: centered, a bit narrower; hide icon */
+  .exp-button .button-redirect{
+    width: min(360px, 80%);
+    display: block;
+    margin: 16px auto 0;
+  }
+  .exp-button .button-redirect__icon{ display: none; }
+
+  /* bullets: compact “chips/cards”, centered */
+  .exp-item__desc .education-text-bullets{
+    border-top: 0;
+    padding-top: 0;
+    margin-top: 14px;
+    text-align: center;
   }
 
-  .exp-item__tags{
-    justify-content: flex-start;
+  .exp-item__desc .education-text-bullets::before{
+    content: "";
+    display: block;
+    height: 1px;
+    width: min(420px, 70%);
+    margin: 0 auto 12px;
+    background: rgba(0,0,0,0.18);
+  }
+
+  .exp-item__desc .education-text-bullets > ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 8px;                 /* tighter */
+    justify-items: center;
+  }
+
+  .exp-item__desc .education-text-bullets > ul > li{
+    width: min(520px, 100%);
+    padding: 0.55rem 0.8rem;  
+    border: 1px solid rgba(0,0,0,0.12);
+    background: rgba(255,255,255,0.28);
+    line-height: 1.4;
+    text-align: center;
   }
 }
 
-/* Phone tuning: bigger logo, tighter spacing, calmer text */
+/* small phones: tighten top spacing + pill size */
 @media (max-width: 480px){
+  .exp-item__top{ gap: 10px; margin-bottom: 10px; }
+  .exp-item__metaRow{ gap: 12px; align-items: center; }
+
+  .exp-item__logo{ width: 52px; flex-basis: 52px; }
+  .about__role{ font-size: 0.9rem; opacity: 0.9; }
+
+  .exp-item__tags{ gap: 6px; }
+  .exp-item__tags .tag{ padding: 6px 9px; font-size: 11px; }
+
+  .exp-button .button-redirect{
+    width: 80%;              /* feels best on small screens */
+  }
+}
+
+
+/* ===================== EXPERIENCE: MOBILE LAYOUT IMPROVEMENT ===================== */
+@media (max-width: 820px){
+
+  /* tighten overall spacing between experience items */
+  .experience__list{
+    gap: 42px;
+  }
+
+  .exp-item{
+    padding-top: 14px;
+  }
+
+  /* make the top area feel like one compact header block */
   .exp-item__top{
-    gap: 10px;
     margin-bottom: 10px;
+    gap: 10px;
+    justify-content: center; /* helps when stacked */
   }
 
   .exp-item__metaRow{
-    gap: 14px;
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 12px;
     align-items: center;
   }
 
   .exp-item__logo{
-    width: 56px;
-    flex: 0 0 56px;
+    width: 64px;
+    height: 64px;
+    flex: 0 0 64px;
+    object-fit: cover;
+  }
+
+  /* title + date alignment */
+  .exp-item__role{
+    margin: 0 0 4px;
+    font-size: 1.15rem;   /* stable on phones */
+    line-height: 1.15;
   }
 
   .about__role{
-    font-size: 0.9rem;
-    opacity: 0.9;
+    font-size: 0.92rem;
+    opacity: 0.85;
   }
 
+  /* tags centered and more compact */
   .exp-item__tags{
+    justify-content: center;
     gap: 6px;
   }
 
   .exp-item__tags .tag{
-    padding: 6px 9px;
+    padding: 5px 9px;
     font-size: 11px;
+  }
+
+  /* image: keep it from being too tall */
+  .exp-item__media{
+    overflow: hidden;
+  }
+
+  .exp-item__media img{
+    aspect-ratio: 16 / 10; /* forces compact height */
+    object-fit: cover;
+  }
+
+  /* description block: reduce text density slightly */
+  .exp-item__text{
+    margin-bottom: 8px;
+    line-height: 1.4;
   }
 }
 
-/* Ultra-small phones (optional but helps iPhone SE sized screens) */
-@media (max-width: 360px){
+/* extra small phones: even tighter */
+@media (max-width: 420px){
+  .exp-item__metaRow{
+    grid-template-columns: 58px 1fr;
+  }
   .exp-item__logo{
-    width: 52px;
-    flex-basis: 52px;
+    width: 58px;
+    height: 58px;
   }
-
   .exp-item__role{
-    font-size: 1.05rem; /* ~16.8px */
+    font-size: 1.08rem;
   }
+}
+
+@media (max-width: 820px){
+  .exp-item__desc .education-text-bullets > ul > li{
+    border-radius: 10px;        /* was ~12–14 */
+    padding: 0.6rem 0.85rem;    /* slightly tighter but still comfy */
+  }
+}
+
+@media (max-width: 820px){
+  .exp-item__top{ display: flex; flex-wrap: wrap; }
+  .exp-item__tags{ order: 1; width: 100%; justify-content: center; }
+  .exp-item .logo-band__label{ order: 2; width: 100%; text-align: center; margin-top: 10px; }
+  .exp-item__meta{ order: 0; width: 100%; }
 }

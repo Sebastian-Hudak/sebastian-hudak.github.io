@@ -108,3 +108,25 @@
   cards.forEach((c) => io.observe(c));
 });
 </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const flips = document.querySelectorAll(".flip");
+
+  flips.forEach((flip) => {
+    flip.addEventListener("click", (e) => {
+      e.stopPropagation();
+      flip.classList.toggle("is-flipped");
+    });
+  });
+
+  document.addEventListener("click", () => {
+    flips.forEach((f) => f.classList.remove("is-flipped"));
+  });
+
+  // optional: allow Esc to close when focused (desktop)
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") flips.forEach((f) => f.classList.remove("is-flipped"));
+  });
+});
+</script>

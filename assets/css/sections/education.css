@@ -91,14 +91,13 @@
 @media (min-width: 901px){
   .education-text-bullets .edu-points .edu-k{
     font-weight: 700;
-    margin-right: 0.35rem; /* space after colon */
+    margin-right: 0.35rem; 
   }
   .education-text-bullets .edu-points .edu-k::after{
     content: ":";
-    margin-right: 0.35rem; /* space after ":" */
+    margin-right: 0.35rem; 
   }
 }
-
 
 
 @media (max-width: 900px){
@@ -173,18 +172,16 @@
   }
 
   .education-card-border{
-    width: 35%;           /* start small */
-    margin: 0 auto 40px;  /* center the line */
+    width: 35%;         
+    margin: 0 auto 40px;  
   }
 
-  /* tap / focus (optional) */
   .education-card:active + .education-card-border,
   .education-card:focus-within + .education-card-border{
     width: 100%;
     border-color: var(--color--hover_border);
   }
 
-  /* scroll into view (best on mobile) */
   .education-card.is-inview + .education-card-border{
     width: 100%;
     border-color: var(--color--hover_border);
