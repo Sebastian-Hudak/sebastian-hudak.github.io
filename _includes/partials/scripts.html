@@ -130,3 +130,82 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const grid = document.querySelector("#projectsGrid");
+  const dotsWrap = document.querySelector(".projects__dots");
+  if (!grid || !dotsWrap) return;
+
+  const allCards = Array.from(grid.querySelectorAll(".project-card"));
+
+  const isVisible = (el) => {
+    // works for .is-hidden { display:none } and other hiding methods
+    return !!(el.offsetWidth || el.offsetHeight || el.getClientRects().length);
+  };
+
+  let io = null;
+
+  function buildDots() {
+    // only cards currently visible after filtering
+    const cards = allCards.filter(isVisible);
+
+    // hide dots completely if 0/1 slides
+    dotsWrap.innerHTML = "";
+    dotsWrap.style.display = (cards.length <= 1) ? "none" : "flex";
+
+    // disconnect old observer
+    if (io) io.disconnect();
+    if (!cards.length) return;
+
+    // create dots
+    const dots = cards.map((_, i) => {
+      const b = document.createElement("button");
+      b.className = "projects__dot";
+      b.type = "button";
+      b.setAttribute("aria-label", `Go to project ${i + 1}`);
+      b.addEventListener("click", () => {
+        cards[i].scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" });
+      });
+      dotsWrap.appendChild(b);
+      return b;
+    });
+
+    const setActive = (idx) => {
+      dots.forEach((d, i) => d.classList.toggle("is-active", i === idx));
+    };
+
+    // observe visible cards to update dot
+    io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          const idx = cards.indexOf(e.target);
+          if (idx !== -1) setActive(idx);
+        }
+      });
+    }, { root: grid, threshold: 0.6 });
+
+    cards.forEach(c => io.observe(c));
+
+    // snap to first visible card after filter change
+    setActive(0);
+    cards[0].scrollIntoView({ behavior: "auto", inline: "start", block: "nearest" });
+  }
+
+  // initial build
+  buildDots();
+
+  // Rebuild dots when filtering changes cards visibility
+  // If your filter buttons toggle .is-hidden, this catches it.
+  const mo = new MutationObserver(() => buildDots());
+  mo.observe(grid, { attributes: true, subtree: true, attributeFilter: ["class", "style"] });
+
+  // Also rebuild after clicking filter buttons (instant feedback)
+  document.querySelectorAll(".projects__filter").forEach(btn => {
+    btn.addEventListener("click", () => {
+      // wait a tick for your existing filter JS to apply classes
+      requestAnimationFrame(buildDots);
+    });
+  });
+});
+</script>

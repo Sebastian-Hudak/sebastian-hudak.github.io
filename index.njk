@@ -174,7 +174,7 @@ featuredProjects:
               {% img "assets/images/experience/cae/logo.jpeg", "CAE logo", "exp-item__logo" %}
               <div>
                 <h2 class="exp-item__role">Apprentice Simulator Technician — CAE Amsterdam B.V.</h2>
-                <p class="logo-band__label">September 2023 – Present </p>
+                <p class="logo-band__label exp-date exp-date--desktop">September 2023 – Present </p>
               </div>
             </div>
           </div>
@@ -184,6 +184,8 @@ featuredProjects:
             <span class="tag">Data acquisition</span>
             <span class="tag">Programming</span>
           </div>
+
+          <p class="logo-band__label exp-date exp-date--mobile">September 2023 – Present </p>
         </div>
 
         <div class="exp-item__body">
@@ -230,7 +232,7 @@ featuredProjects:
               
               <div>
                 <h2 class="exp-item__role">Propulsion Engineer — Rocket Factory Augsburg AG</h2>
-                <p class="logo-band__label">January 2025 – June 2025</p>
+                <p class="logo-band__label exp-date exp-date--desktop">January 2025 – June 2025</p>
               </div>
             </div>
           </div>
@@ -240,6 +242,7 @@ featuredProjects:
             <span class="tag">Propulsion</span>
             <span class="tag">Research</span>
           </div>
+          <p class="logo-band__label exp-date exp-date--mobile">January 2025 – June 2025</p>
         </div>
 
         <div class="exp-item__body">
@@ -282,7 +285,7 @@ featuredProjects:
               {% img "assets/images/experience/aquilo/logo.jpeg", "AQUILO logo", "exp-item__logo" %}
               <div>
                 <h2 class="exp-item__role">Propulsion Engineer — AQUILO Student Rocket Team Delft</h2>
-                <p class="logo-band__label">September 2022 – June 2025 </p>
+                <p class="logo-band__label exp-date exp-date--desktop">September 2022 – June 2025 </p>
               </div>
             </div>
           </div>
@@ -292,6 +295,7 @@ featuredProjects:
             <span class="tag">Propulsion</span>
             <span class="tag">Rocket Design</span>
           </div>
+          <p class="logo-band__label exp-date exp-date--mobile">September 2022 – June 2025 </p>
         </div>
 
         <div class="exp-item__body">
@@ -368,7 +372,7 @@ featuredProjects:
 <section class="section projects" id="Projects">
   <div class="container">
     <header class="projects__head">
-      <div class=section-header>
+      <div class="section-header">
         <h1>Projects</h1>
       </div>
     </header>
@@ -381,13 +385,18 @@ featuredProjects:
     </nav>
 
     <div class="projects__divider" aria-hidden="true"></div>
-    <div class="projects__grid">
-      {% for id in featuredProjects %}
-      {% set p = projects[id] %}
-      {% if p %}
-      {% include "components/project-card.njk" %}
-      {% endif %}
-      {% endfor %}
+
+    <div class="projects__carousel" aria-label="Projects carousel">
+      <div class="projects__grid" id="projectsGrid">
+        {% for id in featuredProjects %}
+          {% set p = projects[id] %}
+          {% if p %}
+            {% include "components/project-card.njk" %}
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <div class="projects__dots" aria-label="Project navigation"></div>
     </div>
   </div>
 </section>

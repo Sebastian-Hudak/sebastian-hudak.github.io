@@ -29,6 +29,10 @@
   margin-bottom: 14px;
 }
 
+
+.exp-date--mobile{ display: none; }
+.exp-date--desktop{ display: block; }
+
 .exp-item__meta{
   flex: 1 1 520px;
   min-width: 0;
@@ -60,7 +64,6 @@
   font-size: var(--fs--small);
 }
 
-/* tags */
 .exp-item__tags{
   display: flex;
   flex-wrap: wrap;
@@ -82,8 +85,6 @@
   white-space: nowrap;
 }
 
-/* ---------- BODY ---------- */
-
 .exp-item__body{
   display: grid;
   grid-template-columns: minmax(220px, 420px) 1fr;
@@ -101,8 +102,6 @@
   opacity: 0.85;
   line-height: 1.35;
 }
-
-/* ---------- BULLETS (desktop = dots + divider) ---------- */
 
 .exp-item__desc .education-text-bullets{
   margin-top: 12px;
@@ -127,9 +126,10 @@
   color: rgba(0,0,0,0.45);
 }
 
-/* ===================== RESPONSIVE ===================== */
+.exp-button .button-redirect{
+  margin-top: 15px;
+}
 
-/* stack body + center tags on phone */
 @media (max-width: 820px){
   .exp-item__body{ grid-template-columns: 1fr; }
   .exp-item__tags{ justify-content: center; }
@@ -137,7 +137,6 @@
   .exp-item__desc{ max-width: none; }
   .exp-item__text{ text-align: center; }
 
-  /* button: centered, a bit narrower; hide icon */
   .exp-button .button-redirect{
     width: min(360px, 80%);
     display: block;
@@ -145,7 +144,6 @@
   }
   .exp-button .button-redirect__icon{ display: none; }
 
-  /* bullets: compact “chips/cards”, centered */
   .exp-item__desc .education-text-bullets{
     border-top: 0;
     padding-top: 0;
@@ -167,21 +165,20 @@
     padding: 0;
     margin: 0;
     display: grid;
-    gap: 8px;                 /* tighter */
+    gap: 8px;     
     justify-items: center;
   }
 
   .exp-item__desc .education-text-bullets > ul > li{
     width: min(520px, 100%);
     padding: 0.55rem 0.8rem;  
-    border: 1px solid rgba(0,0,0,0.12);
+    border: 1px solid var(--color--line);
     background: rgba(255,255,255,0.28);
     line-height: 1.4;
     text-align: center;
   }
 }
 
-/* small phones: tighten top spacing + pill size */
 @media (max-width: 480px){
   .exp-item__top{ gap: 10px; margin-bottom: 10px; }
   .exp-item__metaRow{ gap: 12px; align-items: center; }
@@ -193,86 +190,9 @@
   .exp-item__tags .tag{ padding: 6px 9px; font-size: 11px; }
 
   .exp-button .button-redirect{
-    width: 80%;              /* feels best on small screens */
-  }
-}
-
-
-/* ===================== EXPERIENCE: MOBILE LAYOUT IMPROVEMENT ===================== */
-@media (max-width: 820px){
-
-  /* tighten overall spacing between experience items */
-  .experience__list{
-    gap: 42px;
+    width: 80%;             
   }
 
-  .exp-item{
-    padding-top: 14px;
-  }
-
-  /* make the top area feel like one compact header block */
-  .exp-item__top{
-    margin-bottom: 10px;
-    gap: 10px;
-    justify-content: center; /* helps when stacked */
-  }
-
-  .exp-item__metaRow{
-    display: grid;
-    grid-template-columns: 64px 1fr;
-    gap: 12px;
-    align-items: center;
-  }
-
-  .exp-item__logo{
-    width: 64px;
-    height: 64px;
-    flex: 0 0 64px;
-    object-fit: cover;
-  }
-
-  /* title + date alignment */
-  .exp-item__role{
-    margin: 0 0 4px;
-    font-size: 1.15rem;   /* stable on phones */
-    line-height: 1.15;
-  }
-
-  .about__role{
-    font-size: 0.92rem;
-    opacity: 0.85;
-  }
-
-  /* tags centered and more compact */
-  .exp-item__tags{
-    justify-content: center;
-    gap: 6px;
-  }
-
-  .exp-item__tags .tag{
-    padding: 5px 9px;
-    font-size: 11px;
-  }
-
-  /* image: keep it from being too tall */
-  .exp-item__media{
-    overflow: hidden;
-  }
-
-  .exp-item__media img{
-    aspect-ratio: 16 / 10; /* forces compact height */
-    object-fit: cover;
-  }
-
-  /* description block: reduce text density slightly */
-  .exp-item__text{
-    margin-bottom: 8px;
-    line-height: 1.4;
-  }
-}
-
-/* extra small phones: even tighter */
-@media (max-width: 420px){
   .exp-item__metaRow{
     grid-template-columns: 58px 1fr;
   }
@@ -286,15 +206,57 @@
 }
 
 @media (max-width: 820px){
-  .exp-item__desc .education-text-bullets > ul > li{
-    border-radius: 10px;        /* was ~12–14 */
-    padding: 0.6rem 0.85rem;    /* slightly tighter but still comfy */
-  }
-}
 
-@media (max-width: 820px){
-  .exp-item__top{ display: flex; flex-wrap: wrap; }
-  .exp-item__tags{ order: 1; width: 100%; justify-content: center; }
-  .exp-item .logo-band__label{ order: 2; width: 100%; text-align: center; margin-top: 10px; }
-  .exp-item__meta{ order: 0; width: 100%; }
+  .exp-date--desktop{ display: none; }
+
+  .exp-date--mobile{
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 6px 0 0;
+    opacity: 0.85;
+  }
+
+  .exp-item__tags{
+    justify-content: center;
+  }
+
+  .exp-item__logo{
+    width: 58px;
+    flex: 0 0 58px;
+  }
+
+  .exp-item__top{
+    margin-bottom: 10px;
+    gap: 10px;
+    justify-content: center; 
+  }
+
+  .exp-item__metaRow{
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .exp-item__media{
+    overflow: hidden;
+  }
+
+  .exp-item__media img{
+    aspect-ratio: 16 / 10; 
+    object-fit: cover;
+  }
+
+  .exp-item__text{
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+
+  .exp-item__desc .education-text-bullets > ul > li{
+    border-radius: 10px;    
+    padding: 0.6rem 0.85rem;    
+  }
+
+
 }
