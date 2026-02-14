@@ -1,12 +1,8 @@
-/* =========================
-   Experience Page Template
-   ========================= */
-
+/* ===================== EXPERIENCE PAGE SECTIONS (FULL CSS) ===================== */
 .page--experience{
-  background: #ffffff;
+  background: var(--color--bg1);
 }
 
-/* HERO */
 .page-hero{
   min-height: clamp(260px, 60vh, 320px);
   position: relative;
@@ -18,12 +14,12 @@
   background-position: center;
   background-repeat: no-repeat;
 
-  /* simple parallax (desktop) */
+  
   background-attachment: fixed;
 }
 
 @media (max-width: 900px){
-  .page-hero{ background-attachment: scroll; } /* mobile-friendly */
+  .page-hero{ background-attachment: scroll; } 
 }
 
 .page-hero__overlay{
@@ -39,7 +35,7 @@
 .page-hero__inner{
   position: relative;
   padding: clamp(2rem, 5vw, 4rem) 0;
-  color: #fff;
+  color: var(--color--bg1);
 }
 
 .page-hero__kicker{
@@ -83,8 +79,6 @@
   backdrop-filter: blur(6px);
 }
 
-/* STORY BLOCKS */
-
 
 .page-disclamer{
   margin: 0px 85px 2rem;
@@ -113,6 +107,14 @@
 .story--reverse .story__content{ order: 1; }
 
 @media (max-width: 900px){
+  
+  .page-disclamer{
+    width: min(1200px, 92vw);
+    margin: 0 auto 2rem;
+
+    font-size: var(--fs--body);
+    color: #444;
+  }
   .story__grid{
     grid-template-columns: 1fr;
   }
@@ -146,9 +148,7 @@
   margin: 0.35rem 0;
 }
 
-/* MEDIA (image or video) */
 .media{
-  border-radius: 0.25rem;
   overflow: hidden;
   background: #fff;
   border: 1px solid #ececec;
@@ -166,7 +166,6 @@
   object-fit: cover;
 }
 
-/* CALLOUTS */
 .story__callouts{
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -210,10 +209,9 @@
   line-height: 1.5;
 }
 
-/* RELATED */
 .related{
   padding: clamp(2.5rem, 5vw, 4rem) 0;
-  background: #ffffff;
+  background: var(--color--bg1);
 }
 
 .related__head{
@@ -223,25 +221,22 @@
 .related__title{
   margin: 0 0 0.35rem;
   font-size: clamp(1.6rem, 3vw, 2.2rem);
-  color: #333;
+  color: var(--color--heading);
 }
 
 .related__lead{
   margin: 0;
-  color: #666;
+  color: var(--color--text);
   max-width: 70ch;
 }
 
 .card-icon{
   position: absolute;
-  left: 18px;  /* tweak */
-  top: 18px;   /* tweak */
+  left: 18px;  
+  top: 18px;  
   width: 20px;
   height: 20px;
 }
-
-
-
 
 
 .page-hero--video{
@@ -255,7 +250,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* “don’t overpower” filter */
   filter: brightness(0.65) contrast(1.05) saturate(0.95);
   transform: scale(1.02);
 }
@@ -271,8 +265,6 @@
   );
 }
 
-
-/* ===== Journey: icons + tooltip ===== */
 .journey { padding: clamp(20px, 4.5vw, 44px) 0; }
 
 .journey__steps--icons{
@@ -291,7 +283,7 @@
   place-items: center;
   width: 46px;
   height: 46px;
-  border-radius: 14px;
+  border-radius: 10px;
   border: 1px solid rgba(0,0,0,0.10);
   background: rgba(255,255,255,0.55);
 }
@@ -324,7 +316,7 @@
   transform: translateX(-50%);
   white-space: nowrap;
   padding: 6px 10px;
-  border-radius: 12px;
+  border-radius: 10px;
   border: 1px solid rgba(0,0,0,0.12);
   background: rgba(255,255,255,0.95);
   box-shadow: 0 10px 24px rgba(0,0,0,0.10);
@@ -340,7 +332,125 @@
   transform: translateX(-50%) translateY(-2px);
 }
 
-/* remove connector when wrapping */
+
 @media (max-width: 700px){
   .journey__step:not(:last-child)::after{ display:none; }
+}
+
+@media (max-width: 900px){
+  .story__grid,
+  .story--reverse .story__grid{
+    grid-template-columns: 1fr;  
+    gap: 1rem;                   
+    align-items: start;
+  }
+
+  .story .media,
+  .story--reverse .media{
+    order: 1;
+  }
+
+  .story .story__content,
+  .story--reverse .story__content{
+    order: 2;
+  }
+}
+
+
+@media (max-width: 900px){
+  .page-hero{
+    background-attachment: scroll;
+    min-height: 0;           
+    height: auto;
+    padding-top: 3.5rem;          
+    padding-bottom: 1.25rem;
+    background-position: center;
+  }
+
+  .page-hero__inner{
+    padding: 0;
+  }
+
+  /* Make the text area feel like a designed block */
+  .page-hero__inner .container,
+  .page-hero__inner{
+    width: 100%;
+  }
+
+  .page-hero__inner{
+    display: grid;
+    align-items: end;
+  }
+
+  /* Stronger overlay on mobile so text is readable */
+  .page-hero__overlay{
+    background: linear-gradient(
+      to top,
+      rgba(0,0,0,0.92) 0%,
+      rgba(0,0,0,0.65) 55%,
+      rgba(0,0,0,0.12) 100%
+    );
+  }
+
+  .page-hero__kicker,
+  .page-hero__sub{
+    color: rgba(255,255,255,0.92);
+  }
+
+  .page-hero__title{
+    font-size: clamp(2rem, 7.8vw, 3.1rem);
+  }
+
+  .page-hero__meta{
+    justify-content: flex-start;
+    gap: 0.45rem;
+    margin-top: 0.9rem;
+  }
+
+  .tag{
+    font-size: 0.8rem;
+    padding: 0.32rem 0.65rem;
+  }
+}
+
+/* ===== Keep parallax ONLY where it behaves well ===== */
+@media (hover: hover) and (pointer: fine){
+  .page-hero{ background-attachment: fixed; }
+}
+
+/* iOS/phones: never try fixed, it’s buggy */
+@media (max-width: 900px){
+  .page-hero{ background-attachment: scroll; }
+}
+
+/* ===== Mobile: add proper horizontal padding for hero text ===== */
+@media (max-width: 900px){
+  .page-hero__inner{
+    /* gives the offset you want from left/right */
+    padding-left: min(5vw, 24px);
+    padding-right: min(5vw, 24px);
+
+    /* keep your vertical spacing reasonable */
+    padding-top: 2rem;
+    padding-bottom: 1.25rem;
+  }
+}
+
+/* ===== Mobile: “fake parallax feel” (subtle depth without fixed) ===== */
+@media (max-width: 900px){
+  .page-hero{
+    /* mild zoom makes it feel more cinematic when scrolling */
+    background-size: 110%;
+    background-position: center 35%;
+  }
+
+  /* slightly stronger overlay so text reads on phones */
+  .page-hero__overlay{
+    background: linear-gradient(
+      to top,
+      rgba(0,0,0,0.92) 0%,
+      rgba(0,0,0,0.62) 55%,
+      rgba(0,0,0,0.15) 100%
+    );
+  }
 }

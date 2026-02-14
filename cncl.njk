@@ -166,15 +166,19 @@ featuredProjects:
         <section class="related">
     <div class="container">
         <div class="related__head">
-            <h2 class="related__title">More Projects</h2>
+            <h1 class="related__title">More Projects</h1>
         </div>
-        <div class="projects__grid">
-            {% for id in featuredProjects %}
-            {% set p = projects[id] %}
-            {% if p %}
+         <div class="projects__carousel" aria-label="Projects carousel">
+      <div class="projects__grid" id="projectsGrid">
+        {% for id in featuredProjects %}
+          {% set p = projects[id] %}
+          {% if p %}
             {% include "components/project-card.njk" %}
-            {% endif %}
-            {% endfor %}
-        </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <div class="projects__dots" aria-label="Project navigation"></div>
+    </div>
     </div>
 </section>

@@ -187,9 +187,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     cards.forEach(c => io.observe(c));
 
-    // snap to first visible card after filter change
-    setActive(0);
-    cards[0].scrollIntoView({ behavior: "auto", inline: "start", block: "nearest" });
+    // set active dot
+setActive(0);
+
+// Only auto-scroll the horizontal carousel on MOBILE,
+// and only if the Projects section is already near the viewport.
+const isMobileCarousel = window.matchMedia("(max-width: 600px)").matches;
+const projSection = grid.closest(".projects");
+const nearProjects = projSection && projSection.getBoundingClientRect().top < window.innerHeight * 0.6;
+
+if (isMobileCarousel && nearProjects) {
+  cards[0].scrollIntoView({ behavior: "auto", inline: "center", block: "nearest" });
+}
   }
 
   // initial build

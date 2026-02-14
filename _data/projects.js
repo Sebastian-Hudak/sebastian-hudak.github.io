@@ -6,9 +6,9 @@ module.exports = {
     alt: "Cavitation shadowgraph",
     desc: "Reseach based cavitation onset prediction supported by empirical measurements of flow restriction plates.",
     specs: [
-      "Investigation of cavitation onset",
-      "Campaign of 100+ pressure drop experiments",
-      "Python based empirical database of orifice properties"
+      "Research",
+      "Data pipeline",
+      "Empirical database"
     ],
     chips: ["Research", "Testing", "Propulsion"],
     tags_raw: "internship,propulsion"
@@ -26,7 +26,7 @@ module.exports = {
   },
 
   MACHINING: {
-    title: "AQUILO components machining",
+    title: "AQUILO machining",
     href: "/machining/",
     img: "/assets/images/experience/aquilo/lathe1.jpeg",
     alt: "Machining work",
@@ -76,12 +76,12 @@ module.exports = {
     alt: "CNC head",
     desc: "Home-made CNC engraver based on old PC optical drives.",
     specs: ["Self made at the age of 16", "Basic supplies", "GRBL based controller"],
-    chips: ["electronics", "working machine", "improvisation"],
+    chips: ["Electronics", "CNC", "Improvisation"],
     tags_raw: "personal,electronics"
   },
 
   SOUND: {
-    title: "Sound measurement analysis",
+    title: "Sound analysis",
     href: "/sound/",
     img: "/assets/images/projects/sound/vertical_sound.JPG",
     alt: "Microphone inside cockpit",
@@ -92,13 +92,13 @@ module.exports = {
   },
 
   TAIL: {
-    title: "Tail section structural design",
+    title: "Tail structural design",
     href: "/tail/",
     img: "/assets/images/projects/tail/render.PNG",
     alt: "CNC head",
     desc: "Winning design of aircraft tail section follwing all given requirements and constrains.",
     specs: ["3 member international team", "CAD + manufacturing", "Load testing"],
-    chips: ["design", "testing", "competition"],
+    chips: ["Design", "Testing", "Competition"],
     tags_raw: "school,design"
   }
 };

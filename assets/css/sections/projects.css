@@ -108,7 +108,7 @@
 
 .project-card__title{
   color: var(--color-h3);
-  font-size: 1.05rem;
+  font-size: var(--fs--body);
   font-weight: 300;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -149,20 +149,27 @@
   border-radius: 999px;
   background: var(--color--gray_bg);
   border: 1px solid var(--color--gray_border);
-  font-size: 0.75rem;
+  font-size: var(--fs--small);
   font-weight: 600;
-  text-transform: lowercase;
 }
 
 .project-card.is-hidden{ display: none; }
 
-/* ===================== MOBILE CAROUSEL (fixed) ===================== */
+
 @media (max-width: 600px){
+
+  .projects__filters{
+    justify-content: center;
+    text-align: center; 
+    justify-content: center;
+    gap: 0.65rem;
+  }
+ 
   .projects__carousel{ position: relative; }
 
   .projects__grid{
     display: grid;
-    grid-template-columns: none;  /* override 12-col */
+    grid-template-columns: none;  
     grid-auto-flow: column;
     grid-auto-columns: 88%;
     gap: 0.75rem;
@@ -178,29 +185,26 @@
   }
   .projects__grid::-webkit-scrollbar{ display:none; }
 
-  /* IMPORTANT: cancel the span rules */
   .projects__grid > .project-card{
     grid-column: auto !important;
     scroll-snap-align: start;
   }
 
-  /* touch: remove hover lift feel */
   .project-card:hover{
     transform: none;
     box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
   }
   .project-card__media img{
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 4 / 3;
     object-fit: cover;
     transform: none;
-    filter: contrast(85%);
+    filter: contrast(95%);
   }
   .project-card:hover .project-card__media img{
     transform: none;
-    filter: contrast(85%);
+    filter: contrast(95%);
   }
 
-  /* dots */
   .projects__dots{
     display: flex;
     justify-content: center;
@@ -231,7 +235,6 @@
     position: relative;
   }
 
-  /* fade edges (works everywhere) */
   .projects__carousel::before,
   .projects__carousel::after{
     content:"";
@@ -269,18 +272,17 @@
   
 }
 
-/* Softer cards on phone */
 @media (max-width: 600px){
   .project-card{
     box-shadow: 0 10px 22px -16px rgba(0,0,0,0.28);
   }
 
-  /* keep hover from getting heavier on touch */
+
   .project-card:hover{
     box-shadow: 0 10px 22px -16px rgba(0,0,0,0.28);
   }
 
-  /* optional: make border slightly more visible instead of shadow */
+
   .project-card{
     border-color: rgba(0,0,0,0.10);
   }
