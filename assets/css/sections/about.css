@@ -1,6 +1,6 @@
 /* ===================== ABOUT SECTION (FULL CSS) ===================== */
 .section.about {
-  background: var(--color--bg1);
+  background: var(--color--bg2);
 }
 
 .about__grid {
@@ -13,6 +13,7 @@
 .about__image {
   width: 100%;
   height: auto;
+  background-color: transparent;
 }
 
 .about__content {
@@ -22,7 +23,7 @@
 .about__role {
   margin: 0 0 10px;
   font-size: var(--fs--small);
-  letter-spacing: 0.12em;
+  letter-spacing: var(--ls--wide);
   text-transform: uppercase;
   font-weight: var(--fw--bold);
   opacity: 0.75;

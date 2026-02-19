@@ -1,6 +1,6 @@
 .section.projects{
   padding: clamp(3rem, 6vw, 5rem) 0;
-  background: var(--color-bg1);
+  background: var(--color--bg2);
   color: var(--gray);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -163,6 +163,7 @@
     text-align: center; 
     justify-content: center;
     gap: 0.65rem;
+    font-size: var(--fs--lead);
   }
  
   .projects__carousel{ position: relative; }

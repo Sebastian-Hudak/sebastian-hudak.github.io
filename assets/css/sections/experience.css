@@ -1,7 +1,7 @@
 /* ===================== EXPERIENCE (COMPACT + MOBILE NICE) ===================== */
 
 .experience{
-  background: var(--color--bg1);
+  background: var(--color--bg2);
   color: var(--color--text);
   padding: clamp(24px, 4vw, 56px);
 }

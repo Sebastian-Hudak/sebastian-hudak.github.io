@@ -41,7 +41,7 @@
   height: 6rem !important;
   flex: 0 0 6rem;        
   border-radius: 50%;
-  box-shadow: 0 0.5rem 1rem var(--color--gray_border);
+  box-shadow: 0 0.5rem 1rem var(--color--gray_shadow);
   margin-right: 3rem;        
 }
 

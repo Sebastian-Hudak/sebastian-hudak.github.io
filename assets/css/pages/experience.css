@@ -297,7 +297,6 @@
 
 .journey__icon svg{ width: 18px; height: 18px; }
 
-/* subtle connector */
 .journey__step:not(:last-child)::after{
   content:"";
   position:absolute;
@@ -308,7 +307,6 @@
   background: rgba(0,0,0,0.18);
 }
 
-/* tooltip */
 .journey__tip{
   position: absolute;
   left: 50%;
@@ -371,7 +369,6 @@
     padding: 0;
   }
 
-  /* Make the text area feel like a designed block */
   .page-hero__inner .container,
   .page-hero__inner{
     width: 100%;
@@ -382,7 +379,6 @@
     align-items: end;
   }
 
-  /* Stronger overlay on mobile so text is readable */
   .page-hero__overlay{
     background: linear-gradient(
       to top,
@@ -392,7 +388,10 @@
     );
   }
 
-  .page-hero__kicker,
+  .page-hero__kicker{
+    font-size: var(--fs--body);
+    letter-spacing: 0.1em;
+  }
   .page-hero__sub{
     color: rgba(255,255,255,0.92);
   }
@@ -418,38 +417,30 @@
   .page-hero{ background-attachment: fixed; }
 }
 
-/* iOS/phones: never try fixed, it’s buggy */
 @media (max-width: 900px){
   .page-hero{ background-attachment: scroll; }
-}
-
-/* ===== Mobile: add proper horizontal padding for hero text ===== */
-@media (max-width: 900px){
   .page-hero__inner{
-    /* gives the offset you want from left/right */
+   
     padding-left: min(5vw, 24px);
     padding-right: min(5vw, 24px);
-
-    /* keep your vertical spacing reasonable */
-    padding-top: 2rem;
+    
+    padding-top: 0rem;
     padding-bottom: 1.25rem;
   }
 }
 
-/* ===== Mobile: “fake parallax feel” (subtle depth without fixed) ===== */
 @media (max-width: 900px){
   .page-hero{
-    /* mild zoom makes it feel more cinematic when scrolling */
-    background-size: 110%;
-    background-position: center 35%;
-  }
+    
+    background-size: 100%;
+    background-position: center 15%;
+  }ß
 
-  /* slightly stronger overlay so text reads on phones */
   .page-hero__overlay{
     background: linear-gradient(
       to top,
-      rgba(0,0,0,0.92) 0%,
-      rgba(0,0,0,0.62) 55%,
+      rgba(0, 0, 0, 0.56) 0%,
+      rgba(0, 0, 0, 0.448) 55%,
       rgba(0,0,0,0.15) 100%
     );
   }

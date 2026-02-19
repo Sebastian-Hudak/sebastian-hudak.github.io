@@ -4,20 +4,19 @@ title: HEI
 mainClass: "page page--project"
 featuredProjects:
 - CAVITATION
-- HEI
+- CNCL
 - MACHINING
 ---      
         <section class="page-hero" style="--hero-img: url('/assets/images/projects/hei/render1.jpg');">
             <div class="page-hero__overlay" aria-hidden="true"></div>
 
             <div class="container page-hero__inner">
-                <p class="page-hero__kicker">Project</p>
+                <p class="page-hero__kicker">AQUILO Project</p>
                 <h1 class="page-hero__title">Head-End Ignition (HEI)</h1>
                 <p class="page-hero__sub">Propulsion • Design • Manufacturing • 2024</p>
 
                 <div class="page-hero__meta">
-                    <span class="tag">Role: Design Engineer</span>
-                    <span class="tag">Tools: CAD, FEA</span>
+                    <span class="tag">Role: Project Lead, Design Engineer</span>
                 </div>
             </div>
         </section>
@@ -25,7 +24,7 @@ featuredProjects:
         <!-- META + TOC -->
         <section class="project-meta">
              <p class="page-disclamer">
-        Knowledge embargo: I will only disclose non-sensitive information regarding my work at AQUILO. Report does not include any propellant specific details, performance data, or proprietary design information. Focus is on my role, responsibilities, and general project context without revealing confidential technical specifics.
+        Knowledge embargo: I will only disclose non-sensitive information. Report does not include any propellant specific details, performance data, or proprietary design information.
     </p>
             <div class="container project-meta__grid">
                 <div class="facts">
@@ -33,7 +32,7 @@ featuredProjects:
                     <dl class="facts__list">
                         <div class="facts__row">
                             <dt>Duration</dt>
-                            <dd>6 months</dd>
+                            <dd>8 months</dd>
                         </div>
                         <div class="facts__row">
                             <dt>My role</dt>
@@ -58,14 +57,21 @@ featuredProjects:
 
 
         <div class="story__content">
-            <h2 class="story__title">Goal</h2>
+            <h2 class="story__title">Idea</h2>
             <p class="story__text">
-                Rocket Factory Augsburg AG is one of the first commercial European companies developing orbital
-                class launcher capable of delivering variety of payloads to different orbits.</p> 
-                 <p class="story__text">
-                    Its uniqueness stands in successful full in-house development of <strong>Europe's first oxygen-rich 
-                    staged combustion (ORSC) engine </strong> called HELIX capable of delivering roughly 100kN of thrust.
+                Solid rocket motors are reliable and straightforward thrust sources, 
+                but characterizing propellants is challenging due to the potential for 
+                unpredictable combustion from small composition changes.</p> 
+            <p class="story__text">
+                The simplest method 
+                for characterizing propellants is "pressure tapping," which, along with burn 
+                time and known properties, provides the necessary data to model thrust estimation 
+                when the propellant composition remains constant.
             </p>
+            <p class="story__text">
+                Main goal of the project was to research possible "pressure tapping" solutions. However making minor changes 
+                of motor endcap design is inefficient since the whole production process has to follow.<br>
+                That's how the idea to research possibilities of different ignition methods from endcap side came to life.
         </div>
     </div>
 </section>
@@ -82,18 +88,21 @@ featuredProjects:
         <div class="story__content">
             <h2 class="story__title">Design Constrains</h2>
             <p class="story__text">
-                As a part of propulsion R&D team I have made contributions in fields of fluid
-                mechanics analysis on refinement and development of HELIX specificaly cavitation research on component testing.</p> 
-                <p class="story__text">
-            Key projects I have been involved in include:</p>
-            <div class="education-text-bullets">
-              <ul>
-                <li>Iterations of system design</li>
-                <li>Cavitation research of propellant/ignition feed system</li>
-                <li>Development of test rigs for component testing</li>
-                <li>Research based empirical data analysis.</li>
-              </ul>
-            </div>
+                After exploring options, I found a well-tested head-end ignition design by <a
+                href="https://www.nakka-rocketry.net/igniter.html" class="story__link" target="_blank" rel="noopener">Richard Nakka</a>.
+                However, to implement it, changes such as ignitor fixtures, endcap retention methods, 
+                and the existing motor design were necessary.
+            </p> 
+            <p class="story__text">
+                Design of HEI was made using following considerations:
+                <ul>
+                    <li><strong>Material selection</strong> - weight and ESD properties & availability</li>
+                    <li><strong>Propellants used</strong> - combustion temperatures & burn times</li>
+                    <li><strong>Retention methods</strong> - Current motor component retention methods</li>
+                    <li><strong>Size constrains</strong> - small circumference </li>
+                    <li><strong>MEOP</strong> - maximum experienced pressures </li>
+                </ul>
+            </p>
         </div>
     </div>
 </section>
@@ -108,15 +117,16 @@ featuredProjects:
 
         <div class="story__content">
             <h2 class="story__title">Prototype</h2>
-            <p class="story__text">RFA's unconventional approach to aerospace component design well aligned with my
-                passion for
-                innovation and problem-solving, allowing me to apply and expand my skills further.</p>
-            <p class="story__text">Even as an intern, I had the opportunity to see my work implemented 
-                in real production. The company’s culture is built on trust — interns are given full 
-                responsibility for their projects, supported by strong technical supervision.</p>
-            <p class="story__text">I was involved in the complete development cycle, from defining requirements and 
-                design, through validation testing, to final assembly. Being part of the full engineering process 
-                and seeing the outcome in production was an incredibly rewarding experience.</p>
+            <p class="story__text">
+                While making small tweaks on a design, I have made a prototype to see feasibility of machining components
+                on available machinery.
+            </p>
+            <p class="story__text">
+
+            </p>
+            <p class="story__text">
+
+            </p>
         </div>
         
     </div>
@@ -138,20 +148,14 @@ featuredProjects:
 
 
         <div class="story__content">
-            <h2 class="story__title">Design Constrains</h2>
+            <h2 class="story__title">Final Production</h2>
             <p class="story__text">
-                As a part of propulsion R&D team I have made contributions in fields of fluid
-                mechanics analysis on refinement and development of HELIX specificaly cavitation research on component testing.</p> 
+                Thanks to the sponsor for this project <a
+                href="https://microlanaerospace.com" class="story__link" target="_blank" rel="noopener">Microlan Aerospace</a>, we have been able to get a handful amount of components
+                to support our campaign and move into testing phase.</p>
                 <p class="story__text">
-            Key projects I have been involved in include:</p>
-            <div class="education-text-bullets">
-              <ul>
-                <li>Iterations of system design</li>
-                <li>Cavitation research of propellant/ignition feed system</li>
-                <li>Development of test rigs for component testing</li>
-                <li>Research based empirical data analysis.</li>
-              </ul>
-            </div>
+                    Testing of HEI and further development of this ignition method has been handed over to the current propulsion
+ Team at AQUILO and I will follow the story of this project further.</p>
         </div>
     </div>
 </section>
@@ -160,36 +164,13 @@ featuredProjects:
     <div class="inline-media">
   <figure class="inline-media__item">
     <img src="/assets/images/projects/hei/component3.jpeg" alt="HEI igniter" loading="lazy">
-    <figcaption>Fixture setup for repeatable alignment.</figcaption>
   </figure>
 
   <figure class="inline-media__item">
     <img src="/assets/images/projects/hei/component5.jpg" alt="Igniter hardware" loading="lazy">
-    <figcaption>HEI assembly supplied by Microlan.</figcaption>
   </figure>
 </div>
 </section>
-
-
-        <section class="case" id="results">
-            <div class="container">
-                <h2 class="case__title">Results</h2>
-                <div class="results">
-                    <div class="result">
-                        <div class="result__kpi">+23%</div>
-                        <div class="result__label">Efficiency</div>
-                    </div>
-                    <div class="result">
-                        <div class="result__kpi">-6 dB</div>
-                        <div class="result__label">Noise</div>
-                    </div>
-                    <div class="result">
-                        <div class="result__kpi">2×</div>
-                        <div class="result__label">Runtime</div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <section class="related">
     <div class="container">

@@ -4,8 +4,8 @@ title: CNC Lathe
 mainClass: "page page--project"
 featuredProjects:
 - MACHINING
+- HEI
 - GSX
-- ABOX
 ---      
         <section class="page-hero" style="--hero-img: url('/assets/images/projects/cncl/oval.jpeg');">
             <div class="page-hero__overlay" aria-hidden="true"></div>
@@ -13,10 +13,10 @@ featuredProjects:
             <div class="container page-hero__inner">
                 <p class="page-hero__kicker">Project</p>
                 <h1 class="page-hero__title">CNC Lathe RetroFit</h1>
-                <p class="page-hero__sub">Machining • CNC • CAM • 2024</p>
+                <p class="page-hero__sub">Machining • CNC • CAM • 2023</p>
 
                 <div class="page-hero__meta">
-                    <span class="tag">Tools: CAD, CAM</span>
+                    <span class="tag">Tools: CAM</span>
                 </div>
             </div>
         </section>
@@ -30,13 +30,15 @@ featuredProjects:
 
 
         <div class="story__content">
-            <h2 class="story__title">Challenge</h2>
+            <h2 class="story__title">Idea</h2>
             <p class="story__text">
-                Rocket Factory Augsburg AG is one of the first commercial European companies developing orbital
-                class launcher capable of delivering variety of payloads to different orbits.</p> 
-                 <p class="story__text">
-                    Its uniqueness stands in successful full in-house development of <strong>Europe's first oxygen-rich 
-                    staged combustion (ORSC) engine </strong> called HELIX capable of delivering roughly 100kN of thrust.
+                The idea to retrofit an old CNC Lathe with modern CAM software came during 
+                the design phase of HEI, where availability and machining capabilities
+                were key factors in the decision to decide on possible design features. 
+                The school-owned CNC machine had not been used and needed modernization.</p> 
+            <p class="story__text">
+                After consulting with school representatives about the possibility of upgrading 
+                the CNC lathe, I gained access to the machine and initiated the process.</p>
             </p>
         </div>
     </div>
@@ -52,20 +54,16 @@ featuredProjects:
 
 
         <div class="story__content">
-            <h2 class="story__title">Restoration</h2>
+            <h2 class="story__title">Troubleshooting</h2>
             <p class="story__text">
-                As a part of propulsion R&D team I have made contributions in fields of fluid
-                mechanics analysis on refinement and development of HELIX specificaly cavitation research on component testing.</p> 
+                Before starting software modernization, the CNC lathe needed restoration, 
+                which included lubrication, testing subcomponents, and calibration. </p> 
                 <p class="story__text">
-            Key projects I have been involved in include:</p>
-            <div class="education-text-bullets">
-              <ul>
-                <li>Iterations of system design</li>
-                <li>Cavitation research of propellant/ignition feed system</li>
-                <li>Development of test rigs for component testing</li>
-                <li>Research based empirical data analysis.</li>
-              </ul>
-            </div>
+                With a licensed SINUMERICK 810D controller, the initial step was to explore 
+                the software's capabilities while maintaining the machine's reliability. To ensure 
+                students had easy access for their projects, the next step was to integrate an 
+                accessible CAM solution compatible with the existing controller, leading to the 
+                decision to use Fusion CAM software.</p>
         </div>
     </div>
 </section>
@@ -79,16 +77,13 @@ featuredProjects:
 
 
         <div class="story__content">
-            <h2 class="story__title">Custom ...</h2>
-            <p class="story__text">RFA's unconventional approach to aerospace component design well aligned with my
-                passion for
-                innovation and problem-solving, allowing me to apply and expand my skills further.</p>
-            <p class="story__text">Even as an intern, I had the opportunity to see my work implemented 
-                in real production. The company’s culture is built on trust — interns are given full 
-                responsibility for their projects, supported by strong technical supervision.</p>
-            <p class="story__text">I was involved in the complete development cycle, from defining requirements and 
-                design, through validation testing, to final assembly. Being part of the full engineering process 
-                and seeing the outcome in production was an incredibly rewarding experience.</p>
+            <h2 class="story__title">Custom post-processor</h2>
+            <p class="story__text">
+                The existing post-processor used between Fusion 360 and the SINUMERIK controller 
+                was not fully compatible with the version running on the CNC machine. After several 
+                trials and errors, along with communication with the CNC manufacturer, I was able to 
+                modify the existing script to ensure it works with the current version of the controller.</p>
+            <p class="story__text">Take a look at the final result below and assess it for yourself.</p>
         </div>
         
     </div>
@@ -96,69 +91,20 @@ featuredProjects:
 
 <section class="container">
     <div class="mini-gallery">
-  {% img "assets/images/projects/hei/machining.jpeg", "HEI machining" %}
-  {% img "assets/images/projects/hei/proto1.jpeg", "HEI proto1" %}
-  {% img "assets/images/projects/hei/proto3.jpeg", "HEI proto3" %}
-</div>
-</section>
-<section class="story story--reverse">
-    <div class="container story__grid">
-
-        <figure class="media media--4x3">
-            {% img "assets/images/projects/hei/component2.jpeg", "HEI production" %}
-        </figure>
-
-
-        <div class="story__content">
-            <h2 class="story__title">Design Constrains</h2>
-            <p class="story__text">
-                As a part of propulsion R&D team I have made contributions in fields of fluid
-                mechanics analysis on refinement and development of HELIX specificaly cavitation research on component testing.</p> 
-                <p class="story__text">
-            Key projects I have been involved in include:</p>
-            <div class="education-text-bullets">
-              <ul>
-                <li>Iterations of system design</li>
-                <li>Cavitation research of propellant/ignition feed system</li>
-                <li>Development of test rigs for component testing</li>
-                <li>Research based empirical data analysis.</li>
-              </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="container">
-    <div class="inline-media">
-  <figure class="inline-media__item">
-    <img src="/assets/images/projects/hei/component3.jpeg" alt="HEI igniter" loading="lazy">
-    <figcaption>Fixture setup for repeatable alignment.</figcaption>
-  </figure>
-
-  <figure class="inline-media__item">
-    <img src="/assets/images/projects/hei/component5.jpg" alt="Igniter hardware" loading="lazy">
-    <figcaption>HEI assembly supplied by Microlan.</figcaption>
-  </figure>
+  {% img "assets/images/projects/cncl/oval.jpeg", "Component inside view" %}
+  {% img "assets/images/projects/cncl/part_detail.jpg", "Component detail" %}
+  {% img "assets/images/projects/cncl/work.jpeg", "CNC finished" %}
 </div>
 </section>
 
-
-        <section class="case" id="results">
-            <div class="container">
-                <h2 class="case__title">Results</h2>
-                <div class="results">
-                    <div class="result">
-                        <div class="result__kpi">+23%</div>
-                        <div class="result__label">Efficiency</div>
-                    </div>
-                    <div class="result">
-                        <div class="result__kpi">-6 dB</div>
-                        <div class="result__label">Noise</div>
-                    </div>
-                    <div class="result">
-                        <div class="result__kpi">2×</div>
-                        <div class="result__label">Runtime</div>
-                    </div>
+<section class="case" id="links">
+            <div class="container links">
+                <h2 class="case__title">Links</h2>
+                <div class="links__row">
+                    <a class="linkbtn" href="https://github.com/USER/REPO" target="_blank" rel="noopener">GitHub
+                        ↗</a>
+                    <a class="linkbtn" href="/assets/documents/EMCO-Turn_55_manual.pdf" target="_blank" rel="noopener">PDF
+                        Manual ↗</a>
                 </div>
             </div>
         </section>
