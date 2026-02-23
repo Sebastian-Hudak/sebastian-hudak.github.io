@@ -217,4 +217,121 @@ if (isMobileCarousel && nearProjects) {
     });
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const nav = document.getElementById("site-nav");
+  if (!nav) return;
+
+  const links = Array.from(nav.querySelectorAll("a.nav__link"));
+
+  const currentPath = window.location.pathname.replace(/\/$/, "");
+  const isIndex =
+    currentPath === "" ||
+    currentPath === "/" ||
+    currentPath.endsWith("/index.html");
+
+  const getHashId = (a) => {
+    try {
+      const url = new URL(a.getAttribute("href"), window.location.origin);
+      return url.hash ? url.hash.slice(1) : null;
+    } catch {
+      const href = a.getAttribute("href") || "";
+      const i = href.indexOf("#");
+      return i >= 0 ? href.slice(i + 1) : null;
+    }
+  };
+
+  // pass null to clear
+  const setActive = (id) => {
+    links.forEach((a) => {
+      const linkId = getHashId(a);
+      a.classList.toggle("is-active", Boolean(id) && linkId === id);
+    });
+  };
+
+  // Highlight current PAGE link (e.g. /contact.html)
+  const normalized = (p) => p.replace(/\/$/, "");
+  links.forEach((a) => {
+    const href = a.getAttribute("href") || "";
+    if (href.includes("#")) return;
+    try {
+      const url = new URL(href, window.location.origin);
+      if (normalized(url.pathname) === normalized(window.location.pathname)) {
+        a.classList.add("is-active");
+      }
+    } catch {}
+  });
+
+  // Only run scroll-spy on index page
+  if (!isIndex) return;
+
+  const headerH = parseFloat(
+    getComputedStyle(document.documentElement).getPropertyValue("--header-h")
+  );
+  const headerOffset = Number.isFinite(headerH) ? Math.round(headerH) : 80;
+
+  // Build section items from hash links
+  const items = links
+    .map((a) => {
+      const id = getHashId(a);
+      const section = id ? document.getElementById(id) : null;
+      return section ? { a, section, id } : null;
+    })
+    .filter(Boolean);
+
+  if (!items.length) {
+    console.warn("[scrollspy] No matching section IDs found for nav links.");
+    return;
+  }
+
+  // TOP sentinel: clears active when hero/top is in view
+  const topEl = document.getElementById("top"); // you have <section class="hero" id="top">
+  if (topEl) {
+    const topIO = new IntersectionObserver(
+      (entries) => {
+        const e = entries[0];
+        if (e && e.isIntersecting) setActive(null);
+      },
+      {
+        // Trigger "top" when you're near the start of the page
+        rootMargin: `${-headerOffset}px 0px -75% 0px`,
+        threshold: 0.15,
+      }
+    );
+    topIO.observe(topEl);
+  }
+
+  // Initial highlight from hash; otherwise none
+  if (window.location.hash) {
+    const id = window.location.hash.slice(1);
+    if (document.getElementById(id)) setActive(id);
+    else setActive(null);
+  } else {
+    setActive(null);
+  }
+
+  const io = new IntersectionObserver(
+    (entries) => {
+      const visible = entries
+        .filter((e) => e.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+      if (visible) setActive(visible.target.id);
+      // If nothing is intersecting and we’re above the first section, clear:
+      else {
+        const firstSectionTop = items[0].section.offsetTop;
+        if (window.scrollY < firstSectionTop - headerOffset - 10) {
+          setActive(null);
+        }
+      }
+    },
+    {
+      rootMargin: `-${headerOffset}px 0px -55% 0px`,
+      threshold: [0.15, 0.25, 0.4, 0.6],
+    }
+  );
+
+  items.forEach(({ section }) => io.observe(section));
+});
 </script>
+

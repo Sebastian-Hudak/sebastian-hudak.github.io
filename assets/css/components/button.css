@@ -1,11 +1,11 @@
 
 /* Button 23 */
+@layer components {
 .button-redirect {
-  background-color: var(--color-background);
-  border: 1px solid var(--color--line);
+  border: 1px solid var(--color-line);
   border-radius: 8px;
   box-sizing: border-box;
-  color: var(--color-font);
+  color: var(--color-text);
   cursor: pointer;
   display: inline-flex;
   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
@@ -19,7 +19,7 @@
   text-align: center;
   text-decoration: none;
   touch-action: manipulation;
-  transition: box-shadow .2s,-ms-transform .1s,-webkit-transform .1s,transform .1s;
+  transition: box-shadow .2s,-ms-transform .1s,-webkit-transform .3s,transform .1s;
   user-select: none;
   -webkit-user-select: none;
   width: auto;
@@ -48,4 +48,5 @@
   width: 1.1em;          /* scales with font size */
   height: 1.1em;
   flex: 0 0 auto;
+}
 }

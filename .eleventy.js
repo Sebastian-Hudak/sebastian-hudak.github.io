@@ -1,3 +1,5 @@
+globalThis.self = globalThis; // 👈 first line, before any other require()
+
 const Image = require("@11ty/eleventy-img");
 const path = require("path");
 

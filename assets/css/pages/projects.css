@@ -1,4 +1,5 @@
 /* ===== Project Page ===== */
+@layer components {
 .page--project{ background:#fff; }
 
 /* meta */
@@ -265,4 +266,5 @@
 
 @media (max-width: 380px){
   .mini-gallery{ grid-auto-columns: 84%; }
+}
 }

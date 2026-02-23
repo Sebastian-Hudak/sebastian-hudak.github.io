@@ -1,5 +1,5 @@
 /* ===================== CONTACT PAGE (FULL CSS) ===================== */
-
+@layer components {
 .contact-page{
   background: var(--color--bg1);
 }
@@ -289,4 +289,5 @@
     display: block;
     margin-top: 16px;
   }
+}
 }

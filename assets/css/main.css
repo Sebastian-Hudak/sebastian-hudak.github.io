@@ -1,3 +1,5 @@
+@layer reset, tokens, base, layout, components, utilities;
+
 @import "./globals.css";
 
 @import "./components/header.css";
@@ -10,7 +12,6 @@
 @import "./sections/experience.css";
 @import "./sections/framework.css";
 @import "./sections/testimonials.css";
-@import "./sections/logos.css";
 @import "./sections/projects.css";
 
 @import "./pages/contact.css";
@@ -61,4 +62,39 @@
     filter: none !important;
     transition: none !important;
   }
+}
+
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .intro-nav,
+  .intro-hero {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Keyframes */
+@keyframes navDrop {
+  from { transform: translateY(-48px); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}
+
+@keyframes heroRise {
+  from { transform: translateY(22px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+/* Apply animations */
+.intro-nav {
+  opacity: 0;
+  animation: navDrop 1200ms cubic-bezier(.6,.9,.2,1) 80ms forwards;
+  will-change: transform, opacity;
+}
+
+.intro-hero {
+  opacity: 0;
+  animation: heroRise 750ms cubic-bezier(.2,.8,.8,1) 420ms forwards;
+  will-change: transform, opacity;
 }

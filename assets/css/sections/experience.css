@@ -1,262 +1,376 @@
 /* ===================== EXPERIENCE (COMPACT + MOBILE NICE) ===================== */
-
-.experience{
-  background: var(--color--bg2);
-  color: var(--color--text);
-  padding: clamp(24px, 4vw, 56px);
-}
-
-.experience__header{ margin-bottom: 35px; }
-
-.experience__list{
-  display: grid;
-  gap: clamp(40px, 5vw, 70px);
-}
-
-.exp-item{
-  border-top: 1px solid var(--color--line);
-  padding-top: 18px;
-}
-
-/* ---------- TOP ROW ---------- */
-
-.exp-item__top{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 16px;
-  margin-bottom: 14px;
-}
-
-
-.exp-date--mobile{ display: none; }
-.exp-date--desktop{ display: block; }
-
-.exp-item__meta{
-  flex: 1 1 520px;
-  min-width: 0;
-}
-
-.exp-item__metaRow{
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  min-width: 0;
-}
-
-.exp-item__logo{
-  width: 50px;
-  flex: 0 0 50px;
-  height: auto;
-}
-
-.exp-item__role{
-  margin: 0 0 6px;
-  font-weight: 650;
-  font-size: clamp(1.125rem, 2.2vw, 1.5625rem);
-  overflow-wrap: anywhere;
-}
-
-.about__role{
-  margin: 0;
-  color: var(--color--text);
-  font-size: var(--fs--small);
-}
-
-.exp-item__tags{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.exp-item__tags .tag{
-  display: inline-flex;
-  align-items: center;
-  padding: 6px 10px;
-  border-radius: 999px;
-  border: 1px solid var(--color--gray_border, #cfcfcf);
-  background: var(--color--gray_bg, #f2f2f2);
-  color: var(--color--text);
-  font-size: 12px;
-  line-height: 1;
-  white-space: nowrap;
-}
-
-.exp-item__body{
-  display: grid;
-  grid-template-columns: minmax(220px, 420px) 1fr;
-  gap: 22px;
-  align-items: start;
-}
-
-.exp-item__media{ overflow: hidden; }
-.exp-item__media img{ width: 100%; height: auto; display: block; }
-
-.exp-item__desc{ max-width: 70ch; min-width: 0; }
-
-.exp-item__text{
-  margin: 0 0 10px;
-  opacity: 0.85;
-  line-height: 1.35;
-}
-
-.exp-item__desc .education-text-bullets{
-  margin-top: 12px;
-  padding-top: 12px;
-  border-top: 1px solid var(--color--gray_border, #cfcfcf);
-}
-
-.exp-item__desc .education-text-bullets > ul{
-  list-style: disc;
-  list-style-position: outside;
-  padding-left: 1.15rem;
-  margin: 0;
-}
-
-.exp-item__desc .education-text-bullets > ul > li{
-  margin: 0.35rem 0;
-  line-height: 1.45;
-  opacity: 0.9;
-}
-
-.exp-item__desc .education-text-bullets > ul > li::marker{
-  color: rgba(0,0,0,0.45);
-}
-
-.exp-button .button-redirect{
-  margin-top: 15px;
-}
-
-@media (max-width: 820px){
-  .exp-item__body{ grid-template-columns: 1fr; }
-  .exp-item__tags{ justify-content: center; }
-
-  .exp-item__desc{ max-width: none; }
-  .exp-item__text{ text-align: center; }
-
-  .exp-button .button-redirect{
-    width: min(360px, 80%);
-    display: block;
-    margin: 16px auto 0;
-  }
-  .exp-button .button-redirect__icon{ display: none; }
-
-  .exp-item__desc .education-text-bullets{
-    border-top: 0;
-    padding-top: 0;
-    margin-top: 14px;
-    text-align: center;
+@layer components {
+  .experience {
+    background: var(--color--bg2);
+    color: var(--color--text);
+    padding: clamp(24px, 4vw, 56px);
   }
 
-  .exp-item__desc .education-text-bullets::before{
-    content: "";
-    display: block;
-    height: 1px;
-    width: min(420px, 70%);
-    margin: 0 auto 12px;
-    background: rgba(0,0,0,0.18);
+  .experience__header {
+    margin-bottom: 35px;
   }
 
-  .exp-item__desc .education-text-bullets > ul{
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  .experience__list {
     display: grid;
-    gap: 8px;     
-    justify-items: center;
+    gap: clamp(40px, 5vw, 70px);
   }
 
-  .exp-item__desc .education-text-bullets > ul > li{
-    width: min(520px, 100%);
-    padding: 0.55rem 0.8rem;  
-    border: 1px solid var(--color--line);
-    background: rgba(255,255,255,0.28);
-    line-height: 1.4;
-    text-align: center;
-  }
-}
-
-@media (max-width: 480px){
-  .exp-item__top{ gap: 10px; margin-bottom: 10px; }
-  .exp-item__metaRow{ gap: 12px; align-items: center; }
-
-  .exp-item__logo{ width: 52px; flex-basis: 52px; }
-  .about__role{ font-size: 0.9rem; opacity: 0.9; }
-
-  .exp-item__tags{ gap: 6px; }
-  .exp-item__tags .tag{ padding: 6px 9px; font-size: 11px; }
-
-  .exp-button .button-redirect{
-    width: 80%;             
+  .exp-item {
+    border-top: 1px solid var(--color--line);
+    padding-top: 18px;
   }
 
-  .exp-item__metaRow{
-    grid-template-columns: 58px 1fr;
-  }
-  .exp-item__logo{
-    width: 58px;
-    height: 58px;
-  }
-  .exp-item__role{
-    font-size: 1.08rem;
-  }
-}
+  /* ---------- TOP ROW ---------- */
 
-@media (max-width: 820px){
+  .exp-item__top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 14px;
+  }
 
-  .exp-date--desktop{ display: none; }
 
-  .exp-date--mobile{
+  .exp-date--mobile {
+    display: none;
+  }
+
+  .exp-date--desktop {
     display: block;
-    width: 100%;
-    text-align: center;
-    margin: 6px 0 0;
-    opacity: 0.85;
   }
 
-  .exp-item__tags{
-    justify-content: center;
+  .exp-item__meta {
+    flex: 1 1 520px;
+    min-width: 0;
   }
 
-  .exp-item__logo{
-    width: 58px;
-    flex: 0 0 58px;
-  }
-
-  .exp-item__top{
-    margin-bottom: 10px;
-    gap: 10px;
-    justify-content: center; 
-  }
-
-  .exp-item__metaRow{
-    display: grid;
-    grid-template-columns: 64px 1fr;
+  .exp-item__metaRow {
+    display: flex;
+    align-items: flex-start;
     gap: 12px;
+    min-width: 0;
+  }
+
+  .exp-item__logo {
+    width: 50px;
+    flex: 0 0 50px;
+    height: auto;
+  }
+
+  .exp-item__role {
+    margin: 0 0 6px;
+    font-weight: 650;
+    font-size: clamp(1.125rem, 2.2vw, 1.5625rem);
+    overflow-wrap: anywhere;
+  }
+
+  .about__role {
+    margin: 0;
+    color: var(--color--text);
+    font-size: var(--fs--small);
+  }
+
+  .exp-item__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: flex-end;
     align-items: center;
   }
 
-  .exp-item__media{
+  .exp-item__tags .tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--color--gray_border, #cfcfcf);
+    background: var(--color--gray_bg, #f2f2f2);
+    color: var(--color--text);
+    font-size: 12px;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .exp-item__body {
+    display: grid;
+    grid-template-columns: minmax(220px, 420px) 1fr;
+    gap: 22px;
+    align-items: start;
+  }
+
+  .exp-item__media {
     overflow: hidden;
   }
 
-  .exp-item__media img{
-    aspect-ratio: 16 / 10; 
-    object-fit: cover;
+  .exp-item__media img {
+    width: 100%;
+    height: auto;
+    display: block;
   }
 
-  .exp-item__text{
-    margin-bottom: 8px;
-    line-height: 1.4;
+  .exp-item__desc {
+    max-width: 70ch;
+    min-width: 0;
   }
 
-  .exp-item__desc .education-text-bullets > ul > li{
-    border-radius: 10px;    
-    padding: 0.6rem 0.85rem;    
+  .exp-item__text {
+    margin: 0 0 10px;
+    opacity: 0.85;
+    line-height: 1.35;
   }
 
+  .exp-item__desc .education-text-bullets {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--color--gray_border, #cfcfcf);
+  }
+
+  .exp-item__desc .education-text-bullets>ul {
+    list-style: disc;
+    list-style-position: outside;
+    padding-left: 1.15rem;
+    margin: 0;
+  }
+
+  .exp-item__desc .education-text-bullets>ul>li {
+    margin: 0.35rem 0;
+    line-height: 1.45;
+    opacity: 0.9;
+  }
+
+  .exp-item__desc .education-text-bullets>ul>li::marker {
+    color: rgba(0, 0, 0, 0.45);
+  }
+
+  .exp-button .button-redirect {
+    margin-top: 15px;
+  }
+
+  @media (max-width: 820px) {
+    .exp-item__body {
+      grid-template-columns: 1fr;
+    }
+
+    .exp-item__tags {
+      justify-content: center;
+    }
+
+    .exp-item__desc {
+      max-width: none;
+    }
+
+    .exp-item__text {
+      text-align: center;
+    }
+
+    .exp-button .button-redirect {
+      width: min(360px, 80%);
+      display: block;
+      margin: 16px auto 0;
+    }
+
+    .exp-button .button-redirect__icon {
+      display: none;
+    }
+
+    .exp-item__desc .education-text-bullets {
+      border-top: 0;
+      padding-top: 0;
+      margin-top: 14px;
+      text-align: center;
+    }
+
+    .exp-item__desc .education-text-bullets::before {
+      content: "";
+      display: block;
+      height: 1px;
+      width: min(420px, 70%);
+      margin: 0 auto 12px;
+      background: rgba(0, 0, 0, 0.18);
+    }
+
+    .exp-item__desc .education-text-bullets>ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 8px;
+      justify-items: center;
+    }
+
+    .exp-item__desc .education-text-bullets>ul>li {
+      width: min(520px, 100%);
+      padding: 0.55rem 0.8rem;
+      border: 1px solid var(--color--line);
+      background: rgba(255, 255, 255, 0.28);
+      line-height: 1.4;
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .exp-item__top {
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .exp-item__metaRow {
+      gap: 12px;
+      align-items: center;
+    }
+
+    .exp-item__logo {
+      width: 52px;
+      flex-basis: 52px;
+    }
+
+    .about__role {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .exp-item__tags {
+      gap: 6px;
+    }
+
+    .exp-item__tags .tag {
+      padding: 6px 9px;
+      font-size: 11px;
+    }
+
+    .exp-button .button-redirect {
+      width: 80%;
+    }
+
+    .exp-item__metaRow {
+      grid-template-columns: 58px 1fr;
+    }
+
+    .exp-item__logo {
+      width: 58px;
+      height: 58px;
+    }
+
+    .exp-item__role {
+      font-size: 1.08rem;
+    }
+  }
+
+  @media (max-width: 820px) {
+
+    .exp-date--desktop {
+      display: none;
+    }
+
+    .exp-date--mobile {
+      display: block;
+      width: 100%;
+      text-align: center;
+      margin: 6px 0 0;
+      opacity: 0.85;
+    }
+
+    .exp-item__tags {
+      justify-content: center;
+    }
+
+    .exp-item__logo {
+      width: 58px;
+      flex: 0 0 58px;
+    }
+
+    .exp-item__top {
+      margin-bottom: 10px;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .exp-item__metaRow {
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .exp-item__media {
+      overflow: hidden;
+    }
+
+    .exp-item__media img {
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+    }
+
+    .exp-item__text {
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .exp-item__desc .education-text-bullets>ul>li {
+      border-radius: 10px;
+      padding: 0.6rem 0.85rem;
+    }
+
+
+  }
+
+  /* ===================== EXPERIENCE HIGHLIGHT CARD ===================== */
+.exp-item--highlight {
+  position: relative;
+  border-top: 0;                 /* remove your normal top border */
+  padding: 18px;                 /* give it "card" padding */
+  border: 1px solid rgba(0,0,0,0.10);
+  border-radius: 16px;
+  background: var(--color-bg2);  /* your bg2 token */
+  box-shadow: var(--color-shadow-md);
+}
+
+/* subtle accent line (optional) */
+.exp-item--highlight::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  height: 2px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.25);
+}
+
+/* grain overlay (very subtle) */
+.exp-item--highlight::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  pointer-events: none;
+  opacity: 0.10;
+
+  /* lightweight “grain” using repeating gradients (no image needed) */
+  background-image:
+    repeating-linear-gradient(0deg,
+      rgba(0,0,0,0.10) 0px,
+      rgba(0,0,0,0.10) 1px,
+      transparent 1px,
+      transparent 3px),
+    repeating-linear-gradient(90deg,
+      rgba(0,0,0,0.06) 0px,
+      rgba(0,0,0,0.06) 1px,
+      transparent 1px,
+      transparent 4px);
+  mix-blend-mode: multiply;
+}
+
+/* keep content above overlays */
+.exp-item--highlight > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* optional: make role pop a bit */
+.exp-item--highlight .exp-item__role {
+  letter-spacing: -0.01em;
+}
 
 }

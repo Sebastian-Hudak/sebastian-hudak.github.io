@@ -1,62 +1,61 @@
 /* ===================== ABOUT SECTION (FULL CSS) ===================== */
-.section.about {
-  background: var(--color--bg2);
-}
+@layer components {
+  .section.about {
+    background: var(--color-bg1);
+  }
 
-.about__grid {
-  display: grid;
-  grid-template-columns: 400px 1fr;
-  gap: clamp(30px, 4vw, 64px);
-  align-items: center;
-}
-
-.about__image {
-  width: 100%;
-  height: auto;
-  background-color: transparent;
-}
-
-.about__content {
-  max-width: 75ch;
-}
-
-.about__role {
-  margin: 0 0 10px;
-  font-size: var(--fs--small);
-  letter-spacing: var(--ls--wide);
-  text-transform: uppercase;
-  font-weight: var(--fw--bold);
-  opacity: 0.75;
-}
-
-.about__title {
-  margin: 0 0 14px;
-  font-size: var(--fs--h1);
-  line-height: var(--lh--tight);
-}
-
-.about__text {
-  margin: 0 0 22px;
-  font-size: var(--fs--body);
-  line-height: var(--lh--normal);
-  color: var(--color--text);
-}
-
-@media (max-width: 820px) {
   .about__grid {
-    grid-template-columns: 1fr;
-    text-align: left;
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: clamp(30px, 4vw, 64px);
+    align-items: center;
   }
 
   .about__image {
-    max-width: 360px;
+    width: 100%;
+    height: auto;
+  }
+
+  .about__content {
+    max-width: 75ch;
+  }
+
+  .about__role {/*  Un-used  */
+    margin: 0 0 10px;
+    font-size: var(--fs--small);
+    letter-spacing: var(--ls--wide);
+    text-transform: uppercase;
+    font-weight: var(--fw--bold);
+    opacity: 0.75;
+  }
+
+  .about__text {
+    margin: 0 0 2px;
+    font-size: var(--fs--body);
+    line-height: var(--lh--normal);
+    color: var(--color--text);
+  }
+
+  @media (max-width: 820px) {
+    .about__grid {
+      grid-template-columns: 1fr;
+      text-align: left;
+    }
+
+    .about__image {
+      max-width: 660px;
+    }
+  }
+
+  .about__signature {
+    width: 80%;
+    height: auto;
+    margin: 20px 0 0px;
+    object-fit: cover;
+  }
+
+  .about_title{
+    font-size: clamp(2.05rem, 3vw, 3rem);
+    font-weight: var(--fw-medium);
   }
 }
-
-.about__signature {
-  width: 70%;
-  height: auto;
-  margin: 0px 0 0px;
-  object-fit: cover;
-}
-

@@ -1,447 +1,398 @@
-/* ===================== EXPERIENCE PAGE SECTIONS (FULL CSS) ===================== */
-.page--experience{
-  background: var(--color--bg1);
-}
+/* ===================== EXPERIENCE PAGE SECTIONS (CLEANED + CONSISTENT) ===================== */
+@layer components {
 
-.page-hero{
-  min-height: clamp(260px, 60vh, 320px);
-  position: relative;
-  display: grid;
-  align-items: end;
-
-  background-image: var(--hero-img);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  
-  background-attachment: fixed;
-}
-
-@media (max-width: 900px){
-  .page-hero{ background-attachment: scroll; } 
-}
-
-.page-hero__overlay{
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top,
-    rgba(0, 0, 0, 0.85),
-    rgba(0, 0, 0, 0.576) 65%,
-    rgba(0, 0, 0, 0)
-  );
-}
-
-.page-hero__inner{
-  position: relative;
-  padding: clamp(2rem, 5vw, 4rem) 0;
-  color: var(--color--bg1);
-}
-
-.page-hero__kicker{
-  margin: 0 0 0.5rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-weight: 600;
-  opacity: 0.9;
-  font-size: 1rem;
-}
-
-.page-hero__title{
-  margin: 0;
-  font-size: clamp(2rem, 8vw, 4rem);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  color: #fff;
-}
-
-.page-hero__sub{
-  margin: 0.75rem 0 0;
-  max-width: 65ch;
-  opacity: 0.9;
-}
-
-.page-hero__meta{
-  margin-top: 1.25rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.tag{
-  display: inline-flex;
-  align-items: center;
-  padding: 0.35rem 0.7rem;
-  border-radius: 999px;
-  font-size: 0.85rem;
-  border: 1px solid rgba(255,255,255,0.25);
-  background: rgba(255,255,255,0.10);
-  backdrop-filter: blur(6px);
-}
-
-
-.page-disclamer{
-  margin: 0px 85px 2rem;
-  font-size: 1rem;
-  color: #444;
- 
-}
-.story{
-  padding: clamp(2.5rem, 5vw, 4rem) 0;
-}
-
-
-
-.story__grid{
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: clamp(1rem, 4vw, 3rem);
-  align-items: center;
-}
-
-.story--reverse .story__grid{
-  grid-template-columns: 0.9fr 1.1fr;
-}
-
-.story--reverse .media{ order: 2; }
-.story--reverse .story__content{ order: 1; }
-
-@media (max-width: 900px){
-  
-  .page-disclamer{
-    width: min(1200px, 92vw);
-    margin: 0 auto 2rem;
-
-    font-size: var(--fs--body);
-    color: #444;
-  }
-  .story__grid{
-    grid-template-columns: 1fr;
-  }
-  .story--reverse .media,
-  .story--reverse .story__content{
-    order: initial;
-  }
-}
-
-.story__title{
-  margin: 0 0 0.75rem;
-  font-size: clamp(1.4rem, 2.4vw, 2rem);
-  line-height: 1.15;
-  color: #333;
-}
-
-.story__text{
-  margin: 0 0 1rem;
-  line-height: var(--lh--normal);
-  color: var(--color--text);
-  max-width: 95ch;
-}
-
-.story__bullets{
-  margin: 0;
-  padding-left: 1.2rem;
-  color: var(--color--text);
-}
-
-.story__bullets li{
-  margin: 0.35rem 0;
-}
-
-.media{
-  overflow: hidden;
-  background: #fff;
-  border: 1px solid #ececec;
-  box-shadow: 0 20px 40px -14px rgba(0,0,0,0.18);
-}
-
-.media--16x9{ aspect-ratio: 16 / 9; }
-.media--4x3{ aspect-ratio: 4 / 3; }
-
-.media img,
-.media video{
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-}
-
-.story__callouts{
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.75rem;
-  margin-top: 1rem;
-}
-.story__icon{
-  width: 25px;
-  height: 25px;
-  flex: 0 0 auto;
-}
-
-.story__link{
-  color: var(--text);
-  text-decoration: underline;
-  font-weight: 500;
-}
-
-@media (max-width: 700px){
-  .story__callouts{ grid-template-columns: 1fr; }
-}
-
-.callout{
-  background: #fff;
-  border: 1px solid #ececec;
-  border-radius: 0.25rem;
-  padding: 0.9rem;
-}
-
-.callout__title{
-  margin: 0 0 0.35rem;
-  font-size: 0.9rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #444;
-}
-
-.callout__text{
-  margin: 0;
-  color: #666;
-  line-height: 1.5;
-}
-
-.related{
-  padding: clamp(2.5rem, 5vw, 4rem) 0;
-  background: var(--color--bg1);
-}
-
-.related__head{
-  margin-bottom: 1.25rem;
-}
-
-.related__title{
-  margin: 0 0 0.35rem;
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
-  color: var(--color--heading);
-}
-
-.related__lead{
-  margin: 0;
-  color: var(--color--text);
-  max-width: 70ch;
-}
-
-.card-icon{
-  position: absolute;
-  left: 18px;  
-  top: 18px;  
-  width: 20px;
-  height: 20px;
-}
-
-
-.page-hero--video{
-  position: relative;
-  overflow: hidden;
-}
-
-.page-hero__bg{
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(0.65) contrast(1.05) saturate(0.95);
-  transform: scale(1.02);
-}
-
-.page-hero__overlay{
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(0,0,0,0.60) 0%,
-    rgba(0,0,0,0.35) 45%,
-    rgba(0,0,0,0.55) 100%
-  );
-}
-
-.journey { padding: clamp(20px, 4.5vw, 44px) 0; }
-
-.journey__steps--icons{
-  list-style: none;
-  padding: 30px 0px;
-  margin: 0;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.journey__step{
-  position: relative;
-  display: grid;
-  place-items: center;
-  width: 46px;
-  height: 46px;
-  border-radius: 10px;
-  border: 1px solid rgba(0,0,0,0.10);
-  background: rgba(255,255,255,0.55);
-}
-
-.journey__icon{
-  width: 100%;
-  height: 100%;
-  display: grid;
-  place-items: center;
-}
-
-.journey__icon svg{ width: 18px; height: 18px; }
-
-.journey__step:not(:last-child)::after{
-  content:"";
-  position:absolute;
-  right:-10px;
-  top:50%;
-  width:10px;
-  height:1px;
-  background: rgba(0,0,0,0.18);
-}
-
-.journey__tip{
-  position: absolute;
-  left: 50%;
-  bottom: calc(100% + 10px);
-  transform: translateX(-50%);
-  white-space: nowrap;
-  padding: 6px 10px;
-  border-radius: 10px;
-  border: 1px solid rgba(0,0,0,0.12);
-  background: rgba(255,255,255,0.95);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.10);
-  font-size: 0.85rem;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .15s ease, transform .15s ease;
-}
-
-.journey__step:hover .journey__tip,
-.journey__step:focus-within .journey__tip{
-  opacity: 1;
-  transform: translateX(-50%) translateY(-2px);
-}
-
-
-@media (max-width: 700px){
-  .journey__step:not(:last-child)::after{ display:none; }
-}
-
-@media (max-width: 900px){
-  .story__grid,
-  .story--reverse .story__grid{
-    grid-template-columns: 1fr;  
-    gap: 1rem;                   
-    align-items: start;
+  /* Page wrapper */
+  .page--experience{
+    background: var(--color-bg1);
+    color: var(--color-text);
   }
 
-  .story .media,
-  .story--reverse .media{
-    order: 1;
-  }
-
-  .story .story__content,
-  .story--reverse .story__content{
-    order: 2;
-  }
-}
-
-
-@media (max-width: 900px){
+  /* --------------------- PAGE HERO --------------------- */
   .page-hero{
+    /* Safe default (no parallax glitches) */
     background-attachment: scroll;
-    min-height: 0;           
-    height: auto;
-    padding-top: 3.5rem;          
-    padding-bottom: 1.25rem;
-    background-position: center;
-  }
 
-  .page-hero__inner{
-    padding: 0;
-  }
-
-  .page-hero__inner .container,
-  .page-hero__inner{
-    width: 100%;
-  }
-
-  .page-hero__inner{
+    min-height: clamp(260px, 60vh, 320px);
+    position: relative;
     display: grid;
     align-items: end;
+
+    background-image: var(--hero-img);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  /* Enable parallax only on devices where it behaves well */
+  @media (hover: hover) and (pointer: fine){
+    .page-hero{ background-attachment: fixed; }
+  }
+
+  /* If you have a video hero variant */
+  .page-hero--video{
+    position: relative;
+    overflow: hidden;
+  }
+
+  .page-hero__bg{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.65) contrast(1.05) saturate(0.95);
+    transform: scale(1.02);
+    z-index: 0;
   }
 
   .page-hero__overlay{
+    position: absolute;
+    inset: 0;
+    z-index: 1;
     background: linear-gradient(
-      to top,
-      rgba(0,0,0,0.92) 0%,
-      rgba(0,0,0,0.65) 55%,
-      rgba(0,0,0,0.12) 100%
+      -90deg,
+      rgba(0,0,0,0.60) 0%,
+      rgba(0,0,0,0.35) 35%,
+      rgba(0,0,0,0.93) 100%
     );
+  }
+
+  /* Inner content: keep it in normal flow (more robust than absolute) */
+  .page-hero__inner{
+    position: relative;
+    z-index: 2;
+
+    /* Align with your site rhythm */
+    padding: clamp(2rem, 5vw, 4rem) var(--gutter);
+    color: #fff;
+
+    /* If you want the text to sit a bit above the bottom */
+    width: min(var(--container-max), 100%);
+    margin-inline: auto;
   }
 
   .page-hero__kicker{
-    font-size: var(--fs--body);
-    letter-spacing: 0.1em;
-  }
-  .page-hero__sub{
-    color: rgba(255,255,255,0.92);
+    margin: 0 0 0.5rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 600;
+    opacity: 0.9;
+    font-size: 1rem;
   }
 
   .page-hero__title{
-    font-size: clamp(2rem, 7.8vw, 3.1rem);
+    margin: 0;
+    font-size: clamp(2rem, 8vw, 4rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: #fff;
+  }
+
+  .page-hero__sub{
+    margin: 0.75rem 0 0;
+    max-width: 65ch;
+    opacity: 0.9;
   }
 
   .page-hero__meta{
-    justify-content: flex-start;
-    gap: 0.45rem;
-    margin-top: 0.9rem;
+    margin-top: 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
   }
 
-  .tag{
-    font-size: 0.8rem;
-    padding: 0.32rem 0.65rem;
+  /* Scope tags so you don’t collide with other ".tag" components */
+  .page-hero__meta .tag{
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    border: 1px solid rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.10);
+    backdrop-filter: blur(6px);
   }
+
+  /* Reduced motion: disable parallax-ish effects */
+  @media (prefers-reduced-motion: reduce){
+    .page-hero{ background-attachment: scroll !important; }
+    .page-hero__bg{ transform: none; }
+  }
+
+  /* --------------------- DISCLAIMER --------------------- */
+  .page-disclamer{
+    width: min(var(--container-max), calc(100% - (2 * var(--gutter))));
+    margin: 0 auto 2rem;
+    font-size: 1rem;
+    color: #444;
+  }
+
+  /* --------------------- STORY SECTIONS --------------------- */
+  .story{
+    padding: clamp(2.5rem, 5vw, 4rem) 0;
+  }
+
+  .story__grid{
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: clamp(1rem, 4vw, 3rem);
+    align-items: center;
+  }
+
+  .story--reverse .story__grid{
+    grid-template-columns: 0.9fr 1.1fr;
+  }
+
+  .story--reverse .media{ order: 2; }
+  .story--reverse .story__content{ order: 1; }
+
+  .story__text{
+    margin: 0 0 1rem;
+    line-height: var(--lh-normal);
+    color: var(--color-text);
+    max-width: 95ch;
+  }
+
+  .story__bullets{
+    margin: 0;
+    padding-left: 1.2rem;
+    color: var(--color-text);
+  }
+
+  .story__bullets li{
+    margin: 0.35rem 0;
+  }
+
+  .story__link{
+    color: var(--color-text);
+    text-decoration: underline;
+    font-weight: 500;
+  }
+
+  /* Media card */
+  .media{
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid #ececec;
+    box-shadow: 0 20px 40px -14px rgba(0,0,0,0.18);
+
+  }
+
+  .media--16x9{ aspect-ratio: 16 / 9; }
+  .media--4x3{ aspect-ratio: 4 / 3; }
+
+  .media img,
+.media picture,
+.media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-/* ===== Keep parallax ONLY where it behaves well ===== */
-@media (hover: hover) and (pointer: fine){
-  .page-hero{ background-attachment: fixed; }
-}
-
-@media (max-width: 900px){
-  .page-hero{ background-attachment: scroll; }
-  .page-hero__inner{
-   
-    padding-left: min(5vw, 24px);
-    padding-right: min(5vw, 24px);
-    
-    padding-top: 0rem;
-    padding-bottom: 1.25rem;
+  /* Callouts under story content */
+  .story__callouts{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin-top: 1rem;
   }
-}
 
-@media (max-width: 900px){
-  .page-hero{
-    
-    background-size: 100%;
-    background-position: center 15%;
-  }ß
-
-  .page-hero__overlay{
-    background: linear-gradient(
-      to top,
-      rgba(0, 0, 0, 0.56) 0%,
-      rgba(0, 0, 0, 0.448) 55%,
-      rgba(0,0,0,0.15) 100%
-    );
+  .story__icon{
+    width: 25px;
+    height: 25px;
+    flex: 0 0 auto;
   }
+
+  .callout{
+    background: #fff;
+    border: 1px solid #ececec;
+    border-radius: 12px;
+    padding: 0.9rem;
+  }
+
+  .callout__title{
+    margin: 0 0 0.35rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #444;
+  }
+
+  .callout__text{
+    margin: 0;
+    color: #666;
+    line-height: 1.5;
+  }
+
+  /* --------------------- JOURNEY (ICON STEPS) --------------------- */
+  .journey { padding: clamp(20px, 4.5vw, 44px) 0; }
+
+  .journey__steps--icons{
+    list-style: none;
+    padding: 30px 0;
+    margin: 0;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .journey__step{
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.10);
+    background: rgba(255,255,255,0.55);
+  }
+
+  .journey__icon{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+  }
+
+  .journey__icon svg{ width: 18px; height: 18px; }
+
+  .journey__step:not(:last-child)::after{
+    content:"";
+    position:absolute;
+    right:-10px;
+    top:50%;
+    width:10px;
+    height:1px;
+    background: rgba(0,0,0,0.18);
+  }
+
+  .journey__tip{
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 10px);
+    transform: translateX(-50%);
+    white-space: nowrap;
+    padding: 6px 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.12);
+    background: rgba(255,255,255,0.95);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.10);
+    font-size: 0.85rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .15s ease, transform .15s ease;
+  }
+
+  .journey__step:hover .journey__tip,
+  .journey__step:focus-within .journey__tip{
+    opacity: 1;
+    transform: translateX(-50%) translateY(-2px);
+  }
+
+  /* --------------------- RELATED SECTION --------------------- */
+  .related{
+    padding: clamp(2.5rem, 5vw, 4rem) 0;
+    background: var(--color-bg1);
+  }
+
+  .related__head{ margin-bottom: 1.25rem; }
+
+  .related__title{
+    margin: 0 0 0.35rem;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    color: var(--color-heading);
+  }
+
+  .related__lead{
+    margin: 0;
+    color: var(--color-text);
+    max-width: 70ch;
+  }
+
+  .card-icon{
+    position: absolute;
+    left: 18px;
+    top: 18px;
+    width: 20px;
+    height: 20px;
+  }
+
+  /* --------------------- RESPONSIVE --------------------- */
+  @media (max-width: 900px){
+    .story__grid,
+    .story--reverse .story__grid{
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .story .media,
+    .story--reverse .media{
+      order: 1;
+    }
+
+    .story .story__content,
+    .story--reverse .story__content{
+      order: 2;
+    }
+
+    .page-hero{
+      min-height: 0;
+      height: auto;
+      /* give room for content without relying on min-height */
+      padding-top: 3.5rem;
+      padding-bottom: 1.25rem;
+      background-position: center;
+    }
+
+    .page-hero__inner{
+      padding: 0 var(--gutter);
+    }
+
+    .page-hero__overlay{
+      background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.92) 0%,
+        rgba(0,0,0,0.65) 55%,
+        rgba(0,0,0,0.12) 100%
+      );
+    }
+
+    .page-hero__kicker{
+      font-size: var(--fs-body);
+      letter-spacing: 0.1em;
+    }
+
+    .page-hero__sub{
+      color: rgba(255,255,255,0.92);
+    }
+
+    .page-hero__title{
+      font-size: clamp(2rem, 7.8vw, 3.1rem);
+    }
+
+    .page-hero__meta{
+      justify-content: flex-start;
+      gap: 0.45rem;
+      margin-top: 0.9rem;
+    }
+
+    .page-hero__meta .tag{
+      font-size: 0.8rem;
+      padding: 0.32rem 0.65rem;
+    }
+
+    /* If you want the hero background to “zoom” less on mobile */
+    .page-hero{
+      background-size: cover;
+      background-position: center 15%;
+    }
+  }
+
+  @media (max-width: 700px){
+    .story__callouts{ grid-template-columns: 1fr; }
+    .journey__step:not(:last-child)::after{ display:none; }
+  }
+
 }
