@@ -45,6 +45,8 @@ module.exports = function (eleventyConfig) {
     });
   });
 
+  eleventyConfig.addPassthroughCopy({ "assets/images/page/logo_set/favicons": "/" });
+
   // ✅ Simple default-responsive command
   // {% img "path", "alt", "optional-class", "lazy|eager" %}
   eleventyConfig.addNunjucksAsyncShortcode("img", async function (

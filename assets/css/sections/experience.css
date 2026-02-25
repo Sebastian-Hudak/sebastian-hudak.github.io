@@ -94,7 +94,7 @@
 
   .exp-item__body {
     display: grid;
-    grid-template-columns: minmax(220px, 420px) 1fr;
+    grid-template-columns: minmax(220px, 520px) 1fr;
     gap: 22px;
     align-items: start;
   }
@@ -321,7 +321,6 @@
   border-top: 0;                 /* remove your normal top border */
   padding: 18px;                 /* give it "card" padding */
   border: 1px solid rgba(0,0,0,0.10);
-  border-radius: 16px;
   background: var(--color-bg2);  /* your bg2 token */
   box-shadow: var(--color-shadow-md);
 }
@@ -343,7 +342,6 @@
   content: "";
   position: absolute;
   inset: 0;
-  border-radius: 16px;
   pointer-events: none;
   opacity: 0.10;
 
