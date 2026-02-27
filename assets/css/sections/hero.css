@@ -87,12 +87,12 @@
 .hero__content{
   position: relative;
   z-index: 3;
-  max-width: 60ch;
+  max-width: 70ch;
 }
 
 .hero__kicker{
-  margin: 0 0 0.9rem;
-  font-size: var(--fs-lead);
+  margin: 0 0 clamp(0.2rem, 1.2vw, 1.5rem);
+  font-size: var(--fs-small);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   font-weight: var(--fw-medium);
@@ -190,7 +190,7 @@
     display: grid;
     gap: 0.9rem;
     position: absolute;
-    top: 50%;
+    top: 33%;
     right: clamp(1rem, 2vw, 2rem);
     transform: translateY(-50%);
     z-index: 4;
@@ -226,7 +226,7 @@
   }
 
   .hero__bgItem{
-    opacity: 0.50;          /* stronger */
+    opacity: 0.80;          /* stronger */
     mix-blend-mode: normal; /* predictable */
     filter: none;           /* optional: makes it clearer */
   }

@@ -219,9 +219,11 @@
 }
 
 @media (max-width: 900px){
+
+  
   .contact-page__grid{
     grid-template-columns: 1fr;
-    align-items: start;
+    align-items: center;
   }
   .contact-divider{
     display: flex;
@@ -271,9 +273,7 @@
 }
 
 @media (max-width: 420px){
-  .contact-page__container{
-    width: min(1200px, 90vw);
-  }
+  
 
   .contact-form__btn{
     width: 100%;

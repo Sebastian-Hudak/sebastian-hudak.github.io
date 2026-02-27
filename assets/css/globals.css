@@ -27,6 +27,7 @@
     --color-bg1:#FFFFFF;
     --color-bg2: #f0f0f0;
     --color-text: hsl(0 0% 11%); /* or #555 */
+    --color-text-grey: hsl(0, 0%, 20%);
     --color-heading: hsl(0, 0%, 0%);
     --color-h1:hsl(0, 0%, 0%);
     --color-h2:hsl(0 0% 11%);
@@ -62,7 +63,7 @@
     --fs-body: clamp(0.75rem, 2vw, 1rem);
     --fs-lead: clamp(0.875rem, 1vw, 2rem);
     --fs-nav: clamp(0.85rem, 2vw, 1rem);
-    --fs-h3: clamp(1.25rem, 2vw, 1.5rem);
+    --fs-h3: clamp(1.25rem, 2vw, 2rem);
     --fs-h2: clamp(2rem, 3vw, 4rem);
     --fs-h1: clamp(2.75rem, 5vw, 5rem);
   }
@@ -124,7 +125,7 @@
 
   h3{
     font-size: var(--fs-h3);
-    font-weight: var(--fw-medium);
+    font-weight: var(--fw-bold);
   }
 
   a { color: inherit; text-decoration: none; }
@@ -132,6 +133,13 @@
 
 
   p { margin: 0 0 1em; }
+
+  @media (max-width: 768px) {
+    h2 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+  }
 }
 
 /* =========================================================
@@ -155,9 +163,9 @@
    UTILITIES (SMALL HELPERS)
    ========================================================= */
 @layer utilities {
-  .text-lead  { font-size: var(--fs--lead); }
-  .text-small { font-size: var(--fs--small); }
-  .text-muted { color: color-mix(in srgb, var(--color--text) 65%, transparent); }
+  .text-lead  { font-size: var(--fs-lead); }
+  .text-small { font-size: var(--fs-small); }
+  .text-muted { color: color-mix(in srgb, var(--color-text) 65%, transparent); }
 
   .visually-hidden{
     position: absolute !important;
@@ -173,12 +181,10 @@
    ========================================================= */
 @layer components {
   .card{
-    background: var(--color--bg1);
+    background: var(--color-bg1);
     border: 1px solid var(--color--shadow-border);
-    box-shadow: var(--color--shadow-md);
+    box-shadow: var(--color-shadow-md);
     border-radius: 12px;
     padding: 1.25rem;
   }
-
-  
 }
