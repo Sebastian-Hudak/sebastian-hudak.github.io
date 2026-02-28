@@ -15,15 +15,22 @@
   }
 
   .exp-item {
-    border-top: 1px solid var(--color-line);
+    
     padding-top: 18px;
+  }
+
+  .exp-date {
+  margin: 0;
+  font-size: var(--fs-body);
+  text-transform: uppercase;
+  opacity: 0.75;
   }
 
   .exp-item__top {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     gap: 16px;
     margin-bottom: 14px;
   }
@@ -53,12 +60,6 @@
     width: 70px;
     flex: 0 0 50px;
     height: auto;
-  }
-
-  .about__role {
-    margin: 0;
-    color: var(--color-text);
-    font-size: var(--fs-small);
   }
 
   .exp-item__tags {
@@ -143,6 +144,8 @@
       grid-template-columns: 1fr;
     }
 
+    
+
     .exp-item__tags {
       justify-content: center;
     }
@@ -178,7 +181,7 @@
       height: 1px;
       width: min(420px, 70%);
       margin: 0 auto 12px;
-      background: rgba(0, 0, 0, 0.18);
+      background: var(--color-gray_border);
     }
 
     .exp-item__desc .education-text-bullets>ul {
@@ -192,12 +195,16 @@
 
     .exp-item__desc .education-text-bullets>ul>li {
       width: min(520px, 100%);
-      padding: 0.55rem 0.8rem;
-      border: 1px solid var(--color--line);
-      background: rgba(255, 255, 255, 0.28);
-      line-height: 1.4;
+      padding: 0.05rem 0.1rem;
+      border: 0.7px solid var(--color-line);
+      background: var(--color-gray_bg);
       text-align: center;
     }
+
+    .exp-item__media {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
   }
 
   @media (max-width: 480px) {
@@ -213,12 +220,6 @@
 
     .exp-item__logo {
       width: 52px;
-      flex-basis: 52px;
-    }
-
-    .about__role {
-      font-size: 0.9rem;
-      opacity: 0.9;
     }
 
     .exp-item__tags {
@@ -243,23 +244,13 @@
       height: 58px;
     }
 
-    .exp-item__role {
-      font-size: 1.08rem;
-    }
+
   }
 
   @media (max-width: 820px) {
 
     .exp-date--desktop {
       display: none;
-    }
-
-    .exp-date--mobile {
-      display: block;
-      width: 100%;
-      text-align: center;
-      margin: 6px 0 0;
-      opacity: 0.85;
     }
 
     .exp-item__tags {
@@ -307,8 +298,7 @@
   }
 
 .exp-item--highlight {
-  position: relative;
-  border-top: 0;                 
+  position: relative;               
   padding: 28px;                 /* give it "card" padding */
   border: 1px solid rgba(0,0,0,0.10);
   background: var(--color-bg2);  /* your bg2 token */
@@ -324,8 +314,9 @@
   right: 12px;
   height: 2px;
   border-radius: 999px;
-  background: rgba(0,0,0,0.25);
+  background: rgba(144, 144, 144, 0.25);
 }
+
 
 /* grain overlay (very subtle) */
 .exp-item--highlight::after {
@@ -359,6 +350,251 @@
 /* optional: make role pop a bit */
 .exp-item--highlight .exp-item__role {
   letter-spacing: -0.01em;
+}
+
+}
+
+/* ===================== ENGINEERING STORY UPGRADE ===================== */
+@layer components {
+
+  .experience h2::after {
+    content: "";
+    display: block;
+    width: 240px;
+    height: 3px;
+    margin-top: 14px;
+    background: linear-gradient(90deg, rgba(0,0,0,.7), transparent);
+  }
+
+  /* Timeline spine */
+  .experience__list {
+    position: relative;
+  }
+
+  .experience__list::before {
+    content: "";
+    position: absolute;
+    left: 34px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom,
+      transparent,
+      rgba(0,0,0,.25) 10%,
+      rgba(0,0,0,.25) 90%,
+      transparent);
+  }
+
+  /* Timeline node */
+  .exp-item {
+    position: relative;
+    padding-left: 90px;
+    transition: transform .35s ease, box-shadow .35s ease;
+  }
+
+
+
+  /* Hover lift */
+  .exp-item:hover {
+    transform: translateY(-6px);
+  }
+
+  /* Make highlighted role feel like a major chapter */
+
+
+
+
+  /* Media depth */
+  .exp-item__media {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .exp-item__media img {
+    transition: transform .7s ease;
+  }
+
+  .exp-item:hover .exp-item__media img {
+    transform: scale(1.04);
+  }
+
+
+
+  /* Role title hierarchy */
+  .exp-item h3 {
+    font-size: clamp(18px, 2.5vw, 22px);
+    letter-spacing: -0.01em;
+  }
+
+  .exp-item--highlight h3 {
+    font-size: clamp(20px, 3vw, 26px);
+  }
+
+ 
+
+
+
+  /* ===================== MOBILE ===================== */
+
+  /* ===================== CLEAN MOBILE STORY ===================== */
+@media (max-width: 820px) {
+
+  /* Kill timeline completely */
+  .experience__list::before,
+  .exp-item::before {
+    display: none;
+  }
+
+  .exp-item {
+    padding: 20px;
+    border: 1px solid var(--color-line);
+    border-radius: 16px;
+    background: var(--color-bg2);
+    box-shadow: 0 8px 24px rgba(0,0,0,.06);
+    transition: transform .25s ease;
+  }
+  
+
+  .exp-item + .exp-item {
+    margin-top: 24px;
+  }
+
+
+  .exp-item__top {
+    justify-content: flex-start;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .exp-item__metaRow {
+    display: grid;
+    grid-template-columns: 54px 1fr;
+    gap: 14px;
+    align-items: center;
+  }
+
+  .exp-item__logo {
+    width: 54px;
+    height: 54px;
+    object-fit: contain;
+  }
+
+  /* Title hierarchy */
+  .exp-item h3 {
+    font-size: 17px;
+    line-height: 1.25;
+  }
+
+  
+
+  /* Body stack */
+  .exp-item__body {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 16px;
+  }
+
+  .exp-item__media {
+    overflow: hidden;
+  }
+
+  .exp-item__media img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+  }
+
+  /* Description */
+  .exp-item__desc {
+    text-align: left;
+  }
+
+  .exp-item__text {
+    font-size: 14px;
+    line-height: 1.5;
+    opacity: .85;
+  }
+
+  /* Make bullets clean again (NOT button style) */
+  .exp-item__desc .education-text-bullets {
+    border: 0;
+    padding: 0;
+    margin-top: 10px;
+  }
+
+  .exp-item__desc .education-text-bullets li {
+    border: 0;
+    background: none;
+    padding: 0;
+    margin: 6px 0;
+    font-size: 14px;
+  }
+
+  /* Button */
+  .exp-button .button-redirect {
+    width: 100%;
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+  }
+}
+/* ===================== MOBILE HEADER REFINEMENT ===================== */
+@media (max-width: 820px) {
+
+  .experience h2::after {
+    display: none;
+  }
+  /* Hide desktop date */
+  .exp-date--desktop {
+    display: none;
+  }
+
+  /* Use only one date element */
+  .exp-date--mobile {
+    display: block;
+    margin: 4px 0 0;
+
+    opacity: .6;
+    font-weight: 500;
+  }
+
+  /* Header layout */
+  .exp-item__top {
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0;
+    margin-bottom: 14px;
+  }
+
+  .exp-item__meta {
+    width: 100%;
+  }
+
+  .exp-item__metaRow {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    gap: 14px;
+    align-items: center;
+  }
+
+  /* Logo refinement */
+  .exp-item__logo {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.114);
+    padding: 3px;
+  }
+
+  /* Typography hierarchy */
+  .exp-item h3 {
+    line-height: 1.25;
+    margin: 0;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
 }
 
 }

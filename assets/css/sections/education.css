@@ -4,6 +4,15 @@
     background: var(--color-bg2);
   }
 
+  .education h2::after {
+    content: "";
+    display: block;
+    width: 240px;
+    height: 3px;
+    margin-top: 14px;
+    background: linear-gradient(90deg, rgba(0,0,0,.7), transparent);
+  }
+
   .education-card {
     display: flex;
     flex-direction: row;
@@ -24,9 +33,6 @@
     width: 85%;
     border-top: 2px solid var(--color-gray_border);
     margin-bottom: 40px;
-    -webkit-transition: width 0.6s ease-in-out;
-    -moz-transition: width 0.6s ease-in-out;
-    -o-transition: width 0.6s ease-in-out;
     transition: width 0.6s ease-in-out;
   }
 
@@ -86,6 +92,9 @@
 
 
   @media (max-width: 900px) {
+    .education h2::after {
+    display: none;
+  }
     .education-card {
       flex-direction: column;
       align-items: center;

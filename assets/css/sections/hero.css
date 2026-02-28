@@ -104,14 +104,14 @@
   line-height: 1.03;
   margin: 0 0 0.85rem;
   text-wrap: balance;
-  color: var(--color--heading);
+  color: var(--color-heading);
 }
 
 .hero__text{
   margin: 0 0 1.4rem;
-  font-size: clamp(0.75rem, 1.25vw, 1.25rem);
+  font-size: var(--fs-body);
   line-height: 1.55;
-  max-width: 60ch;
+  max-width: 55ch;
   opacity: 0.92;
 }
 

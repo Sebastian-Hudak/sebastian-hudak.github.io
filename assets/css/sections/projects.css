@@ -178,6 +178,14 @@
     .projects__dots{
       visibility: hidden;
     }
+
+    .projects__filter{
+  color: inherit;                 /* ensure it never uses link-blue */
+  -webkit-tap-highlight-color: transparent; /* kill iOS tap flash */
+  -webkit-appearance: none;       /* remove iOS button styling */
+  appearance: none;
+  background-color: transparent;
+}
   }
   @media (max-width: 600px) {
 
