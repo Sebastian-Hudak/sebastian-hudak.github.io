@@ -1,28 +1,271 @@
 ---
 layout: layouts/base.njk
 title: Privacy & Credits
-mainClass: "page"
+mainClass: "privacy-page"
 ---
-<div class="container">
-    <header class="section-header">
-    <h1>Privacy</h1>
-    </header>
-    <p class="exp-item__text">This website is a personal portfolio.</p>
-    <p class="exp-item__text">To understand general website traffic (such as number of visitors, page views, and referrers), I use privacy-friendly analytics.</p>
-    <p class="exp-item__text">No cookies are used for analytics.<br>
-    No advertising or tracking pixels are used.<br>
-    No personal data is sold or shared for marketing purposes.</p>
 
-    <p class="exp-item__text">The analytics may process limited technical information (such as IP address, device type, browser, and approximate location) to produce aggregated statistics. This data is used only to understand how the website is used and to improve it.</p>
+<section class="privacy-hero" aria-labelledby="privacy-title">
+  <div class="container privacy-hero__inner">
+    <p class="logo-band__label">Legal notice</p>
+    <h1 id="privacy-title">Privacy &amp; Credits</h1>
+    <p class="privacy-hero__updated">Last updated: 17 April 2026</p>
+  </div>
+</section>
 
-<p class="exp-item__text">If you have questions or requests regarding your personal data, you can contact me via this <a
-                    href="/contact.html" class="story__link" target="_blank" rel="noopener">page</a>.</p>
+<section class="privacy-notice" aria-label="Privacy notice">
+  <div class="container privacy-notice__grid">
+    <aside class="privacy-toc" aria-label="Page contents">
+      <p class="privacy-toc__label">Contents</p>
+      <a href="#controller">Controller</a>
+      <a href="#data">Data processed</a>
+      <a href="#purposes">Purposes</a>
+      <a href="#legal-basis">Legal basis</a>
+      <a href="#retention">Retention</a>
+      <a href="#sharing">Sharing &amp; transfers</a>
+      <a href="#rights">Your rights</a>
+      <a href="#cookies">Cookies</a>
+      <a href="#credits">Credits</a>
+    </aside>
 
-<header class="section-header">
-    <h1>Image & Content Credits</h1>
-    </header>
+    <div class="privacy-content">
+      <section class="privacy-block privacy-block--lead" aria-labelledby="scope-title">
+        <h2 id="scope-title">Scope</h2>
+        <p>
+          This website is a personal portfolio operated by Sebastián Hudák. It is intended to present
+          engineering work, education, experience, and contact information. The website is built as a
+          static site and is designed to collect as little personal data as reasonably possible.
+        </p>
+        <p>
+          This notice follows the transparency information normally required under the GDPR for EU and
+          EEA visitors, including the identity of the controller, purposes, legal bases, recipients,
+          retention criteria, data subject rights, and complaint options.
+        </p>
+      </section>
 
-<p class="exp-item__text">Unless stated otherwise, the content on this website (text, layout, and personal projects) is created by me.<br>
-Some images, logos, and product visuals may be the property of their respective companies and are used for portfolio and demonstration purposes.</p>
-<p class="exp-item__text">All trademarks and logos belong to their respective owners.</p>
-</div>
+      <section class="privacy-block" id="controller" aria-labelledby="controller-title">
+        <h2 id="controller-title">1. Controller</h2>
+        <dl class="privacy-definition">
+          <div>
+            <dt>Controller</dt>
+            <dd>Sebastián Hudák</dd>
+          </div>
+          <div>
+            <dt>Website</dt>
+            <dd>sebastianhudak.com and related pages on this domain.</dd>
+          </div>
+          <div>
+            <dt>Contact</dt>
+            <dd>
+              Use the <a href="/contact.html">contact page</a> for privacy questions, data requests, or
+              requests about content and credits.
+            </dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="privacy-block" id="data" aria-labelledby="data-title">
+        <h2 id="data-title">2. Personal Data Processed</h2>
+        <p>This website may involve the following limited categories of personal data:</p>
+        <ul class="privacy-list">
+          <li>
+            <strong>Technical access data:</strong> IP address, request date and time, browser or user
+            agent, requested URL, referrer, approximate location derived from network data, and similar
+            server log information.
+          </li>
+          <li>
+            <strong>Contact data:</strong> name, email address, message content, and any other details
+            you choose to include when contacting me.
+          </li>
+          <li>
+            <strong>External-link data:</strong> if you click links to LinkedIn, GitHub, Instagram,
+            YouTube, or other external websites, those services may receive information according to
+            their own privacy notices.
+          </li>
+          <li>
+            <strong>Third-party font requests:</strong> this site currently loads Google Fonts. Your
+            browser may send technical request data such as IP address, user agent, and requested font
+            files to Google when those fonts are loaded.
+          </li>
+        </ul>
+        <p>
+          Please do not send special categories of personal data, confidential information, or proprietary
+          information through the contact form unless it is necessary and you are authorised to do so.
+        </p>
+      </section>
+
+      <section class="privacy-block" id="purposes" aria-labelledby="purposes-title">
+        <h2 id="purposes-title">3. Purposes Of Processing</h2>
+        <ul class="privacy-list privacy-list--divided">
+          <li>
+            <span>Operating and securing the website</span>
+            <p>Technical access data may be processed to deliver pages, prevent abuse, debug errors, and keep the website available.</p>
+          </li>
+          <li>
+            <span>Responding to messages</span>
+            <p>Contact data is used to read, reply to, and follow up on messages you send.</p>
+          </li>
+          <li>
+            <span>Improving the portfolio</span>
+            <p>Aggregated or technical information may be used to understand whether pages work correctly and whether content is useful.</p>
+          </li>
+          <li>
+            <span>Protecting rights and content</span>
+            <p>Information may be used where necessary to handle misuse, legal claims, or requests about project material, images, logos, or credits.</p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="privacy-block" id="legal-basis" aria-labelledby="legal-basis-title">
+        <h2 id="legal-basis-title">4. Legal Basis</h2>
+        <p>
+          Where the GDPR applies, the following legal bases may be used:
+        </p>
+        <div class="privacy-table" role="table" aria-label="Legal bases">
+          <div role="row">
+            <span role="columnheader">Processing</span>
+            <span role="columnheader">Legal basis</span>
+          </div>
+          <div role="row">
+            <span role="cell">Operating, securing, and maintaining the website</span>
+            <span role="cell">Legitimate interests: providing a functional, secure portfolio website.</span>
+          </div>
+          <div role="row">
+            <span role="cell">Responding to messages you send</span>
+            <span role="cell">Legitimate interests and, where relevant, steps requested before entering a collaboration or contract.</span>
+          </div>
+          <div role="row">
+            <span role="cell">Complying with legal requests or protecting legal claims</span>
+            <span role="cell">Legal obligation or legitimate interests, depending on the situation.</span>
+          </div>
+          <div role="row">
+            <span role="cell">Loading web fonts and maintaining a consistent interface</span>
+            <span role="cell">Legitimate interests: presenting the website in its intended visual form.</span>
+          </div>
+          <div role="row">
+            <span role="cell">Optional consent-based features, if added later</span>
+            <span role="cell">Consent, which can be withdrawn at any time.</span>
+          </div>
+        </div>
+        <p>
+          Providing contact data is voluntary. If you do not provide a valid way to contact you, I may not
+          be able to reply. Technical access data is generated automatically when your browser requests
+          this website and is necessary to deliver the pages.
+        </p>
+      </section>
+
+      <section class="privacy-block" id="retention" aria-labelledby="retention-title">
+        <h2 id="retention-title">5. Retention</h2>
+        <p>
+          Personal data is kept only for as long as needed for the purpose for which it was collected.
+          The criteria used are:
+        </p>
+        <ul class="privacy-list">
+          <li>Contact messages are kept for as long as needed to respond and manage the relationship or request.</li>
+          <li>Messages related to projects, collaboration, or legal matters may be kept longer where necessary for records or legal claims.</li>
+          <li>Technical server logs are retained according to the hosting provider's security and operations policies.</li>
+          <li>Aggregated statistics that no longer identify a visitor may be kept for longer.</li>
+        </ul>
+      </section>
+
+      <section class="privacy-block" id="sharing" aria-labelledby="sharing-title">
+        <h2 id="sharing-title">6. Recipients, Processors, And Transfers</h2>
+        <p>
+          This site is hosted as a static website using GitHub Pages. GitHub and related infrastructure
+          providers may process technical access data to deliver the website and protect the service.
+        </p>
+        <p>
+          If you contact me, your message may be processed by the email services used by you and by me.
+          Personal data is not sold, rented, or shared for advertising purposes.
+        </p>
+        <p>
+          Google may receive technical request data when Google Fonts are loaded. Social platforms or
+          other external services may receive data only when you open their links or when your browser
+          requests their resources.
+        </p>
+        <p>
+          Some providers may be located outside the EU/EEA. Where such transfers occur, they are handled
+          by those providers under their own terms, safeguards, and privacy notices. External links are
+          not controlled by this website.
+        </p>
+      </section>
+
+      <section class="privacy-block" id="rights" aria-labelledby="rights-title">
+        <h2 id="rights-title">7. Your GDPR Rights</h2>
+        <p>
+          If the GDPR applies to you, you may have the following rights, subject to the conditions and
+          limits in the GDPR:
+        </p>
+        <ul class="privacy-rights">
+          <li>Right to be informed about processing.</li>
+          <li>Right of access to your personal data.</li>
+          <li>Right to rectification of inaccurate or incomplete data.</li>
+          <li>Right to erasure where the data is no longer needed or processing is unlawful.</li>
+          <li>Right to restriction of processing in specific cases.</li>
+          <li>Right to data portability where processing is based on consent or contract and is automated.</li>
+          <li>Right to object to processing based on legitimate interests.</li>
+          <li>Right to withdraw consent at any time where processing is based on consent.</li>
+          <li>Right not to be subject to qualifying automated decisions, including profiling.</li>
+        </ul>
+        <p>
+          You can exercise these rights through the <a href="/contact.html">contact page</a>. I may need
+          enough information to verify the request. Requests will be handled without undue delay and
+          normally within one month, unless the GDPR allows more time. You also have the right to lodge a
+          complaint with your local EU/EEA data protection authority.
+        </p>
+        <p>
+          This website does not use automated decision-making or profiling.
+        </p>
+      </section>
+
+      <section class="privacy-block" id="cookies" aria-labelledby="cookies-title">
+        <h2 id="cookies-title">8. Cookies And Analytics</h2>
+        <p>
+          This website does not use advertising cookies, behavioural tracking pixels, or cross-site
+          marketing trackers. In the current site code, no analytics script is loaded and no analytics
+          cookies are set by this website.
+        </p>
+        <p>
+          If cookie-free, privacy-friendly analytics is added in the future, this notice should be updated
+          before or at the time of that change, including the provider, purpose, data categories, legal
+          basis, and retention.
+        </p>
+      </section>
+
+      <section class="privacy-block" aria-labelledby="security-title">
+        <h2 id="security-title">9. Security</h2>
+        <p>
+          Reasonable technical and organisational measures are used to keep this website minimal and
+          reduce unnecessary data collection. No internet service can be guaranteed completely secure, so
+          avoid sending sensitive or confidential information through ordinary email or web forms.
+        </p>
+      </section>
+
+      <section class="privacy-block" id="credits" aria-labelledby="credits-title">
+        <h2 id="credits-title">10. Image &amp; Content Credits</h2>
+        <p>
+          Unless stated otherwise, the text, page layout, project descriptions, and personal portfolio
+          material on this website are created by Sebastián Hudák.
+        </p>
+        <p>
+          Some company logos, trademarks, product images, project images, and brand materials may belong
+          to their respective owners. They are used for portfolio, identification, commentary, and
+          demonstration purposes. All trademarks remain the property of their respective owners.
+        </p>
+        <p>
+          If you are a rights holder and believe a credit, image, logo, or reference should be changed or
+          removed, please contact me through the <a href="/contact.html">contact page</a>.
+        </p>
+      </section>
+
+      <section class="privacy-block privacy-block--references" aria-labelledby="references-title">
+        <h2 id="references-title">Legal References</h2>
+        <p>
+          This notice is structured around the GDPR transparency information described by the
+          <a href="https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/principles-gdpr/what-information-must-be-given-individuals-whose-data-collected_en" target="_blank" rel="noopener">European Commission</a>
+          and the
+          <a href="https://www.edpb.europa.eu/sme-data-protection-guide/faq-frequently-asked-questions/answer/what-information-should-i_en" target="_blank" rel="noopener">European Data Protection Board</a>.
+        </p>
+      </section>
+    </div>
+  </div>
+</section>

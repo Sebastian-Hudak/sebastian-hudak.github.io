@@ -1,0 +1,135 @@
+---
+layout: layouts/base.njk
+title: Tail Structural Design
+mainClass: "page page--project"
+featuredProjects:
+- HEI
+- MACHINING
+- CNCL
+relatedLead: More work in design, manufacturing and engineering judgement.
+---
+
+<section class="page-hero" style="--hero-img: url('/assets/images/projects/tail/render.PNG');">
+  <div class="page-hero__overlay" aria-hidden="true"></div>
+
+  <div class="container page-hero__inner">
+    <p class="page-hero__kicker">School Project</p>
+    <h1 class="page-hero__title">Tail Structural Design</h1>
+    <p class="page-hero__sub">CAD &bull; Structural design &bull; Manufacturing planning &bull; 2023</p>
+
+  </div>
+</section>
+
+<section class="project-meta">
+  <div class="container project-meta__grid">
+    <div class="facts">
+      <h2 class="facts__title">At a glance</h2>
+      <dl class="facts__list">
+        <div class="facts__row">
+          <dt>Team</dt>
+          <dd>3-member international team</dd>
+        </div>
+        <div class="facts__row">
+          <dt>My role</dt>
+          <dd>Concept development, CAD and manufacturing thinking</dd>
+        </div>
+        <div class="facts__row">
+          <dt>Focus</dt>
+          <dd>Weight, stiffness, manufacturability and load transfer</dd>
+        </div>
+      </dl>
+    </div>
+
+    <div class="project-meta__note">
+      <p class="project-meta__label">Project scope</p>
+      <p>
+        The page gives a compact overview of the design intent. More detailed calculations and
+        assessment material can be shared separately where appropriate.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="story">
+  <div class="container story__grid">
+    <figure class="media media--16x9">
+      {% img "assets/images/projects/tail/render.PNG", "Tail structure render" %}
+    </figure>
+
+    <div class="story__content">
+      <h2 class="story__title">Design Intent</h2>
+      <p class="story__text">
+        The tail structure was developed around a set of design requirements where stiffness,
+        load path clarity and manufacturability had to be balanced within a compact assembly.
+      </p>
+      <p class="story__text">
+        The useful part of the project was not only reaching a final geometry, but justifying why
+        the chosen concept made sense under the given constraints.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="story story--reverse">
+  <div class="container story__grid">
+    <figure class="media media--16x9">
+      {% img "assets/images/projects/tail/render.PNG", "Tail structure CAD detail" %}
+    </figure>
+
+    <div class="story__content">
+      <h2 class="story__title">Engineering Tradeoffs</h2>
+      <p class="story__text">
+        We looked at how the structure would transfer loads, where material was actually needed and
+        which details would create unnecessary manufacturing difficulty.
+      </p>
+      <p class="story__text">
+        That made the project a good exercise in defending design decisions rather than simply making
+        the model look finished.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="project-gallery-section project-gallery-section--subtle" id="gallery">
+  <div class="container">
+    <header class="project-gallery__head">
+      <p class="logo-band__label">Project media</p>
+      <h2 class="project-gallery__title">Gallery</h2>
+      <p class="project-gallery__summary">
+        Available visual material for the structural design project.
+      </p>
+    </header>
+
+    <div class="project-gallery">
+      <figure class="project-gallery__item">
+        {% img "assets/images/projects/tail/render.PNG", "Tail structure render gallery" %}
+        <figcaption>Rendered view of the final concept.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="project-assets" id="documents">
+  <div class="container project-assets__grid">
+    <div class="project-assets__copy">
+      <p class="logo-band__label">Documents</p>
+      <h2 class="project-assets__title">Available Material</h2>
+      <p class="project-assets__summary">
+        Additional design rationale and calculation notes can be shared as portfolio supporting material.
+      </p>
+    </div>
+
+    <div class="project-assets__list">
+      <a class="project-asset" href="/contact/">
+        <span class="project-asset__label">Design rationale summary</span>
+        <span class="project-asset__meta">Available on request</span>
+      </a>
+      <a class="project-asset" href="/contact/">
+        <span class="project-asset__label">Calculation and assessment notes</span>
+        <span class="project-asset__meta">Available on request</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+{% include "components/project-related.njk" %}

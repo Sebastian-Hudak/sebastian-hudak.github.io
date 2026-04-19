@@ -1,6 +1,7 @@
 module.exports = {
   CAVITATION: {
     title: "Orifice Cavitation Analysis",
+    year: "2025",
     href: "/cavitation/",
     img: "/assets/images/projects/cavitation/cavitation_snapshot.png",
     alt: "Cavitation shadowgraph",
@@ -16,6 +17,7 @@ module.exports = {
 
   HEI: {
     title: "HEI - Head End Ignition",
+    year: "2024",
     href: "/hei/",
     img: "/assets/images/projects/hei/square.jpeg",
     alt: "HEI hardware",
@@ -27,6 +29,7 @@ module.exports = {
 
   MACHINING: {
     title: "AQUILO machining",
+    year: "2023-2025",
     href: "/machining/",
     img: "/assets/images/experience/aquilo/lathe1.jpeg",
     alt: "Machining work",
@@ -38,6 +41,7 @@ module.exports = {
 
   CNCL: {
     title: "CNC lathe - RetroFit",
+    year: "2024",
     href: "/cncl/",
     img: "/assets/images/projects/cncl/oval.jpeg",
     alt: "CNC machined part",
@@ -49,6 +53,7 @@ module.exports = {
 
   GSX: {
     title: "GSX-1 wireframe sculpture",
+    year: "2022",
     href: "/gsx/",
     img: "/assets/images/projects/gsx/square.JPG",
     alt: "GSX-1 wireframe sculpture",
@@ -60,6 +65,7 @@ module.exports = {
 
   ABOX: {
     title: "Portable Boombox A-BOX",
+    year: "2021",
     href: "/abox/",
     img: "/assets/images/projects/abox/hero.jpeg",
     alt: "Boombox project",
@@ -71,6 +77,7 @@ module.exports = {
 
   CNCe: {
     title: "CNC engraver",
+    year: "2018",
     href: "/cnce/",
     img: "/assets/images/projects/cnce/cnce_head.JPG",
     alt: "CNC head",
@@ -82,6 +89,7 @@ module.exports = {
 
   SOUND: {
     title: "Sound analysis",
+    year: "2024",
     href: "/sound/",
     img: "/assets/images/projects/sound/vertical_sound.JPG",
     alt: "Microphone inside cockpit",
@@ -93,6 +101,7 @@ module.exports = {
 
   TAIL: {
     title: "Tail structural design",
+    year: "2023",
     href: "/tail/",
     img: "/assets/images/projects/tail/render.PNG",
     alt: "CNC head",

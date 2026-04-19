@@ -1,7 +1,7 @@
 /* ===================== ABOUT SECTION (FULL CSS) ===================== */
 @layer components {
   .section.about {
-    background: var(--color-bg1);
+    background: var(--color-bg);
   }
 
   .about__grid {
@@ -18,15 +18,6 @@
 
   .about__content {
     max-width: 75ch;
-  }
-
-  .about__role {/*  Un-used  */
-    margin: 0 0 10px;
-    font-size: var(--fs--small);
-    letter-spacing: var(--ls--wide);
-    text-transform: uppercase;
-    font-weight: var(--fw--bold);
-    opacity: 0.75;
   }
 
   .about__text {
@@ -55,7 +46,7 @@
   }
 
   .about_title{
-    font-size: clamp(2.05rem, 3vw, 3rem);
+    font-size: var(--fs-h2);
     font-weight: var(--fw-medium);
   }
 }

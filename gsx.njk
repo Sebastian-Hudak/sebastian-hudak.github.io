@@ -3,121 +3,164 @@ layout: layouts/base.njk
 title: GSX-1
 mainClass: "page page--project"
 featuredProjects:
-- MACHINING
-- GSX
 - ABOX
----      
-        <section class="page-hero" style="--hero-img: url('/assets/images/projects/gsx/back.jpeg');">
-            <div class="page-hero__overlay" aria-hidden="true"></div>
+- CNCe
+- SOUND
+relatedLead: More work in electronics, embedded systems and visual builds.
+---
 
-            <div class="container page-hero__inner">
-                <p class="page-hero__kicker">Project</p>
-                <h1 class="page-hero__title">GSX-1 Wireframe Sculpture</h1>
-                <p class="page-hero__sub">RP2040 • Software • Programming • 2023</p>
+<section class="page-hero" style="--hero-img: url('/assets/images/projects/gsx/back.jpeg');">
+  <div class="page-hero__overlay" aria-hidden="true"></div>
 
-                <div class="page-hero__meta">
-                    <span class="tag">Tools: Arduino IDE, C++</span>
-                </div>
-            </div>
-        </section>
+  <div class="container page-hero__inner">
+    <p class="page-hero__kicker">Project</p>
+    <h1 class="page-hero__title">GSX-1 Wireframe Sculpture</h1>
+    <p class="page-hero__sub">RP2040 &bull; Embedded C++ &bull; Electronics &bull; 2022</p>
+
+  </div>
+</section>
+
+<section class="project-meta">
+  <div class="container project-meta__grid">
+    <div class="facts">
+      <h2 class="facts__title">At a glance</h2>
+      <dl class="facts__list">
+        <div class="facts__row">
+          <dt>Type</dt>
+          <dd>Personal electronics and sculpture project</dd>
+        </div>
+        <div class="facts__row">
+          <dt>My role</dt>
+          <dd>Wiring scheme, soldering, embedded code, assembly</dd>
+        </div>
+        <div class="facts__row">
+          <dt>Focus</dt>
+          <dd>Compact GPS-inspired interface and clean physical layout</dd>
+        </div>
+      </dl>
+    </div>
+
+    <div class="project-meta__note">
+      <p class="project-meta__label">Build note</p>
+      <p>
+        The sculpture combines a fragile visual object with a functional embedded system, so the
+        layout had to support both presentation and serviceability.
+      </p>
+    </div>
+  </div>
+</section>
 
 <section class="story">
-    <div class="container story__grid">
+  <div class="container story__grid">
+    <figure class="media media--4x3">
+      {% img "assets/images/projects/gsx/default.JPG", "GSX-1 wireframe sculpture" %}
+    </figure>
 
-        <figure class="media media--4x3">
-            {% img "assets/images/projects/gsx/default.JPG", "GSX-1 Wireframe Sculpture" %}
-        </figure>
-
-
-        <div class="story__content">
-            <h2 class="story__title">Challenge</h2>
-            <p class="story__text">
-                Rocket Factory Augsburg AG is one of the first commercial European companies developing orbital
-                class launcher capable of delivering variety of payloads to different orbits.</p> 
-                 <p class="story__text">
-                    Its uniqueness stands in successful full in-house development of <strong>Europe's first oxygen-rich 
-                    staged combustion (ORSC) engine </strong> called HELIX capable of delivering roughly 100kN of thrust.
-            </p>
-        </div>
+    <div class="story__content">
+      <h2 class="story__title">Object First</h2>
+      <p class="story__text">
+        GSX-1 started as a small wireframe sculpture inspired by electronics-as-art builds, where
+        the circuit and the structure are part of the same visual language.
+      </p>
+      <p class="story__text">
+        The challenge was to keep the wiring tidy enough to feel intentional while still fitting
+        the microcontroller, GPS-related modules and display elements into a very small footprint.
+      </p>
     </div>
+  </div>
 </section>
 
 <section class="story story--reverse">
-    <div class="container story__grid">
+  <div class="container story__grid">
+    <figure class="media media--4x3">
+      {% img "assets/images/projects/gsx/gpscloseup.JPG", "GSX-1 close-up electronics" %}
+    </figure>
 
-        <figure class="media media--4x3">
-            {% img "assets/images/projects/gsx/gpscloseup.JPG", "GSX-1 GPS closeup" %}
-            
-        </figure>
-
-
-        <div class="story__content">
-            <h2 class="story__title">Restoration</h2>
-            <p class="story__text">
-                As a part of propulsion R&D team I have made contributions in fields of fluid
-                mechanics analysis on refinement and development of HELIX specificaly cavitation research on component testing.</p> 
-                <p class="story__text">
-            Key projects I have been involved in include:</p>
-            <div class="education-text-bullets">
-              <ul>
-                <li>Iterations of system design</li>
-                <li>Cavitation research of propellant/ignition feed system</li>
-                <li>Development of test rigs for component testing</li>
-                <li>Research based empirical data analysis.</li>
-              </ul>
-            </div>
-        </div>
+    <div class="story__content">
+      <h2 class="story__title">Electronics</h2>
+      <p class="story__text">
+        I built the wiring scheme around an RP2040-based controller and wrote the control logic in
+        C++ through the Arduino toolchain.
+      </p>
+      <p class="story__text">
+        The focus was not only making it work, but also making the signal routing and physical
+        assembly readable when viewed up close.
+      </p>
     </div>
+  </div>
 </section>
 
 <section class="story">
-    <div class="container story__grid">
+  <div class="container story__grid">
+    <figure class="media media--4x3">
+      {% img "assets/images/projects/gsx/splash.JPG", "GSX-1 display splash screen" %}
+    </figure>
 
-        <figure class="media media--4x3">
-            {% img "assets/images/projects/gsx/splash.JPG", "GSX-1 Splash" %}
-        </figure>
-
-
-        <div class="story__content">
-            <h2 class="story__title">Custom ...</h2>
-            <p class="story__text">RFA's unconventional approach to aerospace component design well aligned with my
-                passion for
-                innovation and problem-solving, allowing me to apply and expand my skills further.</p>
-            <p class="story__text">Even as an intern, I had the opportunity to see my work implemented 
-                in real production. The company’s culture is built on trust — interns are given full 
-                responsibility for their projects, supported by strong technical supervision.</p>
-            <p class="story__text">I was involved in the complete development cycle, from defining requirements and 
-                design, through validation testing, to final assembly. Being part of the full engineering process 
-                and seeing the outcome in production was an incredibly rewarding experience.</p>
-        </div>
-        
+    <div class="story__content">
+      <h2 class="story__title">Interface</h2>
+      <p class="story__text">
+        The visible software layer is intentionally minimal: a small interface, clean startup
+        behavior and enough feedback to make the object feel alive without turning it into a gadget demo.
+      </p>
+      <p class="story__text">
+        This made the project a useful exercise in balancing technical density with visual restraint.
+      </p>
     </div>
+  </div>
 </section>
 
-<section class="container">
-    <div class="mini-gallery">
-  {% img "assets/images/projects/hei/machining.jpeg", "HEI machining" %}
-  {% img "assets/images/projects/hei/proto1.jpeg", "HEI proto1" %}
-  {% img "assets/images/projects/hei/proto3.jpeg", "HEI proto3" %}
-</div>
+<section class="project-gallery-section project-gallery-section--subtle" id="gallery">
+  <div class="container">
+    <header class="project-gallery__head">
+      <p class="logo-band__label">Project media</p>
+      <h2 class="project-gallery__title">Gallery</h2>
+      <p class="project-gallery__summary">
+        Close-up views of the sculpture, display and compact electronics assembly.
+      </p>
+    </header>
+
+    <div class="project-gallery">
+      <figure class="project-gallery__item">
+        {% img "assets/images/projects/gsx/square.JPG", "GSX-1 square view" %}
+        <figcaption>Overall sculpture layout.</figcaption>
+      </figure>
+      <figure class="project-gallery__item">
+        {% img "assets/images/projects/gsx/IMG_0451.JPG", "GSX-1 wiring detail" %}
+        <figcaption>Wiring and component detail.</figcaption>
+      </figure>
+      <figure class="project-gallery__item">
+        {% img "assets/images/projects/gsx/IMG_0456.JPG", "GSX-1 electronics close up" %}
+        <figcaption>Close-up of the electronics stack.</figcaption>
+      </figure>
+      <figure class="project-gallery__item">
+        {% img "assets/images/projects/gsx/IMG_0558.JPG", "GSX-1 display view" %}
+        <figcaption>Display and interface testing.</figcaption>
+      </figure>
+    </div>
+  </div>
 </section>
 
-        <section class="related">
-    <div class="container">
-        <div class="related__head">
-            <h1 class="related__title">More Projects</h1>
-        </div>
-         <div class="projects__carousel" aria-label="Projects carousel">
-      <div class="projects__grid" id="projectsGrid">
-        {% for id in featuredProjects %}
-          {% set p = projects[id] %}
-          {% if p %}
-            {% include "components/project-card.njk" %}
-          {% endif %}
-        {% endfor %}
-      </div>
+<section class="project-assets" id="documents">
+  <div class="container project-assets__grid">
+    <div class="project-assets__copy">
+      <p class="logo-band__label">Documents</p>
+      <h2 class="project-assets__title">Available Material</h2>
+      <p class="project-assets__summary">
+        Build notes are intentionally lightweight, focused on the wiring approach and small embedded setup.
+      </p>
+    </div>
 
-      <div class="projects__dots" aria-label="Project navigation"></div>
+    <div class="project-assets__list">
+      <a class="project-asset" href="/contact/">
+        <span class="project-asset__label">Wiring and code notes</span>
+        <span class="project-asset__meta">Available on request</span>
+      </a>
+      <a class="project-asset" href="/contact/">
+        <span class="project-asset__label">Additional photos</span>
+        <span class="project-asset__meta">Available on request</span>
+      </a>
     </div>
-    </div>
+  </div>
 </section>
+
+{% include "components/project-related.njk" %}

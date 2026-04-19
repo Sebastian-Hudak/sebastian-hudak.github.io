@@ -1,15 +1,32 @@
 <script>
-    const header = document.getElementById("header");
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 5) header.classList.add("on-scroll");
-      else header.classList.remove("on-scroll");
-    });
+    (function () {
+      const header = document.getElementById("header");
+      if (!header) return;
+
+      const setHeaderHeight = () => {
+        const height = Math.ceil(header.getBoundingClientRect().height);
+        document.documentElement.style.setProperty("--header-h", `${height}px`);
+      };
+
+      setHeaderHeight();
+
+      if ("ResizeObserver" in window) {
+        new ResizeObserver(setHeaderHeight).observe(header);
+      }
+
+      window.addEventListener("load", setHeaderHeight);
+      window.addEventListener("resize", setHeaderHeight);
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 5) header.classList.add("on-scroll");
+        else header.classList.remove("on-scroll");
+      });
+    })();
   </script>
 
   <script>
     (function () {
       const buttons = document.querySelectorAll(".projects__filter");
-      const cards = document.querySelectorAll(".project-card");
+      const cards = document.querySelectorAll(".project-card-container");
 
       function setActive(btn) {
         buttons.forEach(b => b.classList.remove("is-active"));
@@ -25,6 +42,10 @@
 
           const show = tag === "all" || tags.includes(tag);
           card.classList.toggle("is-hidden", !show);
+          if (!show) {
+            card.classList.remove("active");
+            card.setAttribute("aria-expanded", "false");
+          }
         });
       }
 
@@ -45,20 +66,49 @@
     const nav = document.querySelector(".nav");
     if (!burger || !nav) return;
 
-    burger.addEventListener("click", () => {
-      const open = nav.classList.toggle("is-open");
+    const desktopQuery = window.matchMedia("(min-width: 769px)");
+
+    function setMenu(open) {
+      nav.classList.toggle("is-open", open);
       burger.classList.toggle("is-active", open);
       burger.setAttribute("aria-expanded", open ? "true" : "false");
+      burger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      document.body.classList.toggle("nav-open", open);
+    }
+
+    burger.addEventListener("click", () => {
+      setMenu(!nav.classList.contains("is-open"));
     });
 
     // Close menu when a link is clicked (mobile)
     nav.querySelectorAll("a").forEach(a => {
       a.addEventListener("click", () => {
-        nav.classList.remove("is-open");
-        burger.classList.remove("is-active");
-        burger.setAttribute("aria-expanded", "false");
+        setMenu(false);
       });
     });
+
+    document.addEventListener("click", (event) => {
+      if (!nav.classList.contains("is-open")) return;
+      if (
+        event.target instanceof Element &&
+        event.target.closest(".nav, .burger, .logo")
+      ) return;
+      setMenu(false);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") setMenu(false);
+    });
+
+    const closeOnDesktop = (event) => {
+      if (event.matches) setMenu(false);
+    };
+
+    if (desktopQuery.addEventListener) {
+      desktopQuery.addEventListener("change", closeOnDesktop);
+    } else {
+      desktopQuery.addListener(closeOnDesktop);
+    }
   })();
 </script>
 
@@ -111,22 +161,47 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  const flips = document.querySelectorAll(".flip");
+  // Project card flip interaction
+  const cardContainers = document.querySelectorAll(".project-card-container");
 
-  flips.forEach((flip) => {
-    flip.addEventListener("click", (e) => {
+  const setCardOpen = (container, open) => {
+    container.classList.toggle("active", open);
+    container.setAttribute("aria-expanded", open ? "true" : "false");
+  };
+
+  cardContainers.forEach((container) => {
+    container.setAttribute("tabindex", "0");
+    container.setAttribute("aria-expanded", "false");
+
+    container.addEventListener("click", (e) => {
+      if (e.button && e.button !== 0) return;
+      if (e.target.closest("a, button")) return;
       e.stopPropagation();
-      flip.classList.toggle("is-flipped");
+
+      const willOpen = !container.classList.contains("active");
+      cardContainers.forEach((card) => setCardOpen(card, false));
+      setCardOpen(container, willOpen);
+    });
+
+    container.addEventListener("keydown", (e) => {
+      if (e.target.closest("a, button")) return;
+      if (e.key !== "Enter" && e.key !== " ") return;
+      e.preventDefault();
+
+      const willOpen = !container.classList.contains("active");
+      cardContainers.forEach((card) => setCardOpen(card, false));
+      setCardOpen(container, willOpen);
     });
   });
 
-  document.addEventListener("click", () => {
-    flips.forEach((f) => f.classList.remove("is-flipped"));
+  document.addEventListener("click", (e) => {
+    if (e.target.closest(".project-card-container")) return;
+    cardContainers.forEach((container) => setCardOpen(container, false));
   });
 
-  // optional: allow Esc to close when focused (desktop)
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") flips.forEach((f) => f.classList.remove("is-flipped"));
+    if (e.key !== "Escape") return;
+    cardContainers.forEach((container) => setCardOpen(container, false));
   });
 });
 </script>
@@ -137,7 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const dotsWrap = document.querySelector(".projects__dots");
   if (!grid || !dotsWrap) return;
 
-  const allCards = Array.from(grid.querySelectorAll(".project-card"));
+  const allCards = Array.from(grid.querySelectorAll(".project-card-container"));
 
   const isVisible = (el) => {
     // works for .is-hidden { display:none } and other hiding methods
@@ -335,3 +410,110 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("[data-testimonials-carousel]").forEach((carousel) => {
+    const track = carousel.querySelector(".testimonials__track");
+    const slides = Array.from(carousel.querySelectorAll("[data-testimonial-slide]"));
+    if (!track || slides.length <= 1) return;
+
+    let current = Math.max(0, slides.findIndex((slide) => slide.classList.contains("is-active")));
+
+    function setSlide(index, focusSelector) {
+      current = (index + slides.length) % slides.length;
+      track.style.transform = `translateX(${-current * 100}%)`;
+
+      slides.forEach((slide, i) => {
+        const active = i === current;
+        slide.classList.toggle("is-active", active);
+        slide.setAttribute("aria-hidden", active ? "false" : "true");
+        slide.querySelectorAll("button").forEach((button) => {
+          button.tabIndex = active ? 0 : -1;
+        });
+        slide.querySelectorAll(".testimonial__count").forEach((count) => {
+          count.textContent = `${current + 1} / ${slides.length}`;
+        });
+      });
+
+      if (focusSelector) {
+        const nextFocus = slides[current].querySelector(focusSelector);
+        if (nextFocus) nextFocus.focus({ preventScroll: true });
+      }
+    }
+
+    carousel.addEventListener("click", (event) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+
+      const previous = target.closest("[data-testimonial-prev]");
+      const next = target.closest("[data-testimonial-next]");
+      if (!previous && !next) return;
+
+      setSlide(current + (next ? 1 : -1), next ? "[data-testimonial-next]" : "[data-testimonial-prev]");
+    });
+
+    carousel.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        setSlide(current - 1, "[data-testimonial-prev]");
+      }
+
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        setSlide(current + 1, "[data-testimonial-next]");
+      }
+    });
+
+    setSlide(current);
+  });
+});
+</script>
+
+<script>
+  const openCvBtn = document.getElementById("open-cv");
+  const closeCvBtn = document.getElementById("close-cv");
+  const pdfModal = document.getElementById("pdf-modal");
+  const pdfBackdrop = document.getElementById("pdf-backdrop");
+  const pdfFrame = document.getElementById("pdf-frame");
+  const zoomInBtn = document.getElementById("zoom-in");
+  const zoomOutBtn = document.getElementById("zoom-out");
+
+  let zoom = 1;
+
+  function openPdfModal(event) {
+    event.preventDefault();
+    pdfModal.classList.add("active");
+    pdfModal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closePdfModal() {
+    pdfModal.classList.remove("active");
+    pdfModal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  function applyZoom() {
+    pdfFrame.style.transform = `scale(${zoom})`;
+  }
+
+  zoomInBtn.addEventListener("click", () => {
+    zoom = Math.min(zoom + 0.1, 2);
+    applyZoom();
+  });
+
+  zoomOutBtn.addEventListener("click", () => {
+    zoom = Math.max(zoom - 0.1, 0.6);
+    applyZoom();
+  });
+
+  openCvBtn.addEventListener("click", openPdfModal);
+  closeCvBtn.addEventListener("click", closePdfModal);
+  pdfBackdrop.addEventListener("click", closePdfModal);
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && pdfModal.classList.contains("active")) {
+      closePdfModal();
+    }
+  });
+</script>

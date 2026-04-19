@@ -6,63 +6,95 @@ headExtra: |
 
 ---
 
+<section class="contact-hero" aria-labelledby="contact-title">
+  <div class="container contact-hero__inner">
+    <p class="logo-band__label">Contact</p>
+    <h1 id="contact-title">Contact me</h1>
+  </div>
+</section>
+
 <section class="contact-page" id="contact">
   <div class="contact-page__container">
-    <h1 class="contact-page__title">Contact me</h1>
 
     <div class="contact-page__grid">
-
       <div class="contact-page__left">
         <div class="business-card__wrap">
-          <div class="flip" tabindex="0" aria-label="Business card (flip on hover or focus)">
+          <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Business card, tap or press enter to flip">
             <div class="flip__inner">
               <div class="flip__face flip__front">
-                <img src="assets/images/business_card/business_front.svg" class="flip__svg" alt="Business card front" />
+                <img src="/assets/images/business_card/business_front.svg" class="flip__svg" alt="Business card front">
               </div>
               <div class="flip__face flip__back">
-                <img src="assets/images/business_card/business_back.svg" class="flip__svg" alt="Business card back" />
+                <img src="/assets/images/business_card/business_back.svg" class="flip__svg" alt="Business card back">
               </div>
             </div>
             <div class="flip__hint" aria-hidden="true">
-            <span class="flip__hint-text hint--desktop">Hover to flip</span>
-            <span class="flip__hint-text hint--mobile">Tap to flip</span>
-          </div>
+              <span class="flip__hint-text hint--desktop">Hover to flip</span>
+              <span class="flip__hint-text hint--mobile">Tap to flip</span>
+            </div>
           </div>
         </div>
       </div>
 
+      <section class="contact-page__right" aria-labelledby="contact-form-title">
+        <div class="contact-form__head">
+          <h2 id="contact-form-title">Send a note</h2>
+        </div>
 
-      <div class="contact-page__right">
-        <div class="contact-divider">
-  <h3 class="contact-divider__text">FORM</h3>
-</div>
-        <form class="contact-form" action="mailto:you@domain.com" method="post" enctype="text/plain">
-  <div class="contact-form__row contact-form__row--2">
-    <div class="field">
-      <label class="field__label" for="first_name">First name <span class="field__required">*</span></label>
-      <input class="field__input" id="first_name" type="text" name="first_name" placeholder="First name" required>
+        <form class="contact-form" action="mailto:sh.sebastianhudak@gmail.com?subject=New%20message%20from%20sebastianhudak.com" method="post" enctype="text/plain">
+          <p class="contact-form__required-note">Fields marked with * are required.</p>
+
+          <input class="contact-form__trap" type="text" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <div class="contact-form__row contact-form__row--2">
+            <div class="field">
+              <label class="field__label" for="name">Name <span class="field__required">*</span></label>
+              <input class="field__input" id="name" type="text" name="name" placeholder="Your name" autocomplete="name" required>
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="email">Email <span class="field__required">*</span></label>
+              <input class="field__input" id="email" type="email" name="email" placeholder="you@email.com" autocomplete="email" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="subject">Subject</label>
+            <input class="field__input" id="subject" type="text" name="subject" placeholder="Project, collaboration, question..." maxlength="120">
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="message">Message <span class="field__required">*</span></label>
+            <textarea class="field__input field__textarea" id="message" name="message" rows="6" placeholder="A few useful details, timing, and links if relevant." maxlength="1400" required></textarea>
+          </div>
+
+          <p class="contact-form__privacy">
+            Please avoid sending sensitive information through ordinary email or web forms.
+            <a href="/privacy/">Privacy notice</a>
+          </p>
+
+          <button class="button-redirect contact-form__submit" type="submit">Send message</button>
+        </form>
+      </section>
     </div>
-
-    <div class="field">
-      <label class="field__label" for="last_name">Last name <span class="field__required"></span></label>
-      <input class="field__input" id="last_name" type="text" name="last_name" placeholder="Last name">
-    </div>
-  </div>
-
-  <div class="field">
-    <label class="field__label" for="email">Email <span class="field__required">*</span></label>
-    <input class="field__input" id="email" type="email" name="email" placeholder="you@email.com" required>
-  </div>
-
-  <div class="field">
-    <label class="field__label" for="message">Message <span class="field__required">*</span></label>
-    <textarea class="field__input field__textarea" id="message" name="message" rows="5" placeholder="Write your message..." required></textarea>
-  </div>
-
-  <button class="button-redirect" type="submit">Submit</button>
-</form>
-      </div>
-    </div>
-
   </div>
 </section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const flip = document.querySelector(".contact-page .flip");
+    if (!flip) return;
+
+    const toggleCard = () => {
+      const isFlipped = flip.classList.toggle("is-flipped");
+      flip.setAttribute("aria-pressed", String(isFlipped));
+    };
+
+    flip.addEventListener("click", toggleCard);
+    flip.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      toggleCard();
+    });
+  });
+</script>
