@@ -6,13 +6,14 @@ featuredProjects:
 - SOUND
 - CAVITATION
 - GSX
+relatedLead: Work in testing, data processing and coding.
 ---
 
-<section class="page-hero" style="--hero-img: url('/assets/images/experience/cae/b737_hero.JPG');">
+<section class="page-hero" style="--hero-img: url('/assets/images/experience/cae/cae-boeing-737-cockpit-hero.jpg');">
     <div class="page-hero__overlay" aria-hidden="true"></div>
 
     <div class="container page-hero__inner">
-        <p class="page-hero__kicker">Operator / Technician</p>
+        <p class="page-hero__kicker">Simulator Operator / Technician</p>
         <h1 class="page-hero__title">CAE Amsterdam B.V.</h1>
         <p class="page-hero__sub">Engineering Department • 2022 - 2026 • Amsterdam, NL</p>
     </div>
@@ -21,7 +22,7 @@ featuredProjects:
 <section class="story">
     <div class="container story__grid">
         <figure class="media media--4x3">
-            {% img "assets/images/experience/cae/seat.jpeg", "CAE instructor seat" %}
+            {% img "assets/images/experience/cae/cae-instructor-seat.jpeg", "Instructor station inside a CAE full-flight simulator" %}
         </figure>
 
         <div class="story__content">
@@ -41,7 +42,7 @@ featuredProjects:
     <div class="container story__grid">
 
         <figure class="media media--4x3">
-            {% img "assets/images/experience/cae/apt_night.jpeg", "A320 APT panel night" %}
+            {% img "assets/images/experience/cae/cae-a320-apt-night.jpeg", "A320 APT simulator panel during low-light testing" %}
         </figure>
 
 
@@ -49,8 +50,7 @@ featuredProjects:
             <h2 class="story__title">Everyday Work</h2>
             <p class="story__text">
                 After my internship work at CAE Amsterdam, I have continued in a part-time position as a simulator technician
-                in engineering department. My role involves maintaining and operating flight simulators, ensuring their optimal performance for pilot training.
-                This position allows me to gain hands-on experience with cutting-edge simulation technology and certification processes.
+                in engineering department. My role involves maintaining and operating flight simulators, ensuring their optimal performance for pilot training at specific certification level.
             </p>
             <p class="story__text">Want to see more about my internship work at CAE?</p>
             <a href="/sound/" class="story__link">Sound analysis</a>
@@ -61,7 +61,7 @@ featuredProjects:
 <section class="story">
     <div class="container story__grid">
         <figure class="media media--4x3">
-            {% img "assets/images/experience/cae/simhall.jpeg", "CAE simulator hall" %}
+            {% img "assets/images/experience/cae/cae-simulator-hall.jpeg", "Row of full-flight simulators inside the CAE hall" %}
         </figure>
 
         <div class="story__content">
@@ -70,30 +70,9 @@ featuredProjects:
                 Work at CAE is not only about working with high-tech simulators,
                 but also about maintaining the facilities and ensuring that everything runs smoothly.
                 From software, hardware visual and audio systems to hydraulic motion systems, there is always something to do.
-                Hands-on work is a big part of my job, and I enjoy the variety of tasks that come with it.
-            </div>
             </p>
         </div>
     </div>
 </section>
 
-
-<section class="related">
-    <div class="container">
-        <div class="related__head">
-            <h1 class="related__title">Related projects</h1>
-            <p class="logo-band__label">More work in testing, data processing, coding…</p>
-        </div>
-         <div class="projects__carousel" aria-label="Projects carousel">
-      <div class="projects__grid" id="projectsGrid">
-        {% for id in featuredProjects %}
-          {% set p = projects[id] %}
-          {% if p %}
-            {% include "components/project-card.njk" %}
-          {% endif %}
-        {% endfor %}
-      </div>
-
-      <div class="projects__dots" aria-label="Project navigation"></div>
-    </div>
-</section>
+{% include "components/project-related.njk" %}

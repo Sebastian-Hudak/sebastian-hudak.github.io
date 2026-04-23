@@ -6,10 +6,11 @@ featuredProjects:
 - CAVITATION
 - HEI
 - MACHINING
+relatedLead: Work in propulsion, testing and data processing.
 ---
 
 
-<section class="page-hero" style="--hero-img: url('/assets/images/experience/rfa/s1_engine_bay.jpg');">
+<section class="page-hero" style="--hero-img: url('/assets/images/experience/rfa/rfa-one-s1-engine-bay.jpg');">
     <div class="page-hero__overlay" aria-hidden="true"></div>
 
     <div class="container page-hero__inner">
@@ -34,7 +35,7 @@ featuredProjects:
 
         <figure class="media media--16x9">
             <video class="media__el" controls playsinline preload="metadata"
-                poster="/assets/images/experience/rfa/video_cover.png">
+                poster="/assets/images/experience/rfa/rfa-helix-test-video-cover.png">
                 <source
                     src="/assets/images/experience/rfa/helix_test.mp4"
                     type="video/mp4">
@@ -60,7 +61,7 @@ featuredProjects:
     <div class="container story__grid">
 
         <figure class="media media--16x9">
-            {% img "assets/images/experience/rfa/ignition.png", "Engine ignition" %}
+            {% img "assets/images/experience/rfa/rfa-engine-ignition.png", "HELIX engine ignition during testing" %}
 
         </figure>
 
@@ -68,8 +69,8 @@ featuredProjects:
         <div class="story__content">
             <h2 class="story__title">My Work</h2>
             <p class="story__text">
-                As part of the propulsion R&D team, I contributed to fluid mechanics analysis for HELIX refinement,
-                specifically cavitation research on component testing.
+                As part of the propulsion R&D team, I contributed to development of HELIX,
+                specifically cavitation influence research on component testing.
             </p>
             <p class="story__text">
                 Key projects I have been involved in include:
@@ -82,9 +83,6 @@ featuredProjects:
                 <li>Research based empirical data analysis.</li>
               </ul>
             </div>
-            <p class="story__text">
-                A non-sensitive view of that research is available as a dedicated thesis project page.
-            </p>
             <a href="/cavitation/" class="story__link">Orifice cavitation research</a>
         </div>
 
@@ -95,7 +93,7 @@ featuredProjects:
     <div class="container story__grid">
 
         <figure class="media media--4x3">
-            {% img "assets/images/experience/rfa/helix_production.jpg", "Engine production" %}
+            {% img "assets/images/experience/rfa/rfa-helix-engine-production.jpg", "HELIX engine hardware prepared for production" %}
         </figure>
 
 
@@ -114,23 +112,4 @@ featuredProjects:
     </div>
 </section>
 
-<section class="related">
-    <div class="container">
-        <div class="related__head">
-            <h1 class="related__title">Related Projects</h1>
-            <p class="logo-band__label">More work in propulsion, testing, data processing…</p>
-        </div>
-         <div class="projects__carousel" aria-label="Projects carousel">
-      <div class="projects__grid" id="projectsGrid">
-        {% for id in featuredProjects %}
-          {% set p = projects[id] %}
-          {% if p %}
-            {% include "components/project-card.njk" %}
-          {% endif %}
-        {% endfor %}
-      </div>
-
-      <div class="projects__dots" aria-label="Project navigation"></div>
-    </div>
-    </div>
-</section>
+{% include "components/project-related.njk" %}

@@ -10,7 +10,7 @@
     <div class="projects__carousel" aria-label="Projects carousel">
       <div class="projects__grid" id="projectsGrid">
         {% for id in featuredProjects %}
-          {% set p = projects[id] %}
+          {% set p = projects | projectById(id) %}
           {% if p %}
             {% include "components/project-card.njk" %}
           {% endif %}

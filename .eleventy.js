@@ -2,18 +2,23 @@ globalThis.self = globalThis; // 👈 first line, before any other require()
 
 const Image = require("@11ty/eleventy-img");
 const path = require("path");
+const responsiveWidths = [400, 800, 1200, 1600];
+const defaultSizes = "(max-width: 700px) 100vw, (max-width: 1100px) 92vw, 50vw";
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("assets");
-  eleventyConfig.addPassthroughCopy("robots.txt");
+  eleventyConfig.addFilter("projectById", function (projectMap, id) {
+    if (!projectMap || !id) return null;
+    return projectMap[id] || null;
+  });
 
   // {% image "path", "alt", [widths], [formats], "sizes", "class", "lazy|eager" %}
   eleventyConfig.addNunjucksAsyncShortcode("image", async function (
     src,
     alt,
-    widths = [480, 900, 1600],
+    widths = responsiveWidths,
     formats = ["avif", "webp", "jpeg"],
-    sizes = "100vw",
+    sizes = defaultSizes,
     cls = "",
     loading = "lazy"
   ) {
@@ -45,7 +50,7 @@ module.exports = function (eleventyConfig) {
     });
   });
 
-  eleventyConfig.addPassthroughCopy({ "assets/images/page/logo_set/favicons": "/" });
+  eleventyConfig.addPassthroughCopy({ "assets/images/page/logo-set/favicons": "/" });
 
   // ✅ Simple default-responsive command
   // {% img "path", "alt", "optional-class", "lazy|eager" %}
@@ -64,19 +69,19 @@ module.exports = function (eleventyConfig) {
       : path.join(process.cwd(), String(src).replace(/^\.?\//, ""));
 
     const metadata = await Image(inputPath, {
-  widths: [480, 900, 1600],
-  formats: ["avif", "webp", "jpeg"],
-  outputDir: "_site/img",
-  urlPath: "/img",
-  filenameFormat: (id, srcPath, width, format) => {
-    const name = srcPath.split("/").pop().split(".")[0];
-    return `${name}-${width}w.${format}`;
-  },
-});
+      widths: responsiveWidths,
+      formats: ["avif", "webp", "jpeg"],
+      outputDir: "_site/img",
+      urlPath: "/img",
+      filenameFormat: (id, srcPath, width, format) => {
+        const name = srcPath.split("/").pop().split(".")[0];
+        return `${name}-${width}w.${format}`;
+      },
+    });
 
     return Image.generateHTML(metadata, {
       alt,
-      sizes: "100vw",
+      sizes: defaultSizes,
       loading,
       decoding: "async",
       class: cls,

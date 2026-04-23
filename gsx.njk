@@ -6,10 +6,10 @@ featuredProjects:
 - ABOX
 - CNCe
 - SOUND
-relatedLead: More work in electronics, embedded systems and visual builds.
+relatedLead: Work in electronics and systems.
 ---
 
-<section class="page-hero" style="--hero-img: url('/assets/images/projects/gsx/back.jpeg');">
+<section class="page-hero" style="--hero-img: url('/assets/images/projects/gsx/gsx-wireframe-back-lit.jpeg');">
   <div class="page-hero__overlay" aria-hidden="true"></div>
 
   <div class="container page-hero__inner">
@@ -27,25 +27,13 @@ relatedLead: More work in electronics, embedded systems and visual builds.
       <dl class="facts__list">
         <div class="facts__row">
           <dt>Type</dt>
-          <dd>Personal electronics and sculpture project</dd>
-        </div>
-        <div class="facts__row">
-          <dt>My role</dt>
-          <dd>Wiring scheme, soldering, embedded code, assembly</dd>
+          <dd>Personal electronics project</dd>
         </div>
         <div class="facts__row">
           <dt>Focus</dt>
-          <dd>Compact GPS-inspired interface and clean physical layout</dd>
+          <dd>Compact sensor interface and clean physical layout</dd>
         </div>
       </dl>
-    </div>
-
-    <div class="project-meta__note">
-      <p class="project-meta__label">Build note</p>
-      <p>
-        The sculpture combines a fragile visual object with a functional embedded system, so the
-        layout had to support both presentation and serviceability.
-      </p>
     </div>
   </div>
 </section>
@@ -53,19 +41,20 @@ relatedLead: More work in electronics, embedded systems and visual builds.
 <section class="story">
   <div class="container story__grid">
     <figure class="media media--4x3">
-      {% img "assets/images/projects/gsx/default.JPG", "GSX-1 wireframe sculpture" %}
+      {% img "assets/images/projects/gsx/gsx-wireframe-sculpture.jpg", "GSX-1 wireframe sculpture on a dark background" %}
     </figure>
 
     <div class="story__content">
-      <h2 class="story__title">Object First</h2>
+      <h2 class="story__title">Inspiration</h2>
       <p class="story__text">
         GSX-1 started as a small wireframe sculpture inspired by electronics-as-art builds, where
-        the circuit and the structure are part of the same visual language.
+        the circuit and the structure are part of the same visual language as the one build by Mohit Bhoite.
       </p>
       <p class="story__text">
         The challenge was to keep the wiring tidy enough to feel intentional while still fitting
-        the microcontroller, GPS-related modules and display elements into a very small footprint.
+        the microcontroller, GPS-related module, sensors and display element into a very small footprint.
       </p>
+      <a href="https://www.aquilodelft.com" class="experience story__link" target="_blank" rel="noopener">Mohit Bhoite</a>
     </div>
   </div>
 </section>
@@ -73,7 +62,7 @@ relatedLead: More work in electronics, embedded systems and visual builds.
 <section class="story story--reverse">
   <div class="container story__grid">
     <figure class="media media--4x3">
-      {% img "assets/images/projects/gsx/gpscloseup.JPG", "GSX-1 close-up electronics" %}
+      {% img "assets/images/projects/gsx/gsx-gps-module-closeup.jpg", "Close-up of the GSX-1 electronics assembly and sensor wiring" %}
     </figure>
 
     <div class="story__content">
@@ -84,7 +73,7 @@ relatedLead: More work in electronics, embedded systems and visual builds.
       </p>
       <p class="story__text">
         The focus was not only making it work, but also making the signal routing and physical
-        assembly readable when viewed up close.
+        assembly tidy when viewed up close.
       </p>
     </div>
   </div>
@@ -93,7 +82,7 @@ relatedLead: More work in electronics, embedded systems and visual builds.
 <section class="story">
   <div class="container story__grid">
     <figure class="media media--4x3">
-      {% img "assets/images/projects/gsx/splash.JPG", "GSX-1 display splash screen" %}
+      {% img "assets/images/projects/gsx/gsx-display-splash-screen.jpg", "GSX-1 display showing its startup splash screen" %}
     </figure>
 
     <div class="story__content">
@@ -121,43 +110,50 @@ relatedLead: More work in electronics, embedded systems and visual builds.
 
     <div class="project-gallery">
       <figure class="project-gallery__item">
-        {% img "assets/images/projects/gsx/square.JPG", "GSX-1 square view" %}
+        {% img "assets/images/projects/gsx/gsx-wireframe-back-lit.jpeg", "Back-lit view of the GSX-1 wireframe sculpture" %}
         <figcaption>Overall sculpture layout.</figcaption>
       </figure>
       <figure class="project-gallery__item">
-        {% img "assets/images/projects/gsx/IMG_0451.JPG", "GSX-1 wiring detail" %}
+        {% img "assets/images/projects/gsx/gsx-wiring-detail.jpg", "GSX-1 wiring detail and soldered component layout" %}
         <figcaption>Wiring and component detail.</figcaption>
       </figure>
       <figure class="project-gallery__item">
-        {% img "assets/images/projects/gsx/IMG_0456.JPG", "GSX-1 electronics close up" %}
+        {% img "assets/images/projects/gsx/gsx-electronics-closeup.jpg", "Close-up of the GSX-1 electronics stack" %}
         <figcaption>Close-up of the electronics stack.</figcaption>
       </figure>
       <figure class="project-gallery__item">
-        {% img "assets/images/projects/gsx/IMG_0558.JPG", "GSX-1 display view" %}
+        {% img "assets/images/projects/gsx/gsx-wireframe-drawing.jpg", "Display and interface testing for GSX-1" %}
         <figcaption>Display and interface testing.</figcaption>
       </figure>
     </div>
   </div>
 </section>
 
-<section class="project-assets" id="documents">
+<section class="project-assets project-assets--repo" id="documents">
   <div class="container project-assets__grid">
     <div class="project-assets__copy">
-      <p class="logo-band__label">Documents</p>
-      <h2 class="project-assets__title">Available Material</h2>
+      <p class="logo-band__label">Documentation</p>
+      <h2 class="project-assets__title">Repository</h2>
       <p class="project-assets__summary">
-        Build notes are intentionally lightweight, focused on the wiring approach and small embedded setup.
+        Build notes, source files and setup details are collected in the project repository.
       </p>
     </div>
 
     <div class="project-assets__list">
-      <a class="project-asset" href="/contact/">
-        <span class="project-asset__label">Wiring and code notes</span>
-        <span class="project-asset__meta">Available on request</span>
-      </a>
-      <a class="project-asset" href="/contact/">
-        <span class="project-asset__label">Additional photos</span>
-        <span class="project-asset__meta">Available on request</span>
+      <a class="project-asset project-asset--repo" href="https://github.com/Sebastian-Hudak/GSX-1" target="_blank" rel="noopener">
+        <span class="project-asset__repo-copy">
+          <span class="project-asset__repo-head">
+            <svg class="project-asset__icon project-asset__icon--repo" role="img" aria-hidden="true" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+            </svg>
+            <span class="project-asset__eyebrow">GitHub</span>
+          </span>
+          <span class="project-asset__label">GSX-1 Wireframe</span>
+          <span class="project-asset__meta">Open repository</span>
+        </span>
+        <span class="project-asset__preview" aria-hidden="true">
+          {% image "assets/images/projects/gsx/gsx-wireframe-sculpture.jpg", "", [96, 160, 240], ["avif", "webp", "jpeg"], "88px", "project-asset__preview-img" %}
+        </span>
       </a>
     </div>
   </div>

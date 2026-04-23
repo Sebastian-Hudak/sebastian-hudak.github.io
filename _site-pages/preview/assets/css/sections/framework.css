@@ -1,0 +1,135 @@
+/* ===================== FRAMEWORK SECTION (FULL CSS) ===================== */
+@layer components {
+.logo-band{
+  display: grid;
+  grid-template-columns: clamp(220px, 28vw, 380px) 1fr;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  padding: 16px 0;
+}
+
+.logo-band__label{
+  margin: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  line-height: 1.35;
+}
+
+.logo-marquee{
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  min-width: 0;      
+  padding: 16px 0;
+}
+
+.logo-marquee{
+  -webkit-mask-image: linear-gradient(90deg,
+    transparent 0%,
+    #000 10%,
+    #000 90%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(90deg,
+    transparent 0%,
+    #000 10%,
+    #000 90%,
+    transparent 100%
+  );
+}
+
+/* === Fallback edge fade (overlay gradients) ===
+   If your background is NOT white, change --fade-bg below.
+*/
+:root{
+  --fade-bg: 255,255,255;
+}
+
+.logo-marquee::before,
+.logo-marquee::after{
+  content:"";
+  position:absolute;
+  top:0;
+  bottom:0;
+  width: 80px;
+  pointer-events:none;
+  z-index: 2;
+
+  background: linear-gradient(to right,
+    rgba(var(--fade-bg), 1),
+    rgba(var(--fade-bg), 0)
+  );
+
+  opacity: 0; 
+}
+
+.logo-marquee::after{
+  right:0;
+  left:auto;
+
+  background: linear-gradient(to left,
+    rgba(var(--fade-bg), 1),
+    rgba(var(--fade-bg), 0)
+  );
+}
+
+@supports not ((mask-image: linear-gradient(#000,#000)) or (-webkit-mask-image: linear-gradient(#000,#000))){
+  .logo-marquee::before,
+  .logo-marquee::after{
+    opacity: 1;
+  }
+}
+
+
+.logo-track{
+  display: flex;
+  align-items: center;
+  width: max-content;
+  will-change: transform;
+
+  
+  gap: clamp(2.5rem, 6vw, 7.5rem);
+
+  
+  animation: marquee 22s linear infinite;
+}
+
+
+.logo-track img{
+  height: 44px;         
+  width: auto;
+  display: block;
+  opacity: 0.9;
+
+  filter: grayscale(1);
+}
+
+.logo-band__label{
+  text-align: left;
+}
+
+@keyframes marquee{
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .logo-track{ animation: none; }
+}
+
+@media (max-width: 700px){
+  .logo-band{
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    grid-template-columns: 1fr; 
+    justify-items: center;        
+  }
+
+  .logo-band__label{
+    text-align: center;
+    max-width: 55ch;              
+  }
+}
+}

@@ -9,11 +9,11 @@ featuredProjects:
 relatedLead: More work in propulsion, testing and manufacturing.
 ---
 
-<section class="page-hero" style="--hero-img: url('/assets/images/projects/cavitation/cover.jpg');">
+<section class="page-hero" style="--hero-img: url('/assets/images/projects/cavitation/cavitation-project-cover.jpg');">
   <div class="page-hero__overlay" aria-hidden="true"></div>
 
   <div class="container page-hero__inner">
-    <p class="page-hero__kicker">Research Project</p>
+    <p class="page-hero__kicker">Thesis</p>
     <h1 class="page-hero__title">Orifice Cavitation Analysis</h1>
     <p class="page-hero__sub">Propulsion &bull; Empirical analysis &bull; Data processing &bull; 2025</p>
 
@@ -27,15 +27,15 @@ relatedLead: More work in propulsion, testing and manufacturing.
       <dl class="facts__list">
         <div class="facts__row">
           <dt>Context</dt>
-          <dd>Propulsion component research during internship work</dd>
+          <dd>Cavitation onset prediction and effects</dd>
         </div>
         <div class="facts__row">
           <dt>My role</dt>
-          <dd>Data processing, empirical comparison, test interpretation</dd>
+          <dd>Research, testing, data analysis</dd>
         </div>
         <div class="facts__row">
           <dt>Deliverables</dt>
-          <dd>Analysis pipeline, non-sensitive summary and visual material</dd>
+          <dd>Interactive test database, data processing pipeline, research outcome</dd>
         </div>
       </dl>
     </div>
@@ -54,42 +54,51 @@ relatedLead: More work in propulsion, testing and manufacturing.
   <div class="container thesis-feature__grid">
     <div class="thesis-feature__copy">
       <p class="logo-band__label">Bachelor thesis</p>
-      <h2 id="thesis-title" class="thesis-feature__title">Confidential Research, Public Summary</h2>
+      <h2 id="thesis-title" class="thesis-feature__title">Research</h2>
       <p class="thesis-feature__text">
         This project formed my Bachelor thesis and focused on cavitation onset in orifice restriction plates.
         The full report contains proprietary test context, so the public page only presents the research framing,
         non-sensitive visuals and a simplified workflow.
       </p>
       <ul class="thesis-feature__points" aria-label="Public thesis scope">
-        <li>Empirical comparison of cavitation onset indicators</li>
-        <li>Image-based interpretation of visible flow behavior</li>
+        <li>Empirical comparison of different cavitation onset effects</li>
         <li>Structured data processing for repeatable test comparison</li>
       </ul>
     </div>
 
     <aside class="thesis-report" aria-label="Bachelor thesis cover preview">
-      <figure class="thesis-report__cover">
-        {% img "assets/images/projects/cavitation/thesis-cover.jpg", "Bachelor thesis cover page" %}
-      </figure>
+      <div class="thesis-book">
+        <div class="thesis-book__spine" aria-hidden="true">
+          {% img "assets/images/projects/cavitation/cavitation-thesis-cover-spine.jpg", "" %}
+        </div>
+
+        <div class="thesis-book__pages" aria-hidden="true"></div>
+
+        <div class="thesis-book__front">
+          <figure class="thesis-report__cover">
+            {% img "assets/images/projects/cavitation/cavitation-thesis-cover.jpg", "Cover of the bachelor thesis on orifice cavitation analysis" %}
+          </figure>
+        </div>
+      </div>
     </aside>
   </div>
 </section>
 
 <section class="story">
   <div class="container story__grid">
-    <figure class="media media--16x9">
-      {% img "assets/images/projects/cavitation/test_setup_01.png", "Cavitation test setup" %}
+    <figure class="media media--4x3">
+      {% img "assets/images/projects/cavitation/cavitation-test-setup.png", "Cavitation test loop with sensors, piping and a transparent observation section" %}
     </figure>
 
     <div class="story__content">
       <h2 class="story__title">Why Cavitation Matters</h2>
       <p class="story__text">
-        Flow restrictions can behave very differently once cavitation starts. For propulsion systems,
+        Flow can behave very differently once cavitation starts. For propulsion systems,
         predicting that onset is important because it affects stability, component sizing and test interpretation.
       </p>
       <p class="story__text">
-        The work focused on building a practical understanding of cavitation behavior using available
-        measurements and visual evidence.
+        The work focused on building a practical understanding of cavitation behavior of engine specific components and
+        magnitude of testing deviations.
       </p>
     </div>
   </div>
@@ -98,15 +107,14 @@ relatedLead: More work in propulsion, testing and manufacturing.
 <section class="pid-section" aria-labelledby="pid-title">
   <div class="container pid-section__grid">
     <div class="pid-card" aria-label="Simplified public P and ID diagram">
-      {% img "assets/images/projects/cavitation/PID.png", "Simplified public P and ID diagram" %}
+      {% img "assets/images/projects/cavitation/cavitation-public-pid-diagram.png", "Public P and ID diagram of the cavitation test loop" %}
     </div>
 
     <div class="pid-section__copy">
-      <p class="logo-band__label">Public schematic</p>
+      <p class="logo-band__label">Testing</p>
       <h2 class="pid-section__title" id="pid-title">Simplified P&amp;ID</h2>
       <p class="pid-section__text">
-        The diagram shows the structure of the investigation at a high level only. It intentionally omits
-        operating values, dimensions, exact instrumentation, fluids, geometry and proprietary test logic.
+        The diagram shows the structure of the investigation at a high level only. Test rig with ability to control upstream flow conditions with independent measurement points along the path enabled sampling huge amount of empirical data.
       </p>
       <dl class="pid-section__notes">
         <div>
@@ -114,8 +122,8 @@ relatedLead: More work in propulsion, testing and manufacturing.
           <dd>Flow path, pressure reference points, visual observation and data acquisition.</dd>
         </div>
         <div>
-          <dt>Not shown</dt>
-          <dd>Hardware details, system parameters, component sizing and confidential results.</dd>
+          <dt>Test Article</dt>
+          <dd>Set of restriction plates with varying geometries.</dd>
         </div>
       </dl>
     </div>
@@ -124,70 +132,45 @@ relatedLead: More work in propulsion, testing and manufacturing.
 
 <section class="story story--reverse">
   <div class="container story__grid">
-    <figure class="media media--16x9">
-      {% img "assets/images/projects/cavitation/cavitation_snapshot.png", "Cavitation shadowgraph snapshot" %}
+    <figure class="media media--16x9 media--plain">
+      {% img "assets/images/projects/cavitation/cavitation-onset-plot-transparent.png", "Plot of cavitation onset trends across different test conditions" %}
+      <figcaption class="media__credit">
+        Source: adapted from
+        <a href="https://doi.org/10.1016/j.ijthermalsci.2017.01.001" target="_blank" rel="noopener">
+          Ebrahimi et al., <em>International Journal of Thermal Sciences</em>, Volume 114, 2017
+        </a>.
+      </figcaption>
+    </figure>
+
+    <div class="story__content">
+      <h2 class="story__title">Flow characteristics</h2>
+      <p class="story__text">
+        Empirical dataset from test rig was processed where onset trends were compared across different test runs and hardware configurations. The goal was to find practical ways to compare tests and identify onset indicators without relying on sensitive system details.
+      </p>
+      <p class="story__text">
+        Final deliverables included an interactive TOML database of test results and a structured data processing pipeline using Python to enable repeatable analysis of future tests.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="story">
+  <div class="container story__grid">
+    <figure class="media media--4x3 media--contain media--plain">
+      {% img "assets/images/projects/cavitation/cavitation-analysis-graph-transparent.png", "Flowchart of the cavitation data-processing workflow" %}
     </figure>
 
     <div class="story__content">
       <h2 class="story__title">Analysis Workflow</h2>
       <p class="story__text">
-        The project combined empirical comparison, image-based observation and structured data processing
-        to identify where the restriction behavior changed.
+        Empirical dataset from test rig was processed where onset trends were compared across different test runs and hardware configurations.
       </p>
       <p class="story__text">
-        The most useful output was a clearer way to compare tests and reason about onset trends without
-        exposing sensitive system details.
+        Final deliverables included an interactive TOML database of test results and a structured data processing pipeline using Python to enable repeatable analysis of future tests. The results match theoretical behavior of flow as can be seen from previous sketch.
       </p>
-    </div>
-  </div>
-</section>
-
-<section class="project-gallery-section project-gallery-section--subtle" id="gallery">
-  <div class="container">
-    <header class="project-gallery__head">
-      <p class="logo-band__label">Project media</p>
-      <h2 class="project-gallery__title">Gallery</h2>
-      <p class="project-gallery__summary">
-        Public-facing visuals showing the setup context and visible cavitation behavior.
+      <p class="story__text">
+        The results match theoretical behavior of flow as can be seen from previous sketch.
       </p>
-    </header>
-
-    <div class="project-gallery">
-      <figure class="project-gallery__item">
-        {% img "assets/images/projects/cavitation/cover.jpg", "Cavitation project cover" %}
-        <figcaption>Project cover visual.</figcaption>
-      </figure>
-      <figure class="project-gallery__item">
-        {% img "assets/images/projects/cavitation/test_setup_01.png", "Cavitation test setup detail" %}
-        <figcaption>Non-sensitive test setup visual.</figcaption>
-      </figure>
-      <figure class="project-gallery__item">
-        {% img "assets/images/projects/cavitation/cavitation_snapshot.png", "Cavitation snapshot" %}
-        <figcaption>Shadowgraph-style cavitation snapshot.</figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<section class="project-assets" id="documents">
-  <div class="container project-assets__grid">
-    <div class="project-assets__copy">
-      <p class="logo-band__label">Documents</p>
-      <h2 class="project-assets__title">Available Material</h2>
-      <p class="project-assets__summary">
-        Research material is limited to non-sensitive summaries and public visuals.
-      </p>
-    </div>
-
-    <div class="project-assets__list">
-      <a class="project-asset" href="/contact.html">
-        <span class="project-asset__label">Public thesis summary</span>
-        <span class="project-asset__meta">Available on request</span>
-      </a>
-      <a class="project-asset" href="/rfa/">
-        <span class="project-asset__label">Related experience: RFA</span>
-        <span class="project-asset__meta">Context for the internship work</span>
-      </a>
     </div>
   </div>
 </section>

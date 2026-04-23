@@ -1,0 +1,102 @@
+@layer reset, tokens, base, layout, components, utilities;
+
+@import "./globals.css";
+
+@import "./components/header.css";
+@import "./components/footer.css";
+@import "./components/button.css";
+
+@import "./sections/hero.css";
+@import "./sections/about.css";
+@import "./sections/education.css";
+@import "./sections/experience.css";
+@import "./sections/framework.css";
+@import "./sections/testimonials.css";
+@import "./sections/projects.css";
+
+@import "./pages/contact.css";
+@import "./pages/privacy.css";
+@import "./pages/extras.css";
+@import "./pages/experience.css";
+@import "./pages/projects.css";
+
+/* ===================== SCROLL REVEAL ANIMATIONS ===================== */
+
+/* base state */
+.reveal{
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 700ms ease,
+    transform 700ms cubic-bezier(.2,.8,.2,1);
+  will-change: opacity, transform;
+}
+
+/* fly-in variants */
+.reveal--left{ transform: translateX(-28px); }
+.reveal--right{ transform: translateX(28px); }
+
+/* morph variant */
+.reveal--morph{
+  transform: translateY(22px) scale(0.96);
+  filter: blur(6px);
+  transition:
+    opacity 800ms ease,
+    transform 800ms cubic-bezier(.2,.8,.2,1),
+    filter 800ms ease;
+}
+
+/* visible state */
+.reveal.is-visible{
+  opacity: 1;
+  transform: none;
+  filter: blur(0);
+}
+
+/* accessibility: reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .reveal,
+  .reveal--left,
+  .reveal--right,
+  .reveal--morph{
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+}
+
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .intro-nav,
+  .intro-hero {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Keyframes */
+@keyframes navDrop {
+  from { transform: translateY(-48px); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}
+
+@keyframes heroRise {
+  from { transform: translateY(22px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+/* Apply animations */
+.intro-nav {
+  opacity: 0;
+  animation: navDrop 1200ms cubic-bezier(.6,.9,.2,1) 80ms forwards;
+  will-change: transform, opacity;
+}
+
+.intro-hero {
+  opacity: 0;
+  animation: heroRise 750ms cubic-bezier(.2,.8,.8,1) 420ms forwards;
+  will-change: transform, opacity;
+}

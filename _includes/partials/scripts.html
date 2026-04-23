@@ -208,6 +208,313 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
+  const galleries = document.querySelectorAll(".project-gallery");
+  if (!galleries.length) return;
+
+  const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const motionEasing = "cubic-bezier(.2,.8,.2,1)";
+  const slotPatterns = {
+    1: [
+      [
+        [1, 6, 1, 4]
+      ]
+    ],
+    2: [
+      [
+        [1, 3, 1, 4],
+        [4, 3, 1, 4]
+      ],
+      [
+        [1, 4, 1, 4],
+        [5, 2, 1, 4]
+      ],
+      [
+        [1, 2, 1, 4],
+        [3, 4, 1, 4]
+      ]
+    ],
+    3: [
+      [
+        [1, 3, 1, 4],
+        [4, 3, 1, 2],
+        [4, 3, 3, 2]
+      ],
+      [
+        [1, 3, 1, 2],
+        [1, 3, 3, 2],
+        [4, 3, 1, 4]
+      ]
+    ],
+    4: [
+      [
+        [1, 3, 1, 2],
+        [4, 3, 1, 2],
+        [1, 3, 3, 2],
+        [4, 3, 3, 2]
+      ],
+      [
+        [1, 2, 1, 4],
+        [3, 4, 1, 2],
+        [3, 2, 3, 2],
+        [5, 2, 3, 2]
+      ],
+      [
+        [1, 4, 1, 2],
+        [5, 2, 1, 4],
+        [1, 2, 3, 2],
+        [3, 2, 3, 2]
+      ]
+    ],
+    5: [
+      [
+        [1, 2, 1, 2],
+        [3, 2, 1, 2],
+        [5, 2, 1, 4],
+        [1, 2, 3, 2],
+        [3, 2, 3, 2]
+      ],
+      [
+        [1, 2, 1, 4],
+        [3, 2, 1, 2],
+        [5, 2, 1, 2],
+        [3, 2, 3, 2],
+        [5, 2, 3, 2]
+      ],
+      [
+        [1, 2, 1, 2],
+        [3, 2, 1, 2],
+        [5, 2, 1, 2],
+        [1, 3, 3, 2],
+        [4, 3, 3, 2]
+      ]
+    ],
+    6: [
+      [
+        [1, 2, 1, 2],
+        [3, 2, 1, 2],
+        [5, 2, 1, 2],
+        [1, 2, 3, 2],
+        [3, 2, 3, 2],
+        [5, 2, 3, 2]
+      ]
+    ]
+  };
+
+  const getMotionDuration = (gallery) => {
+    const duration = window.getComputedStyle(gallery).getPropertyValue("--gallery-motion-duration").trim();
+    if (!duration) return 960;
+
+    if (duration.endsWith("ms")) {
+      const parsed = Number.parseFloat(duration);
+      return Number.isFinite(parsed) ? parsed : 960;
+    }
+
+    if (duration.endsWith("s")) {
+      const parsed = Number.parseFloat(duration);
+      return Number.isFinite(parsed) ? parsed * 1000 : 960;
+    }
+
+    const parsed = Number.parseFloat(duration);
+    return Number.isFinite(parsed) ? parsed : 960;
+  };
+
+  const pickPattern = (gallery, groupSize, blockIndex) => {
+    const patternSet = slotPatterns[groupSize] ?? slotPatterns[1];
+    if (patternSet.length === 1) return patternSet[0];
+
+    const key = `galleryPattern${groupSize}Block${blockIndex}`;
+    const previousIndex = Number.parseInt(gallery.dataset[key] ?? "-1", 10);
+    let nextIndex = Math.floor(Math.random() * patternSet.length);
+
+    if (patternSet.length > 1 && nextIndex === previousIndex) {
+      nextIndex = (nextIndex + 1 + Math.floor(Math.random() * (patternSet.length - 1))) % patternSet.length;
+    }
+
+    gallery.dataset[key] = String(nextIndex);
+    return patternSet[nextIndex];
+  };
+
+  const shuffleItems = (items) => {
+    for (let index = items.length - 1; index > 0; index -= 1) {
+      const swapIndex = Math.floor(Math.random() * (index + 1));
+      [items[index], items[swapIndex]] = [items[swapIndex], items[index]];
+    }
+    return items;
+  };
+
+  const animateThumbs = (items, firstRects, duration) => {
+    if (reduceMotionQuery.matches) return;
+    if (!("animate" in Element.prototype)) return;
+
+    items.forEach((item) => {
+      if (item.classList.contains("is-hidden")) return;
+
+      const first = firstRects.get(item);
+      const last = item.getBoundingClientRect();
+
+      if (!first) {
+        item.animate(
+          [
+            { opacity: 0.16, transform: "scale(0.94)" },
+            { opacity: 1, transform: "scale(1)" }
+          ],
+          {
+            duration,
+            easing: motionEasing
+          }
+        );
+        return;
+      }
+
+      const dx = first.left - last.left;
+      const dy = first.top - last.top;
+      const sx = first.width / Math.max(last.width, 1);
+      const sy = first.height / Math.max(last.height, 1);
+
+      if (Math.abs(dx) < 0.5 && Math.abs(dy) < 0.5 && Math.abs(sx - 1) < 0.01 && Math.abs(sy - 1) < 0.01) {
+        return;
+      }
+
+      item.animate(
+        [
+          { transform: `translate(${dx}px, ${dy}px) scale(${sx}, ${sy})` },
+          { transform: "translate(0, 0) scale(1, 1)" }
+        ],
+        {
+          duration,
+          easing: motionEasing
+        }
+      );
+    });
+  };
+
+  const applyMosaicLayout = (gallery, thumbs, items, activeItem, shuffle = true) => {
+    const visibleItems = items.filter((item) => item !== activeItem);
+
+    gallery.classList.toggle("project-gallery--count-1", items.length === 1);
+    gallery.classList.toggle("project-gallery--overflow", visibleItems.length > 6);
+
+    items.forEach((item) => {
+      const hidden = item === activeItem;
+      item.classList.toggle("is-hidden", hidden);
+      if (hidden) {
+        item.style.gridColumn = "";
+        item.style.gridRow = "";
+      }
+    });
+
+    const orderedItems = shuffle && visibleItems.length > 1
+      ? shuffleItems([...visibleItems])
+      : [...visibleItems];
+
+    let itemIndex = 0;
+    let rowOffset = 0;
+
+    while (itemIndex < orderedItems.length) {
+      const remaining = orderedItems.length - itemIndex;
+      const groupSize = Math.min(6, remaining);
+      const pattern = pickPattern(gallery, groupSize, rowOffset / 4);
+
+      pattern.forEach(([colStart, colSpan, rowStart, rowSpan], slotIndex) => {
+        const item = orderedItems[itemIndex + slotIndex];
+        item.setAttribute("data-gallery-slot", String(itemIndex + slotIndex + 1));
+        item.style.gridColumn = `${colStart} / span ${colSpan}`;
+        item.style.gridRow = `${rowOffset + rowStart} / span ${rowSpan}`;
+      });
+
+      itemIndex += groupSize;
+      rowOffset += 4;
+    }
+
+    if (!gallery.classList.contains("project-gallery--overflow")) {
+      thumbs.scrollTop = 0;
+    }
+  };
+
+  const setActive = (gallery, feature, thumbs, items, activeItem, shouldAnimate = true) => {
+    if (!activeItem || activeItem.classList.contains("is-active")) return;
+    const duration = getMotionDuration(gallery);
+
+    const firstRects = shouldAnimate
+      ? new Map(
+          items
+            .filter((item) => !item.classList.contains("is-hidden"))
+            .map((item) => [item, item.getBoundingClientRect()])
+        )
+      : new Map();
+
+    const picture = activeItem.querySelector("picture");
+    const image = activeItem.querySelector("img");
+    const visual = picture ? picture.cloneNode(true) : image?.cloneNode(true);
+    if (!visual) return;
+
+    items.forEach((item) => {
+      const active = item === activeItem;
+      item.classList.toggle("is-active", active);
+      item.setAttribute("aria-pressed", active ? "true" : "false");
+    });
+
+    applyMosaicLayout(gallery, thumbs, items, activeItem, shouldAnimate);
+    feature.replaceChildren(visual);
+    feature.setAttribute("aria-label", image?.alt ? `Featured image: ${image.alt}` : "Featured gallery image");
+
+    if (shouldAnimate && !reduceMotionQuery.matches && "animate" in visual) {
+      visual.animate(
+        [
+          { opacity: 0.18, transform: "scale(1.012)" },
+          { opacity: 1, transform: "scale(1)" }
+        ],
+        {
+          duration,
+          easing: motionEasing
+        }
+      );
+    }
+
+    if (shouldAnimate) {
+      requestAnimationFrame(() => animateThumbs(items, firstRects, duration));
+    }
+  };
+
+  galleries.forEach((gallery) => {
+    const items = Array.from(gallery.querySelectorAll(".project-gallery__item"));
+    if (!items.length) return;
+
+    gallery.classList.add("project-gallery--interactive");
+
+    const feature = document.createElement("figure");
+    feature.className = "project-gallery__feature";
+    feature.setAttribute("aria-live", "polite");
+    gallery.insertBefore(feature, gallery.firstChild);
+
+    const thumbs = document.createElement("div");
+    thumbs.className = "project-gallery__thumbs";
+    gallery.appendChild(thumbs);
+    items.forEach((item) => thumbs.appendChild(item));
+
+    items.forEach((item, index) => {
+      const image = item.querySelector("img");
+      item.tabIndex = 0;
+      item.setAttribute("role", "button");
+      item.setAttribute("aria-pressed", "false");
+      item.setAttribute("aria-label", image?.alt ? `Show image larger: ${image.alt}` : `Show gallery image ${index + 1} larger`);
+
+      item.addEventListener("click", () => setActive(gallery, feature, thumbs, items, item));
+
+      item.addEventListener("keydown", (event) => {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+        setActive(gallery, feature, thumbs, items, item);
+      });
+    });
+
+    setActive(gallery, feature, thumbs, items, items[0], false);
+  });
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
   const grid = document.querySelector("#projectsGrid");
   const dotsWrap = document.querySelector(".projects__dots");
   if (!grid || !dotsWrap) return;

@@ -1,10 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  {% set pageSeo = seo[page.fileSlug] if seo and seo[page.fileSlug] else {} %}
+  {% set metaTitle = pageSeo.metaTitle or title or site.title %}
+  {% set metaDescription = pageSeo.description or site.description %}
+  {% set metaKeywords = pageSeo.keywords or site.defaultKeywords %}
+  {% set metaImage = pageSeo.image or site.defaultImage %}
+  {% set metaImageUrl = metaImage if metaImage and metaImage[0] != "/" else site.url + metaImage %}
+  {% set canonicalUrl = site.url + page.url %}
+  {% set ogType = pageSeo.type or ("website" if page.fileSlug == "index" else "article") %}
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ metaDescription }}">
+  <meta name="keywords" content="{{ metaKeywords }}">
+  <meta name="author" content="{{ site.shortName }}">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="googlebot" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#f7f5f1">
 
-  <title>{% if title %}{{ title }} — {% endif %}Sebastián Hudák' Personal WebPage</title>
+  <title>{% if page.fileSlug == "index" %}{{ metaTitle }} | {{ site.shortName }}{% else %}{{ metaTitle }} | {{ site.shortName }}{% endif %}</title>
+  <link rel="canonical" href="{{ canonicalUrl }}">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:type" content="{{ ogType }}">
+  <meta property="og:title" content="{{ metaTitle }}">
+  <meta property="og:description" content="{{ metaDescription }}">
+  <meta property="og:url" content="{{ canonicalUrl }}">
+  <meta property="og:image" content="{{ metaImageUrl }}">
+  <meta property="og:image:alt" content="{{ pageSeo.imageAlt or metaTitle }}">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ metaTitle }}">
+  <meta name="twitter:description" content="{{ metaDescription }}">
+  <meta name="twitter:image" content="{{ metaImageUrl }}">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -15,6 +46,37 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   
   <link rel="stylesheet" href="/assets/css/main.css" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "{{ "WebSite" if page.fileSlug == "index" else "WebPage" }}",
+      "name": "{{ metaTitle }}",
+      "description": "{{ metaDescription }}",
+      "url": "{{ canonicalUrl }}",
+      "image": "{{ metaImageUrl }}"
+    }
+  </script>
+  {% if page.fileSlug == "index" %}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Sebastian Hudak",
+        "url": "{{ site.url }}",
+        "jobTitle": "Aerospace Engineer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Sebastian Hudak"
+        },
+        "sameAs": [
+          {% for item in site.sameAs %}
+            "{{ item }}"{% if not loop.last %},{% endif %}
+          {% endfor %}
+        ]
+      }
+    </script>
+  {% endif %}
 
   {% if headExtra %}{{ headExtra | safe }}{% endif %}
 </head>

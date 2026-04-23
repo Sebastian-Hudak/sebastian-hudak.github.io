@@ -1,0 +1,93 @@
+@layer components {
+  .site-footer{
+    background: var(--color-bg);
+    border-top: 1px solid var(--color-border-faint);
+    padding-block: clamp(2.25rem, 5vw, 3.75rem);
+  }
+
+  .site-footer__inner{
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+    display: grid;
+    justify-items: center;
+    gap: clamp(0.9rem, 2vw, 1.25rem);
+    text-align: center;
+  }
+
+  .site-footer__nav{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.45rem clamp(0.85rem, 2vw, 1.35rem);
+    max-width: 58rem;
+  }
+
+  .site-footer__nav a{
+    font-size: var(--fs-small);
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    padding: 0.35rem 0.2rem;
+    text-transform: uppercase;
+    letter-spacing: var(--ls-wide);
+    font-weight: var(--fw-semibold);
+    transition: color var(--duration-fast) var(--ease-standard);
+  }
+
+  .site-footer__nav a:hover{
+    color: var(--color-heading);
+  }
+
+  .site-footer__social{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+    margin-top: 0.2rem;
+  }
+
+  .site-footer__social a{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    color: var(--color-heading);
+    border-radius: 12px;
+    transition:
+      color var(--duration-fast) var(--ease-standard),
+      background var(--duration-fast) var(--ease-standard),
+      transform var(--duration-fast) var(--ease-standard);
+  }
+
+  .site-footer__social a:hover{
+    transform: translateY(-1px);
+    color: var(--color-heading);
+  }
+
+  .site-footer__social svg{
+    width: 24px;
+    height: 24px;
+    display: block;
+  }
+
+  .site-footer__copy{
+    justify-self: center;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    color: var(--color-text-faint);
+    font-size: var(--fs-small);
+    line-height: var(--lh-snug);
+  }
+
+  @media (max-width: 560px) {
+    .site-footer__nav {
+      gap: 0.25rem 0.75rem;
+    }
+
+    .site-footer__social {
+      gap: 0.9rem;
+    }
+  }
+}

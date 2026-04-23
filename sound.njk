@@ -6,10 +6,10 @@ featuredProjects:
 - CAVITATION
 - GSX
 - ABOX
-relatedLead: More work in measurement, electronics and data interpretation.
+relatedLead: Work in measurement, electronics and data interpretation.
 ---
 
-<section class="page-hero" style="--hero-img: url('/assets/images/projects/sound/vertical_sound.JPG');">
+<section class="page-hero" style="--hero-img: url('/assets/images/projects/sound/cae-sound-vertical-microphone-cockpit.jpg');">
   <div class="page-hero__overlay" aria-hidden="true"></div>
 
   <div class="container page-hero__inner">
@@ -27,7 +27,7 @@ relatedLead: More work in measurement, electronics and data interpretation.
       <dl class="facts__list">
         <div class="facts__row">
           <dt>Context</dt>
-          <dd>CAE Amsterdam internship work</dd>
+          <dd>Certification measurement inconsistencies</dd>
         </div>
         <div class="facts__row">
           <dt>My role</dt>
@@ -53,13 +53,13 @@ relatedLead: More work in measurement, electronics and data interpretation.
 <section class="story">
   <div class="container story__grid">
     <figure class="media media--4x3">
-      {% img "assets/images/projects/sound/IMG_0884.JPG", "Sound measurement equipment" %}
+      {% img "assets/images/projects/sound/cae-sound-horizontal-microphone-cockpit.jpg", "Sound measurement equipment" %}
     </figure>
 
     <div class="story__content">
       <h2 class="story__title">Problem</h2>
       <p class="story__text">
-        During certification-related work, sound measurements can fall outside expected tolerance.
+        During certification-related work, sound measurements can fall outside expected tolerance with respect to the aircraft test flight data.
         The challenge was to understand whether the issue came from setup, acquisition, environment
         or simulator-specific behavior.
       </p>
@@ -74,18 +74,36 @@ relatedLead: More work in measurement, electronics and data interpretation.
 <section class="story story--reverse">
   <div class="container story__grid">
     <figure class="media media--4x3">
-      {% img "assets/images/projects/sound/IMG_1271.JPG", "Sound measurement inside cockpit" %}
+      {% img "assets/images/projects/sound/cae-sound-measurement-screen.jpg", "Sound measurement inside cockpit" %}
     </figure>
 
     <div class="story__content">
       <h2 class="story__title">Measurement Workflow</h2>
       <p class="story__text">
         I worked through the acquisition chain, comparing measurement conditions, microphone placement
-        and repeatability across multiple simulator contexts.
+        and repeatability across multiple simulator platforms including statistical analysis of the data to identify patterns and potential causes.
       </p>
       <p class="story__text">
-        The main value was narrowing the search space and building a clearer troubleshooting sequence
+        The main goal was narrowing the search space and building a clearer troubleshooting sequence
         for future sound measurement issues.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="story">
+  <div class="container story__grid">
+    <figure class="media media--4x3">
+      {% img "assets/images/projects/sound/cae-sound-data-storage-drives.jpeg", "Sound measurement equipment" %}
+    </figure>
+
+    <div class="story__content">
+      <h2 class="story__title">Implementation of Changes</h2>
+      <p class="story__text">
+        After troubleshooting and listing potential causes, I implemented changes to the measurement setup and acquisition process on system level.
+      </p>
+      <p class="story__text">
+        The deviations were majorly minimized after the changes, and the work provided a clearer path for future sound measurement troubleshooting.
       </p>
     </div>
   </div>
@@ -96,61 +114,28 @@ relatedLead: More work in measurement, electronics and data interpretation.
     <header class="project-gallery__head">
       <p class="logo-band__label">Project media</p>
       <h2 class="project-gallery__title">Gallery</h2>
-      <p class="project-gallery__summary">
-        Non-sensitive views of the measurement setup, cockpit placement and supporting equipment.
-      </p>
     </header>
 
     <div class="project-gallery">
       <figure class="project-gallery__item">
-        {% img "assets/images/projects/sound/vertical_sound.JPG", "Sound measurement setup vertical" %}
+        {% img "assets/images/projects/sound/cae-cockpit-uv-light-check.jpeg", "Sound measurement setup vertical" %}
         <figcaption>Measurement setup overview.</figcaption>
       </figure>
       <figure class="project-gallery__item">
-        {% img "assets/images/projects/sound/IMG_0889.JPG", "Sound measurement hardware detail" %}
+        {% img "assets/images/projects/sound/cae-simulator-server-rack.jpg", "Sound measurement hardware detail" %}
         <figcaption>Hardware setup detail.</figcaption>
       </figure>
       <figure class="project-gallery__item">
-        {% img "assets/images/projects/sound/IMG_1248.JPG", "Cockpit measurement placement" %}
+        {% img "assets/images/projects/sound/cae-sound-analysis-workstation.jpeg", "Cockpit measurement placement" %}
         <figcaption>Cockpit placement context.</figcaption>
       </figure>
       <figure class="project-gallery__item">
-        {% img "assets/images/projects/sound/IMG_1299.jpeg", "Sound testing equipment" %}
+        {% img "assets/images/projects/sound/cae-crj-simulator-cockpit.jpeg", "Sound testing equipment" %}
         <figcaption>Supporting measurement equipment.</figcaption>
       </figure>
-      <figure class="project-gallery__item">
-        {% img "assets/images/projects/sound/IMG_1964.jpeg", "Sound acquisition detail" %}
-        <figcaption>Acquisition setup detail.</figcaption>
-      </figure>
-      <figure class="project-gallery__item">
-        {% img "assets/images/projects/sound/IMG__.JPG", "Simulator sound setup" %}
-        <figcaption>Simulator measurement context.</figcaption>
-      </figure>
     </div>
   </div>
 </section>
 
-<section class="project-assets" id="documents">
-  <div class="container project-assets__grid">
-    <div class="project-assets__copy">
-      <p class="logo-band__label">Documents</p>
-      <h2 class="project-assets__title">Available Material</h2>
-      <p class="project-assets__summary">
-        Supporting material is limited to non-sensitive workflow descriptions and measurement approach notes.
-      </p>
-    </div>
-
-    <div class="project-assets__list">
-      <a class="project-asset" href="/contact/">
-        <span class="project-asset__label">Measurement workflow summary</span>
-        <span class="project-asset__meta">Available on request</span>
-      </a>
-      <a class="project-asset" href="/cae/">
-        <span class="project-asset__label">Related experience: CAE</span>
-        <span class="project-asset__meta">Context for simulator work</span>
-      </a>
-    </div>
-  </div>
-</section>
 
 {% include "components/project-related.njk" %}

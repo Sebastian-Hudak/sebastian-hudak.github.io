@@ -1,7 +1,7 @@
 <article class="project-card-container" data-tags="{{ p.tags_raw | default('') }}" data-href="{{ p.href }}" aria-label="{{ p.title }}">
   <div class="project-card">
     <div class="project-card__face project-card__face--front">
-      <img class="project-card__image" src="{{ p.img }}" alt="{{ p.alt | default(p.title) }}" loading="lazy">
+      <img class="project-card__image" src="{{ p.img }}" alt="{{ p.alt | default(p.title) }}" loading="lazy" decoding="async">
       <div class="project-card__shade" aria-hidden="true"></div>
       <div class="project-card__front-copy">
         <p class="project-card__year">{{ p.year | default('Selected work') }}</p>
@@ -37,7 +37,7 @@
           </div>
         {% endif %}
 
-        <a class="project-card__btn" href="{{ p.href }}">Read more</a>
+        <a class="project-card__btn" href="{{ p.href }}" aria-label="View project: {{ p.title }}">View project</a>
       </div>
     </div>
   </div>

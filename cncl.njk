@@ -6,10 +6,10 @@ featuredProjects:
 - MACHINING
 - HEI
 - GSX
-relatedLead: More work in machining, manufacturing and hands-on engineering.
+relatedLead: Work in machining and manufacturing.
 ---
 
-<section class="page-hero" style="--hero-img: url('/assets/images/projects/cncl/oval.jpeg');">
+<section class="page-hero" style="--hero-img: url('/assets/images/projects/cncl/cnc-lathe-oval-part.jpeg');">
   <div class="page-hero__overlay" aria-hidden="true"></div>
 
   <div class="container page-hero__inner">
@@ -28,10 +28,6 @@ relatedLead: More work in machining, manufacturing and hands-on engineering.
         <div class="facts__row">
           <dt>Context</dt>
           <dd>School-owned CNC lathe modernization</dd>
-        </div>
-        <div class="facts__row">
-          <dt>My role</dt>
-          <dd>Restoration, CAM workflow, post-processor tuning</dd>
         </div>
         <div class="facts__row">
           <dt>Deliverables</dt>
@@ -53,7 +49,7 @@ relatedLead: More work in machining, manufacturing and hands-on engineering.
 <section class="story">
   <div class="container story__grid">
     <figure class="media media--4x3">
-      {% img "assets/images/projects/cncl/dust.jpeg", "CNC lathe before restoration" %}
+      {% img "assets/images/projects/cncl/cnc-lathe-before-restoration.jpeg", "CNC lathe before restoration" %}
     </figure>
 
     <div class="story__content">
@@ -73,14 +69,14 @@ relatedLead: More work in machining, manufacturing and hands-on engineering.
 <section class="story story--reverse">
   <div class="container story__grid">
     <figure class="media media--4x3">
-      {% img "assets/images/projects/cncl/restoration.jpeg", "CNC lathe restoration work" %}
+      {% img "assets/images/projects/cncl/cnc-lathe-restoration-work.jpeg", "CNC lathe restoration work" %}
     </figure>
 
     <div class="story__content">
       <h2 class="story__title">Troubleshooting</h2>
       <p class="story__text">
         Before touching the software workflow, the machine needed basic recovery work: lubrication,
-        checks of subcomponents, controller exploration and calibration of the usable working envelope.
+        checks of subcomponents, controller exploration and calibration.
       </p>
       <p class="story__text">
         With the SINUMERIK 810D controller operational, the next challenge was making Fusion CAM output
@@ -93,7 +89,7 @@ relatedLead: More work in machining, manufacturing and hands-on engineering.
 <section class="story">
   <div class="container story__grid">
     <figure class="media media--4x3">
-      {% img "assets/images/projects/cncl/cam.jpeg", "Fusion CAM setup for CNC lathe" %}
+      {% img "assets/images/projects/cncl/cnc-lathe-fusion-cam.jpeg", "Fusion CAM setup for CNC lathe" %}
     </figure>
 
     <div class="story__content">
@@ -101,10 +97,10 @@ relatedLead: More work in machining, manufacturing and hands-on engineering.
       <p class="story__text">
         The available post-processor was close, but not compatible enough with the controller version
         running on the machine. After iterative testing and manufacturer communication, I tuned the
-        post-processor so the generated operations were usable on the lathe.
+        post-processor so the generated CAM code was usable on the lathe.
       </p>
       <p class="story__text">
-        The final result was a clearer path from CAD to CAM to machine validation, making the equipment
+        The final result was a clearer path from CAD to CAM to machine, making the equipment
         more useful for student projects.
       </p>
     </div>
@@ -123,19 +119,19 @@ relatedLead: More work in machining, manufacturing and hands-on engineering.
 
     <div class="project-gallery">
       <figure class="project-gallery__item">
-        {% img "assets/images/projects/cncl/oval.jpeg", "Machined oval component" %}
+        {% img "assets/images/projects/cncl/cnc-lathe-oval-part.jpeg", "Machined oval component" %}
         <figcaption>Finished part used to validate the workflow.</figcaption>
       </figure>
       <figure class="project-gallery__item">
-        {% img "assets/images/projects/cncl/part_detail.jpg", "Machined component detail" %}
+        {% img "assets/images/projects/cncl/cnc-lathe-part-detail.jpg", "Machined component detail" %}
         <figcaption>Detail view of a produced component.</figcaption>
       </figure>
       <figure class="project-gallery__item">
-        {% img "assets/images/projects/cncl/work.jpeg", "CNC lathe working area" %}
+        {% img "assets/images/projects/cncl/cnc-lathe-machining-work.jpeg", "CNC lathe working area" %}
         <figcaption>Machine working area after restoration.</figcaption>
       </figure>
       <figure class="project-gallery__item">
-        {% img "assets/images/projects/cncl/cam_snap.jpg", "CAM post-processor output" %}
+        {% img "assets/images/projects/cncl/cnc-lathe-cam-postprocessor.jpg", "CAM post-processor output" %}
         <figcaption>CAM setup and output validation.</figcaption>
       </figure>
     </div>
@@ -158,7 +154,7 @@ relatedLead: More work in machining, manufacturing and hands-on engineering.
         <span class="project-asset__meta">PDF reference document</span>
       </a>
       <a class="project-asset" href="/contact/">
-        <span class="project-asset__label">Post-processor notes</span>
+        <span class="project-asset__label">Post-processor code</span>
         <span class="project-asset__meta">Available on request</span>
       </a>
     </div>
