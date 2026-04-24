@@ -9,19 +9,23 @@
   {% set metaImageUrl = metaImage if metaImage and metaImage[0] != "/" else site.url + metaImage %}
   {% set canonicalUrl = site.url + page.url %}
   {% set ogType = pageSeo.type or ("website" if page.fileSlug == "index" else "article") %}
+  {% set searchIndexingEnabled = site.searchIndexingEnabled != false %}
+  {% set robotsDirectives = "index,follow,max-image-preview:large" if searchIndexingEnabled else "noindex,nofollow,noarchive,noimageindex,nosnippet,max-image-preview:none" %}
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="{{ metaDescription }}">
   <meta name="keywords" content="{{ metaKeywords }}">
   <meta name="author" content="{{ site.shortName }}">
-  <meta name="robots" content="index,follow,max-image-preview:large">
-  <meta name="googlebot" content="index,follow,max-image-preview:large">
+  <meta name="robots" content="{{ robotsDirectives }}">
+  <meta name="googlebot" content="{{ robotsDirectives }}">
   <meta name="theme-color" content="#f7f5f1">
 
   <title>{% if page.fileSlug == "index" %}{{ metaTitle }} | {{ site.shortName }}{% else %}{{ metaTitle }} | {{ site.shortName }}{% endif %}</title>
   <link rel="canonical" href="{{ canonicalUrl }}">
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+  {% if searchIndexingEnabled %}
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+  {% endif %}
 
   <meta property="og:site_name" content="{{ site.title }}">
   <meta property="og:type" content="{{ ogType }}">
@@ -47,35 +51,37 @@
   
   <link rel="stylesheet" href="/assets/css/main.css" />
 
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "{{ "WebSite" if page.fileSlug == "index" else "WebPage" }}",
-      "name": "{{ metaTitle }}",
-      "description": "{{ metaDescription }}",
-      "url": "{{ canonicalUrl }}",
-      "image": "{{ metaImageUrl }}"
-    }
-  </script>
-  {% if page.fileSlug == "index" %}
+  {% if searchIndexingEnabled %}
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Sebastian Hudak",
-        "url": "{{ site.url }}",
-        "jobTitle": "Aerospace Engineer",
-        "worksFor": {
-          "@type": "Organization",
-          "name": "Sebastian Hudak"
-        },
-        "sameAs": [
-          {% for item in site.sameAs %}
-            "{{ item }}"{% if not loop.last %},{% endif %}
-          {% endfor %}
-        ]
+        "@type": "{{ "WebSite" if page.fileSlug == "index" else "WebPage" }}",
+        "name": "{{ metaTitle }}",
+        "description": "{{ metaDescription }}",
+        "url": "{{ canonicalUrl }}",
+        "image": "{{ metaImageUrl }}"
       }
     </script>
+    {% if page.fileSlug == "index" %}
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Person",
+          "name": "Sebastian Hudak",
+          "url": "{{ site.url }}",
+          "jobTitle": "Aerospace Engineer",
+          "worksFor": {
+            "@type": "Organization",
+            "name": "Sebastian Hudak"
+          },
+          "sameAs": [
+            {% for item in site.sameAs %}
+              "{{ item }}"{% if not loop.last %},{% endif %}
+            {% endfor %}
+          ]
+        }
+      </script>
+    {% endif %}
   {% endif %}
 
   {% if headExtra %}{{ headExtra | safe }}{% endif %}
