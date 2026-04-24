@@ -5,25 +5,25 @@
       <div class="project-card__shade" aria-hidden="true"></div>
       <div class="project-card__front-copy">
         <p class="project-card__year">{{ p.year | default('Selected work') }}</p>
-        <h3 class="project-card__title">{{ p.title }}</h3>
-        <p class="project-card__hint">Click to view</p>
+        <h3 class="project-card__title" data-i18n="projects.{{ id }}.title">{{ p.title }}</h3>
+        <p class="project-card__hint" data-i18n="projectCard.hint">Click to view</p>
       </div>
     </div>
 
     <div class="project-card__face project-card__face--back">
       <div class="project-card__back-copy">
         <div class="project-card__back-head">
-          <p class="project-card__kicker">At a glance</p>
-          <p class="project-card__back-title">{{ p.title }}</p>
+          <p class="project-card__kicker" data-i18n="projectCard.glance">At a glance</p>
+          <p class="project-card__back-title" data-i18n="projects.{{ id }}.title">{{ p.title }}</p>
         </div>
 
-        <p class="project-card__desc">{{ p.desc }}</p>
+        <p class="project-card__desc" data-i18n="projects.{{ id }}.desc">{{ p.desc }}</p>
 
         {% if p.specs and p.specs.length %}
           <ul class="project-card__specs" aria-label="Project highlights">
             {% for spec in p.specs %}
               {% if loop.index <= 3 %}
-                <li>{{ spec }}</li>
+                <li data-i18n="projects.{{ id }}.specs.{{ loop.index0 }}">{{ spec }}</li>
               {% endif %}
             {% endfor %}
           </ul>
@@ -37,7 +37,7 @@
           </div>
         {% endif %}
 
-        <a class="project-card__btn" href="{{ p.href }}" aria-label="View project: {{ p.title }}">View project</a>
+        <a class="project-card__btn" href="{{ p.href }}" aria-label="View project: {{ p.title }}" data-i18n="projectCard.view">View project</a>
       </div>
     </div>
   </div>

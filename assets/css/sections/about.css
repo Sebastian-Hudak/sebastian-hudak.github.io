@@ -11,9 +11,18 @@
     align-items: center;
   }
 
+  .about__grid > picture {
+    display: block;
+    width: 100%;
+  }
+
   .about__image {
+    display: block;
     width: 100%;
     height: auto;
+    border-radius: 0;
+    box-shadow: var(--shadow-lg);
+    object-fit: cover;
   }
 
   .about__content {
@@ -46,6 +55,7 @@
   }
 
   .about__signature {
+    display: block;
     width: 80%;
     height: auto;
     margin: 20px 0 0px;

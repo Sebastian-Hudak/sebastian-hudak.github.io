@@ -8,8 +8,8 @@ headExtra: |
 
 <section class="contact-hero" aria-labelledby="contact-title">
   <div class="container contact-hero__inner">
-    <p class="logo-band__label">Contact</p>
-    <h1 id="contact-title">Contact me</h1>
+    <p class="logo-band__label" data-i18n="contact.kicker">Contact</p>
+    <h1 id="contact-title" data-i18n="contact.title">Contact me</h1>
   </div>
 </section>
 
@@ -29,8 +29,8 @@ headExtra: |
               </div>
             </div>
             <div class="flip__hint" aria-hidden="true">
-              <span class="flip__hint-text hint--desktop">Hover to flip</span>
-              <span class="flip__hint-text hint--mobile">Tap to flip</span>
+              <span class="flip__hint-text hint--desktop" data-i18n="form.flip.desktop">Hover to flip</span>
+              <span class="flip__hint-text hint--mobile" data-i18n="form.flip.mobile">Tap to flip</span>
             </div>
           </div>
         </div>
@@ -38,42 +38,42 @@ headExtra: |
 
       <section class="contact-page__right" aria-labelledby="contact-form-title">
         <div class="contact-form__head">
-          <h2 id="contact-form-title">Send a note</h2>
+          <h2 id="contact-form-title" data-i18n="form.title">Send a note</h2>
         </div>
 
         <form class="contact-form" action="mailto:sh.sebastianhudak@gmail.com?subject=New%20message%20from%20sebastianhudak.com" method="post" enctype="text/plain">
-          <p class="contact-form__required-note">Fields marked with * are required.</p>
+          <p class="contact-form__required-note" data-i18n="form.required">Fields marked with * are required.</p>
 
           <input class="contact-form__trap" type="text" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true">
 
           <div class="contact-form__row contact-form__row--2">
             <div class="field">
-              <label class="field__label" for="name">Name <span class="field__required">*</span></label>
-              <input class="field__input" id="name" type="text" name="name" placeholder="Your name" autocomplete="name" required>
+              <label class="field__label" for="name"><span data-i18n="form.name">Name</span> <span class="field__required">*</span></label>
+              <input class="field__input" id="name" type="text" name="name" placeholder="Your name" autocomplete="name" required data-i18n-placeholder="form.placeholder.name">
             </div>
 
             <div class="field">
-              <label class="field__label" for="email">Email <span class="field__required">*</span></label>
-              <input class="field__input" id="email" type="email" name="email" placeholder="you@email.com" autocomplete="email" required>
+              <label class="field__label" for="email"><span data-i18n="form.email">Email</span> <span class="field__required">*</span></label>
+              <input class="field__input" id="email" type="email" name="email" placeholder="you@email.com" autocomplete="email" required data-i18n-placeholder="form.placeholder.email">
             </div>
           </div>
 
           <div class="field">
-            <label class="field__label" for="subject">Subject</label>
-            <input class="field__input" id="subject" type="text" name="subject" placeholder="Project, collaboration, question..." maxlength="120">
+            <label class="field__label" for="subject" data-i18n="form.subject">Subject</label>
+            <input class="field__input" id="subject" type="text" name="subject" placeholder="Project, collaboration, question..." maxlength="120" data-i18n-placeholder="form.placeholder.subject">
           </div>
 
           <div class="field">
-            <label class="field__label" for="message">Message <span class="field__required">*</span></label>
-            <textarea class="field__input field__textarea" id="message" name="message" rows="6" placeholder="A few useful details, timing, and links if relevant." maxlength="1400" required></textarea>
+            <label class="field__label" for="message"><span data-i18n="form.message">Message</span> <span class="field__required">*</span></label>
+            <textarea class="field__input field__textarea" id="message" name="message" rows="6" placeholder="A few useful details, timing, and links if relevant." maxlength="1400" required data-i18n-placeholder="form.placeholder.message"></textarea>
           </div>
 
           <p class="contact-form__privacy">
-            Please avoid sending sensitive information through ordinary email or web forms.
-            <a href="/privacy/">Privacy notice</a>
+            <span data-i18n="form.privacy">Please avoid sending sensitive information through ordinary email or web forms.</span>
+            <a href="/privacy/" data-i18n="form.privacy.link">Privacy notice</a>
           </p>
 
-          <button class="button-redirect contact-form__submit" type="submit">Send message</button>
+          <button class="button-redirect contact-form__submit" type="submit" data-i18n="form.submit">Send message</button>
         </form>
       </section>
     </div>

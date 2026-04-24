@@ -1,9 +1,9 @@
 <section class="related">
   <div class="container">
     <div class="related__head">
-      <h1 class="related__title">{{ relatedTitle | default("More Projects") }}</h1>
+      <h1 class="related__title" data-i18n="related.title">{{ relatedTitle | default("More Projects") }}</h1>
       {% if relatedLead %}
-        <p class="logo-band__label">{{ relatedLead }}</p>
+        <p class="logo-band__label" data-i18n="related.lead">{{ relatedLead }}</p>
       {% endif %}
     </div>
 

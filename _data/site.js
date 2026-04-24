@@ -2,8 +2,9 @@ module.exports = {
   name: "Sebastian Hudak",
   shortName: "Sebastian Hudak",
   url: "https://sebastianhudak.com",
-  // Keep the site shareable by direct link while discouraging search indexing.
+
   searchIndexingEnabled: false,
+  
   title: "Sebastian Hudak | Aerospace Engineering Portfolio",
   description:
     "Portfolio of Sebastian Hudak covering propulsion R&D, cavitation analysis, machining, simulation, test engineering and aerospace hardware development.",

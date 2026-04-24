@@ -1,23 +1,112 @@
 <header class="header intro-nav" id="header">
   <div class="header-inner">
     <a href="/index.html" class="logo" aria-label="Home">
-      <img src="/assets/images/page/logo-set/sebastian-hudak-logo-square.svg" alt="Sebastián Hudák" class="logo-img">
+      <img
+        src="/assets/images/page/logo-set/sebastian-hudak-logo-square.svg"
+        data-theme-src-light="/assets/images/page/logo-set/sebastian-hudak-logo-square.svg"
+        data-theme-src-dark="/assets/images/page/logo-set/sebastian-hudak-logo-square-inverted.png"
+        alt="Sebastián Hudák"
+        class="logo-img"
+      >
     </a>
 
-    <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
-      <span class="burger-line"></span>
-      <span class="burger-line"></span>
-      <span class="burger-line"></span>
-    </button>
+    <div class="header-actions">
+      <nav class="nav" id="site-nav">
+        <a class="nav__link" href="/index.html" data-i18n="nav.home">Home</a>
+        <a class="nav__link" href="/index.html#About" data-i18n="nav.about">About</a>
+        <a class="nav__link" href="/index.html#Experience" data-i18n="nav.experience">Experience</a>
+        <a class="nav__link" href="/index.html#Projects" data-i18n="nav.projects">Projects</a>
+        <a class="nav__link" href="/contact.html" data-i18n="nav.contact">Contact</a>
 
-    <nav class="nav" id="site-nav">
-      <a class="nav__link" href="/index.html">Home</a>
-      <a class="nav__link" href="/index.html#About">About</a>
-      <a class="nav__link" href="/index.html#Experience">Experience</a>
-      <a class="nav__link" href="/index.html#Projects">Projects</a>
-      <a class="nav__link" href="/contact.html">Contact</a>
-      
-      <a class="button-redirect" href="/assets/documents/CV_Hudak.pdf" target="_blank" rel="noopener"> Curriculum Vitae (pdf)</a>
-    </nav>
+        <div class="nav__meta">
+          <a class="button-redirect" href="/assets/documents/CV_Hudak.pdf" target="_blank" rel="noopener" data-i18n="nav.cv">Curriculum Vitae (pdf)</a>
+
+          <div class="nav__language" aria-label="Language selector" data-i18n-aria-label="language.toggle">
+            <button type="button" class="nav__language-button" data-site-language="en" data-language-short="EN">EN</button>
+            <button type="button" class="nav__language-button" data-site-language="de" data-language-short="DE">DE</button>
+            <button type="button" class="nav__language-button" data-site-language="sk" data-language-short="SK">SK</button>
+          </div>
+        </div>
+      </nav>
+
+      <div class="header-tools">
+        <div class="header-language header-language--desktop" data-language-menu>
+          <button
+            type="button"
+            class="header-language__toggle"
+            data-language-toggle
+            aria-expanded="false"
+            aria-label="Select language"
+            data-i18n-aria-label="language.toggle"
+          >
+            <span class="header-language__current" data-language-current>EN</span>
+            <span class="header-language__chevron" aria-hidden="true"></span>
+          </button>
+
+          <div class="header-language__menu" aria-label="Language selector" data-i18n-aria-label="language.toggle">
+            <button
+              type="button"
+              class="header-language__option"
+              data-site-language="en"
+              data-language-short="EN"
+            >
+              <span class="header-language__code">EN</span>
+              <span class="header-language__label">English</span>
+              <span class="header-language__check" aria-hidden="true">&#10003;</span>
+            </button>
+            <button
+              type="button"
+              class="header-language__option"
+              data-site-language="de"
+              data-language-short="DE"
+            >
+              <span class="header-language__code">DE</span>
+              <span class="header-language__label">German</span>
+              <span class="header-language__check" aria-hidden="true">&#10003;</span>
+            </button>
+            <button
+              type="button"
+              class="header-language__option"
+              data-site-language="sk"
+              data-language-short="SK"
+            >
+              <span class="header-language__code">SK</span>
+              <span class="header-language__label">Slovak</span>
+              <span class="header-language__check" aria-hidden="true">&#10003;</span>
+            </button>
+          </div>
+        </div>
+
+        <label class="theme-switch" aria-label="Toggle light and dark mode">
+          <input
+            class="theme-switch__input"
+            type="checkbox"
+            role="switch"
+            data-theme-toggle
+            aria-label="Toggle light and dark mode"
+          >
+          <span class="theme-switch__icon" aria-hidden="true">
+            <span class="theme-switch__icon-part theme-switch__icon-part--1"></span>
+            <span class="theme-switch__icon-part theme-switch__icon-part--2"></span>
+            <span class="theme-switch__icon-part theme-switch__icon-part--3"></span>
+            <span class="theme-switch__icon-part theme-switch__icon-part--4"></span>
+            <span class="theme-switch__icon-part theme-switch__icon-part--5"></span>
+            <span class="theme-switch__icon-part theme-switch__icon-part--6"></span>
+            <span class="theme-switch__icon-part theme-switch__icon-part--7"></span>
+            <span class="theme-switch__icon-part theme-switch__icon-part--8"></span>
+            <span class="theme-switch__icon-part theme-switch__icon-part--9"></span>
+            <span class="theme-switch__icon-part theme-switch__icon-part--10"></span>
+            <span class="theme-switch__icon-part theme-switch__icon-part--11"></span>
+          </span>
+          <span class="theme-switch__sr" data-i18n="theme.toggle">Toggle light and dark mode</span>
+        </label>
+      </div>
+
+      <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
+    </div>
   </div>
 </header>

@@ -389,12 +389,12 @@
     }
 
     .education-card--current {
-      --edu-logo-size: 4rem;
+      --edu-logo-size: 5.65rem;
       --edu-title-size: 1.34rem;
     }
 
     .education-card--foundation {
-      --edu-logo-size: 3.85rem;
+      --edu-logo-size: 5rem;
       --edu-title-size: 1.28rem;
     }
 

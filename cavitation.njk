@@ -13,9 +13,9 @@ relatedLead: More work in propulsion, testing and manufacturing.
   <div class="page-hero__overlay" aria-hidden="true"></div>
 
   <div class="container page-hero__inner">
-    <p class="page-hero__kicker">Thesis</p>
-    <h1 class="page-hero__title">Orifice Cavitation Analysis</h1>
-    <p class="page-hero__sub">Propulsion &bull; Empirical analysis &bull; Data processing &bull; 2025</p>
+    <p class="page-hero__kicker" data-i18n="hero.kicker">Thesis</p>
+    <h1 class="page-hero__title" data-i18n="hero.title">Orifice Cavitation Analysis</h1>
+    <p class="page-hero__sub" data-i18n="hero.sub">Propulsion &bull; Empirical analysis &bull; Data processing &bull; 2025</p>
 
   </div>
 </section>
@@ -23,26 +23,26 @@ relatedLead: More work in propulsion, testing and manufacturing.
 <section class="project-meta">
   <div class="container project-meta__grid">
     <div class="facts">
-      <h2 class="facts__title">At a glance</h2>
+      <h2 class="facts__title" data-i18n="facts.title">At a glance</h2>
       <dl class="facts__list">
         <div class="facts__row">
-          <dt>Context</dt>
-          <dd>Cavitation onset prediction and effects</dd>
+          <dt data-i18n="facts.context.k">Context</dt>
+          <dd data-i18n="facts.context.v">Cavitation onset prediction and effects</dd>
         </div>
         <div class="facts__row">
-          <dt>My role</dt>
-          <dd>Research, testing, data analysis</dd>
+          <dt data-i18n="facts.role.k">My role</dt>
+          <dd data-i18n="facts.role.v">Research, testing, data analysis</dd>
         </div>
         <div class="facts__row">
-          <dt>Deliverables</dt>
-          <dd>Interactive test database, data processing pipeline, research outcome</dd>
+          <dt data-i18n="facts.deliverables.k">Deliverables</dt>
+          <dd data-i18n="facts.deliverables.v">Interactive test database, data processing pipeline, research outcome</dd>
         </div>
       </dl>
     </div>
 
     <div class="project-meta__note">
-      <p class="project-meta__label">Disclosure</p>
-      <p>
+      <p class="project-meta__label" data-i18n="note.label">Disclosure</p>
+      <p data-i18n="note.text">
         This page only uses non-proprietary information. Specific operating conditions,
         hardware details and performance data are intentionally excluded.
       </p>
@@ -53,16 +53,16 @@ relatedLead: More work in propulsion, testing and manufacturing.
 <section class="thesis-feature thesis-feature--subtle" aria-labelledby="thesis-title">
   <div class="container thesis-feature__grid">
     <div class="thesis-feature__copy">
-      <p class="logo-band__label">Bachelor thesis</p>
-      <h2 id="thesis-title" class="thesis-feature__title">Research</h2>
-      <p class="thesis-feature__text">
+      <p class="logo-band__label" data-i18n="thesis.kicker">Bachelor thesis</p>
+      <h2 id="thesis-title" class="thesis-feature__title" data-i18n="thesis.title">Research</h2>
+      <p class="thesis-feature__text" data-i18n="thesis.text">
         This project formed my Bachelor thesis and focused on cavitation onset in orifice restriction plates.
         The full report contains proprietary test context, so the public page only presents the research framing,
         non-sensitive visuals and a simplified workflow.
       </p>
       <ul class="thesis-feature__points" aria-label="Public thesis scope">
-        <li>Empirical comparison of different cavitation onset effects</li>
-        <li>Structured data processing for repeatable test comparison</li>
+        <li data-i18n="thesis.point.0">Empirical comparison of different cavitation onset effects</li>
+        <li data-i18n="thesis.point.1">Structured data processing for repeatable test comparison</li>
       </ul>
     </div>
 
@@ -87,16 +87,21 @@ relatedLead: More work in propulsion, testing and manufacturing.
 <section class="story">
   <div class="container story__grid">
     <figure class="media media--4x3">
-      {% img "assets/images/projects/cavitation/cavitation-test-setup.png", "Cavitation test loop with sensors, piping and a transparent observation section" %}
+      <img
+        src="/assets/images/projects/cavitation/cavitation-test-setup.png"
+        alt="Orifice inside pipeline."
+        loading="lazy"
+        decoding="async"
+      >
     </figure>
 
     <div class="story__content">
-      <h2 class="story__title">Why Cavitation Matters</h2>
-      <p class="story__text">
+      <h2 class="story__title" data-i18n="story.why.title">Why Cavitation Matters</h2>
+      <p class="story__text" data-i18n="story.why.text.0">
         Flow can behave very differently once cavitation starts. For propulsion systems,
         predicting that onset is important because it affects stability, component sizing and test interpretation.
       </p>
-      <p class="story__text">
+      <p class="story__text" data-i18n="story.why.text.1">
         The work focused on building a practical understanding of cavitation behavior of engine specific components and
         magnitude of testing deviations.
       </p>
@@ -107,23 +112,31 @@ relatedLead: More work in propulsion, testing and manufacturing.
 <section class="pid-section" aria-labelledby="pid-title">
   <div class="container pid-section__grid">
     <div class="pid-card" aria-label="Simplified public P and ID diagram">
-      {% img "assets/images/projects/cavitation/cavitation-public-pid-diagram.png", "Public P and ID diagram of the cavitation test loop" %}
+      <img
+        class="pid-card__image"
+        src="/assets/images/projects/cavitation/cavitation-public-pid-diagram-transparent.png"
+        data-theme-src-light="/assets/images/projects/cavitation/cavitation-public-pid-diagram-transparent.png"
+        data-theme-src-dark="/assets/images/projects/cavitation/cavitation-public-pid-diagram-transparent-inverted.png"
+        alt="Public P and ID diagram of the cavitation test loop"
+        loading="lazy"
+        decoding="async"
+      >
     </div>
 
     <div class="pid-section__copy">
-      <p class="logo-band__label">Testing</p>
-      <h2 class="pid-section__title" id="pid-title">Simplified P&amp;ID</h2>
-      <p class="pid-section__text">
+      <p class="logo-band__label" data-i18n="pid.kicker">Testing</p>
+      <h2 class="pid-section__title" id="pid-title" data-i18n="pid.title">Simplified P&amp;ID</h2>
+      <p class="pid-section__text" data-i18n="pid.text">
         The diagram shows the structure of the investigation at a high level only. Test rig with ability to control upstream flow conditions with independent measurement points along the path enabled sampling huge amount of empirical data.
       </p>
       <dl class="pid-section__notes">
         <div>
-          <dt>Shown</dt>
-          <dd>Flow path, pressure reference points, visual observation and data acquisition.</dd>
+          <dt data-i18n="pid.shown.k">Shown</dt>
+          <dd data-i18n="pid.shown.v">Flow path, pressure reference points, visual observation and data acquisition.</dd>
         </div>
         <div>
-          <dt>Test Article</dt>
-          <dd>Set of restriction plates with varying geometries.</dd>
+          <dt data-i18n="pid.article.k">Test Article</dt>
+          <dd data-i18n="pid.article.v">Set of restriction plates with varying geometries.</dd>
         </div>
       </dl>
     </div>
@@ -133,21 +146,22 @@ relatedLead: More work in propulsion, testing and manufacturing.
 <section class="story story--reverse">
   <div class="container story__grid">
     <figure class="media media--16x9 media--plain">
-      {% img "assets/images/projects/cavitation/cavitation-onset-plot-transparent.png", "Plot of cavitation onset trends across different test conditions" %}
-      <figcaption class="media__credit">
-        Source: adapted from
-        <a href="https://doi.org/10.1016/j.ijthermalsci.2017.01.001" target="_blank" rel="noopener">
-          Ebrahimi et al., <em>International Journal of Thermal Sciences</em>, Volume 114, 2017
-        </a>.
-      </figcaption>
+      <img
+        src="/assets/images/projects/cavitation/cavitation-onset-plot-transparent.png"
+        data-theme-src-light="/assets/images/projects/cavitation/cavitation-onset-plot-transparent.png"
+        data-theme-src-dark="/assets/images/projects/cavitation/cavitation-onset-plot-inverted.png"
+        alt="Conceptual plot of cavitation onset and choked flow behavior"
+        loading="lazy"
+        decoding="async"
+      >
     </figure>
 
     <div class="story__content">
-      <h2 class="story__title">Flow characteristics</h2>
-      <p class="story__text">
+      <h2 class="story__title" data-i18n="story.flow.title">Flow characteristics</h2>
+      <p class="story__text" data-i18n="story.flow.text.0">
         Empirical dataset from test rig was processed where onset trends were compared across different test runs and hardware configurations. The goal was to find practical ways to compare tests and identify onset indicators without relying on sensitive system details.
       </p>
-      <p class="story__text">
+      <p class="story__text" data-i18n="story.flow.text.1">
         Final deliverables included an interactive TOML database of test results and a structured data processing pipeline using Python to enable repeatable analysis of future tests.
       </p>
     </div>
@@ -161,14 +175,14 @@ relatedLead: More work in propulsion, testing and manufacturing.
     </figure>
 
     <div class="story__content">
-      <h2 class="story__title">Analysis Workflow</h2>
-      <p class="story__text">
+      <h2 class="story__title" data-i18n="story.analysis.title">Analysis Workflow</h2>
+      <p class="story__text" data-i18n="story.analysis.text.0">
         Empirical dataset from test rig was processed where onset trends were compared across different test runs and hardware configurations.
       </p>
-      <p class="story__text">
+      <p class="story__text" data-i18n="story.analysis.text.1">
         Final deliverables included an interactive TOML database of test results and a structured data processing pipeline using Python to enable repeatable analysis of future tests. The results match theoretical behavior of flow as can be seen from previous sketch.
       </p>
-      <p class="story__text">
+      <p class="story__text" data-i18n="story.analysis.text.2">
         The results match theoretical behavior of flow as can be seen from previous sketch.
       </p>
     </div>

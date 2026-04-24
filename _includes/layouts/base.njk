@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  {% set pageSeo = seo[page.fileSlug] if seo and seo[page.fileSlug] else {} %}
+  {% set pageKey = page.fileSlug or ("index" if page.url == "/" else "") %}
+  {% set pageSeo = seo[pageKey] if seo and seo[pageKey] else {} %}
+  {% set pageI18n = i18n.pages[pageKey] if i18n and i18n.pages and i18n.pages[pageKey] else {} %}
   {% set metaTitle = pageSeo.metaTitle or title or site.title %}
   {% set metaDescription = pageSeo.description or site.description %}
   {% set metaKeywords = pageSeo.keywords or site.defaultKeywords %}
   {% set metaImage = pageSeo.image or site.defaultImage %}
   {% set metaImageUrl = metaImage if metaImage and metaImage[0] != "/" else site.url + metaImage %}
   {% set canonicalUrl = site.url + page.url %}
-  {% set ogType = pageSeo.type or ("website" if page.fileSlug == "index" else "article") %}
+  {% set ogType = pageSeo.type or ("website" if pageKey == "index" else "article") %}
   {% set searchIndexingEnabled = site.searchIndexingEnabled != false %}
   {% set robotsDirectives = "index,follow,max-image-preview:large" if searchIndexingEnabled else "noindex,nofollow,noarchive,noimageindex,nosnippet,max-image-preview:none" %}
 
@@ -19,9 +21,10 @@
   <meta name="author" content="{{ site.shortName }}">
   <meta name="robots" content="{{ robotsDirectives }}">
   <meta name="googlebot" content="{{ robotsDirectives }}">
+  <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#f7f5f1">
 
-  <title>{% if page.fileSlug == "index" %}{{ metaTitle }} | {{ site.shortName }}{% else %}{{ metaTitle }} | {{ site.shortName }}{% endif %}</title>
+  <title>{% if pageKey == "index" %}{{ metaTitle }} | {{ site.shortName }}{% else %}{{ metaTitle }} | {{ site.shortName }}{% endif %}</title>
   <link rel="canonical" href="{{ canonicalUrl }}">
   {% if searchIndexingEnabled %}
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
@@ -39,6 +42,7 @@
   <meta name="twitter:title" content="{{ metaTitle }}">
   <meta name="twitter:description" content="{{ metaDescription }}">
   <meta name="twitter:image" content="{{ metaImageUrl }}">
+  <meta name="twitter:image:alt" content="{{ pageSeo.imageAlt or metaTitle }}">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,6 +52,27 @@
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <script>
+    (function () {
+      try {
+        const storedTheme = localStorage.getItem("site-theme");
+        const storedLanguage = localStorage.getItem("site-language");
+        const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        const theme = storedTheme || systemTheme;
+
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+
+        if (storedLanguage) {
+          document.documentElement.lang = storedLanguage;
+          document.documentElement.dataset.language = storedLanguage;
+        }
+      } catch (error) {
+        document.documentElement.dataset.theme = "light";
+      }
+    })();
+  </script>
   
   <link rel="stylesheet" href="/assets/css/main.css" />
 
@@ -55,14 +80,14 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "{{ "WebSite" if page.fileSlug == "index" else "WebPage" }}",
+        "@type": "{{ "WebSite" if pageKey == "index" else "WebPage" }}",
         "name": "{{ metaTitle }}",
         "description": "{{ metaDescription }}",
         "url": "{{ canonicalUrl }}",
         "image": "{{ metaImageUrl }}"
       }
     </script>
-    {% if page.fileSlug == "index" %}
+    {% if pageKey == "index" %}
       <script type="application/ld+json">
         {
           "@context": "https://schema.org",
@@ -87,7 +112,7 @@
   {% if headExtra %}{{ headExtra | safe }}{% endif %}
 </head>
 
-<body>
+<body data-page-key="{{ pageKey }}">
   {% include "partials/header.html" %}
 
   <main class="{{ mainClass | default('page') }}">
@@ -95,6 +120,8 @@
   </main>
 
   {% include "partials/footer.html" %}
+  <script id="i18n-shared" type="application/json">{{ i18n.shared | json | safe }}</script>
+  <script id="i18n-page" type="application/json">{{ pageI18n | json | safe }}</script>
   {% include "partials/scripts.html" %}
 </body>
 </html>

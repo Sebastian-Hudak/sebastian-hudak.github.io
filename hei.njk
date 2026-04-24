@@ -13,9 +13,9 @@ relatedLead: Work in propulsion, testing and manufacturing.
   <div class="page-hero__overlay" aria-hidden="true"></div>
 
   <div class="container page-hero__inner">
-    <p class="page-hero__kicker">AQUILO Project</p>
-    <h1 class="page-hero__title">Head-End Ignition</h1>
-    <p class="page-hero__sub">Propulsion &bull; Design &bull; Manufacturing &bull; 2024</p>
+    <p class="page-hero__kicker" data-i18n="hero.kicker">AQUILO Project</p>
+    <h1 class="page-hero__title" data-i18n="hero.title">Head-End Ignition</h1>
+    <p class="page-hero__sub" data-i18n="hero.sub">Propulsion &bull; Design &bull; Manufacturing &bull; 2024</p>
 
   </div>
 </section>
@@ -23,26 +23,26 @@ relatedLead: Work in propulsion, testing and manufacturing.
 <section class="project-meta">
   <div class="container project-meta__grid">
     <div class="facts">
-      <h2 class="facts__title">At a glance</h2>
+      <h2 class="facts__title" data-i18n="facts.title">At a glance</h2>
       <dl class="facts__list">
         <div class="facts__row">
-          <dt>Duration</dt>
-          <dd>8 months</dd>
+          <dt data-i18n="facts.duration.k">Duration</dt>
+          <dd data-i18n="facts.duration.v">8 months</dd>
         </div>
         <div class="facts__row">
-          <dt>My role</dt>
-          <dd>Project Lead, concept, design, manufacturing</dd>
+          <dt data-i18n="facts.role.k">My role</dt>
+          <dd data-i18n="facts.role.v">Project Lead, concept, design, manufacturing</dd>
         </div>
         <div class="facts__row">
-          <dt>Deliverables</dt>
-          <dd>Prototype hardware, production components, design report</dd>
+          <dt data-i18n="facts.deliverables.k">Deliverables</dt>
+          <dd data-i18n="facts.deliverables.v">Prototype hardware, production components, design report</dd>
         </div>
       </dl>
     </div>
 
     <div class="project-meta__note">
-      <p class="project-meta__label">Disclosure</p>
-      <p>
+      <p class="project-meta__label" data-i18n="note.label">Disclosure</p>
+      <p data-i18n="note.text">
         Knowledge embargo: this page only includes non-sensitive information. Propellant-specific
         details, performance data and proprietary design information are intentionally omitted.
       </p>
@@ -57,13 +57,13 @@ relatedLead: Work in propulsion, testing and manufacturing.
     </figure>
 
     <div class="story__content">
-      <h2 class="story__title">Idea</h2>
-      <p class="story__text">
+      <h2 class="story__title" data-i18n="story.idea.title">Idea</h2>
+      <p class="story__text" data-i18n="story.idea.text.0">
         Solid rocket motors are reliable and straightforward thrust sources, but characterizing
         propellants is difficult because small composition changes can strongly affect combustion.
       </p>
-      <p class="story__text">
-        The project explored head-end ignition as a way to expand the team capability while avoiding
+      <p class="story__text" data-i18n="story.idea.text.1">
+        The project explored the idea of a hardware solution that can expand the team capability while avoiding
         repeated redesigns of the full motor endcap for each test iteration.
       </p>
     </div>
@@ -77,18 +77,34 @@ relatedLead: Work in propulsion, testing and manufacturing.
     </figure>
 
     <div class="story__content">
-      <h2 class="story__title">Design Constraints</h2>
-      <p class="story__text">
-        After exploring options, I used a well-tested head-end ignition concept by
+      <h2 class="story__title" data-i18n="story.constraints.title">Design Constraints</h2>
+      <p class="story__text" data-i18n-html="story.constraints.text">
+        Since upgrade required redesign of the motor endcap, this oportunity was used to implement a head-end ignition system that could be reused across multi-rocket configurations.
+        After exploring options, the well-tested head-end ignition concept by
         <a href="https://www.nakka-rocketry.net/igniter.html" class="story__link" target="_blank" rel="noopener">Richard Nakka</a>
         as a reference point, then adapted the concept around the team's motor architecture.
       </p>
       <ul class="story__bullets">
-        <li><strong>Material selection:</strong> availability, mass and ESD properties</li>
-        <li><strong>Retention method:</strong> compatibility with current motor hardware</li>
-        <li><strong>Size constraints:</strong> limited circumference and assembly access</li>
-        <li><strong>Operational envelope:</strong> designed around non-disclosed pressure and thermal constraints</li>
+        <li data-i18n-html="story.constraints.bullet.0"><strong>Material selection:</strong> availability, mass and ESD properties</li>
+        <li data-i18n-html="story.constraints.bullet.1"><strong>Retention method:</strong> compatibility with current motor hardware</li>
+        <li data-i18n-html="story.constraints.bullet.2"><strong>Size constraints:</strong> limited circumference and assembly access</li>
+        <li data-i18n-html="story.constraints.bullet.3"><strong>Operational envelope:</strong> designed around non-disclosed pressure and thermal constraints</li>
       </ul>
+    </div>
+  </div>
+</section>
+
+<section class="hei-exploded-band" aria-hidden="true">
+  <div class="container">
+    <div class="hei-exploded-band__stage">
+      <img
+        class="hei-exploded-band__image"
+        src="/assets/images/projects/hei/hei-exploded-render.png"
+        data-theme-src-light="/assets/images/projects/hei/hei-exploded-render.png"
+        data-theme-src-dark="/assets/images/projects/hei/hei-exploded-render-inverted.png"
+        alt=""
+        decoding="async"
+      >
     </div>
   </div>
 </section>
@@ -100,12 +116,12 @@ relatedLead: Work in propulsion, testing and manufacturing.
     </figure>
 
     <div class="story__content">
-      <h2 class="story__title">Prototype</h2>
-      <p class="story__text">
+      <h2 class="story__title" data-i18n="story.prototype.title">Prototype</h2>
+      <p class="story__text" data-i18n="story.prototype.text.0">
         A first prototype helped verify whether the chosen geometry could be produced with the available
         machinery and whether the assembly process was realistic at the scale required.
       </p>
-      <p class="story__text">
+      <p class="story__text" data-i18n="story.prototype.text.1">
         This early manufacturing pass was especially useful because the design needed to stay practical,
         not just theoretically elegant.
       </p>
@@ -120,13 +136,13 @@ relatedLead: Work in propulsion, testing and manufacturing.
     </figure>
 
     <div class="story__content">
-      <h2 class="story__title">Final Production</h2>
-      <p class="story__text">
+      <h2 class="story__title" data-i18n="story.production.title">Final Production</h2>
+      <p class="story__text" data-i18n-html="story.production.text.0">
         With support from
         <a href="https://microlanaerospace.com" class="story__link" target="_blank" rel="noopener">Microlan Aerospace</a>,
         the project moved from prototype parts to a small set of production components for campaign use.
       </p>
-      <p class="story__text">
+      <p class="story__text" data-i18n="story.production.text.1">
         Testing and further development were handed over to the current AQUILO propulsion team, keeping the
         project alive beyond the initial design and manufacturing phase.
       </p>
@@ -137,11 +153,8 @@ relatedLead: Work in propulsion, testing and manufacturing.
 <section class="project-gallery-section project-gallery-section--subtle" id="gallery">
   <div class="container">
     <header class="project-gallery__head">
-      <p class="logo-band__label">Project media</p>
-      <h2 class="project-gallery__title">Gallery</h2>
-      <p class="project-gallery__summary">
-        Non-sensitive visuals showing the design, prototype and manufacturing progression.
-      </p>
+      <p class="logo-band__label" data-i18n="gallery.kicker">Project media</p>
+      <h2 class="project-gallery__title" data-i18n="gallery.title">Gallery</h2>
     </header>
 
     <div class="project-gallery">
@@ -166,8 +179,8 @@ relatedLead: Work in propulsion, testing and manufacturing.
         <figcaption>Final hardware detail.</figcaption>
       </figure>
       <figure class="project-gallery__item">
-        {% img "assets/images/projects/hei/hei-exploded-render.png", "HEI exploded render" %}
-        <figcaption>Public-facing exploded view.</figcaption>
+        {% img "assets/images/projects/hei/hei-hardware-square.jpeg", "HEI hardware square" %}
+        <figcaption>Final hardware orientation.</figcaption>
       </figure>
     </div>
   </div>
@@ -176,21 +189,13 @@ relatedLead: Work in propulsion, testing and manufacturing.
 <section class="project-assets" id="documents">
   <div class="container project-assets__grid">
     <div class="project-assets__copy">
-      <p class="logo-band__label">Documents</p>
-      <h2 class="project-assets__title">Available Material</h2>
-      <p class="project-assets__summary">
-        The complete design report is not public, but selected non-sensitive context can still be shared.
-      </p>
-    </div>
+      <p class="logo-band__label" data-i18n="documents.kicker">Documents</p>
+      <h2 class="project-assets__title" data-i18n="documents.title">Available Material</h2>
 
-    <div class="project-assets__list">
-      <a class="project-asset" href="/contact/">
-        <span class="project-asset__label">Non-sensitive project summary</span>
-        <span class="project-asset__meta">Available on request</span>
-      </a>
+    </div>
       <a class="project-asset" href="https://www.nakka-rocketry.net/igniter.html" target="_blank" rel="noopener">
-        <span class="project-asset__label">Reference: head-end ignition concept</span>
-        <span class="project-asset__meta">External technical reference</span>
+        <span class="project-asset__label" data-i18n="documents.ref.label">Reference: head-end ignition concept</span>
+        <span class="project-asset__meta" data-i18n="documents.ref.meta">External technical reference</span>
       </a>
     </div>
   </div>

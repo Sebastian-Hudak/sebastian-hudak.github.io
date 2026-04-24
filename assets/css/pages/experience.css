@@ -419,12 +419,15 @@
     .page-disclosure__inner{
       grid-template-columns: 1fr;
       gap: var(--space-2);
-      align-items: start;
+      align-items: center;
+      justify-items: center;
       padding-block: var(--space-4);
+      text-align: center;
     }
 
     .page-disclosure__text{
       max-width: none;
+      margin-inline: auto;
     }
 
     .story__callouts{ grid-template-columns: 1fr; }
@@ -432,6 +435,26 @@
 
     .media figcaption {
       display: none;
+    }
+
+    .story .story__content,
+    .story--reverse .story__content {
+      text-align: center;
+    }
+
+    .story__title,
+    .story__text {
+      margin-inline: auto;
+    }
+
+    .story__bullets {
+      width: fit-content;
+      margin-inline: auto;
+      text-align: left;
+    }
+
+    .page--experience .story__link {
+      margin-inline: auto;
     }
 
     .related__head{

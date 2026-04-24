@@ -9,6 +9,30 @@
     background: var(--color-bg-subtle);
   }
 
+  .hei-exploded-band {
+    padding: clamp(0.75rem, 3vw, 1.5rem) 0;
+  }
+
+  .hei-exploded-band__stage {
+    position: relative;
+    aspect-ratio: 1170 / 586;
+    overflow: visible;
+  }
+
+  .hei-exploded-band__image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 50%;
+    height: auto;
+    max-width: none;
+    opacity: 0.78;
+    pointer-events: none;
+    transform: translate(-50%, -50%) rotate(270deg);
+    transform-origin: center;
+  }
+
   .project-meta {
     padding: clamp(1.25rem, 3vw, 2rem) 0 0;
     background: var(--color-bg);
@@ -408,6 +432,12 @@
     overflow: hidden;
     padding: clamp(0.85rem, 2vw, 1.2rem);
 
+  }
+
+  .pid-card__image {
+    display: block;
+    width: 100%;
+    height: auto;
   }
 
   .pid-diagram {
@@ -938,6 +968,18 @@
   }
 
   @media (max-width: 900px) {
+    .hei-exploded-band {
+      padding: clamp(0.5rem, 3vw, 1rem) 0;
+    }
+
+    .hei-exploded-band__stage {
+      aspect-ratio: 1170 / 586;
+    }
+
+    .hei-exploded-band__image {
+      opacity: 0.78;
+    }
+
     .project-meta__grid,
     .case__grid,
     .case__grid--reverse,
@@ -1035,6 +1077,46 @@
       padding: clamp(2.25rem, 10vw, 3.25rem) 0;
     }
 
+    .project-gallery__head {
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+
+    .project-gallery__summary {
+      display: block;
+      max-width: 34ch;
+      color: var(--color-text-muted);
+      font-size: var(--fs-small);
+      line-height: var(--lh-normal);
+    }
+
+    .story .story__content,
+    .story--reverse .story__content,
+    .thesis-feature__copy,
+    .pid-section__copy,
+    .project-gallery__head,
+    .project-assets__copy {
+      text-align: center;
+      justify-items: center;
+    }
+
+    .story__title,
+    .story__text,
+    .thesis-feature__text,
+    .pid-section__text,
+    .project-gallery__summary,
+    .project-assets__summary {
+      margin-inline: auto;
+    }
+
+    .story__bullets,
+    .thesis-feature__points,
+    .pid-section__notes {
+      width: min(100%, 34rem);
+      margin-inline: auto;
+      text-align: left;
+    }
+
     .thesis-report {
       justify-items: center;
     }
@@ -1050,6 +1132,10 @@
       -webkit-overflow-scrolling: touch;
     }
 
+    .pid-card__image {
+      min-width: 34rem;
+    }
+
     .pid-diagram {
       min-width: 34rem;
     }
@@ -1062,9 +1148,67 @@
       gap: var(--space-2);
     }
 
-    .project-gallery__item figcaption,
-    .gallery__item figcaption,
-    .inline-media__item figcaption {
+    .project-gallery.project-gallery--interactive {
+      display: block;
+    }
+
+    .project-gallery__feature {
+      display: none;
+    }
+
+    .project-gallery.project-gallery--count-1 .project-gallery__thumbs {
+      display: grid;
+    }
+
+    .project-gallery.project-gallery--count-1 .project-gallery__item,
+    .project-gallery.project-gallery--interactive .project-gallery__thumbs .project-gallery__item.is-hidden {
+      display: block;
+    }
+
+    .project-gallery__thumbs {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(82vw, 82vw);
+      grid-template-columns: none;
+      grid-template-rows: none;
+      grid-auto-rows: auto;
+      gap: var(--space-3);
+      overflow-x: auto;
+      overflow-y: visible;
+      padding-bottom: var(--space-2);
+      scroll-padding-inline: var(--space-1);
+      scroll-snap-type: x mandatory;
+      overscroll-behavior-x: contain;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .project-gallery__thumbs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .project-gallery__thumbs .project-gallery__item {
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .project-gallery__thumbs .project-gallery__item::after {
+      opacity: 0;
+    }
+
+    .project-gallery__thumbs .project-gallery__item picture {
+      aspect-ratio: 4 / 3;
+      height: auto;
+    }
+
+    .project-gallery__thumbs .project-gallery__item img {
+      transform: none;
+    }
+
+    .project-gallery__item figcaption {
       display: none;
     }
 
@@ -1074,11 +1218,15 @@
   }
 
   @media (max-width: 420px) {
-    .project-gallery,
     .mini-gallery,
     .gallery,
     .inline-media {
       gap: 0.45rem;
+    }
+
+    .project-gallery__thumbs {
+      grid-auto-columns: minmax(86vw, 86vw);
+      gap: var(--space-2);
     }
   }
 

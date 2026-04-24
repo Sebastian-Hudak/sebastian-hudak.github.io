@@ -14,43 +14,51 @@ featuredProjects:
 - CNCe
 ---
 
-<!-- HERO (full section) -->
+<!-- HERO  -->
 <section class="hero" id="top">
-  <!-- BACKGROUND (behind everything) -->
+  
   <div class="hero__bg" aria-hidden="true">
-    <!-- optional background shape/image -->
-    {% image "assets/images/page/sebastian-hudak-engineering-hero.png", "", [480, 900, 1400], ["avif", "webp", "png"], "(max-width: 900px) 80vw, 44vw", "hero__bgItem hero__bgItem--a hero__p1 intro-hero", "eager" %}
+  
+    <img
+      src="/assets/images/page/sebastian-hudak-engineering-hero.png"
+      data-theme-src-light="/assets/images/page/sebastian-hudak-engineering-hero.png"
+      data-theme-src-dark="/assets/images/page/sebastian-hudak-engineering-hero-inverted.png"
+      alt=""
+      class="hero__bgItem hero__bgItem--a hero__p1 intro-hero"
+      loading="eager"
+      decoding="async"
+    >
   </div>
 
   <!-- FOREGROUND GRID -->
   <div class="hero__grid">
-    <!-- LEFT: text -->
+  
     <div class="hero__content intro-hero">
 
-      <h1 class="hero__title">Aerospace ideas, made possible.</h1>
+      <h1 class="hero__title" data-i18n="hero.title">Aerospace ideas, made possible.</h1>
 
-      <p class="hero__text">
+      <p class="hero__text" data-i18n="hero.text">
         I connect research, design, manufacturing, simulation and test data into aerospace engineering work
         that can be built, checked and improved.
       </p>
 
       <div class="hero__cta">
-        <a class="button-redirect" href="/contact.html">Contact me</a>
-        <a class="hero__link" href="/index.html#Experience">Experience</a>
+        <a class="button-redirect" href="/contact.html" data-i18n="hero.cta.primary">Contact me</a>
+        <a class="hero__link" href="/index.html#Experience" data-i18n="hero.cta.secondary">Experience</a>
       </div>
 
       <dl class="hero__signals" aria-label="Engineering focus areas">
         <div>
           <dt>01</dt>
-          <dd>Rocket Propulsion R&amp;D</dd>
+          <dd data-i18n="hero.signal.0">Rocket Propulsion R&amp;D</dd>
         </div>
         <div>
           <dt>02</dt>
-          <dd>From CAD to real life</dd>
+          <dd data-i18n="hero.signal.1">From CAD to real life</dd>
         </div>
         <div>
           <dt>03</dt>
-          <dd>Testing and data analysis</dd>
+          <dd data-i18n="hero.signal.2">Testing and data analysis</dd>
         </div>
       </dl>
 
@@ -132,11 +140,18 @@ featuredProjects:
 <section class="section about" id="About">
   <div class="education-card reveal reveal--left">
     <div class="container about__grid">
-      {% img "assets/images/experience/aquilo/sebastian-hudak-aquilo-team.jpeg", "Sebastian Hudak with the AQUILO student rocket team", "about__image" %}
+      {% image
+        "assets/images/experience/aquilo/sebastian-hudak-aquilo-team.jpeg",
+        "Sebastian Hudak with the AQUILO student rocket team",
+        [400, 800, 1200, 1600],
+        ["webp", "jpeg"],
+        "(max-width: 820px) 92vw, 400px",
+        "about__image"
+      %}
 
       <div class="about__content">
-        <h2 class="about_title"> I'm Sebastián Hudák.</h2>
-        <p class="about__text">
+        <h2 class="about_title" data-i18n="about.title"> I'm Sebastián Hudák.</h2>
+        <p class="about__text" data-i18n="about.text">
           Desire and passion for new challenges are my main drives. I like to push boundaries of my own capabilities
  each day and make sure that what I do, I do on 100%.
  From research, design, manufacturing, to testing and validation, I enjoy the whole product development cycle.
@@ -145,7 +160,15 @@ featuredProjects:
         </p>
 
         <div class="education-card">
-          {% img "assets/images/page/sebastian-hudak-signature.png", "Sebastian Hudak signature", "about__signature" %}
+          <img
+            src="/assets/images/page/sebastian-hudak-signature.png"
+            data-theme-src-light="/assets/images/page/sebastian-hudak-signature.png"
+            data-theme-src-dark="/assets/images/page/sebastian-hudak-signature-inverted.png"
+            alt="Sebastian Hudak signature"
+            class="about__signature"
+            loading="lazy"
+            decoding="async"
+          >
         </div>
       </div>
     </div>
@@ -156,9 +179,9 @@ featuredProjects:
 <section class="section testimonials" id="Testimonials" aria-labelledby="testimonials-title">
   <div class="container testimonials__grid">
     <header class="testimonials__intro">
-      <p class="logo-band__label">Professional references</p>
-      <h2 class="testimonials__title" id="testimonials-title">TESTIMONIALS</h2>
-      <p class="testimonials__summary">
+      <p class="logo-band__label" data-i18n="testimonials.label">Professional references</p>
+      <h2 class="testimonials__title" id="testimonials-title" data-i18n="testimonials.title">TESTIMONIALS</h2>
+      <p class="testimonials__summary" data-i18n="testimonials.summary">
         Short reflections from people who have worked with me on daily basis.
       </p>
     </header>
@@ -167,7 +190,7 @@ featuredProjects:
       <div class="testimonials__track">
         <figure class="testimonial is-active" data-testimonial-slide>
           <blockquote>
-            <p class="testimonial__text">
+            <p class="testimonial__text" data-i18n="testimonials.placeholder">
               Briefly describe your experience working together. For example: what problem was solved, how the collaboration went, and what stood out in the process. (2–4 sentences)
             </p>
           </blockquote>
@@ -189,7 +212,14 @@ featuredProjects:
             </div>
 
             <div class="testimonial__company-mark" aria-hidden="true">
-              <img src="/assets/images/experience/rfa/rfa-logo-black.png" alt="Rocket Factory Augsburg AG logo" class="testimonial__company-logo" loading="lazy">
+              <img
+                src="/assets/images/experience/rfa/rfa-logo-black.png"
+                data-theme-src-light="/assets/images/experience/rfa/rfa-logo-black.png"
+                data-theme-src-dark="/assets/images/experience/rfa/rfa-logo-black-inverted.png"
+                alt="Rocket Factory Augsburg AG logo"
+                class="testimonial__company-logo"
+                loading="lazy"
+              >
             </div>
 
             <div class="testimonial__controls" role="group" aria-label="Testimonial navigation">
@@ -210,7 +240,7 @@ featuredProjects:
 
         <figure class="testimonial" data-testimonial-slide>
           <blockquote>
-            <p class="testimonial__text">
+            <p class="testimonial__text" data-i18n="testimonials.placeholder">
               Briefly describe your experience working together. For example: what problem was solved, how the collaboration went, and what stood out in the process. (2–4 sentences)
             </p>
           </blockquote>
@@ -232,7 +262,14 @@ featuredProjects:
             </div>
 
             <div class="testimonial__company-mark" aria-hidden="true">
-              <img src="/assets/images/experience/cae/cae-logo-black.png" alt="CAE Amsterdam B.V. logo" class="testimonial__company-logo" loading="lazy">
+              <img
+                src="/assets/images/experience/cae/cae-logo-black.png"
+                data-theme-src-light="/assets/images/experience/cae/cae-logo-black.png"
+                data-theme-src-dark="/assets/images/experience/cae/cae-logo-black-inverted-.png"
+                alt="CAE Amsterdam B.V. logo"
+                class="testimonial__company-logo"
+                loading="lazy"
+              >
             </div>
 
             <div class="testimonial__controls" role="group" aria-label="Testimonial navigation">
@@ -255,7 +292,7 @@ featuredProjects:
 
         <figure class="testimonial is-active" data-testimonial-slide>
           <blockquote>
-            <p class="testimonial__text">
+            <p class="testimonial__text" data-i18n="testimonials.placeholder">
               Briefly describe your experience working together. For example: what problem was solved, how the collaboration went, and what stood out in the process. (2–4 sentences)
             </p>
           </blockquote>
@@ -298,7 +335,7 @@ featuredProjects:
 
         <figure class="testimonial is-active" data-testimonial-slide>
           <blockquote>
-            <p class="testimonial__text">
+            <p class="testimonial__text" data-i18n="testimonials.placeholder">
               Briefly describe your experience working together. For example: what problem was solved, how the collaboration went, and what stood out in the process. (2–4 sentences)
             </p>
           </blockquote>
@@ -320,7 +357,14 @@ featuredProjects:
             </div>
 
             <div class="testimonial__company-mark" aria-hidden="true">
-              <img src="/assets/images/experience/aquilo/aquilo-logo-black.png" alt="" class="testimonial__company-logo" loading="lazy">
+              <img
+                src="/assets/images/experience/aquilo/aquilo-logo-black.png"
+                data-theme-src-light="/assets/images/experience/aquilo/aquilo-logo-black.png"
+                data-theme-src-dark="/assets/images/experience/aquilo/aquilo-logo-black-inverted.png"
+                alt=""
+                class="testimonial__company-logo"
+                loading="lazy"
+              >
             </div>
 
             <div class="testimonial__controls" role="group" aria-label="Testimonial navigation">
@@ -358,7 +402,7 @@ featuredProjects:
       { src: "assets/images/framework/github-logo-gray.webp", alt: "GitHub logo" }
     ] %}
     <div class="logo-band">
-      <p class="logo-band__label">
+      <p class="logo-band__label" data-i18n="tools.label">
         EXPERIENCE WITH A VARIETY OF TOOLS AND PLATFORMS WITH CONTINUOUS CURIOSITY TO LEARN MORE.
       </p>
 
@@ -380,9 +424,9 @@ featuredProjects:
 <section class="section experience" id="Experience" aria-labelledby="experience-title">
   <div class="container experience__grid">
     <header class="experience__intro">
-      <p class="logo-band__label">Experience</p>
-      <h2 class="experience__title" id="experience-title">ENGINEERING STORY</h2>
-      <p class="experience__summary">
+      <p class="logo-band__label" data-i18n="experience.label">Experience</p>
+      <h2 class="experience__title" id="experience-title" data-i18n="experience.title">ENGINEERING STORY</h2>
+      <p class="experience__summary" data-i18n="experience.summary">
         Selected roles across propulsion development, simulation, manufacturing, ...
       </p>
     </header>
@@ -391,19 +435,26 @@ featuredProjects:
       <article class="exp-item exp-item--featured">
         <div class="exp-item__content">
           <div class="exp-item__logo-mark" aria-hidden="true">
-            <img src="/assets/images/experience/rfa/rfa-logo-black.png" alt="" class="exp-item__logo" loading="lazy">
+            <img
+              src="/assets/images/experience/rfa/rfa-logo-black.png"
+              data-theme-src-light="/assets/images/experience/rfa/rfa-logo-black.png"
+              data-theme-src-dark="/assets/images/experience/rfa/rfa-logo-black-inverted.png"
+              alt=""
+              class="exp-item__logo"
+              loading="lazy"
+            >
           </div>
 
           <div class="exp-item__copy">
             <p class="exp-date">January 2025 &ndash; June 2025</p>
             <h3 class="exp-item__title">
-              <span class="exp-item__role">Propulsion Engineering Intern</span>
-              <span class="exp-item__company"> @ Rocket Factory Augsburg AG</span>
+              <span class="exp-item__role" data-i18n="experience.rfa.role">Propulsion Engineering Intern</span>
+              <span class="exp-item__company" data-i18n="experience.rfa.company"> @ Rocket Factory Augsburg AG</span>
             </h3>
-            <p class="exp-item__text">
+            <p class="exp-item__text" data-i18n="experience.rfa.text">
               Propulsion development work around HELIX engine, from cavitation analysis, testing to component design.
             </p>
-            <a class="exp-item__link" href="/rfa/">See RFA experience</a>
+            <a class="exp-item__link" href="/rfa/" data-i18n="experience.rfa.link">See RFA experience</a>
           </div>
         </div>
 
@@ -415,19 +466,26 @@ featuredProjects:
       <article class="exp-item">
         <div class="exp-item__content">
           <div class="exp-item__logo-mark" aria-hidden="true">
-            <img src="/assets/images/experience/cae/cae-logo-black.png" alt="" class="exp-item__logo" loading="lazy">
+            <img
+              src="/assets/images/experience/cae/cae-logo-black.png"
+              data-theme-src-light="/assets/images/experience/cae/cae-logo-black.png"
+              data-theme-src-dark="/assets/images/experience/cae/cae-logo-black-inverted-.png"
+              alt=""
+              class="exp-item__logo"
+              loading="lazy"
+            >
           </div>
 
           <div class="exp-item__copy">
             <p class="exp-date">September 2023 &ndash; Present</p>
             <h3 class="exp-item__title">
-              <span class="exp-item__role">Simulator Technician</span>
-              <span class="exp-item__company">CAE Amsterdam B.V.</span>
+              <span class="exp-item__role" data-i18n="experience.cae.role">Simulator Technician</span>
+              <span class="exp-item__company" data-i18n="experience.cae.company">CAE Amsterdam B.V.</span>
             </h3>
-            <p class="exp-item__text">
+            <p class="exp-item__text" data-i18n="experience.cae.text">
               Full-flight simulator maintenance, data acquisition, and technical troubleshooting in an operational training environment.
             </p>
-            <a class="exp-item__link" href="/cae/">See CAE experience</a>
+            <a class="exp-item__link" href="/cae/" data-i18n="experience.cae.link">See CAE experience</a>
           </div>
         </div>
 
@@ -439,19 +497,26 @@ featuredProjects:
       <article class="exp-item">
         <div class="exp-item__content">
           <div class="exp-item__logo-mark" aria-hidden="true">
-            <img src="/assets/images/experience/aquilo/aquilo-logo-transparent.png" alt="" class="exp-item__logo" loading="lazy">
+            <img
+              src="/assets/images/experience/aquilo/aquilo-logo-transparent.png"
+              data-theme-src-light="/assets/images/experience/aquilo/aquilo-logo-transparent.png"
+              data-theme-src-dark="/assets/images/experience/aquilo/aquilo-logo-transparent-inverted.png"
+              alt=""
+              class="exp-item__logo"
+              loading="lazy"
+            >
           </div>
 
           <div class="exp-item__copy">
             <p class="exp-date">September 2022 &ndash; June 2025</p>
             <h3 class="exp-item__title">
-              <span class="exp-item__role">Propulsion Engineer</span>
-              <span class="exp-item__company">AQUILO Student Rocket Team</span>
+              <span class="exp-item__role" data-i18n="experience.aquilo.role">Propulsion Engineer</span>
+              <span class="exp-item__company" data-i18n="experience.aquilo.company">AQUILO Student Rocket Team</span>
             </h3>
-            <p class="exp-item__text">
+            <p class="exp-item__text" data-i18n="experience.aquilo.text">
               Student-team propulsion work covering ignition design, component manufacturing, and test preparation.
             </p>
-            <a class="exp-item__link" href="/aquilo/">See AQUILO experience</a>
+            <a class="exp-item__link" href="/aquilo/" data-i18n="experience.aquilo.link">See AQUILO experience</a>
           </div>
         </div>
 
@@ -468,9 +533,9 @@ featuredProjects:
 <section class="section education" id="Education" aria-labelledby="education-title">
   <div class="container education__grid">
     <header class="education__intro">
-      <p class="logo-band__label">Academic background</p>
-      <h2 class="education__title" id="education-title">STUDIES</h2>
-      <p class="education__summary">
+      <p class="logo-band__label" data-i18n="education.label">Academic background</p>
+      <h2 class="education__title" id="education-title" data-i18n="education.title">STUDIES</h2>
+      <p class="education__summary" data-i18n="education.summary">
         I am currently studying at TU Delft, working towards a Master's degree in Aerospace Engineering.
       </p>
     </header>
@@ -482,38 +547,38 @@ featuredProjects:
         </div>
 
         <div class="education-card-right">
-          <p class="education-card__stage">Currently studying</p>
+          <p class="education-card__stage" data-i18n="education.current.stage">Currently studying</p>
           <p class="education-text-duration">September 2025 &ndash; Ongoing</p>
           <h3>Delft University of Technology</h3>
-          <p class="logo-band__label">Pre-Master Aerospace Engineering</p>
-          <p class="education-text-desc">Building toward advanced aerospace engineering at the TU Delft Faculty of Aerospace Engineering.</p>
+          <p class="logo-band__label" data-i18n="education.current.program">Pre-Master Aerospace Engineering</p>
+          <p class="education-text-desc" data-i18n="education.current.desc">Building toward advanced aerospace engineering at the TU Delft Faculty of Aerospace Engineering.</p>
         </div>
 
         <div class="education-text-bullets">
           <ul class="edu-points">
-            <li><span class="edu-k">Focus</span><span class="edu-v">Structural analysis, programming, flight &amp; orbital mechanics</span></li>
-            <li><span class="edu-k">Direction</span><span class="edu-v">Stronger theoretical foundation for advanced aerospace topics</span></li>
+            <li><span class="edu-k" data-i18n="education.current.focus.k">Focus</span><span class="edu-v" data-i18n="education.current.focus.v">Structural analysis, programming, flight &amp; orbital mechanics</span></li>
+            <li><span class="edu-k" data-i18n="education.current.direction.k">Direction</span><span class="edu-v" data-i18n="education.current.direction.v">Stronger theoretical foundation for advanced aerospace topics</span></li>
           </ul>
         </div>
       </article>
 
       <article class="education-card education-card--foundation">
         <div class="education-card__logo-mark" aria-hidden="true">
-          {% img "assets/images/education/inholland-logo-pink.png", "InHolland Hogeschool logo", "education-roundedimg" %}
+          {% img "assets/images/education/inholland-logo-pink.png", "InHolland Hogeschool logo", "education-roundedimg education-roundedimg--preserve" %}
         </div>
 
         <div class="education-card-right">
-          <p class="education-card__stage">Foundation</p>
+          <p class="education-card__stage" data-i18n="education.foundation.stage">Foundation</p>
           <p class="education-text-duration">September 2021 &ndash; June 2025</p>
           <h3>InHolland Delft</h3>
-          <p class="logo-band__label">Bachelor of Science | Aeronautical Engineering</p>
-          <p class="education-text-desc">Stepping stone into aerospace engineering with a design & development focus.</p>
+          <p class="logo-band__label" data-i18n="education.foundation.program">Bachelor of Science | Aeronautical Engineering</p>
+          <p class="education-text-desc" data-i18n="education.foundation.desc">Stepping stone into aerospace engineering with a design & development focus.</p>
         </div>
 
         <div class="education-text-bullets">
           <ul class="edu-points">
-            <li><span class="edu-k">Thesis</span><span class="edu-v">Cavitation in orifice restriction plates @ Rocket Factory Augsburg AG</span></li>
-            <li><span class="edu-k">Focus</span><span class="edu-v">Engineering R&amp;D, propulsion systems, manufacturing</span></li>
+            <li><span class="edu-k" data-i18n="education.foundation.thesis.k">Thesis</span><span class="edu-v" data-i18n="education.foundation.thesis.v">Cavitation in orifice restriction plates @ Rocket Factory Augsburg AG</span></li>
+            <li><span class="edu-k" data-i18n="education.foundation.focus.k">Focus</span><span class="edu-v" data-i18n="education.foundation.focus.v">Engineering R&amp;D, propulsion systems, manufacturing</span></li>
           </ul>
         </div>
       </article>
@@ -528,18 +593,18 @@ featuredProjects:
 <section class="section projects" id="Projects" aria-labelledby="projects-title">
   <div class="container projects__layout">
     <header class="projects__head">
-      <p class="logo-band__label">Selected work</p>
-      <h2 id="projects-title">PROJECTS</h2>
-      <p class="projects__summary">
+      <p class="logo-band__label" data-i18n="projects.label">Selected work</p>
+      <h2 id="projects-title" data-i18n="projects.title">PROJECTS</h2>
+      <p class="projects__summary" data-i18n="projects.summary">
         A gallery of research, design, manufacturing, and personal engineering work.
       </p>
     </header>
 
     <nav class="projects__filters" aria-label="Project categories">
-      <button class="projects__filter is-active" type="button" data-filter="all">All</button>
-      <button class="projects__filter" type="button" data-filter="internship">Internship</button>
-      <button class="projects__filter" type="button" data-filter="personal">Personal</button>
-      <button class="projects__filter" type="button" data-filter="school">School</button>
+      <button class="projects__filter is-active" type="button" data-filter="all" data-i18n="projects.filter.all">All</button>
+      <button class="projects__filter" type="button" data-filter="internship" data-i18n="projects.filter.internship">Internship</button>
+      <button class="projects__filter" type="button" data-filter="personal" data-i18n="projects.filter.personal">Personal</button>
+      <button class="projects__filter" type="button" data-filter="school" data-i18n="projects.filter.school">School</button>
     </nav>
 
     <div class="projects__divider" aria-hidden="true"></div>

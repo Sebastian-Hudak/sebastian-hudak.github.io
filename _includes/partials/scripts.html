@@ -80,8 +80,8 @@
       setMenu(!nav.classList.contains("is-open"));
     });
 
-    // Close menu when a link is clicked (mobile)
-    nav.querySelectorAll("a").forEach(a => {
+    // Close menu when a link or mobile language option is clicked
+    nav.querySelectorAll("a, [data-site-language]").forEach(a => {
       a.addEventListener("click", () => {
         setMenu(false);
       });
@@ -137,6 +137,83 @@
     items.forEach((el) => obs.observe(el));
   })();
 
+  (function () {
+    const candidates = Array.from(
+      document.querySelectorAll(
+        [
+          "main > section > .container",
+          "main > section > [class$='__container']",
+          ".privacy-content > .privacy-block"
+        ].join(", ")
+      )
+    );
+
+    if (!candidates.length) return;
+
+    const uniqueTargets = [...new Set(candidates)].filter((target) => {
+      if (!(target instanceof HTMLElement)) return false;
+      if (target.classList.contains("section-reveal")) return false;
+      if (target.closest(".hero, .page-hero, .contact-hero, .privacy-hero, .extras-hero")) return false;
+
+      const children = Array.from(target.children).filter(
+        (child) => child instanceof HTMLElement && !child.hasAttribute("hidden")
+      );
+
+      return children.length > 0;
+    });
+
+    if (!uniqueTargets.length) return;
+
+    const directionalLayouts = new Set([
+      "story__grid",
+      "project-meta__grid",
+      "thesis-feature__grid",
+      "pid-section__grid",
+      "experience__grid",
+      "education__grid",
+      "contact-page__grid",
+      "extras-intro__grid",
+      "extras-moments__grid"
+    ]);
+
+    let directionalIndex = 0;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.16,
+        rootMargin: "0px 0px -12% 0px"
+      }
+    );
+
+    uniqueTargets.forEach((target) => {
+      target.classList.add("section-reveal");
+
+      const hasDirectionalLayout = [...directionalLayouts].some((className) =>
+        target.classList.contains(className)
+      );
+
+      if (target.classList.contains("testimonials__grid")) {
+        target.classList.add("section-reveal--stagger");
+      } else if (hasDirectionalLayout) {
+        target.classList.add(
+          directionalIndex % 2 === 0
+            ? "section-reveal--drift-left"
+            : "section-reveal--drift-right"
+        );
+        directionalIndex += 1;
+      }
+
+      observer.observe(target);
+    });
+  })();
+
   document.addEventListener("DOMContentLoaded", () => {
   const cards = document.querySelectorAll(".education-card");
 
@@ -156,6 +233,283 @@
   );
 
   cards.forEach((c) => io.observe(c));
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const readJson = (id) => {
+    const element = document.getElementById(id);
+    if (!element) return {};
+
+    try {
+      return JSON.parse(element.textContent);
+    } catch (error) {
+      console.error(`Failed to parse ${id}`, error);
+      return {};
+    }
+  };
+
+  const sharedTranslations = readJson("i18n-shared");
+  const pageTranslations = readJson("i18n-page");
+  const translationNodes = document.querySelectorAll(
+    "[data-i18n], [data-i18n-html], [data-i18n-placeholder], [data-i18n-title], [data-i18n-aria-label], [data-i18n-alt]"
+  );
+  const languageMenus = document.querySelectorAll("[data-language-menu]");
+  const languageMenuToggles = document.querySelectorAll("[data-language-toggle]");
+  const languageCurrentLabels = document.querySelectorAll("[data-language-current]");
+  const languageButtons = document.querySelectorAll("[data-site-language]");
+  const themeToggles = document.querySelectorAll("[data-theme-toggle]");
+  const themeAssets = document.querySelectorAll("img[data-theme-src-light][data-theme-src-dark]");
+  const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+  const metaDescription = document.querySelector('meta[name="description"]');
+  const metaOgTitle = document.querySelector('meta[property="og:title"]');
+  const metaOgDescription = document.querySelector('meta[property="og:description"]');
+  const metaTwitterTitle = document.querySelector('meta[name="twitter:title"]');
+  const metaTwitterDescription = document.querySelector('meta[name="twitter:description"]');
+  const supportedLanguages = Object.keys(sharedTranslations);
+
+  if (!supportedLanguages.length) return;
+
+  const state = {
+    language: "en"
+  };
+
+  const getMessages = (language) => ({
+    ...(sharedTranslations.en || {}),
+    ...(sharedTranslations[language] || {}),
+    ...(pageTranslations.en || {}),
+    ...(pageTranslations[language] || {})
+  });
+
+  const getStoredLanguage = () => {
+    try {
+      return localStorage.getItem("site-language");
+    } catch (error) {
+      return null;
+    }
+  };
+
+  const saveLanguage = (language) => {
+    try {
+      localStorage.setItem("site-language", language);
+    } catch (error) {
+      console.warn("Unable to persist selected language", error);
+    }
+  };
+
+  const getSystemTheme = () =>
+    window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+
+  const getStoredTheme = () => {
+    try {
+      return localStorage.getItem("site-theme");
+    } catch (error) {
+      return null;
+    }
+  };
+
+  const saveTheme = (theme) => {
+    try {
+      localStorage.setItem("site-theme", theme);
+    } catch (error) {
+      console.warn("Unable to persist selected theme", error);
+    }
+  };
+
+  const getActiveTheme = () => document.documentElement.dataset.theme || getStoredTheme() || getSystemTheme();
+
+  const setLanguageMenuOpen = (menu, open) => {
+    menu.classList.toggle("is-open", open);
+    const toggle = menu.querySelector("[data-language-toggle]");
+
+    if (toggle) {
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    }
+  };
+
+  const closeLanguageMenus = (exceptMenu = null) => {
+    languageMenus.forEach((menu) => {
+      if (menu === exceptMenu) return;
+      setLanguageMenuOpen(menu, false);
+    });
+  };
+
+  const updateThemeControl = () => {
+    const messages = getMessages(state.language);
+    const activeTheme = getActiveTheme();
+    const nextTheme = activeTheme === "dark" ? "light" : "dark";
+
+    themeToggles.forEach((toggle) => {
+      toggle.checked = activeTheme === "dark";
+      toggle.setAttribute("aria-checked", activeTheme === "dark" ? "true" : "false");
+      toggle.setAttribute(
+        "aria-label",
+        messages["theme.toggle"] || "Toggle light and dark mode"
+      );
+      toggle.setAttribute("title", messages[`theme.${nextTheme}`] || nextTheme);
+    });
+  };
+
+  const updateThemeAssets = (theme) => {
+    themeAssets.forEach((asset) => {
+      const nextSrc = theme === "dark"
+        ? asset.dataset.themeSrcDark
+        : asset.dataset.themeSrcLight;
+
+      if (nextSrc && asset.getAttribute("src") !== nextSrc) {
+        asset.setAttribute("src", nextSrc);
+      }
+    });
+  };
+
+  const applyTheme = (theme, persist = true) => {
+    document.documentElement.dataset.theme = theme;
+    document.documentElement.style.colorScheme = theme;
+
+    if (themeColorMeta) {
+      themeColorMeta.setAttribute("content", theme === "dark" ? "#0f1115" : "#f7f5f1");
+    }
+
+    if (persist) {
+      saveTheme(theme);
+    }
+
+    updateThemeAssets(theme);
+    updateThemeControl();
+  };
+
+  const applyTranslation = (language) => {
+    const messages = getMessages(language);
+
+    translationNodes.forEach((node) => {
+      const textKey = node.getAttribute("data-i18n");
+      const htmlKey = node.getAttribute("data-i18n-html");
+      const placeholderKey = node.getAttribute("data-i18n-placeholder");
+      const titleKey = node.getAttribute("data-i18n-title");
+      const ariaLabelKey = node.getAttribute("data-i18n-aria-label");
+      const altKey = node.getAttribute("data-i18n-alt");
+
+      if (textKey && messages[textKey]) {
+        node.textContent = messages[textKey];
+      }
+
+      if (htmlKey && messages[htmlKey]) {
+        node.innerHTML = messages[htmlKey];
+      }
+
+      if (placeholderKey && messages[placeholderKey]) {
+        node.setAttribute("placeholder", messages[placeholderKey]);
+      }
+
+      if (titleKey && messages[titleKey]) {
+        node.setAttribute("title", messages[titleKey]);
+      }
+
+      if (ariaLabelKey && messages[ariaLabelKey]) {
+        node.setAttribute("aria-label", messages[ariaLabelKey]);
+      }
+
+      if (altKey && messages[altKey]) {
+        node.setAttribute("alt", messages[altKey]);
+      }
+    });
+
+    if (messages["meta.title"]) {
+      document.title = messages["meta.title"];
+      if (metaOgTitle) metaOgTitle.setAttribute("content", messages["meta.title"]);
+      if (metaTwitterTitle) metaTwitterTitle.setAttribute("content", messages["meta.title"]);
+    }
+
+    if (messages["meta.description"]) {
+      if (metaDescription) metaDescription.setAttribute("content", messages["meta.description"]);
+      if (metaOgDescription) metaOgDescription.setAttribute("content", messages["meta.description"]);
+      if (metaTwitterDescription) metaTwitterDescription.setAttribute("content", messages["meta.description"]);
+    }
+
+    languageButtons.forEach((button) => {
+      const active = button.dataset.siteLanguage === language;
+      button.classList.toggle("is-active", active);
+      button.setAttribute("aria-pressed", active ? "true" : "false");
+    });
+
+    const activeLanguageButton = Array.from(languageButtons).find(
+      (button) => button.dataset.siteLanguage === language
+    );
+    const shortLabel = activeLanguageButton?.dataset.languageShort || language.toUpperCase();
+
+    languageCurrentLabels.forEach((label) => {
+      label.textContent = shortLabel;
+    });
+
+    document.documentElement.lang = language;
+    document.documentElement.dataset.language = language;
+    state.language = language;
+    saveLanguage(language);
+    updateThemeControl();
+  };
+
+  const initialLanguage = getStoredLanguage();
+  const selectedLanguage = supportedLanguages.includes(initialLanguage) ? initialLanguage : "en";
+  applyTranslation(selectedLanguage);
+  applyTheme(getStoredTheme() || getSystemTheme(), false);
+
+  languageMenuToggles.forEach((toggle) => {
+    toggle.addEventListener("click", (event) => {
+      event.stopPropagation();
+
+      const menu = toggle.closest("[data-language-menu]");
+      if (!menu) return;
+
+      const willOpen = !menu.classList.contains("is-open");
+      closeLanguageMenus(menu);
+      setLanguageMenuOpen(menu, willOpen);
+    });
+  });
+
+  languageButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const { siteLanguage } = button.dataset;
+      if (!supportedLanguages.includes(siteLanguage)) return;
+      applyTranslation(siteLanguage);
+      closeLanguageMenus();
+    });
+  });
+
+  themeToggles.forEach((toggle) => {
+    toggle.addEventListener("change", () => {
+      applyTheme(toggle.checked ? "dark" : "light");
+    });
+  });
+
+  document.addEventListener("click", (event) => {
+    if (
+      event.target instanceof Element &&
+      event.target.closest("[data-language-menu]")
+    ) {
+      return;
+    }
+
+    closeLanguageMenus();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeLanguageMenus();
+    }
+  });
+
+  const themeMedia = window.matchMedia("(prefers-color-scheme: dark)");
+  const syncSystemTheme = (event) => {
+    if (getStoredTheme()) return;
+    applyTheme(event.matches ? "dark" : "light", false);
+  };
+
+  if (themeMedia.addEventListener) {
+    themeMedia.addEventListener("change", syncSystemTheme);
+  } else {
+    themeMedia.addListener(syncSystemTheme);
+  }
 });
 </script>
 

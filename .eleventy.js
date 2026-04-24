@@ -7,6 +7,9 @@ const defaultSizes = "(max-width: 700px) 100vw, (max-width: 1100px) 92vw, 50vw";
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("assets");
+  eleventyConfig.addFilter("json", function (value) {
+    return JSON.stringify(value ?? {});
+  });
   eleventyConfig.addFilter("projectById", function (projectMap, id) {
     if (!projectMap || !id) return null;
     return projectMap[id] || null;
