@@ -556,7 +556,9 @@ module.exports = {
         "story.2.title": "Vom Design zum Flug",
         "story.2.text.0": "Ich nutzte meine Fertigungskenntnisse, um verschiedene Komponenten für unsere Raketenmotoren herzustellen. Von Endkappen bis zu Düsen war ich an kritischen Teilen des Antriebssystems beteiligt und sammelte praktische Erfahrung mit Verfahren und Materialien aus der Luft- und Raumfahrt.",
         "story.2.text.1": "Die Arbeit endete nicht beim Antrieb. Ich unterstützte auch Strukturteile der VIII.S-Rakete, von Body Struts bis Retaining Rings, und genoss es, Designabsicht in reale Hardware zu verwandeln.",
-        "related.lead": "Arbeit in Antrieb, Test und Datenverarbeitung."
+        "related.lead": "Arbeit in Antrieb, Test und Datenverarbeitung.",
+        "story.3.title": "Analyse hinter der Hardware",
+        "story.3.text.1": "Während meiner Zeit bei AQUILO nutzte ich verschiedene Softwaretools wie RPA, CEA und Python, um die Entwicklung und Analyse unserer Antriebssysteme zu unterstützen, etwa konzeptionelle Berechnungen für Flüssigtriebwerke."
       },
       "sk": {
         "meta.title": "Skúsenosť v AQUILO | Sebastian Hudak",
@@ -577,7 +579,9 @@ module.exports = {
         "story.2.title": "Od návrhu k letu",
         "story.2.text.0": "Svoje obrábacie zručnosti som využíval pri výrobe rôznych komponentov pre naše raketové motory. Od endcapov po trysky som sa podieľal na výrobe kritických častí pohonného systému a získal praktické skúsenosti s technikami a materiálmi používanými v aerospace engineeringu.",
         "story.2.text.1": "Práca sa nezastavila pri pohone. Podieľal som sa aj na štruktúrnych dieloch rakety VIII.S, od body struts po retaining rings, a bavilo ma meniť návrh na reálny hardvér.",
-        "related.lead": "Práca v oblasti pohonu, testovania a spracovania dát."
+        "related.lead": "Práca v oblasti pohonu, testovania a spracovania dát.",
+        "story.3.title": "Analýza za hardvérom",
+        "story.3.text.1": "Počas pôsobenia v AQUILO som používal rôzne softvérové nástroje, ako RPA, CEA a Python, na podporu vývoja a analýzy našich pohonných systémov, napríklad pri koncepčných výpočtoch kvapalinového pohonu."
       }
     },
     "cae": {
