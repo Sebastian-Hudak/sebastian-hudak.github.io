@@ -19,20 +19,28 @@ headExtra: |
     <div class="contact-page__grid">
       <div class="contact-page__left">
         <div class="business-card__wrap">
-          <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Business card, tap or press enter to flip">
-            <div class="flip__inner">
-              <div class="flip__face flip__front">
-                <img src="/assets/images/business-card/business-card-front.svg" class="flip__svg" alt="Business card front">
-              </div>
-              <div class="flip__face flip__back">
-                <img src="/assets/images/business-card/business-card-back.svg" class="flip__svg" alt="Business card back">
-              </div>
-            </div>
-            <div class="flip__hint" aria-hidden="true">
-              <span class="flip__hint-text hint--desktop" data-i18n="form.flip.desktop">Hover to flip</span>
-              <span class="flip__hint-text hint--mobile" data-i18n="form.flip.mobile">Tap to flip</span>
-            </div>
-          </div>
+          <button
+            class="business-card"
+            type="button"
+            aria-pressed="false"
+            aria-label="Business card, tap or press enter to flip"
+          >
+            <span class="business-card__scene" aria-hidden="true">
+              <span class="business-card__stage">
+                <span class="business-card__face business-card__face--front">
+                  <img src="/assets/images/business-card/business-card-front.svg" class="business-card__media" alt="">
+                </span>
+                <span class="business-card__face business-card__face--back">
+                  <img src="/assets/images/business-card/business-card-back.svg" class="business-card__media" alt="">
+                </span>
+              </span>
+            </span>
+
+            <span class="business-card__hint" aria-hidden="true">
+              <span class="business-card__hint-text hint--desktop" data-i18n="form.flip.desktop">Hover to flip</span>
+              <span class="business-card__hint-text hint--mobile" data-i18n="form.flip.mobile">Tap to flip</span>
+            </span>
+          </button>
         </div>
       </div>
 
@@ -65,7 +73,7 @@ headExtra: |
 
           <div class="field">
             <label class="field__label" for="message"><span data-i18n="form.message">Message</span> <span class="field__required">*</span></label>
-            <textarea class="field__input field__textarea" id="message" name="message" rows="6" placeholder="A few useful details, timing, and links if relevant." maxlength="1400" required data-i18n-placeholder="form.placeholder.message"></textarea>
+            <textarea class="field__input field__textarea" id="message" name="message" rows="6" placeholder="Write your message..." maxlength="1400" required data-i18n-placeholder="form.placeholder.message"></textarea>
           </div>
 
           <p class="contact-form__privacy">
@@ -82,19 +90,13 @@ headExtra: |
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const flip = document.querySelector(".contact-page .flip");
-    if (!flip) return;
+    const card = document.querySelector(".contact-page .business-card");
+    if (!card) return;
 
-    const toggleCard = () => {
-      const isFlipped = flip.classList.toggle("is-flipped");
-      flip.setAttribute("aria-pressed", String(isFlipped));
-    };
-
-    flip.addEventListener("click", toggleCard);
-    flip.addEventListener("keydown", (event) => {
-      if (event.key !== "Enter" && event.key !== " ") return;
-      event.preventDefault();
-      toggleCard();
+    card.addEventListener("click", () => {
+      const isFlipped = card.classList.toggle("is-flipped");
+      card.classList.add("has-interacted");
+      card.setAttribute("aria-pressed", String(isFlipped));
     });
   });
 </script>

@@ -153,6 +153,7 @@
     const uniqueTargets = [...new Set(candidates)].filter((target) => {
       if (!(target instanceof HTMLElement)) return false;
       if (target.classList.contains("section-reveal")) return false;
+      if (target.classList.contains("privacy-notice__grid")) return false;
       if (target.closest(".hero, .page-hero, .contact-hero, .privacy-hero, .extras-hero")) return false;
 
       const children = Array.from(target.children).filter(
@@ -193,16 +194,16 @@
     );
 
     uniqueTargets.forEach((target) => {
-      target.classList.add("section-reveal");
+      const revealClasses = ["section-reveal"];
 
       const hasDirectionalLayout = [...directionalLayouts].some((className) =>
         target.classList.contains(className)
       );
 
       if (target.classList.contains("testimonials__grid")) {
-        target.classList.add("section-reveal--stagger");
+        revealClasses.push("section-reveal--stagger");
       } else if (hasDirectionalLayout) {
-        target.classList.add(
+        revealClasses.push(
           directionalIndex % 2 === 0
             ? "section-reveal--drift-left"
             : "section-reveal--drift-right"
@@ -210,8 +211,32 @@
         directionalIndex += 1;
       }
 
+      if (shouldRevealImmediately(target)) {
+        target.classList.add(...revealClasses, "is-visible");
+        return;
+      }
+
+      target.classList.add(...revealClasses);
       observer.observe(target);
     });
+
+    function shouldRevealImmediately(target) {
+      const rect = target.getBoundingClientRect();
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
+
+      if (!viewportHeight) return true;
+
+      // Avoid hiding very tall layouts like legal/privacy grids that may never
+      // satisfy the observer threshold as a single unit.
+      if (rect.height >= viewportHeight * 0.9) return true;
+
+      const visibleTop = Math.max(rect.top, 0);
+      const visibleBottom = Math.min(rect.bottom, viewportHeight);
+      const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+      const visibilityRatio = visibleHeight / Math.max(rect.height, 1);
+
+      return rect.top < viewportHeight * 0.92 && rect.bottom > 0 && visibilityRatio >= 0.12;
+    }
   })();
 
   document.addEventListener("DOMContentLoaded", () => {
@@ -267,7 +292,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const metaOgDescription = document.querySelector('meta[property="og:description"]');
   const metaTwitterTitle = document.querySelector('meta[name="twitter:title"]');
   const metaTwitterDescription = document.querySelector('meta[name="twitter:description"]');
-  const supportedLanguages = Object.keys(sharedTranslations);
+  const themeDefaultsSource = document.querySelector("[data-theme-toggle]");
+  const defaultMessages = collectDefaultMessages();
+  const localeSet = new Set(["en"]);
+
+  Object.keys(sharedTranslations).forEach((locale) => localeSet.add(locale));
+  Object.keys(pageTranslations).forEach((locale) => localeSet.add(locale));
+
+  const supportedLanguages = Array.from(localeSet);
 
   if (!supportedLanguages.length) return;
 
@@ -276,10 +308,9 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const getMessages = (language) => ({
-    ...(sharedTranslations.en || {}),
-    ...(sharedTranslations[language] || {}),
-    ...(pageTranslations.en || {}),
-    ...(pageTranslations[language] || {})
+    ...defaultMessages,
+    ...filterTranslationEntries(sharedTranslations[language]),
+    ...filterTranslationEntries(pageTranslations[language])
   });
 
   const getStoredLanguage = () => {
@@ -390,38 +421,38 @@ document.addEventListener("DOMContentLoaded", () => {
       const ariaLabelKey = node.getAttribute("data-i18n-aria-label");
       const altKey = node.getAttribute("data-i18n-alt");
 
-      if (textKey && messages[textKey]) {
+      if (textKey && hasMessage(messages, textKey)) {
         node.textContent = messages[textKey];
       }
 
-      if (htmlKey && messages[htmlKey]) {
+      if (htmlKey && hasMessage(messages, htmlKey)) {
         node.innerHTML = messages[htmlKey];
       }
 
-      if (placeholderKey && messages[placeholderKey]) {
+      if (placeholderKey && hasMessage(messages, placeholderKey)) {
         node.setAttribute("placeholder", messages[placeholderKey]);
       }
 
-      if (titleKey && messages[titleKey]) {
+      if (titleKey && hasMessage(messages, titleKey)) {
         node.setAttribute("title", messages[titleKey]);
       }
 
-      if (ariaLabelKey && messages[ariaLabelKey]) {
+      if (ariaLabelKey && hasMessage(messages, ariaLabelKey)) {
         node.setAttribute("aria-label", messages[ariaLabelKey]);
       }
 
-      if (altKey && messages[altKey]) {
+      if (altKey && hasMessage(messages, altKey)) {
         node.setAttribute("alt", messages[altKey]);
       }
     });
 
-    if (messages["meta.title"]) {
+    if (hasMessage(messages, "meta.title")) {
       document.title = messages["meta.title"];
       if (metaOgTitle) metaOgTitle.setAttribute("content", messages["meta.title"]);
       if (metaTwitterTitle) metaTwitterTitle.setAttribute("content", messages["meta.title"]);
     }
 
-    if (messages["meta.description"]) {
+    if (hasMessage(messages, "meta.description")) {
       if (metaDescription) metaDescription.setAttribute("content", messages["meta.description"]);
       if (metaOgDescription) metaOgDescription.setAttribute("content", messages["meta.description"]);
       if (metaTwitterDescription) metaTwitterDescription.setAttribute("content", messages["meta.description"]);
@@ -509,6 +540,64 @@ document.addEventListener("DOMContentLoaded", () => {
     themeMedia.addEventListener("change", syncSystemTheme);
   } else {
     themeMedia.addListener(syncSystemTheme);
+  }
+
+  function collectDefaultMessages() {
+    const defaults = {
+      "meta.title": document.title,
+      "meta.description": metaDescription?.getAttribute("content") || "",
+      "theme.light": themeDefaultsSource?.dataset.themeLabelLight || "Light",
+      "theme.dark": themeDefaultsSource?.dataset.themeLabelDark || "Dark"
+    };
+
+    translationNodes.forEach((node) => {
+      const textKey = node.getAttribute("data-i18n");
+      const htmlKey = node.getAttribute("data-i18n-html");
+      const placeholderKey = node.getAttribute("data-i18n-placeholder");
+      const titleKey = node.getAttribute("data-i18n-title");
+      const ariaLabelKey = node.getAttribute("data-i18n-aria-label");
+      const altKey = node.getAttribute("data-i18n-alt");
+
+      if (textKey && !Object.prototype.hasOwnProperty.call(defaults, textKey)) {
+        defaults[textKey] = node.textContent.trim();
+      }
+
+      if (htmlKey && !Object.prototype.hasOwnProperty.call(defaults, htmlKey)) {
+        defaults[htmlKey] = node.innerHTML.trim();
+      }
+
+      if (placeholderKey && !Object.prototype.hasOwnProperty.call(defaults, placeholderKey)) {
+        defaults[placeholderKey] = node.getAttribute("placeholder") || "";
+      }
+
+      if (titleKey && !Object.prototype.hasOwnProperty.call(defaults, titleKey)) {
+        defaults[titleKey] = node.getAttribute("title") || "";
+      }
+
+      if (ariaLabelKey && !Object.prototype.hasOwnProperty.call(defaults, ariaLabelKey)) {
+        defaults[ariaLabelKey] = node.getAttribute("aria-label") || "";
+      }
+
+      if (altKey && !Object.prototype.hasOwnProperty.call(defaults, altKey)) {
+        defaults[altKey] = node.getAttribute("alt") || "";
+      }
+    });
+
+    return defaults;
+  }
+
+  function filterTranslationEntries(messages) {
+    if (!messages || typeof messages !== "object") {
+      return {};
+    }
+
+    return Object.fromEntries(
+      Object.entries(messages).filter(([, value]) => typeof value === "string" && value.trim() !== "")
+    );
+  }
+
+  function hasMessage(messages, key) {
+    return Object.prototype.hasOwnProperty.call(messages, key);
   }
 });
 </script>
@@ -1127,6 +1216,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
     setSlide(current);
   });
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const tiltTargets = document.querySelectorAll("[data-tilt-on-view]");
+  if (!tiltTargets.length) return;
+
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const touchViewport = window.matchMedia("(hover: none), (pointer: coarse)");
+
+  if (prefersReducedMotion.matches || !touchViewport.matches) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        entry.target.classList.toggle(
+          "is-peeked",
+          entry.isIntersecting && entry.intersectionRatio >= 0.45
+        );
+      });
+    },
+    {
+      threshold: [0, 0.2, 0.45, 0.7],
+      rootMargin: "-12% 0px -12% 0px"
+    }
+  );
+
+  tiltTargets.forEach((target) => observer.observe(target));
 });
 </script>
 

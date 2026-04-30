@@ -424,6 +424,12 @@
     }
   }
 
+  @media (hover: none), (pointer: coarse) {
+    .thesis-report.is-peeked .thesis-book {
+      transform: rotate3d(0, 1, 0, 18deg) translate3d(0.18rem, 0, 0);
+    }
+  }
+
   .pid-section {
     background: var(--color-bg);
   }
@@ -1056,17 +1062,40 @@
 
     .facts,
     .project-meta__note {
+      justify-items: center;
       padding: var(--space-4) 0;
       background: transparent;
+      text-align: center;
     }
 
     .project-meta__note {
       border-top: 1px solid var(--color-border);
     }
 
+    .facts__list,
+    .pid-section__notes {
+      justify-items: center;
+    }
+
     .facts__row {
       grid-template-columns: 1fr;
       gap: 0.15rem;
+      justify-items: center;
+      text-align: center;
+    }
+
+    .facts__row dt,
+    .facts__row dd,
+    .project-meta__note p,
+    .pid-section__notes dt,
+    .pid-section__notes dd,
+    .pid-section__notes div {
+      text-align: center;
+    }
+
+    .project-meta__note p {
+      margin-inline: auto;
+      max-width: 34ch;
     }
 
     .project-gallery-section,
@@ -1114,7 +1143,7 @@
     .pid-section__notes {
       width: min(100%, 34rem);
       margin-inline: auto;
-      text-align: left;
+      text-align: center;
     }
 
     .thesis-report {
@@ -1125,6 +1154,10 @@
       --thesis-spine-width: 0.82rem;
       width: min(100%, 18.6rem);
       transform: none;
+    }
+
+    .thesis-report.is-peeked .thesis-book {
+      transform: rotate3d(0, 1, 0, 14deg) translate3d(0.1rem, 0, 0);
     }
 
     .pid-card {

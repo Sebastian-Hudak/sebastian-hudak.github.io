@@ -237,6 +237,7 @@
 
   body {
     width: 100%;
+    overflow-x: hidden;
     overflow-x: clip;
     font-family: var(--ff-sans);
     font-weight: var(--fw-regular);
@@ -481,14 +482,34 @@
     .content-bullets ul {
       list-style: none;
       padding: 0;
-      margin-top: var(--space-5);
+      width: min(100%, 28rem);
+      margin: var(--space-5) auto var(--space-6);
       display: grid;
-      gap: var(--space-3);
+      gap: var(--space-2);
     }
 
     .content-bullets ul li {
+      width: 100%;
+      padding: 0 0 var(--space-3);
       text-align: center;
-      padding: 0;
+    }
+
+    .content-bullets ul li::after {
+      content: "";
+      display: block;
+      width: 2.75rem;
+      height: 1px;
+      margin: var(--space-3) auto 0;
+      background: var(--color-border);
+      opacity: 0.9;
+    }
+
+    .content-bullets ul li:last-child {
+      padding-bottom: 0;
+    }
+
+    .content-bullets ul li:last-child::after {
+      display: none;
     }
 
     /* Center-rule separator for labeled keys on mobile */

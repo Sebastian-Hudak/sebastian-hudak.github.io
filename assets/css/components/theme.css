@@ -153,9 +153,9 @@
     opacity: 0.94;
   }
 
-  :root[data-theme="dark"] .flip__hint {
-    border-color: rgba(255, 255, 255, 0.16);
-    background: rgba(15, 17, 21, 0.58);
+  :root[data-theme="dark"] .business-card__hint {
+    border-bottom-color: var(--color-border);
+    background: transparent;
   }
 
   :root[data-theme="dark"] .field__input {

@@ -338,10 +338,12 @@
         "text"
         "cta"
         "portrait";
+      justify-items: center;
       align-items: start;
       min-height: calc(100svh - var(--header-h));
       gap: 0;
       padding-block: var(--space-7) 0;
+      text-align: center;
     }
 
     .hero__content {
@@ -361,17 +363,20 @@
       grid-area: title;
       max-width: 11ch;
       font-size: 3.35rem;
+      margin-inline: auto;
     }
 
     .hero__text {
       grid-area: text;
       max-width: 36rem;
       margin-top: var(--space-4);
+      margin-inline: auto;
       color: rgba(255, 255, 255, 0.82);
     }
 
     .hero__cta {
       grid-area: cta;
+      justify-content: center;
       margin-top: var(--space-5);
     }
 

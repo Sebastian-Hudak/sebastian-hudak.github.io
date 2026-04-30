@@ -5,7 +5,7 @@ module.exports = {
     href: "/cavitation/",
     img: "/assets/images/projects/cavitation/cavitation-project-cover.jpg",
     alt: "Transparent test section showing cavitation flow",
-    desc: "Research-based cavitation onset prediction supported by empirical measurements and data processing.",
+    desc: "Research-based cavitation prediction supported by empirical measurements and data processing.",
     specs: [
       "Research",
       "Data analysis",
@@ -21,7 +21,7 @@ module.exports = {
     href: "/hei/",
     img: "/assets/images/projects/hei/hei-hardware-square.jpeg",
     alt: "Head-End Ignition hardware assembly",
-    desc: "Adaptable dual-stage propulsion hardware designed for faster and more reliable thrust onset.",
+    desc: "Adaptable dual-stage propulsion hardware for faster and more reliable thrust onset.",
     specs: ["Removable igniter body", "Innovative approach", "Scalable"],
     chips: ["Design", "Manufacturing", "Propulsion"],
     tags_raw: "school,propulsion"
@@ -33,7 +33,7 @@ module.exports = {
     href: "/machining/",
     img: "/assets/images/experience/aquilo/aquilo-lathe-dial-indicator.jpeg",
     alt: "Precision setup for machining propulsion hardware",
-    desc: "Machining a variety of components out of aerospace-grade materials.",
+    desc: "Experience with machining a variety of components out of aerospace-grade materials.",
     specs: ["Hands-on experience", "Manual and CNC techniques", "Design for manufacturing"],
     chips: ["Machining", "Propulsion", "QA"],
     tags_raw: "propulsion,machining"
@@ -45,7 +45,7 @@ module.exports = {
     href: "/cncl/",
     img: "/assets/images/projects/cncl/cnc-lathe-oval-part.jpeg",
     alt: "Oval component machined on the retrofitted CNC lathe",
-    desc: "Restoring a school-owned CNC lathe and finding a practical way to incorporate modern CAM.",
+    desc: "Restoring a school-owned CNC lathe and finding a path to modern CAM.",
     specs: ["Improvisation", "Old does not equal trash", "Side project"],
     chips: ["Software", "Machining", "CAD/CAM"],
     tags_raw: "personal,machining"
@@ -57,7 +57,7 @@ module.exports = {
     href: "/gsx/",
     img: "/assets/images/projects/gsx/gsx-wireframe-square-view.jpg",
     alt: "GSX-1 wireframe sculpture with illuminated display",
-    desc: "A compact electronics sculpture inspired by wireframe hardware builds, developed with custom wiring and code.",
+    desc: "A compact electronics sculpture inspired by wireframe hardware builds.",
     specs: ["Compact footprint", "GPS satellite interface", "Multi-module design"],
     chips: ["C++", "Art", "Electronics"],
     tags_raw: "personal,electronics"
@@ -69,7 +69,7 @@ module.exports = {
     href: "/abox/",
     img: "/assets/images/projects/abox/a-box-showcase.jpeg",
     alt: "Finished A-BOX portable boombox speaker",
-    desc: "Self-made portable 100W boombox speaker built from an ammunition box enclosure.",
+    desc: "Portable 100W boombox speaker built from an ammunition box enclosure.",
     specs: ["Part search", "Basic routing / machining tasks", "Own PCB design"],
     chips: ["Design", "Art", "Electronics"],
     tags_raw: "personal,electronics"
@@ -94,7 +94,7 @@ module.exports = {
     img: "/assets/images/projects/sound/cae-sound-vertical-microphone-cockpit.jpg",
     alt: "Microphone rig mounted inside a simulator cockpit",
     desc: "Troubleshooting sound acquisition inconsistencies.",
-    specs: ["Certification", "Sound measurements", "Full-Flight Simulator Technology"],
+    specs: ["Certification", "Sound measurements", "Complex systems"],
     chips: ["Data analysis", "Measurement", "Sound"],
     tags_raw: "internship,data"
   },
@@ -106,7 +106,7 @@ module.exports = {
     img: "/assets/images/projects/tail/tail-structure-render.png",
     alt: "Tail structure CAD rendering",
     desc: "Lightest design of aircraft tail section with given requirements.",
-    specs: ["3 member international team", "CAD + manufacturing", "Real Flight"],
+    specs: ["3-member international team", "CAD + manufacturing", "Real Flight"],
     chips: ["Design", "Testing", "Competition"],
     tags_raw: "school,design"
   }
