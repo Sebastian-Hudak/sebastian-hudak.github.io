@@ -28,7 +28,7 @@ module.exports = {
   },
 
   MACHINING: {
-    title: "AQUILO machining",
+    title: "Components machining",
     year: "2022-2025",
     href: "/machining/",
     img: "/assets/images/experience/aquilo/aquilo-lathe-dial-indicator.jpeg",
