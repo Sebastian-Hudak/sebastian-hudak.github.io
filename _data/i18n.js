@@ -723,7 +723,8 @@ module.exports = {
         "story.2.text.1": "Naša chvostová časť bola najľahšou konštrukciou vo svojej triede a absolvovala mnoho úspešných letov, pričom bola vybraná aj na prvý let lietadla.",
         "gallery.kicker": "Médiá projektu",
         "gallery.title": "Galéria",
-        "related.lead": "Práca v oblasti návrhu a výroby."
+        "related.lead": "Práca v oblasti návrhu a výroby.",
+        "gallery.summary": "Necitlivé vizuály zobrazujúce návrh, prototyp a postup výroby."
       }
     },
     "cncl": {
