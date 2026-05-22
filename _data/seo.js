@@ -5,8 +5,11 @@ module.exports = {
       "Aerospace engineering portfolio of Sebastian Hudak with work in propulsion research, cavitation analysis, machining, simulation, test engineering and hardware development.",
     keywords:
       "aerospace engineer portfolio, propulsion engineering, cavitation analysis, machining, simulation, test engineering, aerospace hardware",
-    image: "/assets/images/page/sebastian-hudak-engineering-hero.png",
-    imageAlt: "Abstract engineering portrait graphic used on the homepage hero",
+    image: "/assets/images/page/sebastian-hudak-social-card.png",
+    imageAlt: "Sebastian Hudak aerospace engineering portfolio logo card",
+    imageWidth: 1200,
+    imageHeight: 630,
+    imageType: "image/png",
     type: "website"
   },
   aquilo: {

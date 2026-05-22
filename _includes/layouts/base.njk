@@ -9,6 +9,9 @@
   {% set metaKeywords = pageSeo.keywords or site.defaultKeywords %}
   {% set metaImage = pageSeo.image or site.defaultImage %}
   {% set metaImageUrl = metaImage if metaImage and metaImage[0] != "/" else site.url + metaImage %}
+  {% set metaImageWidth = pageSeo.imageWidth or (site.defaultImageWidth if not pageSeo.image else null) %}
+  {% set metaImageHeight = pageSeo.imageHeight or (site.defaultImageHeight if not pageSeo.image else null) %}
+  {% set metaImageType = pageSeo.imageType or (site.defaultImageType if not pageSeo.image else null) %}
   {% set canonicalUrl = site.url + page.url %}
   {% set ogType = pageSeo.type or ("website" if pageKey == "index" else "article") %}
   {% set searchIndexingEnabled = site.searchIndexingEnabled != false %}
@@ -36,7 +39,11 @@
   <meta property="og:description" content="{{ metaDescription }}">
   <meta property="og:url" content="{{ canonicalUrl }}">
   <meta property="og:image" content="{{ metaImageUrl }}">
+  <meta property="og:image:secure_url" content="{{ metaImageUrl }}">
   <meta property="og:image:alt" content="{{ pageSeo.imageAlt or metaTitle }}">
+  {% if metaImageWidth %}<meta property="og:image:width" content="{{ metaImageWidth }}">{% endif %}
+  {% if metaImageHeight %}<meta property="og:image:height" content="{{ metaImageHeight }}">{% endif %}
+  {% if metaImageType %}<meta property="og:image:type" content="{{ metaImageType }}">{% endif %}
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ metaTitle }}">
