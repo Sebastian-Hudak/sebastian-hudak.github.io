@@ -165,8 +165,8 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    inline-size: clamp(5.85rem, 8vw, 7.75rem);
-    min-height: 44px;
+    inline-size: clamp(6.75rem, 8vw, 7.75rem);
+    block-size: clamp(2rem, 2.35vw, 2.25rem);
     padding-right: clamp(0.95rem, 2.8vw, 1.25rem);
     border-right: 1px solid var(--color-border);
     min-width: 0;
@@ -174,9 +174,9 @@
 
   .testimonial__company-logo {
     display: block;
-    width: auto;
-    max-width: 100%;
-    height: clamp(1.65rem, 2.35vw, 2.25rem);
+    width: 100%;
+    max-width: none;
+    height: 100%;
     object-fit: contain;
     color: var(--color-heading);
     opacity: 0.9;
@@ -330,7 +330,7 @@
 
     .testimonial__company-mark {
       inline-size: min(10rem, 52vw);
-      min-height: 0;
+      block-size: clamp(1.65rem, 5.4vw, 1.8rem);
       padding-right: 0;
       border-right: 0;
       justify-content: center;
@@ -348,10 +348,6 @@
 
     .testimonial__count {
       min-width: 2.25rem;
-    }
-
-    .testimonial__company-logo {
-      height: clamp(1.35rem, 5.4vw, 1.8rem);
     }
 
     .testimonial__subline {
@@ -372,10 +368,7 @@
 
     .testimonial__company-mark {
       inline-size: min(8.8rem, 50vw);
-    }
-
-    .testimonial__company-logo {
-      height: clamp(1.25rem, 5.8vw, 1.55rem);
+      block-size: clamp(1.55rem, 5.8vw, 1.65rem);
     }
   }
 

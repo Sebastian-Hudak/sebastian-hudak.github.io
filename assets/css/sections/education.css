@@ -255,12 +255,12 @@
     }
 
     .education-card--current {
-      --edu-logo-size: 4.35rem;
+      --edu-logo-size: 4.7rem;
       --edu-title-size: 1.52rem;
     }
 
     .education-card--foundation {
-      --edu-logo-size: 4.15rem;
+      --edu-logo-size: 4.5rem;
       --edu-title-size: 1.42rem;
     }
 
@@ -389,12 +389,12 @@
     }
 
     .education-card--current {
-      --edu-logo-size: 5.65rem;
+      --edu-logo-size: 5.9rem;
       --edu-title-size: 1.34rem;
     }
 
     .education-card--foundation {
-      --edu-logo-size: 5rem;
+      --edu-logo-size: 5.25rem;
       --edu-title-size: 1.28rem;
     }
 
@@ -418,12 +418,12 @@
 
   @media (max-width: 380px) {
     .education-card--current {
-      --edu-logo-size: 5.65rem;
+      --edu-logo-size: 5.9rem;
       --edu-title-size: 1.16rem;
     }
 
     .education-card--foundation {
-      --edu-logo-size: 5.3rem;
+      --edu-logo-size: 5.55rem;
       --edu-title-size: 1.14rem;
     }
 
