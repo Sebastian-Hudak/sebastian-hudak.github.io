@@ -7,6 +7,27 @@ const defaultSizes = "(max-width: 700px) 100vw, (max-width: 1100px) 92vw, 50vw";
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("assets");
+  eleventyConfig.on("eleventy.before", async () => {
+    const heroBackgrounds = [
+      "assets/images/page/sebastian-hudak-engineering-hero.png",
+      "assets/images/page/sebastian-hudak-engineering-hero-inverted.png"
+    ];
+
+    await Promise.all(
+      heroBackgrounds.map((src) =>
+        Image(path.join(process.cwd(), src), {
+          widths: [480, 900, 1400],
+          formats: ["avif", "webp"],
+          outputDir: "_site/img",
+          urlPath: "/img",
+          filenameFormat: (id, srcPath, width, format) => {
+            const name = srcPath.split("/").pop().split(".")[0];
+            return `${name}-${width}w.${format}`;
+          },
+        })
+      )
+    );
+  });
   eleventyConfig.addFilter("json", function (value) {
     return JSON.stringify(value ?? {});
   });
@@ -15,7 +36,7 @@ module.exports = function (eleventyConfig) {
     return projectMap[id] || null;
   });
 
-  // {% image "path", "alt", [widths], [formats], "sizes", "class", "lazy|eager" %}
+  // {% image "path", "alt", [widths], [formats], "sizes", "class", "lazy|eager", "high|auto" %}
   eleventyConfig.addNunjucksAsyncShortcode("image", async function (
     src,
     alt,
@@ -23,7 +44,8 @@ module.exports = function (eleventyConfig) {
     formats = ["avif", "webp", "jpeg"],
     sizes = defaultSizes,
     cls = "",
-    loading = "lazy"
+    loading = "lazy",
+    fetchpriority = "auto"
   ) {
     if (alt === undefined) {
       throw new Error(`Missing \`alt\` on image shortcode for: ${src}`);
@@ -44,13 +66,19 @@ module.exports = function (eleventyConfig) {
       },
     });
 
-    return Image.generateHTML(metadata, {
+    const attributes = {
       alt,
       sizes,
       loading,
       decoding: "async",
       class: cls,
-    });
+    };
+
+    if (fetchpriority === "high" || fetchpriority === "low") {
+      attributes.fetchpriority = fetchpriority;
+    }
+
+    return Image.generateHTML(metadata, attributes);
   });
 
   eleventyConfig.addPassthroughCopy({ "assets/images/page/logo-set/favicons": "/" });

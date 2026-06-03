@@ -2,6 +2,9 @@
 layout: layouts/base.njk
 title: Home
 mainClass: "page"
+headExtra: |
+  <link rel="preload" as="image" href="/img/sebastian-hudak-portrait-480w.avif" imagesrcset="/img/sebastian-hudak-portrait-480w.avif 480w, /img/sebastian-hudak-portrait-900w.avif 900w, /img/sebastian-hudak-portrait-1400w.avif 1400w" imagesizes="(max-width: 900px) 78vw, 42vw" type="image/avif">
+  <link rel="preload" as="image" href="/img/sebastian-hudak-engineering-hero-900w.avif" type="image/avif">
 featuredProjects:
 - CAVITATION
 - HEI
@@ -20,13 +23,14 @@ featuredProjects:
   <div class="hero__bg" aria-hidden="true">
   
     <img
-      src="/assets/images/page/sebastian-hudak-engineering-hero.png"
-      data-theme-src-light="/assets/images/page/sebastian-hudak-engineering-hero.png"
-      data-theme-src-dark="/assets/images/page/sebastian-hudak-engineering-hero-inverted.png"
+      src="/img/sebastian-hudak-engineering-hero-900w.avif"
+      data-theme-src-light="/img/sebastian-hudak-engineering-hero-900w.avif"
+      data-theme-src-dark="/img/sebastian-hudak-engineering-hero-inverted-900w.avif"
       alt=""
       class="hero__bgItem hero__bgItem--a hero__p1 intro-hero"
       loading="eager"
       decoding="async"
+      fetchpriority="high"
     >
   </div>
 
@@ -97,7 +101,7 @@ featuredProjects:
 
     <!-- RIGHT: portrait -->
     <div class="hero__art intro-hero">
-      {% image "assets/images/page/sebastian-hudak-portrait.png", "Portrait of Sebastian Hudak", [480, 900, 1400], ["avif", "webp", "png"], "(max-width: 900px) 78vw, 42vw", "hero__artMain hero__p2", "eager" %}
+      {% image "assets/images/page/sebastian-hudak-portrait.png", "Portrait of Sebastian Hudak", [480, 900, 1400], ["avif", "webp", "png"], "(max-width: 900px) 78vw, 42vw", "hero__artMain hero__p2", "eager", "high" %}
     </div>
   </div>
 

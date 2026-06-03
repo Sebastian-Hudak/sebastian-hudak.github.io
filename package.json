@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "eleventy --serve",
-    "build": "npm run i18n:check && eleventy",
+    "build": "npm run i18n:check && eleventy && node scripts/prepare-production-assets.js",
     "i18n:check": "node scripts/i18n-sync.js --check",
     "i18n:sync": "node scripts/i18n-sync.js --write"
   },
