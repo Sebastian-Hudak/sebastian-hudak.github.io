@@ -3,7 +3,9 @@ module.exports = {
   shortName: "Sebastian Hudak",
   url: "https://sebastianhudak.com",
 
-  searchIndexingEnabled: false,
+  searchIndexingEnabled: true,
+  defaultLocale: "en",
+  alternateLocales: ["de", "sk"],
   
   title: "Sebastian Hudak | Aerospace Engineering Portfolio",
   description:
@@ -14,10 +16,20 @@ module.exports = {
   defaultImageWidth: 1200,
   defaultImageHeight: 630,
   defaultImageType: "image/png",
+  logo: "/assets/images/page/logo-set/sebastian-hudak-logo-square.svg",
+  knowsAbout: [
+    "Aerospace engineering",
+    "Rocket propulsion",
+    "Cavitation analysis",
+    "Test engineering",
+    "CNC machining",
+    "CAD and simulation",
+    "Flight simulator technology"
+  ],
   sameAs: [
     "https://www.linkedin.com/in/sebastian-hudak/",
     "https://github.com/Sebastian-Hudak",
     "https://www.instagram.com/_sebastian_hudak_/",
-    "http://www.youtube.com/@fpv_sk"
+    "https://www.youtube.com/@fpv_sk"
   ]
 };

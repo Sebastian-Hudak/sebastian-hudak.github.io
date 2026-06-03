@@ -15,7 +15,8 @@
   {% set canonicalUrl = site.url + page.url %}
   {% set ogType = pageSeo.type or ("website" if pageKey == "index" else "article") %}
   {% set searchIndexingEnabled = site.searchIndexingEnabled != false %}
-  {% set robotsDirectives = "index,follow,max-image-preview:large" if searchIndexingEnabled else "noindex,nofollow,noarchive,noimageindex,nosnippet,max-image-preview:none" %}
+  {% set robotsDirectives = "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" if searchIndexingEnabled else "noindex,nofollow,noarchive,noimageindex,nosnippet,max-image-preview:none" %}
+  {% set siteLogo = site.logo if site.logo and site.logo[0] != "/" else site.url + site.logo %}
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,6 +27,7 @@
   <meta name="googlebot" content="{{ robotsDirectives }}">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#f7f5f1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <title>{% if pageKey == "index" %}{{ metaTitle }} | {{ site.shortName }}{% else %}{{ metaTitle }} | {{ site.shortName }}{% endif %}</title>
   <link rel="canonical" href="{{ canonicalUrl }}">
@@ -34,6 +36,9 @@
   {% endif %}
 
   <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta property="og:locale:alternate" content="sk_SK">
   <meta property="og:type" content="{{ ogType }}">
   <meta property="og:title" content="{{ metaTitle }}">
   <meta property="og:description" content="{{ metaDescription }}">
@@ -87,30 +92,59 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "{{ "WebSite" if pageKey == "index" else "WebPage" }}",
-        "name": "{{ metaTitle }}",
-        "description": "{{ metaDescription }}",
-        "url": "{{ canonicalUrl }}",
-        "image": "{{ metaImageUrl }}"
+        "@type": "{{ "ProfilePage" if pageKey == "index" else "WebPage" }}",
+        "@id": {{ (canonicalUrl + "#webpage") | json | safe }},
+        "url": {{ canonicalUrl | json | safe }},
+        "name": {{ metaTitle | json | safe }},
+        "description": {{ metaDescription | json | safe }},
+        "inLanguage": {{ site.defaultLocale | json | safe }},
+        "image": {
+          "@type": "ImageObject",
+          "url": {{ metaImageUrl | json | safe }}{% if metaImageWidth %},
+          "width": {{ metaImageWidth }}{% endif %}{% if metaImageHeight %},
+          "height": {{ metaImageHeight }}{% endif %}
+        },
+        "isPartOf": {
+          "@type": "WebSite",
+          "@id": {{ (site.url + "/#website") | json | safe }},
+          "url": {{ (site.url + "/") | json | safe }},
+          "name": {{ site.title | json | safe }},
+          "publisher": {
+            "@id": {{ (site.url + "/#person") | json | safe }}
+          }
+        },
+        "author": {
+          "@id": {{ (site.url + "/#person") | json | safe }}
+        }
       }
     </script>
     {% if pageKey == "index" %}
       <script type="application/ld+json">
         {
           "@context": "https://schema.org",
+          "@type": "WebSite",
+          "@id": {{ (site.url + "/#website") | json | safe }},
+          "url": {{ (site.url + "/") | json | safe }},
+          "name": {{ site.title | json | safe }},
+          "description": {{ site.description | json | safe }},
+          "inLanguage": {{ site.defaultLocale | json | safe }},
+          "publisher": {
+            "@id": {{ (site.url + "/#person") | json | safe }}
+          }
+        }
+      </script>
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
           "@type": "Person",
-          "name": "Sebastian Hudak",
-          "url": "{{ site.url }}",
+          "@id": {{ (site.url + "/#person") | json | safe }},
+          "name": {{ site.name | json | safe }},
+          "url": {{ site.url | json | safe }},
+          "image": {{ (site.url + "/assets/images/page/sebastian-hudak-portrait.png") | json | safe }},
+          "logo": {{ siteLogo | json | safe }},
           "jobTitle": "Aerospace Engineer",
-          "worksFor": {
-            "@type": "Organization",
-            "name": "Sebastian Hudak"
-          },
-          "sameAs": [
-            {% for item in site.sameAs %}
-              "{{ item }}"{% if not loop.last %},{% endif %}
-            {% endfor %}
-          ]
+          "knowsAbout": {{ site.knowsAbout | json | safe }},
+          "sameAs": {{ site.sameAs | json | safe }}
         }
       </script>
     {% endif %}

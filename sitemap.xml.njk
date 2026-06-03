@@ -9,6 +9,8 @@ eleventyExcludeFromCollections: true
     {% if item.url and item.url != "/sitemap.xml" and item.data.excludeFromSitemap != true %}
     <url>
       <loc>{{ site.url }}{{ item.url }}</loc>
+      <changefreq>{% if item.url == "/" %}weekly{% else %}monthly{% endif %}</changefreq>
+      <priority>{% if item.url == "/" %}1.0{% elif item.url == "/contact.html" %}0.8{% else %}0.7{% endif %}</priority>
     </url>
     {% endif %}
   {% endfor %}
