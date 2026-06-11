@@ -112,10 +112,10 @@
           "publisher": {
             "@id": {{ (site.url + "/#person") | json | safe }}
           }
-        },
-        "author": {
+        }{% if pageKey == "index" %},
+        "mainEntity": {
           "@id": {{ (site.url + "/#person") | json | safe }}
-        }
+        }{% endif %}
       }
     </script>
     {% if pageKey == "index" %}
